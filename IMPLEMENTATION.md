@@ -83,6 +83,32 @@ French typo fixed: "Rendement Attend" → "Rendement Attendu".
   `padding-bottom: 20px` below 768px so the iOS native picker does not overlap the
   field when it opens.
 
+### 7. Post-deployment fine adjustments
+- **Inputs on calculators <768px**: `.calculator__input` gets `padding: 14px 12px`
+  for a bigger tap area. The rule is written as
+  `input.calculator__input, select.calculator__input` to match the specificity
+  (0,1,1) of `style.css`'s `input[type="number"]` — a plain `.calculator__input`
+  (0,1,0) silently loses the cascade even though it comes later. Font stays 16px
+  (no iOS zoom). Desktop keeps `12px 10px`.
+- **Charts taller on mobile**: `.calculator__chart-canvas` is now
+  `height: 300px` + `min-height: 300px` at ≤768px and
+  `height: 350px` + `min-height: 350px` at ≤480px (was 230px), so labels/legend
+  fit without squashing.
+- **Hamburger menu on every page**: `privacy.html` and `terms.html` (previously
+  bare legal pages with no header) were converted to the standard layout —
+  shared `css/style.css`, the full site header with `.menu-toggle` hamburger,
+  `js/nav.js`, `js/i18n/i18n.js`, `js/analytics.js`, and the site footer with the
+  required AdSense legal links. `mobile-verify.cjs` now covers all 12 header
+  pages and runs the hamburger open/close test on each one. The `en|es|fr|pt|de`
+  language stubs are instant-redirect shells, so they intentionally have no header.
+- **Scenario tables scroll**: the 4 calculators' Compare-Scenarios tables already
+  scroll horizontally (`.table-scroll--scenarios` with `overflow-x: auto` and
+  `-webkit-overflow-scrolling: touch`). For keyboard users the 4 containers now
+  also get `tabindex="0"` + `aria-label="Scenario comparison table"` (same
+  treatment as the main amortization table). Column hiding is NOT applied to
+  scenario tables — every column is part of the comparison and hiding any of them
+  would delete information; horizontal scroll preserves all columns.
+
 ## Validation (run with Node 24+)
 
 ```powershell
