@@ -8,7 +8,8 @@ Mobile-responsive overhaul + 4 new advanced calculators for
 ### 1. Responsive overhaul (`css/style.css`)
 - Rewrote the stylesheet mobile-first: base ≤480px, tablet 481–768px, desktop >769px.
 - 16px minimum font-size on inputs/selects (prevents iOS zoom on focus).
-- Collapsible hamburger navigation below 768px via `.nav-toggle` + `.main-nav.is-open`.
+- Collapsible hamburger navigation below 768px via a `<button class="menu-toggle">`
+  with three `<span>` bars; tapping it toggles `.active` on `<nav class="main-nav">`.
 - Tables (amortization, scenario comparison) wrap in `.table-scroll` with horizontal
   scroll on small screens; sliders, cards, FAQ, and footer are fluid.
 - `prefers-reduced-motion` respected.

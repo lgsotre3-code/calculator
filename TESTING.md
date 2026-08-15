@@ -64,7 +64,7 @@ Desktop 1280×900 (index.html): 2-column calculator grid, inline desktop nav
 (hamburger hidden), no horizontal overflow, `$2,219.79` rendered.
 
 Hamburger interaction on index.html at 375px: `aria-expanded` false → true and
-`.main-nav.is-open` toggled on click. PASS.
+`.main-nav.active` toggled on click. PASS.
 
 ## 3. Functional / regression (jsdom + repo validator)
 
