@@ -12,6 +12,10 @@ const pages = [
   'refinance-guide/index.html',
   'fha-vs-conventional/index.html',
   'affordability-guide/index.html',
+  'finance-vs-cash/index.html',
+  'loan-portability/index.html',
+  'renovation-roi/index.html',
+  'rent-vs-buy/index.html',
 ];
 
 let jsonOk = true;

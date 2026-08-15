@@ -1,0 +1,343 @@
+/* ==========================================================================
+   calculators.css — Advanced financial calculators (BEM naming)
+   --------------------------------------------------------------------------
+   Shared responsive components for the four new calculator pages:
+     /finance-vs-cash/  /loan-portability/  /renovation-roi/  /rent-vs-buy/
+   Consistent with the site palette and the responsive rules in style.css.
+   ========================================================================== */
+
+/* ---------- Calculator page scaffold ---------- */
+.calculator {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+@media (min-width: 900px) {
+  .calculator {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    align-items: start;
+  }
+}
+
+.calculator__panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 22px;
+}
+@media (max-width: 480px) {
+  .calculator__panel { padding: 16px; }
+}
+
+/* ---------- Form (BEM) ---------- */
+.calculator__title {
+  font-size: 1.25rem;
+  color: var(--navy);
+  margin: 0 0 18px;
+}
+
+.calculator__field { margin-bottom: 20px; }
+
+.calculator__label {
+  display: block;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+.calculator__control-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.calculator__control-row--stacked { align-items: stretch; }
+
+.calculator__slider {
+  flex: 1;
+  min-width: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--border);
+  cursor: pointer;
+  outline-offset: 4px;
+}
+.calculator__slider::-moz-range-track { height: 8px; border-radius: 4px; background: var(--border); }
+.calculator__slider::-moz-range-progress { height: 8px; border-radius: 4px; background: var(--blue); }
+.calculator__slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--navy);
+  border: 3px solid #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+.calculator__slider::-moz-range-thumb {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--navy);
+  border: 3px solid #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+/* Number inputs reuse the shared input styling; only sizing here. */
+.calculator__input {
+  font-size: 16px;
+  padding: 12px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  background: #fff;
+  width: 100%;
+}
+.calculator__input:focus { border-color: var(--blue); }
+
+.calculator__input--number { width: 130px; }
+.calculator__input--wide { width: 100%; }
+
+@media (max-width: 768px) {
+  .calculator__control-row { flex-direction: column; align-items: stretch; gap: 10px; }
+  .calculator__input--number { width: 100%; }
+}
+
+.calculator__hint {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+.calculator__hint--output { margin-top: 0; }
+
+.calculator__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+@media (max-width: 480px) {
+  .calculator__actions .btn { flex: 1 1 100%; }
+}
+
+/* ---------- Results (BEM) ---------- */
+.calculator__results-title {
+  font-size: 1.25rem;
+  color: var(--navy);
+  margin: 0 0 16px;
+}
+
+.calculator__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+@media (max-width: 768px) {
+  .calculator__grid { grid-template-columns: 1fr; }
+}
+
+.calculator__card {
+  background: #f0f6fc;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+}
+.calculator__card--main {
+  grid-column: 1 / -1;
+  background: var(--navy);
+  border-color: var(--navy);
+}
+.calculator__card--main .calculator__card-label { color: #bcd6f0; }
+.calculator__card--main .calculator__card-value { color: #fff; font-size: 1.7rem; }
+.calculator__card--good { border-color: #9ae6b4; background: #f0fff4; }
+.calculator__card--good .calculator__card-value { color: var(--green); }
+.calculator__card--bad { border-color: #fc8181; background: #fff5f5; }
+.calculator__card--bad .calculator__card-value { color: #c53030; }
+
+.calculator__card-label {
+  display: block;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+.calculator__card-value {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* Verdict banner ("which option wins") */
+.calculator__verdict {
+  margin-bottom: 20px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border-left: 6px solid var(--green);
+  background: #f0fff4;
+  color: #22543d;
+  font-weight: 600;
+}
+.calculator__verdict--cash {
+  border-left-color: var(--blue);
+  background: #eef6ff;
+  color: #2a4a7f;
+}
+.calculator__verdict--tie {
+  border-left-color: var(--text-muted);
+  background: #edf2f7;
+  color: var(--text);
+}
+.calculator__verdict--lose {
+  border-left-color: #c53030;
+  background: #fff5f5;
+  color: #742a2a;
+}
+
+/* ---------- Charts ---------- */
+.calculator__chart {
+  margin: 20px 0;
+}
+.calculator__chart h3 {
+  font-size: 0.95rem;
+  color: var(--navy);
+  margin: 0 0 8px;
+  text-align: center;
+}
+.calculator__chart-canvas {
+  position: relative;
+  width: 100%;
+  height: 260px;
+}
+@media (max-width: 480px) {
+  .calculator__chart-canvas { height: 230px; }
+}
+
+.calculator__chart-note {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin: 6px 0 0;
+}
+
+/* ---------- Compare Scenarios ---------- */
+.scenario-section {
+  margin-top: 20px;
+}
+.scenario-section__title {
+  font-size: 1rem;
+  color: var(--navy);
+  margin: 0 0 6px;
+}
+.scenario-section__hint {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 0 0 10px;
+}
+.scenario-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.scenario-actions input {
+  flex: 1 1 180px;
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.scenario-actions .btn { flex: 0 1 auto; }
+@media (max-width: 480px) {
+  .scenario-actions .btn { flex: 1 1 100%; }
+}
+
+.table-scroll--scenarios {
+  max-height: none;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+table.scenario-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  min-width: 420px;
+}
+table.scenario-table th {
+  background: var(--navy);
+  color: #fff;
+  padding: 10px 12px;
+  text-align: right;
+  font-size: 0.85rem;
+}
+table.scenario-table th:first-child { text-align: left; }
+table.scenario-table td {
+  padding: 9px 12px;
+  text-align: right;
+  border-top: 1px solid #edf2f7;
+}
+table.scenario-table td:first-child {
+  text-align: left;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+table.scenario-table tbody tr:nth-child(even) { background: #f7fafc; }
+.scenario-table__empty {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  padding: 10px 0;
+  margin: 0;
+}
+
+/* ---------- Calculator hub (cross links) ---------- */
+.calc-hub {
+  margin-top: 20px;
+  padding: 18px;
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+}
+.calc-hub__title {
+  margin: 0 0 12px;
+  color: var(--navy);
+  font-size: 1rem;
+}
+.calc-hub__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+@media (min-width: 560px) {
+  .calc-hub__list { grid-template-columns: 1fr 1fr; }
+}
+.calc-hub__item a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--navy);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.92rem;
+  min-height: var(--touch-min);
+}
+.calc-hub__item a:hover {
+  border-color: var(--blue);
+  background: #eef6ff;
+}
+.calc-hub__item a::after { content: "→"; color: var(--blue); }
+
+/* ---------- Renovation types (reference chart) ---------- */
+.reno-table table.amortization { min-width: 380px; }

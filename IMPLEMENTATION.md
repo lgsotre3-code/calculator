@@ -1,0 +1,98 @@
+# IMPLEMENTATION.md
+
+Mobile-responsive overhaul + 4 new advanced calculators for
+`https://www.mortgage-pro-calc.com` (repo `lgsotre3-code/calculator`).
+
+## What was done
+
+### 1. Responsive overhaul (`css/style.css`)
+- Rewrote the stylesheet mobile-first: base ≤480px, tablet 481–768px, desktop >769px.
+- 16px minimum font-size on inputs/selects (prevents iOS zoom on focus).
+- Collapsible hamburger navigation below 768px via `.nav-toggle` + `.main-nav.is-open`.
+- Tables (amortization, scenario comparison) wrap in `.table-scroll` with horizontal
+  scroll on small screens; sliders, cards, FAQ, and footer are fluid.
+- `prefers-reduced-motion` respected.
+
+### 2. Hamburger navigation (`js/nav.js`)
+- Accessible toggle: `aria-expanded`, Escape-to-close (returns focus), outside-click
+  close, label swaps via `data-label-open` / `data-label-close`.
+- Rolled out to every page with the standard header: index, blog, about, contact,
+  404, refinance-guide, fha-vs-conventional, affordability-guide,
+  amortization-guide (legacy `.navbar` header migrated to the standard header),
+  and the 4 new calculator pages.
+- `id="main-nav"` added to every `<nav class="main-nav">` so `aria-controls` is valid.
+- New/updated page script order: `i18n.js` → `nav.js` → (calc deps) → `analytics.js`.
+
+### 3. Four new calculators
+Shared framework `js/calc-core.js` (`window.CalcCore`): debounce, formatting
+(`C.money`/`C.pct`/`C.num`), Chart.js wrappers, a "Compare Scenarios" manager, and
+a lazy-loader (`C.whenVisible`) that pulls Chart.js v4.4.1 (jsdelivr) + the page's
+module only when the calculator scrolls into view.
+
+- **Finance vs. Cash** — `finance-vs-cash/` + `js/calc-fvc.js`
+  Financing: down payment + loan, principal invested at the investment return.
+  Cash: full price today, avoided payments invested. Higher end-of-term capital wins.
+- **Loan Portability** — `loan-portability/` + `js/calc-port.js`
+  Same balance/term at a lower rate; monthly + total savings, interest saved,
+  fee payback, and net saving.
+- **Renovation ROI** — `renovation-roi/` + `js/calc-reno.js`
+  Post-renovation value, value increase, net profit, ROI; industry recovery-share
+  chart for common project types.
+- **Rent vs. Buy** — `rent-vs-buy/` + `js/calc-rvb.js`
+  Month-by-month simulation over the holding period: buyer net worth = home value
+  minus loan balance; renter net worth = invested down payment + monthly
+  cash-flow difference (buy cost − effective rent) compounded at the return rate.
+  Reports break-even year, both net worths, and a verdict with `{years}` /
+  `{amount}` placeholders substituted at render time.
+
+Every calculator:
+- Validates/normalizes input (clamps to min/max), formats USD consistently.
+- Fires a `calculator_calculate` event into `dataLayer` (guarded) for analytics.
+- Re-renders labels/charts when the UI language changes
+  (`document` `i18n:updated` event → `C.schedule(calculate)`).
+- Ships a 3-question FAQ in JSON-LD, `hreflang` alternates, canonical URL,
+  Open Graph/Twitter meta, and inline critical CSS + async stylesheet loading.
+
+### 4. i18n (`js/i18n/*.js`)
+Added full key blocks for all 5 languages (en, es, fr, pt, de): `scenario_*`,
+`calc_nav_*`, `months_abbr`, and the `fvc_*` / `port_*` / `reno_*` / `rvb_*`
+namespaces (labels, verdicts, chart legends, FAQ). Added `years_5` (was missing).
+Scenario-name inputs use `data-i18n-aria` (already supported by `i18n.js`).
+French typo fixed: "Rendement Attend" → "Rendement Attendu".
+
+### 5. SEO / infra
+- `sitemap.xml`: added the 4 new URLs.
+- `validate.js`: added the 4 new pages to the checked page list.
+- `vercel.json` / `robots.txt`: no change needed (directory-index pages work with
+  `cleanUrls`; sitemap already referenced).
+
+## Validation (run with Node 24+)
+
+```powershell
+# 1. Syntax-check every JS file (repo includes validate.js which needs Node)
+node --check js\calc-fvc.js
+# ... or loop over js\**\*.js
+
+# 2. Repo validator: JSON-LD parse + every data-i18n key present in all 5 dicts
+node validate.js            # → "ALL CHECKS PASSED"
+
+# 3. Runtime smoke test (jsdom): each calculator loads, calculates, renders the
+#    Compare Scenarios table, and the rent-vs-buy label has {years} substituted.
+#    Requires: npm i jsdom
+node smoke.cjs              # → "SMOKE: ALL PAGES PASS"
+
+# 4. Cross-check t('...') keys used in js/calc-*.js exist in all dictionaries
+```
+
+Expected `validate.js` output includes informational `WARN: FAQPage has <10
+questions (3)` lines — the 3-question FAQ pages are intentional and not failures.
+jsdom smoke runs log `HTMLCanvasElement's getContext() ... not implemented`
+warnings — a jsdom canvas limitation, not a browser issue.
+
+## Notes / decisions
+- US-only site: all money is USD-formatted, defaults match a US buyer
+  (e.g. 20% down, 6.5% rate, 30-yr term).
+- Chart.js and calculator modules are lazy-loaded for performance; charts are
+  re-created on every recalculation (instances destroyed to avoid leaks).
+- Scenario tables use localized labels as row headers; rent-vs-buy substitutes
+  `{years}` into its scenario row label.

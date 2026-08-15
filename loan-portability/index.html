@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<!--
+  Mortgage Calculator — Loan Portability (loan-portability/index.html)
+  Shows the savings from transferring your mortgage to another lender
+  at a lower rate, including portability/closing costs and payback time.
+  CONFIGURED: domain, AdSense (ca-pub-2920008879492175), Adcash (zone 0c9gzdbpws).
+-->
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="_nxfYFglucpreV_H_ZjRTVWkzrrb9TsWJwPPVQiC8EM">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- ============ SEO: title & description ============ -->
+  <title data-i18n-title="port_title">Loan Portability Calculator — How Much Can You Save by Switching Lenders?</title>
+  <meta name="description" data-i18n-desc="port_description" content="Calculate how much you save by moving your mortgage to a bank with a lower rate. Free portability calculator with monthly savings, total savings and payback period.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#1a365d">
+  <link rel="canonical" href="https://www.mortgage-pro-calc.com/loan-portability/">
+
+  <!-- ============ Open Graph / Twitter ============ -->
+  <meta property="og:title" content="Loan Portability Calculator — Save by Switching Lenders">
+  <meta property="og:description" content="See your monthly savings, total savings and payback period from moving your mortgage to a lower rate.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.mortgage-pro-calc.com/loan-portability/">
+  <meta property="og:image" content="https://www.mortgage-pro-calc.com/assets/img/mortgage-calculator-og-image.jpg">
+  <meta property="og:site_name" content="Mortgage Calculator">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Loan Portability Calculator">
+  <meta name="twitter:description" content="See your monthly savings, total savings and payback period from moving your mortgage to a lower rate.">
+  <meta name="twitter:image" content="https://www.mortgage-pro-calc.com/assets/img/mortgage-calculator-og-image.jpg">
+
+  <!-- ============ Multilingual SEO: hreflang ============ -->
+  <link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/loan-portability/?lang=en">
+  <link rel="alternate" hreflang="es" href="https://www.mortgage-pro-calc.com/loan-portability/?lang=es">
+  <link rel="alternate" hreflang="fr" href="https://www.mortgage-pro-calc.com/loan-portability/?lang=fr">
+  <link rel="alternate" hreflang="pt" href="https://www.mortgage-pro-calc.com/loan-portability/?lang=pt">
+  <link rel="alternate" hreflang="de" href="https://www.mortgage-pro-calc.com/loan-portability/?lang=de">
+  <link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/loan-portability/">
+
+  <!-- ============ Favicon ============ -->
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="apple-touch-icon" href="../assets/img/favicon.svg">
+
+  <!-- ============ Performance: preconnect ============ -->
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+  <!-- ============ Schema Markup: FAQPage ============ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is mortgage portability?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Mortgage portability lets you transfer your existing loan balance from your current lender to a new lender offering a lower interest rate, without paying off the loan in full. You keep the same outstanding balance and remaining term." }
+      },
+      {
+        "@type": "Question",
+        "name": "How is the payback period of a portability calculated?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Divide the total portability costs (TAC, appraisal, notary, registration) by your monthly savings. If you save $150 a month and the costs are $1,800, you break even in 12 months. Every month after that is pure savings." }
+      },
+      {
+        "@type": "Question",
+        "name": "When does loan portability not make sense?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Portability usually does not pay off when the new rate is not meaningfully lower, when the remaining term is very short, or when the fees are high compared with the monthly savings. Run the numbers here before switching." }
+      }
+    ]
+  }
+  </script>
+
+  <!-- ============ Google AdSense ============ -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2920008879492175" crossorigin="anonymous"></script>
+
+  <!-- ============ Adcash Library ============ -->
+  <script id="aclib" type="text/javascript" src="https://acscdn.com/script/aclib.js"></script>
+
+  <!-- ============ Critical CSS (inline) ============ -->
+  <style>
+    :root{--navy:#1a365d;--navy-dark:#14294a;--blue:#2b6cb0;--blue-light:#4299e1;--bg:#f7fafc;--surface:#fff;--text:#2d3748;--text-muted:#5a6b7e;--border:#e2e8f0;--radius:12px;--max-width:1180px}
+    *,*::before,*::after{box-sizing:border-box}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:var(--text);background:var(--bg)}
+    .site-header{background:var(--navy);color:#fff;box-shadow:0 2px 12px rgba(26,54,93,.08)}
+    .header-inner{max-width:var(--max-width);margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .brand{font-size:1.15rem;font-weight:700;color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+    .container{max-width:var(--max-width);margin:0 auto;padding:24px 20px 48px;width:100%}
+    .page-title{color:var(--navy);margin:0 0 8px;line-height:1.25;font-size:clamp(1.6rem,3.5vw,2.4rem)}
+    .page-intro{color:var(--text-muted);max-width:760px;margin:0 0 28px}
+    .skip-link{position:absolute;left:-999px;top:8px;z-index:100;background:var(--navy);color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none}
+    .skip-link:focus{left:8px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 22px;border:none;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;text-decoration:none;min-height:44px}
+    .btn-primary{background:var(--blue);color:#fff}
+  </style>
+
+  <!-- ============ Styles (async, non-critical) ============ -->
+  <link rel="stylesheet" href="../css/style.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="../css/calculators.css" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/calculators.css">
+  </noscript>
+</head>
+
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="brand" aria-label="Mortgage Calculator home">
+        <span class="logo-mark" aria-hidden="true">MC</span>
+        <span data-i18n="brand_name">MortgageCalc</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="/" data-i18n="nav_home">Home</a></li>
+          <li><a href="/blog" data-i18n="nav_blog">Blog</a></li>
+          <li><a href="/about" data-i18n="nav_about">About</a></li>
+          <li><a href="/contact" data-i18n="nav_contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="main-nav"
+              data-label-open="Open menu" data-label-close="Close menu" aria-label="Open menu">
+        <span class="nav-toggle__icon" aria-hidden="true"><span></span></span>
+      </button>
+
+      <div class="lang-switch">
+        <label for="lang-select" data-i18n="language_label">Language</label>
+        <select id="lang-select" aria-label="Language">
+          <option value="en" data-i18n-option="lang_en">English</option>
+          <option value="es" data-i18n-option="lang_es">Español</option>
+          <option value="fr" data-i18n-option="lang_fr">Français</option>
+          <option value="pt" data-i18n-option="lang_pt">Português</option>
+          <option value="de" data-i18n-option="lang_de">Deutsch</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================ AD — TOP ============================ -->
+  <div id="ad-container-top" class="ad-container" aria-hidden="true"></div>
+
+  <!-- ============================ MAIN ============================ -->
+  <main id="main" class="container">
+
+    <h1 class="page-title" data-i18n="port_title">Loan Portability Calculator — How Much Can You Save by Switching Lenders?</h1>
+    <p class="page-intro" data-i18n="port_subtitle">Transfer your mortgage to a lender offering a lower rate and see the monthly savings, total savings and how long it takes to recover the fees.</p>
+
+    <!-- ============ CALCULATOR ============ -->
+    <div class="calculator">
+
+      <!-- ---------- FORM ---------- -->
+      <form class="calculator__panel" id="port-form" aria-label="Loan portability inputs" onsubmit="return false">
+        <h2 class="calculator__title" data-i18n="port_form_title">Portability Inputs</h2>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="port-balance" data-i18n="port_input_balance">Current Outstanding Balance ($)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="port-balance-slider" class="calculator__slider" min="10000" max="2000000" step="1000" value="250000" aria-label="Outstanding balance slider">
+            <input type="number" id="port-balance" class="calculator__input calculator__input--number" value="250000" min="10000" max="2000000" step="1000" inputmode="numeric">
+          </div>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="port-rate-current" data-i18n="port_input_rate_current">Current Interest Rate (%)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="port-rate-current-slider" class="calculator__slider" min="1" max="15" step="0.01" value="9" aria-label="Current interest rate slider">
+            <input type="number" id="port-rate-current" class="calculator__input calculator__input--number" value="9" min="1" max="15" step="0.01" inputmode="decimal">
+          </div>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="port-rate-new" data-i18n="port_input_rate_new">New Offered Rate (%)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="port-rate-new-slider" class="calculator__slider" min="1" max="15" step="0.01" value="7" aria-label="New offered rate slider">
+            <input type="number" id="port-rate-new" class="calculator__input calculator__input--number" value="7" min="1" max="15" step="0.01" inputmode="decimal">
+          </div>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="port-term" data-i18n="port_input_term">Remaining Term (years)</label>
+          <select id="port-term" class="calculator__input">
+            <option value="5" data-i18n-option="years_5">5 years</option>
+            <option value="10" data-i18n-option="years_10">10 years</option>
+            <option value="15" data-i18n-option="years_15">15 years</option>
+            <option value="20" data-i18n-option="years_20">20 years</option>
+            <option value="25" data-i18n-option="years_25">25 years</option>
+            <option value="30" selected data-i18n-option="years_30">30 years</option>
+          </select>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="port-costs" data-i18n="port_input_costs">Portability / Closing Costs ($)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="port-costs-slider" class="calculator__slider" min="0" max="30000" step="100" value="2500" aria-label="Portability costs slider">
+            <input type="number" id="port-costs" class="calculator__input calculator__input--number" value="2500" min="0" max="100000" step="100" inputmode="numeric">
+          </div>
+          <p class="calculator__hint" data-i18n="port_hint_costs">Include TAC (loan opening fee), appraisal, notary and registration costs charged by the new lender.</p>
+        </div>
+
+        <div class="calculator__actions">
+          <button type="button" id="port-calculate" class="btn btn-primary" data-i18n="calculate">Calculate</button>
+          <button type="button" id="port-reset" class="btn btn-secondary" data-i18n="reset">Reset</button>
+        </div>
+      </form>
+
+      <!-- ---------- RESULTS ---------- -->
+      <section class="calculator__panel" aria-label="Portability results">
+        <h2 class="calculator__results-title" data-i18n="port_results_title">Results</h2>
+
+        <div class="calculator__verdict" id="port-verdict" aria-live="polite"></div>
+
+        <div class="calculator__grid">
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="port_out_current">Current Monthly Payment</span>
+            <span class="calculator__card-value" id="port-out-current">$0.00</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="port_out_new">New Monthly Payment</span>
+            <span class="calculator__card-value" id="port-out-new">$0.00</span>
+          </div>
+          <div class="calculator__card calculator__card--main">
+            <span class="calculator__card-label" data-i18n="port_out_monthly_savings">Monthly Savings</span>
+            <span class="calculator__card-value" id="port-out-monthly-savings">$0.00</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="port_out_total_savings">Total Savings (remaining term)</span>
+            <span class="calculator__card-value" id="port-out-total-savings">$0.00</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="port_out_interest_saved">Interest Saved</span>
+            <span class="calculator__card-value" id="port-out-interest-saved">$0.00</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="port_out_payback">Payback (months to recover costs)</span>
+            <span class="calculator__card-value" id="port-out-payback">—</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="port_out_net">Net Benefit After Costs</span>
+            <span class="calculator__card-value" id="port-out-net">$0.00</span>
+          </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="calculator__chart">
+          <h3 data-i18n="port_chart_balance_title">Loan Balance: Current vs. New Rate</h3>
+          <div class="calculator__chart-canvas"><canvas id="port-chart-balance" role="img" aria-label="Line chart comparing loan balance with current and new rate"></canvas></div>
+        </div>
+        <div class="calculator__chart">
+          <h3 data-i18n="port_chart_pay_title">Monthly Payment: Current vs. New Rate</h3>
+          <div class="calculator__chart-canvas"><canvas id="port-chart-pay" role="img" aria-label="Bar chart comparing current and new monthly payment"></canvas></div>
+        </div>
+
+        <!-- Compare Scenarios -->
+        <section class="scenario-section" aria-label="Compare scenarios">
+          <h3 class="scenario-section__title" data-i18n="scenario_title">Compare Scenarios</h3>
+          <p class="scenario-section__hint" data-i18n="scenario_hint">Save different rate offers and fees, then view them side by side.</p>
+          <div class="scenario-actions">
+            <input type="text" id="port-scenario-name" placeholder="Scenario name" data-i18n-placeholder="scenario_name_ph" data-i18n-aria="scenario_name_ph" aria-label="Scenario name">
+            <button type="button" id="port-scenario-add" class="btn btn-secondary" data-i18n="scenario_add">Compare Scenario</button>
+            <button type="button" id="port-scenario-clear" class="btn btn-outline" data-i18n="scenario_clear">Clear all</button>
+          </div>
+          <div id="port-scenario-table" class="table-scroll table-scroll--scenarios"></div>
+        </section>
+
+        <!-- ============ AD — MIDDLE ============ -->
+        <div id="ad-container-middle" class="ad-container ad-container--tall" aria-hidden="true"></div>
+
+        <!-- Calculator hub -->
+        <nav class="calc-hub" aria-label="Other calculators">
+          <h3 class="calc-hub__title" data-i18n="calc_nav_title">Explore More Calculators</h3>
+          <ul class="calc-hub__list">
+            <li class="calc-hub__item"><a href="/" data-i18n="calc_nav_home">Mortgage Calculator</a></li>
+            <li class="calc-hub__item"><a href="/finance-vs-cash/" data-i18n="calc_nav_fvc">Finance vs. Pay Cash</a></li>
+            <li class="calc-hub__item"><a href="/renovation-roi/" data-i18n="calc_nav_reno">Renovation ROI</a></li>
+            <li class="calc-hub__item"><a href="/rent-vs-buy/" data-i18n="calc_nav_rvb">Rent vs. Buy</a></li>
+          </ul>
+        </nav>
+      </section>
+    </div>
+
+    <!-- ============ SEO CONTENT ============ -->
+    <section class="seo-section">
+      <h2 data-i18n="port_sec_1">What Is Mortgage Portability and When Does It Pay Off?</h2>
+      <p data-i18n="port_p_1">Mortgage portability lets you transfer your outstanding balance from your current lender to another lender offering a lower interest rate. Because you keep the same balance and remaining term, every month at the lower rate reduces your interest cost. Portability pays off when the monthly savings quickly cover the fees charged to switch.</p>
+    </section>
+
+    <section class="seo-section">
+      <h2 data-i18n="port_sec_2">How to Read Your Payback Period</h2>
+      <p data-i18n="port_p_2">The payback period is the number of months it takes for your monthly savings to cover the portability costs. Divide the total fees (TAC, appraisal, notary, registration) by the monthly savings. After the break-even month, every month of savings is money in your pocket for the rest of the loan term.</p>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="seo-section" id="port-faq">
+      <h2 data-i18n="sec_faq">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary data-i18n="port_faq1_q">What is mortgage portability?</summary>
+          <p data-i18n="port_faq1_a">Mortgage portability lets you transfer your existing loan balance from your current lender to a new lender offering a lower interest rate, without paying off the loan in full. You keep the same outstanding balance and remaining term.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="port_faq2_q">How is the payback period of a portability calculated?</summary>
+          <p data-i18n="port_faq2_a">Divide the total portability costs (TAC, appraisal, notary, registration) by your monthly savings. If you save $150 a month and the costs are $1,800, you break even in 12 months. Every month after that is pure savings.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="port_faq3_q">When does loan portability not make sense?</summary>
+          <p data-i18n="port_faq3_a">Portability usually does not pay off when the new rate is not meaningfully lower, when the remaining term is very short, or when the fees are high compared with the monthly savings. Run the numbers here before switching.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ============ AD — FOOTER ============ -->
+    <div id="ad-container-footer" class="ad-container" aria-hidden="true"></div>
+
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="/privacy.html" data-i18n="privacy">Privacy Policy</a>
+        <a href="/terms.html" data-i18n="terms">Terms of Use</a>
+        <a href="/contact" data-i18n="nav_contact">Contact</a>
+      </nav>
+      <p class="footer-disclaimer" data-i18n="disclaimer">This calculator provides estimates for educational purposes only. Contact a licensed lender for an official quote.</p>
+      <p class="footer-copy">© 2026 MortgageCalc. <span data-i18n="rights">All rights reserved.</span></p>
+    </div>
+  </footer>
+
+  <!-- ============================ SCRIPTS ============================ -->
+  <script src="../js/i18n/i18n.js"></script>
+  <script src="../js/calc-core.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/analytics.js"></script>
+  <script>
+    (function () {
+      window.i18n.init();
+      var sel = document.getElementById('lang-select');
+      if (sel) sel.addEventListener('change', function (e) { window.i18n.switchLanguage(e.target.value); });
+
+      function loadCalc() {
+        var s1 = document.createElement('script');
+        s1.src = 'https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js';
+        document.body.appendChild(s1);
+        s1.onload = function () {
+          var s2 = document.createElement('script');
+          s2.src = '../js/calc-port.js';
+          document.body.appendChild(s2);
+        };
+      }
+      if (window.CalcCore && window.CalcCore.whenVisible) {
+        window.CalcCore.whenVisible(document.querySelector('.calculator'), loadCalc);
+      } else {
+        loadCalc();
+      }
+    })();
+  </script>
+
+  <noscript>
+    <p style="text-align:center;padding:24px;">This calculator requires JavaScript. Please enable JavaScript to use the loan portability calculator.</p>
+  </noscript>
+
+  <!-- ============ Adcash Zone ============ -->
+  <script type="text/javascript">
+    aclib.runAutoTag({ zoneId: '0c9gzdbpws' });
+  </script>
+</body>
+</html>

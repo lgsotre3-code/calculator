@@ -1,7 +1,15 @@
 /* ==========================================================================
    style.css — Mortgage Calculator (responsive, accessible, WCAG 2.1 AA)
+   --------------------------------------------------------------------------
    Palette: #1a365d (navy) · #2b6cb0 (blue) · #4299e1 (light blue)
    Layout: mobile-first
+
+   Responsive strategy:
+     • Base styles are mobile-first.
+     • Breakpoints: 480px (small phones), 768px (tablet), 769px+ (desktop).
+     • Touch targets are ≥ 44×44px; range sliders have a 24px thumb.
+     • Amortization table scrolls horizontally on touch devices.
+     • Navigation collapses to a hamburger menu below 768px.
    ========================================================================== */
 
 /* ---------- 1. Reset & tokens ---------- */
@@ -21,6 +29,7 @@
   --shadow: 0 2px 12px rgba(26, 54, 93, 0.08);
   --radius: 12px;
   --max-width: 1180px;
+  --touch-min: 44px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -34,6 +43,12 @@ body {
   line-height: 1.6;
   color: var(--text);
   background: var(--bg);
+  overflow-x: hidden;
+}
+
+img, canvas, svg, video {
+  max-width: 100%;
+  height: auto;
 }
 
 /* ---------- 2. Accessibility ---------- */
@@ -71,6 +86,8 @@ body {
   background: var(--navy);
   color: #fff;
   box-shadow: var(--shadow);
+  position: relative;
+  z-index: 50;
 }
 .header-inner {
   max-width: var(--max-width);
@@ -90,6 +107,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  min-height: var(--touch-min);
 }
 .brand .logo-mark {
   width: 28px; height: 28px;
@@ -111,9 +129,51 @@ body {
   text-decoration: none;
   font-size: 0.95rem;
   padding: 6px 2px;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--touch-min);
 }
 .main-nav a:hover { color: #fff; }
 .main-nav a.active { color: #fff; border-bottom: 2px solid var(--blue-light); }
+
+/* Hamburger toggle (hidden on desktop, shown below 768px) */
+.nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid #3b5b8c;
+  border-radius: 10px;
+  background: var(--navy-dark);
+  color: #fff;
+  cursor: pointer;
+}
+.nav-toggle__icon {
+  display: block;
+  width: 20px;
+  height: 14px;
+  position: relative;
+}
+.nav-toggle__icon::before,
+.nav-toggle__icon::after,
+.nav-toggle__icon span {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 0.2s ease, top 0.2s ease, opacity 0.2s ease;
+}
+.nav-toggle__icon span { top: 6px; }
+.nav-toggle__icon::before { top: 0; }
+.nav-toggle__icon::after { top: 12px; }
+.nav-toggle[aria-expanded="true"] .nav-toggle__icon span { opacity: 0; }
+.nav-toggle[aria-expanded="true"] .nav-toggle__icon::before { top: 6px; transform: rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .nav-toggle__icon::after { top: 6px; transform: rotate(-45deg); }
 
 /* Language selector */
 .lang-switch {
@@ -160,6 +220,7 @@ body {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 24px 20px 48px;
+  width: 100%;
 }
 
 .page-title {
@@ -167,6 +228,7 @@ body {
   color: var(--navy);
   margin: 0 0 8px;
   line-height: 1.25;
+  overflow-wrap: break-word;
 }
 .page-intro {
   font-size: 1.05rem;
@@ -208,28 +270,73 @@ body {
   font-size: 0.95rem;
 }
 
+/* All inputs use a minimum 16px font (prevents iOS auto-zoom on focus)
+   and generous padding for comfortable touch interaction. */
 .input-row {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
+input[type="number"],
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  font-size: 16px;
+  padding: 12px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  background: #fff;
+}
+
 .input-row input[type="range"] {
   flex: 1;
   min-width: 0;
-  accent-color: var(--blue);
-  height: 26px;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(to right, var(--blue) 0%, var(--sky) 100%);
+  outline-offset: 4px;
+  cursor: pointer;
+}
+/* Range track (Firefox) */
+.input-row input[type="range"]::-moz-range-track {
+  height: 8px;
+  border-radius: 4px;
+  background: var(--border);
+}
+.input-row input[type="range"]::-moz-range-progress {
+  height: 8px;
+  border-radius: 4px;
+  background: var(--blue);
+}
+/* Range thumb: 24×24px for an easy touch target */
+.input-row input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--navy);
+  border: 3px solid #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+.input-row input[type="range"]::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--navy);
+  border: 3px solid #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
   cursor: pointer;
 }
 
 .input-row input[type="number"] {
   width: 130px;
-  padding: 10px 12px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  font-size: 1rem;
-  color: var(--text);
-  background: #fff;
 }
 .input-row input[type="number"]:focus {
   border-color: var(--blue);
@@ -242,23 +349,13 @@ body {
 }
 .helper strong { color: var(--navy); }
 
-select {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  font-size: 1rem;
-  background: #fff;
-  color: var(--text);
-  cursor: pointer;
-}
-
 .btn-row {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
   margin-top: 8px;
 }
+/* Buttons: minimum 44×44px touch target */
 .btn {
   padding: 12px 22px;
   border: none;
@@ -271,6 +368,7 @@ select {
   align-items: center;
   justify-content: center;
   gap: 8px;
+  min-height: var(--touch-min);
   transition: transform 0.05s ease, background 0.15s ease;
 }
 .btn:active { transform: translateY(1px); }
@@ -378,8 +476,11 @@ select {
   color: var(--text-muted);
   margin: 0 0 12px;
 }
+/* Horizontal scroll on touch devices; native momentum on iOS. */
 .table-scroll {
-  overflow: auto;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
   max-height: 360px;
   border: 1px solid var(--border);
   border-radius: 10px;
@@ -398,6 +499,7 @@ table.amortization thead th {
   text-align: right;
   padding: 10px 12px;
   font-size: 0.85rem;
+  z-index: 1;
 }
 table.amortization thead th:first-child { text-align: left; }
 table.amortization tbody td {
@@ -406,7 +508,10 @@ table.amortization tbody td {
   border-top: 1px solid #edf2f7;
 }
 table.amortization tbody td:first-child { text-align: left; color: var(--text-muted); }
+/* Zebra striping for legibility on all screen sizes */
 table.amortization tbody tr:nth-child(even) { background: #f7fafc; }
+table.amortization tbody tr:nth-child(odd) { background: #ffffff; }
+table.amortization tbody tr:hover { background: #eef3f8; }
 
 .schedule-footer { margin: 10px 0; }
 
@@ -490,7 +595,7 @@ table.amortization tbody tr:nth-child(even) { background: #f7fafc; }
 }
 .share-row span { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; }
 .share-btn {
-  width: 38px; height: 38px;
+  width: 44px; height: 44px;
   border: 1px solid var(--border);
   border-radius: 8px;
   background: #fff;
@@ -537,16 +642,36 @@ table.amortization tbody tr:nth-child(even) { background: #f7fafc; }
   background: var(--surface);
 }
 .faq-item summary {
-  padding: 14px 16px;
+  padding: 16px;
   font-weight: 600;
   color: var(--navy);
   cursor: pointer;
   list-style-position: inside;
   background: #f7fafc;
+  min-height: var(--touch-min);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
+/* Large, easy-to-tap +/- expansion indicator */
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 28px;
+  text-align: center;
+}
+.faq-item[open] summary::after { content: "−"; background: var(--navy); }
 .faq-item summary:hover { background: #eef3f8; }
-.faq-item summary::-webkit-details-marker { color: var(--blue); }
-.faq-item p { padding: 0 16px 14px; margin: 0; }
+.faq-item p { padding: 0 16px 16px; margin: 0; }
 
 /* ---------- 10. Footer ---------- */
 .site-footer {
@@ -573,6 +698,9 @@ table.amortization tbody tr:nth-child(even) { background: #f7fafc; }
   color: #dbe9f7;
   text-decoration: none;
   font-size: 0.9rem;
+  min-height: var(--touch-min);
+  display: inline-flex;
+  align-items: center;
 }
 .footer-nav a:hover { color: #fff; text-decoration: underline; }
 .footer-disclaimer {
@@ -581,8 +709,6 @@ table.amortization tbody tr:nth-child(even) { background: #f7fafc; }
   max-width: 720px;
   margin: 0;
 }
-.footer-copy { font-size: 0.85rem; margin: 0; }
-
 .footer-copy { font-size: 0.85rem; margin: 0; }
 
 /* ---------- 11b. Content pages (blog / about / contact / 404) ---------- */
@@ -680,13 +806,6 @@ table.amortization tbody tr:nth-child(even) { background: #f7fafc; }
 .contact-form textarea {
   width: 100%;
   box-sizing: border-box;
-  padding: 12px;
-  border: 2px solid #e2e8f0;
-  border-radius: 8px;
-  font-size: 1rem;
-  color: var(--text);
-  background: #fff;
-  font-family: inherit;
 }
 
 .contact-form input:focus,
@@ -708,6 +827,7 @@ table.amortization tbody tr:nth-child(even) { background: #f7fafc; }
   font-weight: 600;
   cursor: pointer;
   font-family: inherit;
+  min-height: var(--touch-min);
   transition: background 0.15s ease;
 }
 .btn-submit:hover { background: #1a365d; }
@@ -723,42 +843,85 @@ table.amortization tbody tr:nth-child(even) { background: #f7fafc; }
 }
 .contact-info a { color: var(--navy); }
 
-@media (max-width: 480px) {
-  .contact-form { padding: 20px; }
-}
+/* ---------- 11c. Responsive: tablet (max 768px) ---------- */
+@media (max-width: 768px) {
+  .container { padding: 16px 15px 40px; }
 
-/* ---------- 11c. Small-phone fixes (calculator inputs & buttons) ---------- */
-@media (max-width: 420px) {
-  /* Let slider drop to its own line so the number input isn't squeezed */
+  /* Result cards stack into a single column */
+  .result-grid {
+    grid-template-columns: 1fr;
+  }
+  .result-card {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  /* Inputs stack vertically; labels sit above their fields */
   .input-row {
-    flex-wrap: wrap;
-    row-gap: 8px;
-  }
-  .input-row input[type="range"] {
-    flex: 1 1 100%;
-  }
-  .input-row input[type="number"] {
-    flex: 1 1 auto;
-    width: auto;
-    min-width: 90px;
-  }
-  .input-row > .helper {
-    flex: 0 0 auto;
-  }
-
-  /* Equal-width action buttons instead of one dominant + one shrunk */
-  .btn-secondary {
-    flex: 1;
-  }
-
-  /* Reduce header crowding on very small screens */
-  .header-inner {
-    padding: 10px 16px;
+    flex-direction: column;
+    align-items: stretch;
     gap: 10px;
   }
-  .main-nav ul {
-    gap: 12px;
+  .input-row input[type="range"] { flex: 1 1 auto; }
+  .input-row input[type="number"] { width: 100%; }
+
+  /* Navigation becomes a hamburger drawer */
+  .nav-toggle { display: inline-flex; }
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--navy-dark);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
+  .main-nav.is-open { display: block; }
+  .main-nav ul {
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 0;
+  }
+  .main-nav a {
+    display: block;
+    padding: 14px 20px;
+    border-top: 1px solid #2b4a7a;
+    font-size: 1rem;
+  }
+  .main-nav a.active { border-bottom: none; border-left: 4px solid var(--blue-light); }
+}
+
+/* ---------- 11d. Responsive: small phones (max 480px) ---------- */
+@media (max-width: 480px) {
+  .header-inner { padding: 10px 14px; gap: 10px; }
+
+  /* Heading scale for small screens */
+  .page-title { font-size: 1.8rem; }
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.4rem; }
+
+  .input-section,
+  .results-section { padding: 16px; }
+
+  .page-intro { font-size: 1rem; }
+
+  /* Amortization table: smaller type + hide the least essential columns */
+  table.amortization { font-size: 12px; min-width: 0; }
+  table.amortization thead th { padding: 8px 6px; font-size: 12px; }
+  table.amortization tbody td { padding: 6px 6px; }
+  /* Hide "Balance" on very small screens (keep Month/Principal/Interest) */
+  table.amortization thead th:nth-child(5),
+  table.amortization tbody td:nth-child(5) { display: none; }
+
+  .contact-form { padding: 20px; }
+  .btn-row .btn { flex: 1 1 100%; }
+  .chart-canvas { height: 220px; }
+}
+
+/* Hide "Payment" too on the smallest screens (<380px) */
+@media (max-width: 380px) {
+  table.amortization thead th:nth-child(2),
+  table.amortization tbody td:nth-child(2) { display: none; }
 }
 
 @media (min-width: 760px) {

@@ -88,17 +88,37 @@
 
   <!-- ============================ HEADER ============================ -->
   <header class="site-header">
-    <nav class="navbar" aria-label="Main navigation">
-      <a class="brand" href="/" aria-label="Mortgage Calculator home">
-        <span class="brand-text">MortgageCalc</span>
+    <div class="header-inner">
+      <a href="/" class="brand" aria-label="Mortgage Calculator home">
+        <span class="logo-mark" aria-hidden="true">MC</span>
+        <span data-i18n="brand_name">MortgageCalc</span>
       </a>
-      <div class="nav-links">
-        <a href="/" data-i18n="nav_home">Calculator</a>
-        <a href="/blog" data-i18n="nav_blog">Blog</a>
-        <a href="/about" data-i18n="nav_about">About</a>
-        <a href="/contact" data-i18n="nav_contact">Contact</a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="/" data-i18n="nav_home">Home</a></li>
+          <li><a href="/blog" data-i18n="nav_blog">Blog</a></li>
+          <li><a href="/about" data-i18n="nav_about">About</a></li>
+          <li><a href="/contact" data-i18n="nav_contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="main-nav"
+              data-label-open="Open menu" data-label-close="Close menu" aria-label="Open menu">
+        <span class="nav-toggle__icon" aria-hidden="true"><span></span></span>
+      </button>
+
+      <div class="lang-switch">
+        <label for="lang-select" data-i18n="language_label">Language</label>
+        <select id="lang-select" aria-label="Language">
+          <option value="en" data-i18n-option="lang_en">English</option>
+          <option value="es" data-i18n-option="lang_es">Español</option>
+          <option value="fr" data-i18n-option="lang_fr">Français</option>
+          <option value="pt" data-i18n-option="lang_pt">Português</option>
+          <option value="de" data-i18n-option="lang_de">Deutsch</option>
+        </select>
       </div>
-    </nav>
+    </div>
   </header>
 
   <!-- ============================ MAIN ============================ -->
@@ -221,6 +241,7 @@
 
   <!-- ============================ SCRIPTS ============================ -->
   <script src="../js/i18n/i18n.js"></script>
+  <script src="../js/nav.js"></script>
   <script src="../js/i18n/en.js"></script>
   <script src="../js/i18n/es.js"></script>
   <script src="../js/i18n/fr.js"></script>
@@ -229,6 +250,11 @@
   <script src="../js/validate.js"></script>
   <script src="../js/main.js"></script>
   <script>
+    window.i18n.init();
+    const langSel = document.getElementById('lang-select');
+    if (langSel) langSel.addEventListener('change', function (e) {
+      window.i18n.switchLanguage(e.target.value);
+    });
     const adConfig = {
       google: { client: 'ca-pub-2920008879492175' },
       adcash: { zoneId: '0c9gzdbpws' },

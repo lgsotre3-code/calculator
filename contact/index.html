@@ -101,7 +101,7 @@
         <span data-i18n="brand_name">MortgageCalc</span>
       </a>
 
-      <nav class="main-nav" aria-label="Main navigation">
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
         <ul>
           <li><a href="/" data-i18n="nav_home">Home</a></li>
           <li><a href="/blog" data-i18n="nav_blog">Blog</a></li>
@@ -109,6 +109,11 @@
           <li><a href="/contact" class="active" data-i18n="nav_contact">Contact</a></li>
         </ul>
       </nav>
+
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="main-nav"
+              data-label-open="Open menu" data-label-close="Close menu" aria-label="Open menu">
+        <span class="nav-toggle__icon" aria-hidden="true"><span></span></span>
+      </button>
 
       <div class="lang-switch">
         <label for="lang-select" data-i18n="language_label">Language</label>
@@ -196,6 +201,7 @@
 
   <!-- ============================ SCRIPTS ============================ -->
   <script src="../js/i18n/i18n.js"></script>
+  <script src="../js/nav.js"></script>
   <script src="../js/analytics.js"></script>
   <script>
     window.i18n.init();

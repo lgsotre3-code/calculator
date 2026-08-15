@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<!--
+  Mortgage Calculator — Rent vs. Buy (rent-vs-buy/index.html)
+  Compares the net worth of renting vs. buying over a holding period,
+  including rent increases, property tax, maintenance, vacancy, home
+  appreciation and the opportunity cost of the down payment.
+  CONFIGURED: domain, AdSense (ca-pub-2920008879492175), Adcash (zone 0c9gzdbpws).
+-->
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="_nxfYFglucpreV_H_ZjRTVWkzrrb9TsWJwPPVQiC8EM">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- ============ SEO: title & description ============ -->
+  <title data-i18n-title="rvb_title">Rent vs. Buy Calculator — Is It Better to Rent or Buy a Home?</title>
+  <meta name="description" data-i18n-desc="rvb_description" content="Compare renting vs. buying a home over time. Free calculator with net worth comparison, rent increases, property tax, maintenance and opportunity cost.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#1a365d">
+  <link rel="canonical" href="https://www.mortgage-pro-calc.com/rent-vs-buy/">
+
+  <!-- ============ Open Graph / Twitter ============ -->
+  <meta property="og:title" content="Rent vs. Buy Calculator — Is It Better to Rent or Buy a Home?">
+  <meta property="og:description" content="Compare renting vs. buying over time: net worth, rent increases, taxes, maintenance and opportunity cost.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.mortgage-pro-calc.com/rent-vs-buy/">
+  <meta property="og:image" content="https://www.mortgage-pro-calc.com/assets/img/mortgage-calculator-og-image.jpg">
+  <meta property="og:site_name" content="Mortgage Calculator">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rent vs. Buy Calculator">
+  <meta name="twitter:description" content="Compare renting vs. buying over time: net worth, rent increases, taxes, maintenance and opportunity cost.">
+  <meta name="twitter:image" content="https://www.mortgage-pro-calc.com/assets/img/mortgage-calculator-og-image.jpg">
+
+  <!-- ============ Multilingual SEO: hreflang ============ -->
+  <link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/rent-vs-buy/?lang=en">
+  <link rel="alternate" hreflang="es" href="https://www.mortgage-pro-calc.com/rent-vs-buy/?lang=es">
+  <link rel="alternate" hreflang="fr" href="https://www.mortgage-pro-calc.com/rent-vs-buy/?lang=fr">
+  <link rel="alternate" hreflang="pt" href="https://www.mortgage-pro-calc.com/rent-vs-buy/?lang=pt">
+  <link rel="alternate" hreflang="de" href="https://www.mortgage-pro-calc.com/rent-vs-buy/?lang=de">
+  <link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/rent-vs-buy/">
+
+  <!-- ============ Favicon ============ -->
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="apple-touch-icon" href="../assets/img/favicon.svg">
+
+  <!-- ============ Performance: preconnect ============ -->
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+  <!-- ============ Schema Markup: FAQPage ============ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is it better to rent or buy a home?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It depends on how long you stay, the price and rent in your market, the mortgage rate, and what your money could earn if invested. Buying usually wins for longer horizons because rents rise and you build equity; renting often wins for short stays or when the down payment could earn more than home appreciation." }
+      },
+      {
+        "@type": "Question",
+        "name": "How is the rent vs. buy decision calculated?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The calculator models net worth over your holding period. If you rent, the down payment plus any monthly cash-flow advantage is invested. If you buy, you build home equity while paying interest, property tax and maintenance. The option with the higher net worth at the end wins." }
+      },
+      {
+        "@type": "Question",
+        "name": "How many years should you stay in a home to make buying worth it?",
+        "acceptedAnswer": { "@type": "Answer", "text": "As a rule of thumb, buying usually beats renting after 4 to 7 years, because that is roughly how long it takes for equity and rent increases to offset closing costs. Run the calculator with your numbers to find your own break-even year." }
+      }
+    ]
+  }
+  </script>
+
+  <!-- ============ Google AdSense ============ -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2920008879492175" crossorigin="anonymous"></script>
+
+  <!-- ============ Adcash Library ============ -->
+  <script id="aclib" type="text/javascript" src="https://acscdn.com/script/aclib.js"></script>
+
+  <!-- ============ Critical CSS (inline) ============ -->
+  <style>
+    :root{--navy:#1a365d;--navy-dark:#14294a;--blue:#2b6cb0;--blue-light:#4299e1;--bg:#f7fafc;--surface:#fff;--text:#2d3748;--text-muted:#5a6b7e;--border:#e2e8f0;--radius:12px;--max-width:1180px}
+    *,*::before,*::after{box-sizing:border-box}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:var(--text);background:var(--bg)}
+    .site-header{background:var(--navy);color:#fff;box-shadow:0 2px 12px rgba(26,54,93,.08)}
+    .header-inner{max-width:var(--max-width);margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .brand{font-size:1.15rem;font-weight:700;color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+    .container{max-width:var(--max-width);margin:0 auto;padding:24px 20px 48px;width:100%}
+    .page-title{color:var(--navy);margin:0 0 8px;line-height:1.25;font-size:clamp(1.6rem,3.5vw,2.4rem)}
+    .page-intro{color:var(--text-muted);max-width:760px;margin:0 0 28px}
+    .skip-link{position:absolute;left:-999px;top:8px;z-index:100;background:var(--navy);color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none}
+    .skip-link:focus{left:8px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 22px;border:none;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;text-decoration:none;min-height:44px}
+    .btn-primary{background:var(--blue);color:#fff}
+  </style>
+
+  <!-- ============ Styles (async, non-critical) ============ -->
+  <link rel="stylesheet" href="../css/style.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="../css/calculators.css" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/calculators.css">
+  </noscript>
+</head>
+
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="brand" aria-label="Mortgage Calculator home">
+        <span class="logo-mark" aria-hidden="true">MC</span>
+        <span data-i18n="brand_name">MortgageCalc</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="/" data-i18n="nav_home">Home</a></li>
+          <li><a href="/blog" data-i18n="nav_blog">Blog</a></li>
+          <li><a href="/about" data-i18n="nav_about">About</a></li>
+          <li><a href="/contact" data-i18n="nav_contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="main-nav"
+              data-label-open="Open menu" data-label-close="Close menu" aria-label="Open menu">
+        <span class="nav-toggle__icon" aria-hidden="true"><span></span></span>
+      </button>
+
+      <div class="lang-switch">
+        <label for="lang-select" data-i18n="language_label">Language</label>
+        <select id="lang-select" aria-label="Language">
+          <option value="en" data-i18n-option="lang_en">English</option>
+          <option value="es" data-i18n-option="lang_es">Español</option>
+          <option value="fr" data-i18n-option="lang_fr">Français</option>
+          <option value="pt" data-i18n-option="lang_pt">Português</option>
+          <option value="de" data-i18n-option="lang_de">Deutsch</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================ AD — TOP ============================ -->
+  <div id="ad-container-top" class="ad-container" aria-hidden="true"></div>
+
+  <!-- ============================ MAIN ============================ -->
+  <main id="main" class="container">
+
+    <h1 class="page-title" data-i18n="rvb_title">Rent vs. Buy Calculator — Is It Better to Rent or Buy a Home?</h1>
+    <p class="page-intro" data-i18n="rvb_subtitle">Model the full picture over your planned stay: rents that rise each year, property tax, maintenance, vacancy, home appreciation and what your down payment could earn if invested.</p>
+
+    <!-- ============ CALCULATOR ============ -->
+    <div class="calculator">
+
+      <!-- ---------- FORM ---------- -->
+      <form class="calculator__panel" id="rvb-form" aria-label="Rent vs buy inputs" onsubmit="return false">
+        <h2 class="calculator__title" data-i18n="rvb_form_title">Rent vs. Buy Inputs</h2>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="rvb-price" data-i18n="rvb_input_price">Home Price ($)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="rvb-price-slider" class="calculator__slider" min="50000" max="2000000" step="1000" value="350000" aria-label="Home price slider">
+            <input type="number" id="rvb-price" class="calculator__input calculator__input--number" value="350000" min="50000" max="2000000" step="1000" inputmode="numeric">
+          </div>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="rvb-down" data-i18n="rvb_input_down">Down Payment (%)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="rvb-down-slider" class="calculator__slider" min="0" max="50" step="1" value="20" aria-label="Down payment percentage slider">
+            <input type="number" id="rvb-down" class="calculator__input calculator__input--number" value="20" min="0" max="50" step="1" inputmode="numeric">
+          </div>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="rvb-rate" data-i18n="rvb_input_rate">Mortgage Rate (%)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="rvb-rate-slider" class="calculator__slider" min="1" max="15" step="0.01" value="6.5" aria-label="Mortgage rate slider">
+            <input type="number" id="rvb-rate" class="calculator__input calculator__input--number" value="6.5" min="1" max="15" step="0.01" inputmode="decimal">
+          </div>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="rvb-term" data-i18n="rvb_input_term">Loan Term (years)</label>
+          <select id="rvb-term" class="calculator__input">
+            <option value="15" data-i18n-option="years_15">15 years</option>
+            <option value="20" data-i18n-option="years_20">20 years</option>
+            <option value="25" data-i18n-option="years_25">25 years</option>
+            <option value="30" selected data-i18n-option="years_30">30 years</option>
+          </select>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="rvb-rent" data-i18n="rvb_input_rent">Monthly Rent ($)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="rvb-rent-slider" class="calculator__slider" min="200" max="10000" step="50" value="1800" aria-label="Monthly rent slider">
+            <input type="number" id="rvb-rent" class="calculator__input calculator__input--number" value="1800" min="200" max="10000" step="50" inputmode="numeric">
+          </div>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="rvb-rent-increase" data-i18n="rvb_input_rent_increase">Annual Rent Increase (%)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="rvb-rent-increase-slider" class="calculator__slider" min="0" max="15" step="0.1" value="4" aria-label="Annual rent increase slider">
+            <input type="number" id="rvb-rent-increase" class="calculator__input calculator__input--number" value="4" min="0" max="15" step="0.1" inputmode="decimal">
+          </div>
+          <p class="calculator__hint" data-i18n="rvb_hint_rent_increase">Annual rent adjustment — e.g. tied to an inflation index such as the IGP-M or CPI.</p>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="rvb-appreciation" data-i18n="rvb_input_appreciation">Annual Home Appreciation (%)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="rvb-appreciation-slider" class="calculator__slider" min="0" max="15" step="0.1" value="3" aria-label="Annual home appreciation slider">
+            <input type="number" id="rvb-appreciation" class="calculator__input calculator__input--number" value="3" min="0" max="15" step="0.1" inputmode="decimal">
+          </div>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="rvb-tax" data-i18n="rvb_input_tax">Property Tax (% of home value / year)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="rvb-tax-slider" class="calculator__slider" min="0" max="5" step="0.1" value="1.2" aria-label="Property tax slider">
+            <input type="number" id="rvb-tax" class="calculator__input calculator__input--number" value="1.2" min="0" max="5" step="0.1" inputmode="decimal">
+          </div>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="rvb-maintenance" data-i18n="rvb_input_maintenance">Maintenance (% of home value / year)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="rvb-maintenance-slider" class="calculator__slider" min="0" max="5" step="0.1" value="1" aria-label="Maintenance slider">
+            <input type="number" id="rvb-maintenance" class="calculator__input calculator__input--number" value="1" min="0" max="5" step="0.1" inputmode="decimal">
+          </div>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="rvb-vacancy" data-i18n="rvb_input_vacancy">Vacancy / Rental Gap (%)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="rvb-vacancy-slider" class="calculator__slider" min="0" max="20" step="0.5" value="5" aria-label="Vacancy rate slider">
+            <input type="number" id="rvb-vacancy" class="calculator__input calculator__input--number" value="5" min="0" max="20" step="0.5" inputmode="decimal">
+          </div>
+          <p class="calculator__hint" data-i18n="rvb_hint_vacancy">Average share of the year the property sits empty between leases — it lowers the effective rent you pay.</p>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="rvb-return" data-i18n="rvb_input_return">Investment Return (%)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="rvb-return-slider" class="calculator__slider" min="0" max="15" step="0.1" value="7" aria-label="Investment return slider">
+            <input type="number" id="rvb-return" class="calculator__input calculator__input--number" value="7" min="0" max="15" step="0.1" inputmode="decimal">
+          </div>
+          <p class="calculator__hint" data-i18n="rvb_hint_return">What the down payment (and any monthly advantage) could earn if invested instead.</p>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="rvb-horizon" data-i18n="rvb_input_horizon">Holding Period (years)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="rvb-horizon-slider" class="calculator__slider" min="1" max="40" step="1" value="10" aria-label="Holding period slider">
+            <input type="number" id="rvb-horizon" class="calculator__input calculator__input--number" value="10" min="1" max="40" step="1" inputmode="numeric">
+          </div>
+        </div>
+
+        <div class="calculator__actions">
+          <button type="button" id="rvb-calculate" class="btn btn-primary" data-i18n="calculate">Calculate</button>
+          <button type="button" id="rvb-reset" class="btn btn-secondary" data-i18n="reset">Reset</button>
+        </div>
+      </form>
+
+      <!-- ---------- RESULTS ---------- -->
+      <section class="calculator__panel" aria-label="Rent vs buy results">
+        <h2 class="calculator__results-title" data-i18n="rvb_results_title">Results</h2>
+
+        <div class="calculator__verdict" id="rvb-verdict" aria-live="polite"></div>
+
+        <div class="calculator__grid">
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="rvb_out_buy_monthly">Monthly Cost — Buying</span>
+            <span class="calculator__card-value" id="rvb-out-buy-monthly">$0.00</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="rvb_out_rent_monthly">Monthly Cost — Renting</span>
+            <span class="calculator__card-value" id="rvb-out-rent-monthly">$0.00</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="rvb_out_cashflow">Monthly Cash Flow Difference</span>
+            <span class="calculator__card-value" id="rvb-out-cashflow">$0.00</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="rvb_out_buy_nw">Net Worth if Buying</span>
+            <span class="calculator__card-value" id="rvb-out-buy-nw">$0.00</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="rvb_out_rent_nw">Net Worth if Renting</span>
+            <span class="calculator__card-value" id="rvb-out-rent-nw">$0.00</span>
+          </div>
+          <div class="calculator__card calculator__card--main">
+            <span class="calculator__card-label" id="rvb-out-better-label" data-i18n="rvb_out_better">Better Option After {years} Years</span>
+            <span class="calculator__card-value" id="rvb-out-better">—</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="rvb_out_break_even">Break-Even Year (buying becomes better)</span>
+            <span class="calculator__card-value" id="rvb-out-break-even">—</span>
+          </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="calculator__chart">
+          <h3 data-i18n="rvb_chart_nw_title">Net Worth Over Time: Rent vs. Buy</h3>
+          <div class="calculator__chart-canvas"><canvas id="rvb-chart-nw" role="img" aria-label="Line chart of net worth over time comparing renting and buying"></canvas></div>
+        </div>
+        <div class="calculator__chart">
+          <h3 data-i18n="rvb_chart_cost_title">Monthly Cost in Year One</h3>
+          <div class="calculator__chart-canvas"><canvas id="rvb-chart-cost" role="img" aria-label="Bar chart comparing first-year monthly cost of renting and buying"></canvas></div>
+        </div>
+
+        <!-- Compare Scenarios -->
+        <section class="scenario-section" aria-label="Compare scenarios">
+          <h3 class="scenario-section__title" data-i18n="scenario_title">Compare Scenarios</h3>
+          <p class="scenario-section__hint" data-i18n="scenario_hint">Save different housing markets or holding periods, then view them side by side.</p>
+          <div class="scenario-actions">
+            <input type="text" id="rvb-scenario-name" placeholder="Scenario name" data-i18n-placeholder="scenario_name_ph" data-i18n-aria="scenario_name_ph" aria-label="Scenario name">
+            <button type="button" id="rvb-scenario-add" class="btn btn-secondary" data-i18n="scenario_add">Compare Scenario</button>
+            <button type="button" id="rvb-scenario-clear" class="btn btn-outline" data-i18n="scenario_clear">Clear all</button>
+          </div>
+          <div id="rvb-scenario-table" class="table-scroll table-scroll--scenarios"></div>
+        </section>
+
+        <!-- ============ AD — MIDDLE ============ -->
+        <div id="ad-container-middle" class="ad-container ad-container--tall" aria-hidden="true"></div>
+
+        <!-- Calculator hub -->
+        <nav class="calc-hub" aria-label="Other calculators">
+          <h3 class="calc-hub__title" data-i18n="calc_nav_title">Explore More Calculators</h3>
+          <ul class="calc-hub__list">
+            <li class="calc-hub__item"><a href="/" data-i18n="calc_nav_home">Mortgage Calculator</a></li>
+            <li class="calc-hub__item"><a href="/finance-vs-cash/" data-i18n="calc_nav_fvc">Finance vs. Pay Cash</a></li>
+            <li class="calc-hub__item"><a href="/loan-portability/" data-i18n="calc_nav_port">Loan Portability</a></li>
+            <li class="calc-hub__item"><a href="/renovation-roi/" data-i18n="calc_nav_reno">Renovation ROI</a></li>
+          </ul>
+        </nav>
+      </section>
+    </div>
+
+    <!-- ============ SEO CONTENT ============ -->
+    <section class="seo-section">
+      <h2 data-i18n="rvb_sec_1">Renting vs. Buying: What Really Matters</h2>
+      <p data-i18n="rvb_p_1">Buying builds equity and protects you from rent increases, but it comes with interest, property tax, maintenance and a large down payment that stops earning returns. Renting is cheaper upfront and keeps your capital invested, but your rent rises every year and builds no equity. The winner depends on how long you stay and how the numbers compare in your market.</p>
+    </section>
+
+    <section class="seo-section">
+      <h2 data-i18n="rvb_sec_2">How This Calculator Compares the Two Paths</h2>
+      <p data-i18n="rvb_p_2">Each year, the buyer's net worth is the home equity (home value minus the remaining loan balance). The renter's net worth is the down payment plus any monthly cash-flow advantage, invested at your chosen return rate. The calculator tracks both over your holding period and highlights the year buying becomes the better choice.</p>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="seo-section" id="rvb-faq">
+      <h2 data-i18n="sec_faq">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary data-i18n="rvb_faq1_q">Is it better to rent or buy a home?</summary>
+          <p data-i18n="rvb_faq1_a">It depends on how long you stay, the price and rent in your market, the mortgage rate, and what your money could earn if invested. Buying usually wins for longer horizons because rents rise and you build equity; renting often wins for short stays or when the down payment could earn more than home appreciation.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="rvb_faq2_q">How is the rent vs. buy decision calculated?</summary>
+          <p data-i18n="rvb_faq2_a">The calculator models net worth over your holding period. If you rent, the down payment plus any monthly cash-flow advantage is invested. If you buy, you build home equity while paying interest, property tax and maintenance. The option with the higher net worth at the end wins.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="rvb_faq3_q">How many years should you stay in a home to make buying worth it?</summary>
+          <p data-i18n="rvb_faq3_a">As a rule of thumb, buying usually beats renting after 4 to 7 years, because that is roughly how long it takes for equity and rent increases to offset closing costs. Run the calculator with your numbers to find your own break-even year.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ============ AD — FOOTER ============ -->
+    <div id="ad-container-footer" class="ad-container" aria-hidden="true"></div>
+
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="/privacy.html" data-i18n="privacy">Privacy Policy</a>
+        <a href="/terms.html" data-i18n="terms">Terms of Use</a>
+        <a href="/contact" data-i18n="nav_contact">Contact</a>
+      </nav>
+      <p class="footer-disclaimer" data-i18n="disclaimer">This calculator provides estimates for educational purposes only. Contact a licensed lender for an official quote.</p>
+      <p class="footer-copy">© 2026 MortgageCalc. <span data-i18n="rights">All rights reserved.</span></p>
+    </div>
+  </footer>
+
+  <!-- ============================ SCRIPTS ============================ -->
+  <script src="../js/i18n/i18n.js"></script>
+  <script src="../js/calc-core.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/analytics.js"></script>
+  <script>
+    (function () {
+      window.i18n.init();
+      var sel = document.getElementById('lang-select');
+      if (sel) sel.addEventListener('change', function (e) { window.i18n.switchLanguage(e.target.value); });
+
+      function loadCalc() {
+        var s1 = document.createElement('script');
+        s1.src = 'https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js';
+        document.body.appendChild(s1);
+        s1.onload = function () {
+          var s2 = document.createElement('script');
+          s2.src = '../js/calc-rvb.js';
+          document.body.appendChild(s2);
+        };
+      }
+      if (window.CalcCore && window.CalcCore.whenVisible) {
+        window.CalcCore.whenVisible(document.querySelector('.calculator'), loadCalc);
+      } else {
+        loadCalc();
+      }
+    })();
+  </script>
+
+  <noscript>
+    <p style="text-align:center;padding:24px;">This calculator requires JavaScript. Please enable JavaScript to use the rent vs. buy calculator.</p>
+  </noscript>
+
+  <!-- ============ Adcash Zone ============ -->
+  <script type="text/javascript">
+    aclib.runAutoTag({ zoneId: '0c9gzdbpws' });
+  </script>
+</body>
+</html>
