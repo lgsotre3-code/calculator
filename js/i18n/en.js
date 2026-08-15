@@ -95,7 +95,7 @@ window.TRANSLATIONS.en = {
   "schedule_title": "Amortization Schedule",
   "schedule_note": "{months} total monthly payments",
   "showing_first": "showing first {n}",
-  "show_full_schedule": "Show complete amortization schedule",
+  "show_full_schedule": "Show full schedule",
   "show_less": "Show less",
   "month": "Month",
   "payment": "Payment",
