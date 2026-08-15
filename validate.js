@@ -6,6 +6,8 @@ const pages = [
   'index.html',
   'calculators/index.html',
   'blog/index.html',
+  'blog/best-mortgage-lenders.html',
+  'blog/fha-vs-conventional-loans.html',
   'about/index.html',
   'contact/index.html',
   '404.html',

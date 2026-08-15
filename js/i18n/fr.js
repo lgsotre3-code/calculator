@@ -187,6 +187,10 @@ window.TRANSLATIONS.fr = {
   "blog_post_4_excerpt": "Calculez votre budget d'achat selon vos revenus, dettes, apport initial et taux d'intérêt.",
   "blog_post_5_title": "Prêt à Taux Variable (ARM) vs. à Taux Fixe : Lequel Est le Meilleur ?",
   "blog_post_5_excerpt": "Comparez les prêts à taux ajustable et à taux fixe pour trouver la meilleure option pour vos finances.",
+  "blog_post_6_title": "Les Meilleurs Prêteurs Hypothécaires pour les Acheteurs Primo-Accédants en 2026",
+  "blog_post_6_excerpt": "Nous comparons Rocket Mortgage, Bank of America, Chase et Guild Mortgage pour les primo-accédants, avec des conseils.",
+  "blog_post_7_title": "Prêts FHA vs. Conventionnels : Lequel Vous Convient ?",
+  "blog_post_7_excerpt": "Apport initial, cote de crédit, assurance hypothécaire et plus : une comparaison claire pour choisir le bon prêt.",
   "try_calculator": "Essayez le Calculateur Hypothécaire Gratuit",
   "try_calculator_text": "Estimez votre mensualité avec taxes, assurances et paiements supplémentaires en quelques secondes.",
 

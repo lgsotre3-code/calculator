@@ -187,6 +187,10 @@ window.TRANSLATIONS.de = {
   "blog_post_4_excerpt": "Berechnen Sie Ihr Budget für den Hauskauf anhand von Einkommen, Schulden, Anzahlung und Zinssatz.",
   "blog_post_5_title": "Variabler Zinssatz (ARM) vs. Fester Zinssatz: Was Ist Besser?",
   "blog_post_5_excerpt": "Vergleichen Sie Hypotheken mit variablem und festem Zinssatz, um die beste Option für Ihre Finanzen zu finden.",
+  "blog_post_6_title": "Die Besten Hypothekengeber für Erstkäufer im Jahr 2026",
+  "blog_post_6_excerpt": "Wir vergleichen Rocket Mortgage, Bank of America, Chase und Guild Mortgage für Erstkäufer – mit Tipps und worauf Sie achten sollten.",
+  "blog_post_7_title": "FHA vs. Konventionelle Darlehen: Welches Ist das Richtige für Sie?",
+  "blog_post_7_excerpt": "Anzahlung, Bonität, Hypothekenversicherung und mehr: ein klarer Vergleich, um das richtige Darlehen zu wählen.",
   "try_calculator": "Testen Sie den Kostenlosen Hypothekenrechner",
   "try_calculator_text": "Schätzen Sie Ihre Monatsrate mit Steuern, Versicherungen und Sonderzahlungen in Sekunden.",
 

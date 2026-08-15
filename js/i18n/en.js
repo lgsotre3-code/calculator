@@ -188,6 +188,10 @@ window.TRANSLATIONS.en = {
   "blog_post_4_excerpt": "Calculate your home buying budget based on your income, debts, down payment and interest rate.",
   "blog_post_5_title": "ARM vs. Fixed-Rate Mortgage: Which Is Better?",
   "blog_post_5_excerpt": "Compare adjustable-rate and fixed-rate mortgages to find the best option for your finances.",
+  "blog_post_6_title": "Best Mortgage Lenders for First-Time Buyers in 2026",
+  "blog_post_6_excerpt": "We compare Rocket Mortgage, Bank of America, Chase and Guild Mortgage for first-time buyers, plus tips and what to look for.",
+  "blog_post_7_title": "FHA vs. Conventional Loans: Which Is Right for You?",
+  "blog_post_7_excerpt": "Down payment, credit score, mortgage insurance and more — a clear side-by-side to help you choose the right loan.",
   "try_calculator": "Try the Free Mortgage Calculator",
   "try_calculator_text": "Estimate your monthly payment with taxes, insurance and extra payments in seconds.",
 

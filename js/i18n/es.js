@@ -187,6 +187,10 @@ window.TRANSLATIONS.es = {
   "blog_post_4_excerpt": "Calcula tu presupuesto de compra según tus ingresos, deudas, pago inicial y tasa de interés.",
   "blog_post_5_title": "Hipoteca de Tasa Ajustable (ARM) vs. Tasa Fija: ¿Cuál Es Mejor?",
   "blog_post_5_excerpt": "Compara hipotecas de tasa ajustable y de tasa fija para encontrar la mejor opción para tus finanzas.",
+  "blog_post_6_title": "Los Mejores Prestamistas Hipotecarios para Compradores Primerizos en 2026",
+  "blog_post_6_excerpt": "Comparamos Rocket Mortgage, Bank of America, Chase y Guild Mortgage para compradores primerizos, con consejos y qué tener en cuenta.",
+  "blog_post_7_title": "Préstamos FHA vs. Convencionales: ¿Cuál Es el Correcto para Ti?",
+  "blog_post_7_excerpt": "Pago inicial, puntaje de crédito, seguro hipotecario y más: una comparación clara para elegir el préstamo adecuado.",
   "try_calculator": "Prueba la Calculadora de Hipoteca Gratuita",
   "try_calculator_text": "Estima tu pago mensual con impuestos, seguros y pagos extras en segundos.",
 
