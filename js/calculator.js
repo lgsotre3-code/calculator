@@ -40,6 +40,17 @@
   function clamp(v, min, max) { return Math.min(Math.max(v, min), max); }
   function num(id) { const v = parseFloat(document.getElementById(id).value); return isFinite(v) ? v : 0; }
 
+  /** Debounce — sliders fire many 'input' events per drag; recalc after a pause. */
+  function debounce(fn, wait) {
+    let timer = null;
+    return function () {
+      const args = arguments;
+      const self = this;
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(() => fn.apply(self, args), wait);
+    };
+  }
+
   /* ------------------------------------------------------------------
    * State (single source of truth for Down Payment is the percentage)
    * ------------------------------------------------------------------ */
@@ -279,23 +290,27 @@
   function init() {
     cacheElements();
 
-    // Live updates on every input change.
-    document.getElementById('home-value-slider').addEventListener('input', () => { syncPair('home-value-slider', 'home-value', true); calculate(false); });
-    document.getElementById('home-value').addEventListener('input', () => { syncPair('home-value-slider', 'home-value', false); calculate(false); });
+    // Number fields sync their sliders immediately; the heavy recalc
+    // (schedule + charts + table) is debounced to keep drags smooth.
+    const recalc = debounce(() => calculate(false), 100);
 
-    document.getElementById('down-payment-slider').addEventListener('input', () => { calculate(false); });
+    // Live updates on every input change.
+    document.getElementById('home-value-slider').addEventListener('input', () => { syncPair('home-value-slider', 'home-value', true); recalc(); });
+    document.getElementById('home-value').addEventListener('input', () => { syncPair('home-value-slider', 'home-value', false); recalc(); });
+
+    document.getElementById('down-payment-slider').addEventListener('input', () => { recalc(); });
     document.getElementById('down-payment').addEventListener('input', () => {
       const home = clamp(num('home-value') || HOME_MIN, HOME_MIN, HOME_MAX);
       const pct = clamp((num('down-payment') / home) * 100, 0, DOWN_MAX_PCT);
       document.getElementById('down-payment-slider').value = pct;
-      calculate(false);
+      recalc();
     });
 
-    document.getElementById('interest-rate-slider').addEventListener('input', () => { syncPair('interest-rate-slider', 'interest-rate', true); calculate(false); });
-    document.getElementById('interest-rate').addEventListener('input', () => { syncPair('interest-rate-slider', 'interest-rate', false); calculate(false); });
+    document.getElementById('interest-rate-slider').addEventListener('input', () => { syncPair('interest-rate-slider', 'interest-rate', true); recalc(); });
+    document.getElementById('interest-rate').addEventListener('input', () => { syncPair('interest-rate-slider', 'interest-rate', false); recalc(); });
 
     ['loan-term', 'property-tax', 'insurance', 'extra-payment'].forEach(id => {
-      document.getElementById(id).addEventListener('input', () => calculate(false));
+      document.getElementById(id).addEventListener('input', () => recalc());
     });
 
     const calcBtn = document.getElementById('calculate-btn');

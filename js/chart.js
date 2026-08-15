@@ -15,6 +15,12 @@
   let breakdownChart = null;
   let lastBreakdown = null; // { pi, tax, insurance, extra }
 
+  // Charts are responsive (canvas resizes with its container automatically);
+  // below 480px we shrink tick/legend fonts so nothing overlaps or gets cut.
+  const mobileMQ = window.matchMedia ? window.matchMedia('(max-width: 480px)') : null;
+  function isMobile() { return mobileMQ ? mobileMQ.matches : false; }
+  function axisFont() { return isMobile() ? 10 : 12; }
+
   function chartT() {
     return (window.i18n && window.i18n.t) ? window.i18n.t.bind(window.i18n) : (k => k);
   }
@@ -83,10 +89,13 @@
           }
         },
         scales: {
-          x: { title: { display: true, text: t('month') } },
+          x: {
+            title: { display: true, text: t('month'), font: { size: axisFont() } },
+            ticks: { font: { size: axisFont() } }
+          },
           y: {
-            title: { display: true, text: t('balance') },
-            ticks: { callback: (v) => compactUsd(v) }
+            title: { display: true, text: t('balance'), font: { size: axisFont() } },
+            ticks: { font: { size: axisFont() }, callback: (v) => compactUsd(v) }
           }
         }
       }
@@ -114,7 +123,7 @@
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
-          legend: { position: 'bottom', labels: { boxWidth: 12, padding: 12 } },
+          legend: { position: 'bottom', labels: { boxWidth: 12, padding: 12, font: { size: axisFont() } } },
           tooltip: { callbacks: { label: (ctx) => ctx.label + ': ' + fmtUsd(ctx.parsed) } }
         }
       }
@@ -147,4 +156,21 @@
     renderBalanceChart(sched);
     renderBreakdownChart(lastBreakdown);
   };
+
+  // Cross the 480px breakpoint or rotate the device → rebuild charts so the
+  // smaller mobile fonts are applied. (Chart.js already handles the resize.)
+  let resizeTimer = null;
+  function redrawOnReflow() {
+    if (resizeTimer) clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => { if (window.refreshCharts) window.refreshCharts(); }, 200);
+  }
+  if (mobileMQ && mobileMQ.addEventListener) {
+    mobileMQ.addEventListener('change', redrawOnReflow);
+  } else if (mobileMQ && mobileMQ.addListener) {
+    mobileMQ.addListener(redrawOnReflow);
+  }
+  if (window.matchMedia) {
+    const landscapeMQ = window.matchMedia('(orientation: landscape)');
+    if (landscapeMQ && landscapeMQ.addEventListener) landscapeMQ.addEventListener('change', redrawOnReflow);
+  }
 })();

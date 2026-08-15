@@ -77,6 +77,12 @@
    * ------------------------------------------------------------------ */
   var charts = {};
 
+  // Chart.js wrappers are responsive by default; below 480px we shrink
+  // legend/axis fonts so labels never clip on small screens.
+  var mobileMQ = (typeof window.matchMedia === 'function') ? window.matchMedia('(max-width: 480px)') : null;
+  function isMobile() { return mobileMQ ? mobileMQ.matches : false; }
+  function chartFont() { return isMobile() ? 10 : 11; }
+
   C.destroyChart = function (id) {
     if (charts[id]) { charts[id].destroy(); delete charts[id]; }
   };
@@ -116,7 +122,7 @@
         maintainAspectRatio: false,
         interaction: { mode: 'index', intersect: false },
         plugins: {
-          legend: { position: 'bottom', labels: { boxWidth: 12, padding: 14, font: { size: 11 } } },
+          legend: { position: 'bottom', labels: { boxWidth: 12, padding: 14, font: { size: chartFont() } } },
           tooltip: {
             callbacks: {
               label: function (ctx) {
@@ -127,8 +133,8 @@
           }
         },
         scales: {
-          x: { ticks: { maxTicksLimit: 12 } },
-          y: { ticks: { callback: function (v) { return compactUsd(v); } } }
+          x: { ticks: { maxTicksLimit: 12, font: { size: chartFont() } } },
+          y: { ticks: { font: { size: chartFont() }, callback: function (v) { return compactUsd(v); } } }
         }
       }
     });
@@ -155,7 +161,7 @@
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
-          legend: { position: opts.legend || 'bottom', labels: { boxWidth: 12, padding: 14, font: { size: 11 } } },
+          legend: { position: opts.legend || 'bottom', labels: { boxWidth: 12, padding: 14, font: { size: chartFont() } } },
           tooltip: {
             callbacks: {
               label: function (ctx) {
@@ -166,9 +172,10 @@
           }
         },
         scales: {
-          x: { ticks: { maxRotation: 45, minRotation: 0 } },
+          x: { ticks: { maxRotation: 45, minRotation: 0, font: { size: chartFont() } } },
           y: {
             ticks: {
+              font: { size: chartFont() },
               callback: function (v) { return isPct ? v.toFixed(0) + '%' : compactUsd(v); }
             },
             suggestedMax: isPct ? 100 : undefined
@@ -194,7 +201,7 @@
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
-          legend: { position: 'bottom', labels: { boxWidth: 12, padding: 12, font: { size: 11 } } },
+          legend: { position: 'bottom', labels: { boxWidth: 12, padding: 12, font: { size: chartFont() } } },
           tooltip: {
             callbacks: {
               label: function (ctx) { return ctx.label + ': ' + usd0.format(ctx.parsed); }
@@ -343,6 +350,26 @@
       document.body.appendChild(s);
     });
   };
+
+  /* ------------------------------------------------------------------
+   * Reflow notification — when the layout crosses a breakpoint or the
+   * device rotates, tell every calculator module to re-render so charts
+   * are recreated with the right (smaller) fonts.
+   * ------------------------------------------------------------------ */
+  function dispatchReflow() {
+    if (typeof document.dispatchEvent === 'function') {
+      document.dispatchEvent(new CustomEvent('calc:reflow'));
+    }
+  }
+  var reflowTimer = null;
+  function reflowSoon() {
+    if (reflowTimer) clearTimeout(reflowTimer);
+    reflowTimer = setTimeout(dispatchReflow, 300);
+  }
+  if (mobileMQ && mobileMQ.addEventListener) mobileMQ.addEventListener('change', reflowSoon);
+  else if (mobileMQ && mobileMQ.addListener) mobileMQ.addListener(reflowSoon);
+  window.addEventListener('orientationchange', reflowSoon);
+  window.addEventListener('resize', reflowSoon);
 
   window.CalcCore = C;
 })();

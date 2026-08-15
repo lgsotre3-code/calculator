@@ -172,7 +172,7 @@
   })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
   =========================================================== -->
 
-  <!-- ============ Styles ============ -->
+  <!-- ============ Styles (render-blocking keeps layout stable; CLS-safe) ============ -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -508,25 +508,50 @@
   </footer>
 
   <!-- ============================ SCRIPTS ============================ -->
-  <!-- Chart.js (CDN) — used by js/chart.js -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+  <!-- Deferred: they execute in order after parsing, so they no longer block
+       first paint. Chart.js itself is lazy-loaded only when the charts scroll
+       into view (keeps ~230 KB out of the initial mobile load). -->
+  <script src="js/i18n/i18n.js" defer></script>
+  <script src="js/nav.js" defer></script>
+  <script src="js/calculator.js" defer></script>
+  <script src="js/chart.js" defer></script>
+  <script src="js/analytics.js" defer></script>
 
-  <!-- i18n manager FIRST (creates window.i18n) -->
-  <script src="js/i18n/i18n.js"></script>
-  <!-- Responsive navigation (hamburger) -->
-  <script src="js/nav.js"></script>
-  <!-- Calculator + charts + analytics -->
-  <script src="js/calculator.js"></script>
-  <script src="js/chart.js"></script>
-  <script src="js/analytics.js"></script>
+  <script>
+    (function () {
+      var src = 'https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js';
+      var target = document.querySelector('.chart-grid') || document.getElementById('amortization-chart');
+      function loadChartScript() {
+        if (window.__chartLoading || window.Chart) return;
+        window.__chartLoading = true;
+        var s = document.createElement('script');
+        s.src = src;
+        s.defer = true;
+        s.onload = function () { if (window.refreshCharts) window.refreshCharts(); };
+        document.body.appendChild(s);
+      }
+      if (target && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { if (e.isIntersecting) { io.disconnect(); loadChartScript(); } });
+        }, { rootMargin: '400px' });
+        io.observe(target);
+      } else {
+        loadChartScript();
+      }
+    })();
+  </script>
 
   <!-- Init: detect language, load dictionary, apply translations -->
   <script>
-    window.i18n.init();
+    // The deferred scripts above run before DOMContentLoaded, so window.i18n
+    // is guaranteed to exist by the time this listener fires.
+    document.addEventListener('DOMContentLoaded', function () {
+      window.i18n.init();
 
-    // Manual language switch (overrides auto-detection and persists).
-    document.getElementById('lang-select').addEventListener('change', function (e) {
-      window.i18n.switchLanguage(e.target.value);
+      // Manual language switch (overrides auto-detection and persists).
+      document.getElementById('lang-select').addEventListener('change', function (e) {
+        window.i18n.switchLanguage(e.target.value);
+      });
     });
   </script>
 
