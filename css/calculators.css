@@ -219,8 +219,11 @@
   width: 100%;
   height: 260px;
 }
+@media (max-width: 768px) {
+  .calculator__chart-canvas { height: 300px; min-height: 300px; }
+}
 @media (max-width: 480px) {
-  .calculator__chart-canvas { height: 230px; }
+  .calculator__chart-canvas { height: 350px; min-height: 350px; }
 }
 
 .calculator__chart-note {
