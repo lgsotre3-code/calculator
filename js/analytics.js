@@ -1,10 +1,11 @@
 /**
  * analytics.js — Google Analytics 4 + Google Tag Manager + sharing
  * -----------------------------------------------------------------
- * Placeholders to replace before going live:
- *   - GA4 measurement ID      → replace "G-XXXXXXXXXX"
- *   - GTM container ID        → replace "GTM-XXXXXXX"
- *   - AdSense client          → set in index.html head ("ca-pub-XXXXXXXX")
+ * Setup status:
+ *   - AdSense client: configured in HTML head (ca-pub-2920008879492175).
+ *   - GA4: load the gtag.js loader in the HTML <head> and uncomment the
+ *     gtag('config', 'G-XXXXXXXXXX') call there, then this file fires events.
+ *   - GTM: optional, also loaded in the HTML <head>.
  *
  * The gtag() helper is defined here as a safe no-op when the real loader
  * script (in index.html) has not loaded yet.

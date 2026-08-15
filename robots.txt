@@ -1,8 +1,8 @@
 # robots.txt
-# Replace https://seudominio.com with your real domain.
+# Replace https://www.mortgage-pro-calc.com with your real domain.
 
 User-agent: *
 Allow: /
 
 # sitemap location
-Sitemap: https://seudominio.com/sitemap.xml
+Sitemap: https://www.mortgage-pro-calc.com/sitemap.xml

@@ -3,13 +3,11 @@
   ============================================================================
   Mortgage Calculator — Home Page (index.html)
   ----------------------------------------------------------------------------
-  BEFORE GOING LIVE (AdSense / analytics / domain placeholders):
-    1. Replace "seudominio.com" everywhere (canonical, OG, hreflang, sitemap).
-    2. Replace "ca-pub-XXXXXXXX" in the AdSense script below with YOUR publisher ID.
-    3. Replace "G-XXXXXXXXXX" in the GA4 script with YOUR Measurement ID.
-    4. Uncomment the GTM snippet and replace "GTM-XXXXXXX" after creating a container.
-    5. Replace the affiliate links (#) with your real partner URLs.
-    6. Drop a real 1200x630 OG image at /assets/img/mortgage-calculator-og-image.jpg.
+  CONFIGURED: domain (www.mortgage-pro-calc.com), AdSense (ca-pub-2920008879492175).
+  TODO before launch:
+    1. GA4: uncomment the Analytics block below and set your Measurement ID (G-...).
+    2. GTM: uncomment the GTM snippet and set your container ID (GTM-...) if used.
+    3. Replace the affiliate links (#) with your real partner URLs.
   ============================================================================
 -->
 <html lang="en-US">
@@ -24,29 +22,29 @@
   <meta name="keywords" content="mortgage calculator, home loan calculator, mortgage payment calculator, monthly mortgage calculator, mortgage calculator with taxes and insurance, mortgage calculator with extra payments, mortgage amortization calculator, mortgage payment breakdown, mortgage affordability calculator, refinance mortgage calculator, VA mortgage calculator, FHA mortgage calculator, USDA mortgage calculator, mortgage calculator with PMI, mortgage payoff calculator">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#1a365d">
-  <link rel="canonical" href="https://seudominio.com/">
+  <link rel="canonical" href="https://www.mortgage-pro-calc.com/">
 
   <!-- ============ Open Graph / Twitter ============ -->
   <meta property="og:title" content="Mortgage Calculator with Taxes & Insurance | Free Home Loan Calculator 2026">
   <meta property="og:description" content="Calculate your monthly mortgage payment with taxes, insurance, and extra payments. Free mortgage calculator with amortization schedule and payment breakdown.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://seudominio.com/">
-  <meta property="og:image" content="https://seudominio.com/assets/img/mortgage-calculator-og-image.jpg">
+  <meta property="og:url" content="https://www.mortgage-pro-calc.com/">
+  <meta property="og:image" content="https://www.mortgage-pro-calc.com/assets/img/mortgage-calculator-og-image.jpg">
   <meta property="og:site_name" content="Mortgage Calculator">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Mortgage Calculator with Taxes & Insurance | Free Home Loan Calculator 2026">
   <meta name="twitter:description" content="Calculate your monthly mortgage payment with taxes, insurance, and extra payments. Free mortgage calculator with amortization schedule.">
-  <meta name="twitter:image" content="https://seudominio.com/assets/img/mortgage-calculator-og-image.jpg">
+  <meta name="twitter:image" content="https://www.mortgage-pro-calc.com/assets/img/mortgage-calculator-og-image.jpg">
 
   <!-- ============ Multilingual SEO: hreflang ============
        Using ?lang= for the static build. If you serve real locale
        folders (/en/, /es/, ...), point each href to those paths. -->
-  <link rel="alternate" hreflang="en" href="https://seudominio.com/?lang=en">
-  <link rel="alternate" hreflang="es" href="https://seudominio.com/?lang=es">
-  <link rel="alternate" hreflang="fr" href="https://seudominio.com/?lang=fr">
-  <link rel="alternate" hreflang="pt" href="https://seudominio.com/?lang=pt">
-  <link rel="alternate" hreflang="de" href="https://seudominio.com/?lang=de">
-  <link rel="alternate" hreflang="x-default" href="https://seudominio.com/">
+  <link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/?lang=en">
+  <link rel="alternate" hreflang="es" href="https://www.mortgage-pro-calc.com/?lang=es">
+  <link rel="alternate" hreflang="fr" href="https://www.mortgage-pro-calc.com/?lang=fr">
+  <link rel="alternate" hreflang="pt" href="https://www.mortgage-pro-calc.com/?lang=pt">
+  <link rel="alternate" hreflang="de" href="https://www.mortgage-pro-calc.com/?lang=de">
+  <link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/">
 
   <!-- ============ Favicon ============ -->
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
@@ -68,7 +66,7 @@
     "applicationCategory": "FinanceApplication",
     "operatingSystem": "All",
     "browserRequirements": "Requires JavaScript",
-    "url": "https://seudominio.com/",
+    "url": "https://www.mortgage-pro-calc.com/",
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -145,12 +143,13 @@
   </script>
 
   <!-- ============ Google AdSense (Auto Ads)
-       Replace ca-pub-XXXXXXXX with your publisher ID.
+       Replace ca-pub-2920008879492175 with your publisher ID.
        The three manual placements (top / middle / footer) live in the page
        body inside .ad-container elements — paste your ad-unit snippet there. -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX" crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2920008879492175" crossorigin="anonymous"></script>
 
-  <!-- ============ Google Analytics 4 (replace G-XXXXXXXXXX) ============ -->
+  <!-- ============ Google Analytics 4 ============
+       TODO: uncomment and set YOUR Measurement ID (e.g. G-ABC123XYZ).
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -158,6 +157,7 @@
     gtag('js', new Date());
     gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
   </script>
+  =========================================================== -->
 
   <!-- ============ Google Tag Manager (optional)
        Create a container first, then uncomment and set GTM-XXXXXXX.
