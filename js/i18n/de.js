@@ -198,18 +198,16 @@ window.TRANSLATIONS.de = {
   "about_why_text": "Unsere Berechnungen folgen den Standard-Hypothekenformeln und den US-Finanzrichtlinien. Das Tool ist transparent, kostenlos und auf Ihre finanzielle Bildung ausgerichtet.",
 
   /* ---------- Kontakt-Seite ---------- */
-  "contact_title": "Kontakt — Hypothekenrechner",
-  "contact_description": "Kontaktieren Sie das MortgageCalc-Team bei Fragen, Feedback oder Anregungen zu unserem kostenlosen Hypothekenrechner.",
-  "contact_subtitle": "Eine Frage, Feedback oder eine Anregung? Wir freuen uns auf Ihre Nachricht.",
-  "contact_get_in_touch": "Kontakt Aufnehmen",
-  "contact_response": "Wir antworten in der Regel innerhalb von 24 Stunden an Werktagen.",
-  "contact_email": "E-Mail:",
-  "contact_send_message": "Nachricht Senden",
+  "contact_title": "Kontakt",
+  "contact_description": "Haben Sie Fragen zu unserem Rechner? Kontaktieren Sie unser Team. Wir antworten innerhalb von 24 Stunden.",
+  "contact_subtitle": "Haben Sie Fragen oder Feedback? Wir freuen uns auf Ihre Nachricht.",
   "contact_name": "Name",
-  "contact_email_label": "E-Mail",
+  "contact_email": "E-Mail",
+  "contact_subject": "Betreff",
   "contact_message": "Nachricht",
   "contact_send": "Nachricht Senden",
-  "contact_success": "Vielen Dank! Ihre Nachricht wurde gesendet. Wir werden innerhalb von 24 Stunden antworten.",
+  "contact_success": "Nachricht erfolgreich gesendet!",
+  "contact_error": "Fehler beim Senden. Bitte versuchen Sie es erneut.",
 
   /* ---------- 404-Seite ---------- */
   "404_title": "Seite Nicht Gefunden — Hypothekenrechner",

@@ -199,18 +199,16 @@ window.TRANSLATIONS.en = {
   "about_why_text": "Our calculations follow standard mortgage formulas and US financial guidelines. The tool is transparent, free and designed with your financial education in mind.",
 
   /* ---------- Contact page ---------- */
-  "contact_title": "Contact Us — Mortgage Calculator",
-  "contact_description": "Contact the MortgageCalc team with questions, feedback or suggestions about our free mortgage calculator.",
-  "contact_subtitle": "Have a question, feedback or suggestion? We'd love to hear from you.",
-  "contact_get_in_touch": "Get in Touch",
-  "contact_response": "We typically respond within 24 hours on business days.",
-  "contact_email": "Email:",
-  "contact_send_message": "Send a Message",
+  "contact_title": "Contact Us",
+  "contact_description": "Have questions about our calculator? Contact our team. We'll respond within 24 hours.",
+  "contact_subtitle": "Have questions or feedback? We'd love to hear from you.",
   "contact_name": "Name",
-  "contact_email_label": "Email",
+  "contact_email": "Email",
+  "contact_subject": "Subject",
   "contact_message": "Message",
   "contact_send": "Send Message",
-  "contact_success": "Thank you! Your message has been sent. We will reply within 24 hours.",
+  "contact_success": "Message sent successfully!",
+  "contact_error": "Error sending. Please try again.",
 
   /* ---------- 404 page ---------- */
   "404_title": "Page Not Found — Mortgage Calculator",

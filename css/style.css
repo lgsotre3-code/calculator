@@ -617,6 +617,79 @@ table.amortization tbody tr:nth-child(even) { background: #f7fafc; }
   color: #22543d;
 }
 .notice--visible { display: block; }
+.notice--error {
+  background: #fff5f5;
+  border-color: #fc8181;
+  color: #742a2a;
+}
+
+/* ---------- Contact form (FormSubmit) ---------- */
+.contact-section {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.contact-form {
+  background: #f7fafc;
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.contact-form .form-group { margin-bottom: 20px; }
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: var(--text);
+  background: #fff;
+  font-family: inherit;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #2b6cb0;
+  box-shadow: 0 0 0 3px rgba(43, 108, 176, 0.15);
+}
+
+.btn-submit {
+  display: block;
+  width: 100%;
+  padding: 14px 30px;
+  background: #2b6cb0;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s ease;
+}
+.btn-submit:hover { background: #1a365d; }
+.btn-submit:disabled { opacity: 0.6; cursor: wait; }
+
+.contact-info {
+  text-align: center;
+  margin-top: 30px;
+  background: #edf2f7;
+  padding: 20px;
+  border-radius: 8px;
+  color: var(--text);
+}
+.contact-info a { color: var(--navy); }
+
+@media (max-width: 480px) {
+  .contact-form { padding: 20px; }
+}
 
 @media (min-width: 760px) {
   .contact-grid { grid-template-columns: 1fr 1fr; }

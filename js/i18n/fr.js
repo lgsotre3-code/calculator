@@ -198,18 +198,16 @@ window.TRANSLATIONS.fr = {
   "about_why_text": "Nos calculs suivent les formules hypothécaires standard et les directives financières américaines. L'outil est transparent, gratuit et conçu pour votre éducation financière.",
 
   /* ---------- Page Contact ---------- */
-  "contact_title": "Contact — Calculateur Hypothécaire",
-  "contact_description": "Contactez l'équipe MortgageCalc pour des questions, des retours ou des suggestions sur notre calculateur hypothécaire gratuit.",
-  "contact_subtitle": "Une question, un retour ou une suggestion ? Nous serions ravis de vous entendre.",
-  "contact_get_in_touch": "Entrer en Contact",
-  "contact_response": "Nous répondons généralement sous 24 heures en jours ouvrés.",
-  "contact_email": "E-mail :",
-  "contact_send_message": "Envoyer un Message",
+  "contact_title": "Contact",
+  "contact_description": "Des questions sur notre calculateur ? Contactez notre équipe. Nous vous répondrons sous 24 heures.",
+  "contact_subtitle": "Des questions ou des remarques ? Nous serions ravis de vous entendre.",
   "contact_name": "Nom",
-  "contact_email_label": "E-mail",
+  "contact_email": "E-mail",
+  "contact_subject": "Objet",
   "contact_message": "Message",
   "contact_send": "Envoyer le Message",
-  "contact_success": "Merci ! Votre message a été envoyé. Nous vous répondrons sous 24 heures.",
+  "contact_success": "Message envoyé avec succès !",
+  "contact_error": "Erreur lors de l'envoi. Veuillez réessayer.",
 
   /* ---------- Page 404 ---------- */
   "404_title": "Page Non Trouvée — Calculateur Hypothécaire",

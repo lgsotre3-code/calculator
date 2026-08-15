@@ -93,6 +93,9 @@
   <!-- ============ Google AdSense (replace ca-pub-2920008879492175) ============ -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2920008879492175" crossorigin="anonymous"></script>
 
+  <!-- ============ Adcash Library ============ -->
+  <script id="aclib" type="text/javascript" src="https://acscdn.com/script/aclib.js"></script>
+
   <!-- ============ Google Analytics 4 ============
        TODO: uncomment and set YOUR Measurement ID (e.g. G-ABC123XYZ).
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -228,6 +231,13 @@
     window.i18n.init();
     document.getElementById('lang-select').addEventListener('change', function (e) {
       window.i18n.switchLanguage(e.target.value);
+    });
+  </script>
+
+  <!-- ============ Adcash Zone ============ -->
+  <script type="text/javascript">
+    aclib.runAutoTag({
+      zoneId: '0c9gzdbpws',
     });
   </script>
 </body>

@@ -198,18 +198,16 @@ window.TRANSLATIONS.pt = {
   "about_why_text": "Nossos cálculos seguem as fórmulas padrão de financiamento e as diretrizes financeiras dos EUA. A ferramenta é transparente, gratuita e feita pensando na sua educação financeira.",
 
   /* ---------- Página de Contato ---------- */
-  "contact_title": "Fale Conosco — Calculadora de Financiamento",
-  "contact_description": "Fale com a equipe do MortgageCalc sobre dúvidas, comentários ou sugestões sobre nossa calculadora de financiamento gratuita.",
-  "contact_subtitle": "Tem uma pergunta, comentário ou sugestão? Adoraríamos ouvir você.",
-  "contact_get_in_touch": "Entre em Contato",
-  "contact_response": "Normalmente respondemos em até 24 horas em dias úteis.",
-  "contact_email": "E-mail:",
-  "contact_send_message": "Envie uma Mensagem",
+  "contact_title": "Fale Conosco",
+  "contact_description": "Tem dúvidas sobre nossa calculadora? Entre em contato com nossa equipe. Responderemos em até 24 horas.",
+  "contact_subtitle": "Tem dúvidas, sugestões ou feedback? Adoraríamos ouvir você.",
   "contact_name": "Nome",
-  "contact_email_label": "E-mail",
+  "contact_email": "E-mail",
+  "contact_subject": "Assunto",
   "contact_message": "Mensagem",
   "contact_send": "Enviar Mensagem",
-  "contact_success": "Obrigado! Sua mensagem foi enviada. Responderemos em até 24 horas.",
+  "contact_success": "Mensagem enviada com sucesso!",
+  "contact_error": "Erro ao enviar. Tente novamente.",
 
   /* ---------- Página 404 ---------- */
   "404_title": "Página Não Encontrada — Calculadora de Financiamento",

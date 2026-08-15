@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <!--
   Mortgage Calculator — Contact (contact/index.html)
-  CONFIGURED: domain (www.mortgage-pro-calc.com), AdSense (ca-pub-2920008879492175).
+  CONFIGURED: domain (www.mortgage-pro-calc.com), AdSense (ca-pub-2920008879492175), Adcash (zone 0c9gzdbpws).
+  Form: FormSubmit (mortgageprocalc@zohomail.com). First submission sends a
+  confirmation email to the inbox before the message is relayed.
   TODO: GA4/GTM IDs and affiliate links before launch.
 -->
 <html lang="en-US">
@@ -11,22 +13,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <!-- ============ SEO: title & description ============ -->
-  <title data-i18n-title="contact_title">Contact Us — Mortgage Calculator</title>
-  <meta name="description" data-i18n-desc="contact_description" content="Contact the MortgageCalc team with questions, feedback or suggestions about our free mortgage calculator.">
+  <title data-i18n-title="contact_title">Contact Us</title>
+  <meta name="description" data-i18n-desc="contact_description" content="Have questions about our calculator? Contact our team. We'll respond within 24 hours.">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#1a365d">
   <link rel="canonical" href="https://www.mortgage-pro-calc.com/contact/">
 
   <!-- ============ Open Graph / Twitter ============ -->
-  <meta property="og:title" content="Contact Us — Mortgage Calculator">
-  <meta property="og:description" content="Contact the MortgageCalc team with questions, feedback or suggestions about our free mortgage calculator.">
+  <meta property="og:title" content="Contact Us">
+  <meta property="og:description" content="Have questions about our calculator? Contact our team. We'll respond within 24 hours.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.mortgage-pro-calc.com/contact/">
   <meta property="og:image" content="https://www.mortgage-pro-calc.com/assets/img/mortgage-calculator-og-image.jpg">
   <meta property="og:site_name" content="Mortgage Calculator">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Contact Us — Mortgage Calculator">
-  <meta name="twitter:description" content="Contact the MortgageCalc team with questions, feedback or suggestions about our free mortgage calculator.">
+  <meta name="twitter:title" content="Contact Us">
+  <meta name="twitter:description" content="Have questions about our calculator? Contact our team. We'll respond within 24 hours.">
   <meta name="twitter:image" content="https://www.mortgage-pro-calc.com/assets/img/mortgage-calculator-og-image.jpg">
 
   <!-- ============ Multilingual SEO: hreflang ============ -->
@@ -58,8 +60,11 @@
   }
   </script>
 
-  <!-- ============ Google AdSense (replace ca-pub-2920008879492175) ============ -->
+  <!-- ============ Google AdSense ============ -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2920008879492175" crossorigin="anonymous"></script>
+
+  <!-- ============ Adcash Library ============ -->
+  <script id="aclib" type="text/javascript" src="https://acscdn.com/script/aclib.js"></script>
 
   <!-- ============ Google Analytics 4 ============
        TODO: uncomment and set YOUR Measurement ID (e.g. G-ABC123XYZ).
@@ -123,40 +128,50 @@
   <!-- ============================ MAIN ============================ -->
   <main id="main" class="container">
 
-    <h1 class="page-title" data-i18n="contact_title">Contact Us — Mortgage Calculator</h1>
-    <p class="page-intro" data-i18n="contact_subtitle">Have a question, feedback or suggestion? We'd love to hear from you.</p>
+    <h1 class="page-title" data-i18n="contact_title">Contact Us</h1>
+    <p class="page-intro" data-i18n="contact_subtitle">Have questions or feedback? We'd love to hear from you.</p>
 
-    <div class="contact-grid">
+    <div class="contact-section">
 
-      <section class="seo-section">
-        <h2 data-i18n="contact_get_in_touch">Get in Touch</h2>
-        <p data-i18n="contact_response">We typically respond within 24 hours on business days.</p>
-        <p><strong data-i18n="contact_email">Email:</strong>
+      <form id="contact-form" class="contact-form"
+            action="https://formsubmit.co/mortgageprocalc@zohomail.com"
+            method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_subject" value="Novo contato do site!">
+
+        <div class="form-group">
+          <label for="contact-name" data-i18n="contact_name">Name</label>
+          <input type="text" id="contact-name" name="name" autocomplete="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="contact-email" data-i18n="contact_email">Email</label>
+          <input type="email" id="contact-email" name="email" autocomplete="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="contact-subject" data-i18n="contact_subject">Subject</label>
+          <input type="text" id="contact-subject" name="subject">
+        </div>
+
+        <div class="form-group">
+          <label for="contact-message" data-i18n="contact_message">Message</label>
+          <textarea id="contact-message" name="message" rows="5" required></textarea>
+        </div>
+
+        <button type="submit" id="contact-submit" class="btn-submit" data-i18n="contact_send">Send Message</button>
+
+        <p id="contact-success" class="notice" data-i18n="contact_success" role="status">Message sent successfully!</p>
+        <p id="contact-error" class="notice notice--error" data-i18n="contact_error" role="alert">Error sending. Please try again.</p>
+      </form>
+
+      <div class="contact-info">
+        <p data-i18n="contact_description">Have questions about our calculator? Contact our team. We'll respond within 24 hours.</p>
+        <p><strong data-i18n="contact_email">Email</strong>:
           <a href="mailto:support@mortgage-pro-calc.com">support@mortgage-pro-calc.com</a>
         </p>
-      </section>
-
-      <section class="seo-section">
-        <h2 data-i18n="contact_send_message">Send a Message</h2>
-        <form id="contact-form" onsubmit="return false">
-          <div class="form-group">
-            <label for="contact-name" data-i18n="contact_name">Name</label>
-            <input type="text" id="contact-name" name="name" autocomplete="name" required style="width:100%">
-          </div>
-          <div class="form-group">
-            <label for="contact-email" data-i18n="contact_email_label">Email</label>
-            <input type="email" id="contact-email" name="email" autocomplete="email" required style="width:100%">
-          </div>
-          <div class="form-group">
-            <label for="contact-message" data-i18n="contact_message">Message</label>
-            <textarea id="contact-message" name="message" rows="5" required style="width:100%"></textarea>
-          </div>
-          <div class="btn-row">
-            <button type="submit" id="contact-submit" class="btn btn-primary" data-i18n="contact_send">Send Message</button>
-          </div>
-        </form>
-        <p id="contact-success" class="notice" data-i18n="contact_success" role="status">Thank you! Your message has been sent. We will reply within 24 hours.</p>
-      </section>
+      </div>
 
     </div>
 
@@ -187,10 +202,53 @@
       window.i18n.switchLanguage(e.target.value);
     });
 
-    // Static site: no backend, so just confirm the submission locally.
-    document.getElementById('contact-form').addEventListener('submit', function () {
-      document.getElementById('contact-success').classList.add('notice--visible');
-      this.reset();
+    // FormSubmit: submit via AJAX so success/error show in-page.
+    var form = document.getElementById('contact-form');
+    var successBox = document.getElementById('contact-success');
+    var errorBox = document.getElementById('contact-error');
+    var submitBtn = document.getElementById('contact-submit');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      errorBox.classList.remove('notice--visible');
+
+      var payload = {
+        name: document.getElementById('contact-name').value,
+        email: document.getElementById('contact-email').value,
+        subject: document.getElementById('contact-subject').value,
+        message: document.getElementById('contact-message').value,
+        _captcha: 'false',
+        _template: 'table',
+        _subject: 'Novo contato do site!'
+      };
+
+      fetch('https://formsubmit.co/ajax/mortgageprocalc@zohomail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          submitBtn.disabled = false;
+          if (data && data.success) {
+            successBox.classList.add('notice--visible');
+            form.reset();
+          } else {
+            errorBox.classList.add('notice--visible');
+          }
+        })
+        .catch(function () {
+          submitBtn.disabled = false;
+          errorBox.classList.add('notice--visible');
+        });
+    });
+  </script>
+
+  <!-- ============ Adcash Zone ============ -->
+  <script type="text/javascript">
+    aclib.runAutoTag({
+      zoneId: '0c9gzdbpws',
     });
   </script>
 </body>

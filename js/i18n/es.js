@@ -198,18 +198,16 @@ window.TRANSLATIONS.es = {
   "about_why_text": "Nuestros cálculos siguen las fórmulas hipotecarias estándar y las pautas financieras de EE. UU. La herramienta es transparente, gratuita y diseñada para tu educación financiera.",
 
   /* ---------- Página de Contacto ---------- */
-  "contact_title": "Contacto — Calculadora de Hipoteca",
-  "contact_description": "Contacta al equipo de MortgageCalc con preguntas, comentarios o sugerencias sobre nuestra calculadora de hipoteca gratuita.",
-  "contact_subtitle": "¿Tienes una pregunta, comentario o sugerencia? Nos encantaría escucharte.",
-  "contact_get_in_touch": "Ponte en Contacto",
-  "contact_response": "Normalmente respondemos en un plazo de 24 horas en días hábiles.",
-  "contact_email": "Correo electrónico:",
-  "contact_send_message": "Envía un Mensaje",
+  "contact_title": "Contacto",
+  "contact_description": "¿Tienes dudas sobre nuestra calculadora? Contacta con nuestro equipo. Responderemos en un plazo de 24 horas.",
+  "contact_subtitle": "¿Tienes preguntas o comentarios? Nos encantaría escucharte.",
   "contact_name": "Nombre",
-  "contact_email_label": "Correo electrónico",
+  "contact_email": "Correo electrónico",
+  "contact_subject": "Asunto",
   "contact_message": "Mensaje",
   "contact_send": "Enviar Mensaje",
-  "contact_success": "¡Gracias! Tu mensaje ha sido enviado. Te responderemos en 24 horas.",
+  "contact_success": "¡Mensaje enviado con éxito!",
+  "contact_error": "Error al enviar. Inténtalo de nuevo.",
 
   /* ---------- Página 404 ---------- */
   "404_title": "Página No Encontrada — Calculadora de Hipoteca",
