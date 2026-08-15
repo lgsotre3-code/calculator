@@ -237,6 +237,7 @@ img, canvas, svg, video {
     grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
     align-items: start;
   }
+  .calc-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 /* ---------- 7. Form (inputs) ---------- */
@@ -422,6 +423,35 @@ textarea {
   font-size: 0.85rem;
 }
 
+/* Calculator hub page: cards linking to each tool */
+.calc-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 24px 0;
+}
+.calc-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.calc-card h2 {
+  font-size: 1.25rem;
+  margin: 0;
+  color: var(--navy);
+}
+.calc-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  flex: 1;
+}
+.calc-card .btn { align-self: flex-start; }
+
 .breakdown {
   margin: 4px 0 0;
   font-size: 0.85rem;
@@ -440,6 +470,7 @@ textarea {
 }
 @media (min-width: 700px) {
   .chart-grid { grid-template-columns: 1fr 1fr; }
+  .calc-grid { grid-template-columns: repeat(2, 1fr); }
 }
 .chart-box { position: relative; }
 .chart-box h3 {

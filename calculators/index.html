@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <!--
-  Mortgage Calculator — Blog (blog/index.html)
+  Mortgage Calculator — All Calculators (calculators/index.html)
   CONFIGURED: domain (www.mortgage-pro-calc.com), AdSense (ca-pub-2920008879492175).
-  TODO: GA4/GTM IDs and affiliate links before launch.
 -->
 <html lang="en-US">
 <head>
@@ -12,31 +11,31 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <!-- ============ SEO: title & description ============ -->
-  <title data-i18n-title="blog_title">Mortgage Calculator Blog</title>
-  <meta name="description" data-i18n-desc="blog_description" content="Articles, guides and news about mortgages, home loans, refinancing and home buying tips.">
+  <title data-i18n-title="hub_title">All Mortgage Calculators</title>
+  <meta name="description" data-i18n-desc="hub_description" content="Free mortgage calculators: monthly payment, finance vs. cash, loan portability, renovation ROI and rent vs. buy. Available in 5 languages.">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#1a365d">
-  <link rel="canonical" href="https://www.mortgage-pro-calc.com/blog/">
+  <link rel="canonical" href="https://www.mortgage-pro-calc.com/calculators/">
 
   <!-- ============ Open Graph / Twitter ============ -->
-  <meta property="og:title" content="Mortgage Calculator Blog">
-  <meta property="og:description" content="Articles, guides and news about mortgages, home loans, refinancing and home buying tips.">
+  <meta property="og:title" content="All Mortgage Calculators">
+  <meta property="og:description" content="Free mortgage calculators: monthly payment, finance vs. cash, loan portability, renovation ROI and rent vs. buy.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.mortgage-pro-calc.com/blog/">
+  <meta property="og:url" content="https://www.mortgage-pro-calc.com/calculators/">
   <meta property="og:image" content="https://www.mortgage-pro-calc.com/assets/img/mortgage-calculator-og-image.jpg">
   <meta property="og:site_name" content="Mortgage Calculator">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Mortgage Calculator Blog">
-  <meta name="twitter:description" content="Articles, guides and news about mortgages, home loans, refinancing and home buying tips.">
+  <meta name="twitter:title" content="All Mortgage Calculators">
+  <meta name="twitter:description" content="Free mortgage calculators: monthly payment, finance vs. cash, loan portability, renovation ROI and rent vs. buy.">
   <meta name="twitter:image" content="https://www.mortgage-pro-calc.com/assets/img/mortgage-calculator-og-image.jpg">
 
   <!-- ============ Multilingual SEO: hreflang ============ -->
-  <link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/blog/?lang=en">
-  <link rel="alternate" hreflang="es" href="https://www.mortgage-pro-calc.com/blog/?lang=es">
-  <link rel="alternate" hreflang="fr" href="https://www.mortgage-pro-calc.com/blog/?lang=fr">
-  <link rel="alternate" hreflang="pt" href="https://www.mortgage-pro-calc.com/blog/?lang=pt">
-  <link rel="alternate" hreflang="de" href="https://www.mortgage-pro-calc.com/blog/?lang=de">
-  <link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/blog/">
+  <link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/calculators/?lang=en">
+  <link rel="alternate" hreflang="es" href="https://www.mortgage-pro-calc.com/calculators/?lang=es">
+  <link rel="alternate" hreflang="fr" href="https://www.mortgage-pro-calc.com/calculators/?lang=fr">
+  <link rel="alternate" hreflang="pt" href="https://www.mortgage-pro-calc.com/calculators/?lang=pt">
+  <link rel="alternate" hreflang="de" href="https://www.mortgage-pro-calc.com/calculators/?lang=de">
+  <link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/calculators/">
 
   <!-- ============ Favicon ============ -->
   <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
@@ -47,47 +46,25 @@
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
-  <!-- ============ Schema Markup: Blog ============ -->
+  <!-- ============ Schema Markup: CollectionPage ============ -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Blog",
-    "name": "Mortgage Calculator Blog",
-    "description": "Articles, guides and news about mortgages, home loans, refinancing and home buying tips.",
-    "url": "https://www.mortgage-pro-calc.com/blog/",
+    "@type": "CollectionPage",
+    "name": "All Mortgage Calculators",
+    "description": "Free mortgage calculators: monthly payment, finance vs. cash, loan portability, renovation ROI and rent vs. buy.",
+    "url": "https://www.mortgage-pro-calc.com/calculators/",
     "inLanguage": ["en", "es", "fr", "pt", "de"],
-    "blogPost": [
-      {
-        "@type": "BlogPosting",
-        "headline": "How to Calculate Mortgage Payments: A Step-by-Step Guide",
-        "url": "https://www.mortgage-pro-calc.com/blog/",
-        "inLanguage": "en"
-      },
-      {
-        "@type": "BlogPosting",
-        "headline": "Refinance vs. Home Equity Loan: Which Is Right for You?",
-        "url": "https://www.mortgage-pro-calc.com/blog/",
-        "inLanguage": "en"
-      },
-      {
-        "@type": "BlogPosting",
-        "headline": "FHA vs. Conventional Loan: What's the Difference?",
-        "url": "https://www.mortgage-pro-calc.com/blog/",
-        "inLanguage": "en"
-      },
-      {
-        "@type": "BlogPosting",
-        "headline": "How Much House Can I Afford? A Complete Guide",
-        "url": "https://www.mortgage-pro-calc.com/blog/",
-        "inLanguage": "en"
-      },
-      {
-        "@type": "BlogPosting",
-        "headline": "ARM vs. Fixed-Rate Mortgage: Which Is Better?",
-        "url": "https://www.mortgage-pro-calc.com/blog/",
-        "inLanguage": "en"
-      }
-    ]
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Mortgage Calculator", "url": "https://www.mortgage-pro-calc.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Finance vs. Pay Cash Calculator", "url": "https://www.mortgage-pro-calc.com/finance-vs-cash/" },
+        { "@type": "ListItem", "position": 3, "name": "Loan Portability Calculator", "url": "https://www.mortgage-pro-calc.com/loan-portability/" },
+        { "@type": "ListItem", "position": 4, "name": "Renovation ROI Calculator", "url": "https://www.mortgage-pro-calc.com/renovation-roi/" },
+        { "@type": "ListItem", "position": 5, "name": "Rent vs. Buy Calculator", "url": "https://www.mortgage-pro-calc.com/rent-vs-buy/" }
+      ]
+    }
   }
   </script>
 
@@ -108,14 +85,6 @@
   </script>
   =========================================================== -->
 
-  <!-- ============ Google Tag Manager (optional, replace GTM-XXXXXXX) ============
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
-  =========================================================== -->
-
   <!-- ============ Styles ============ -->
   <link rel="stylesheet" href="../css/style.css">
 </head>
@@ -134,8 +103,8 @@
       <nav class="main-nav" id="main-nav" aria-label="Main navigation">
         <ul>
           <li><a href="/" data-i18n="nav_home">Home</a></li>
-          <li><a href="/calculators/" data-i18n="nav_calculators">Calculators</a></li>
-          <li><a href="/blog" class="active" data-i18n="nav_blog">Blog</a></li>
+          <li><a href="/calculators/" class="active" data-i18n="nav_calculators">Calculators</a></li>
+          <li><a href="/blog" data-i18n="nav_blog">Blog</a></li>
           <li><a href="/about" data-i18n="nav_about">About</a></li>
           <li><a href="/contact" data-i18n="nav_contact">Contact</a></li>
         </ul>
@@ -165,52 +134,49 @@
   <!-- ============================ MAIN ============================ -->
   <main id="main" class="container">
 
-    <h1 class="page-title" data-i18n="blog_title">Mortgage Calculator Blog</h1>
-    <p class="page-intro" data-i18n="blog_subtitle">Expert tips, guides and the latest mortgage news — updated regularly.</p>
+    <h1 class="page-title" data-i18n="hub_title">All Mortgage Calculators</h1>
+    <p class="page-intro" data-i18n="hub_intro">Five free tools to understand the real numbers behind a home purchase: monthly cost, financing vs. paying cash, switching lenders, renovation returns, and rent vs. buy.</p>
 
-    <!-- ============================ ARTICLES ============================ -->
-    <div class="blog-grid">
-
-      <article class="blog-card">
-        <time datetime="2026-07-15">July 15, 2026</time>
-        <h2 data-i18n="blog_post_1_title">How to Calculate Mortgage Payments: A Step-by-Step Guide</h2>
-        <p data-i18n="blog_post_1_excerpt">Learn the formula behind mortgage payments and how to use our calculator to plan your home purchase.</p>
+    <section class="calc-grid" aria-label="Calculators">
+      <article class="calc-card">
+        <h2><a href="/" data-i18n="calc_nav_home">Mortgage Calculator</a></h2>
+        <p data-i18n="hub_home_desc">Monthly payment, amortization schedule and payment breakdown with taxes, insurance and extra payments.</p>
+        <a href="/" class="btn btn-primary" data-cta="hub_to_home" data-i18n="hub_cta">Open calculator</a>
       </article>
 
-      <article class="blog-card">
-        <time datetime="2026-06-02">June 2, 2026</time>
-        <h2><a href="/refinance-guide/" data-i18n="blog_post_2_title">Refinance vs. Home Equity Loan: Which Is Right for You?</a></h2>
-        <p data-i18n="blog_post_2_excerpt">Compare the pros and cons of refinancing and home equity loans to make the best financial decision.</p>
+      <article class="calc-card">
+        <h2><a href="/finance-vs-cash/" data-i18n="calc_nav_fvc">Finance vs. Pay Cash</a></h2>
+        <p data-i18n="fvc_description">Compare the true cost of financing a home vs. paying cash. Free calculator with opportunity cost, total interest and invested capital over time.</p>
+        <a href="/finance-vs-cash/" class="btn btn-primary" data-cta="hub_to_fvc" data-i18n="hub_cta">Open calculator</a>
       </article>
 
-      <article class="blog-card">
-        <time datetime="2026-04-18">April 18, 2026</time>
-        <h2><a href="/fha-vs-conventional/" data-i18n="blog_post_3_title">FHA vs. Conventional Loan: What's the Difference?</a></h2>
-        <p data-i18n="blog_post_3_excerpt">Understand the key differences between FHA and conventional mortgages to choose the right loan.</p>
+      <article class="calc-card">
+        <h2><a href="/loan-portability/" data-i18n="calc_nav_port">Loan Portability</a></h2>
+        <p data-i18n="port_description">Transfer your mortgage to a lender offering a lower rate and see your monthly savings, total savings and how long it takes to recover the fees. Free portability calculator.</p>
+        <a href="/loan-portability/" class="btn btn-primary" data-cta="hub_to_port" data-i18n="hub_cta">Open calculator</a>
       </article>
 
-      <!-- ============ AD — MIDDLE ============ -->
-      <div class="ad-container ad-container--tall" aria-hidden="true"></div>
-
-      <article class="blog-card">
-        <time datetime="2026-03-09">March 9, 2026</time>
-        <h2><a href="/affordability-guide/" data-i18n="blog_post_4_title">How Much House Can I Afford? A Complete Guide</a></h2>
-        <p data-i18n="blog_post_4_excerpt">Calculate your home buying budget based on your income, debts, down payment and interest rate.</p>
+      <article class="calc-card">
+        <h2><a href="/renovation-roi/" data-i18n="calc_nav_reno">Renovation ROI</a></h2>
+        <p data-i18n="reno_description">Estimate the new value of your home after a renovation and see whether you make a profit or a loss. Free renovation ROI calculator with typical cost recovery by renovation type.</p>
+        <a href="/renovation-roi/" class="btn btn-primary" data-cta="hub_to_reno" data-i18n="hub_cta">Open calculator</a>
       </article>
 
-      <article class="blog-card">
-        <time datetime="2026-01-27">January 27, 2026</time>
-        <h2 data-i18n="blog_post_5_title">ARM vs. Fixed-Rate Mortgage: Which Is Better?</h2>
-        <p data-i18n="blog_post_5_excerpt">Compare adjustable-rate and fixed-rate mortgages to find the best option for your finances.</p>
+      <article class="calc-card">
+        <h2><a href="/rent-vs-buy/" data-i18n="calc_nav_rvb">Rent vs. Buy</a></h2>
+        <p data-i18n="rvb_description">Compare renting vs. buying over your planned stay. Free calculator with rent increases, home appreciation, property tax, maintenance and investment returns.</p>
+        <a href="/rent-vs-buy/" class="btn btn-primary" data-cta="hub_to_rvb" data-i18n="hub_cta">Open calculator</a>
       </article>
+    </section>
 
-    </div>
+    <!-- ============ AD — MIDDLE ============ -->
+    <div id="ad-container-middle" class="ad-container ad-container--tall" aria-hidden="true"></div>
 
-    <!-- ============ CTA back to the calculator ============ -->
+    <!-- ============ CTA back to the main calculator ============ -->
     <aside class="cta-box" aria-label="Try the mortgage calculator">
       <h3 data-i18n="try_calculator">Try the Free Mortgage Calculator</h3>
       <p data-i18n="try_calculator_text">Estimate your monthly payment with taxes, insurance and extra payments in seconds.</p>
-      <a href="/" class="btn btn-primary" data-cta="blog_to_calculator">Mortgage Calculator</a>
+      <a href="/" class="btn btn-primary" data-cta="hub_cta_to_calculator" data-i18n="calc_nav_home">Mortgage Calculator</a>
     </aside>
 
     <!-- ============ AD — FOOTER ============ -->

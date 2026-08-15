@@ -8,6 +8,7 @@ Responsive mortgage calculator website with 5 calculators in 5 languages
 
 | Calculator | URL | Module |
 |---|---|---|
+| All calculators (hub) | `/calculators/` | — |
 | Mortgage Calculator (P&I + taxes + insurance + extra payments) | `/` | `js/calculator.js` |
 | Finance vs. Cash | `/finance-vs-cash/` | `js/calc-fvc.js` |
 | Loan Portability | `/loan-portability/` | `js/calc-port.js` |
@@ -46,6 +47,7 @@ Captured with headless Chrome at 2x device scale (see `screenshots/`):
 | Page | Mobile (375px full-page) | Desktop |
 |---|---|---|
 | Home / Mortgage Calculator | `screenshots/index-mobile-full.png` | `screenshots/index-desktop-1280.png` |
+| All calculators (hub) | `screenshots/calculators-index-mobile-full.png` | — |
 | Finance vs. Cash | `screenshots/finance-vs-cash-index-mobile-full.png` | — |
 | Loan Portability | `screenshots/loan-portability-index-mobile-full.png` | — |
 | Renovation ROI | `screenshots/renovation-roi-index-mobile-full.png` | — |
