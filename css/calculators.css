@@ -104,6 +104,11 @@
 @media (max-width: 768px) {
   .calculator__control-row { flex-direction: column; align-items: stretch; gap: 10px; }
   .calculator__input--number { width: 100%; }
+  /* Bigger tap area for the number inputs on touch screens.
+     Needs input.calculator__input to match the specificity of
+     style.css's input[type="number"] (0,1,1). */
+  input.calculator__input,
+  select.calculator__input { padding: 14px 12px; }
 }
 
 .calculator__hint {
