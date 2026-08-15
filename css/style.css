@@ -189,7 +189,7 @@ img, canvas, svg, video {
   border: 1px solid #3b5b8c;
   border-radius: 8px;
   padding: 6px 10px;
-  font-size: 0.9rem;
+  font-size: 16px; /* ≥16px prevents iOS auto-zoom on focus */
   cursor: pointer;
 }
 
@@ -899,29 +899,29 @@ table.amortization tbody tr:hover { background: #eef3f8; }
   .page-title { font-size: 1.8rem; }
   h1 { font-size: 1.8rem; }
   h2 { font-size: 1.4rem; }
+  h3 { font-size: 1.2rem; }
 
   .input-section,
   .results-section { padding: 16px; }
 
   .page-intro { font-size: 1rem; }
 
+  /* Section rhythm on small screens (20–30px per the spec) */
+  .seo-section { margin-top: 28px; padding-top: 22px; }
+
   /* Amortization table: smaller type + hide the least essential columns */
   table.amortization { font-size: 12px; min-width: 0; }
   table.amortization thead th { padding: 8px 6px; font-size: 12px; }
   table.amortization tbody td { padding: 6px 6px; }
-  /* Hide "Balance" on very small screens (keep Month/Principal/Interest) */
+  /* Hide "Payment" and "Balance" on small screens (keep Month/Principal/Interest) */
+  table.amortization thead th:nth-child(2),
+  table.amortization tbody td:nth-child(2),
   table.amortization thead th:nth-child(5),
   table.amortization tbody td:nth-child(5) { display: none; }
 
   .contact-form { padding: 20px; }
   .btn-row .btn { flex: 1 1 100%; }
   .chart-canvas { height: 220px; }
-}
-
-/* Hide "Payment" too on the smallest screens (<380px) */
-@media (max-width: 380px) {
-  table.amortization thead th:nth-child(2),
-  table.amortization tbody td:nth-child(2) { display: none; }
 }
 
 @media (min-width: 760px) {

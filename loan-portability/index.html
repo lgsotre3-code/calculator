@@ -96,13 +96,9 @@
     .btn-primary{background:var(--blue);color:#fff}
   </style>
 
-  <!-- ============ Styles (async, non-critical) ============ -->
-  <link rel="stylesheet" href="../css/style.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="../css/calculators.css" media="print" onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/calculators.css">
-  </noscript>
+  <!-- ============ Styles (render-blocking keeps layout stable / CLS-safe) ============ -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/calculators.css">
 </head>
 
 <body>
