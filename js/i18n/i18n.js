@@ -57,7 +57,7 @@
       return 'en';
     }
 
-    /** Loads the dictionary script for `lang`, then applies translations. */
+    /** Loads the English fallback dictionary first (if needed), then `lang`. */
     load(lang) {
       const target = this.isSupported(lang) ? lang : 'en';
       if (this.translations[target]) {
@@ -65,20 +65,42 @@
         this.applyTranslations();
         return Promise.resolve();
       }
+      // Always ensure the English dictionary is available so t() can fall back
+      // on keys that are missing in the target language.
+      const ensureEn = (target !== 'en' && !this.translations.en)
+        ? this.fetchDict('en')
+        : Promise.resolve();
+      return ensureEn.then(() => this.fetchDict(target));
+    }
+
+    /**
+     * Injects <script src="js/i18n/{lang}.js">. The dictionary files register
+     * themselves on window.TRANSLATIONS; we adopt them into this.translations.
+     */
+    fetchDict(lang) {
       return new Promise((resolve) => {
         const s = document.createElement('script');
-        s.src = 'js/i18n/' + target + '.js';
+        s.src = 'js/i18n/' + lang + '.js';
         s.onload = () => {
-          this.currentLang = target;
+          this.adoptDictionaries();
+          this.currentLang = lang;
           this.applyTranslations();
           resolve();
         };
         s.onerror = () => {
           // Fall back to English if the dictionary failed to load.
-          if (target !== 'en') { this.load('en').then(resolve); }
+          if (lang !== 'en') { this.fetchDict('en').then(resolve); }
           else resolve();
         };
         document.head.appendChild(s);
+      });
+    }
+
+    /** Copies every dictionary the loader scripts put on window.TRANSLATIONS. */
+    adoptDictionaries() {
+      if (!window.TRANSLATIONS) return;
+      Object.keys(window.TRANSLATIONS).forEach((k) => {
+        if (!this.translations[k]) this.translations[k] = window.TRANSLATIONS[k];
       });
     }
 
@@ -92,7 +114,9 @@
       if (dict && dict[key]) return dict[key];
       // Fallback: English dictionary, then the raw key.
       const en = this.translations.en;
-      return (en && en[key]) ? en[key] : key;
+      if (en && en[key]) return en[key];
+      console.warn('[i18n] Missing translation: "' + key + '" (' + this.currentLang + ')');
+      return key;
     }
 
     applyTranslations() {
@@ -146,6 +170,11 @@
       if (window.mortgageCalculator) {
         window.mortgageCalculator.calculate(false);
       }
+
+      // Notify other scripts (charts, analytics) that the UI language changed.
+      document.dispatchEvent(new CustomEvent('i18n:updated', {
+        detail: { lang: this.currentLang }
+      }));
     }
 
     /** Called by the <select id="lang-select"> change handler. */
