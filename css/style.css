@@ -889,6 +889,10 @@ table.amortization tbody tr:hover { background: #eef3f8; }
     font-size: 1rem;
   }
   .main-nav a.active { border-bottom: none; border-left: 4px solid var(--blue-light); }
+
+  /* Breathing room under the Loan Term field so the native picker on iOS
+     does not overlap/feel cramped when it opens. */
+  .input-group--loan-term { padding-bottom: 20px; }
 }
 
 /* ---------- 11d. Responsive: small phones (max 480px) ---------- */
@@ -913,11 +917,13 @@ table.amortization tbody tr:hover { background: #eef3f8; }
   table.amortization { font-size: 12px; min-width: 0; }
   table.amortization thead th { padding: 8px 6px; font-size: 12px; }
   table.amortization tbody td { padding: 6px 6px; }
-  /* Hide "Payment" and "Balance" on small screens (keep Month/Principal/Interest) */
-  table.amortization thead th:nth-child(2),
-  table.amortization tbody td:nth-child(2),
-  table.amortization thead th:nth-child(5),
-  table.amortization tbody td:nth-child(5) { display: none; }
+  /* Hide "Payment" and "Balance" on small screens (keep Month/Principal/Interest).
+     Scoped to the calculator table only: other pages reuse .amortization with
+     different column sets (affordability-guide has 2, fha-vs-conventional has 3). */
+  #amortization-table thead th:nth-child(2),
+  #amortization-table tbody td:nth-child(2),
+  #amortization-table thead th:nth-child(5),
+  #amortization-table tbody td:nth-child(5) { display: none; }
 
   .contact-form { padding: 20px; }
   .btn-row .btn { flex: 1 1 100%; }

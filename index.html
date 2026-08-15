@@ -263,7 +263,7 @@
         </div>
 
         <!-- Loan Term: select -->
-        <div class="form-group">
+        <div class="form-group input-group--loan-term">
           <label for="loan-term" data-i18n="loan_term">Loan Term (years)</label>
           <select id="loan-term" aria-label="Loan term in years">
             <option value="10" data-i18n-option="years_10">10 years</option>
@@ -355,7 +355,7 @@
           <h2 data-i18n="schedule_title">Amortization Schedule</h2>
           <p class="schedule-note" id="schedule-footer" aria-live="polite"></p>
           <div class="table-scroll" tabindex="0" aria-label="Amortization schedule table">
-            <table class="amortization">
+            <table class="amortization" id="amortization-table">
               <thead>
                 <tr>
                   <th scope="col" data-i18n="month">Month</th>

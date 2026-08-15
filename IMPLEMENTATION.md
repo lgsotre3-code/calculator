@@ -66,6 +66,22 @@ French typo fixed: "Rendement Attend" → "Rendement Attendu".
 - `vercel.json` / `robots.txt`: no change needed (directory-index pages work with
   `cleanUrls`; sitemap already referenced).
 
+### 6. Mobile fine-tuning (follow-up)
+- **Amortization table on ≤480px**: the "hide Payment/Balance" rule is now scoped
+  to `#amortization-table` (the calculator's table only). The generic
+  `table.amortization th/td:nth-child(...)` selectors were too broad and would
+  have hidden meaningful columns on other pages that reuse `.amortization` with a
+  different layout (affordability-guide has 2 columns, fha-vs-conventional has 3).
+  Visible on phones: Month / Principal / Interest; the wrapper `.table-scroll`
+  keeps horizontal scroll for the full 5-column view when needed.
+- **Chart legend fonts**: already 10px below 480px (via `axisFont()` / `chartFont()`
+  in `js/chart.js` / `js/calc-core.js`), which also covers the <400px case. The
+  legend is drawn on canvas by Chart.js, so there is no `.chart-legend` CSS class
+  to style.
+- **Loan Term field**: marked with `.input-group--loan-term` and given
+  `padding-bottom: 20px` below 768px so the iOS native picker does not overlap the
+  field when it opens.
+
 ## Validation (run with Node 24+)
 
 ```powershell
@@ -82,6 +98,9 @@ node validate.js            # → "ALL CHECKS PASSED"
 node smoke.cjs              # → "SMOKE: ALL PAGES PASS"
 
 # 4. Cross-check t('...') keys used in js/calc-*.js exist in all dictionaries
+
+# 5. Browser checks (Puppeteer, see TESTING.md): layout at 375px / 1280px,
+#    hamburger toggle, hidden table columns, and input touch targets.
 ```
 
 Expected `validate.js` output includes informational `WARN: FAQPage has <10
