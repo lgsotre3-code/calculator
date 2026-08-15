@@ -10,23 +10,63 @@
   <title>Privacy Policy | Mortgage Calculator</title>
   <meta name="description" content="Privacy policy for the free mortgage calculator with taxes, insurance, and extra payments.">
   <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1a365d">
   <link rel="canonical" href="https://www.mortgage-pro-calc.com/privacy.html">
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/img/favicon.svg">
+  <link rel="preconnect" href="https://acscdn.com" crossorigin>
+
+  <!-- ============ Styles ============ -->
+  <link rel="stylesheet" href="css/style.css">
   <style>
-    body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#2d3748;background:#f7fafc;margin:0}
-    header{background:#1a365d;color:#fff;padding:20px}
-    main{max-width:820px;margin:0 auto;padding:24px 20px 60px}
-    h1{color:#1a365d}h2{color:#2b6cb0;margin-top:28px}
-    a{color:#2b6cb0}.updated{color:#5a6b7e;font-size:.9rem}
+    .updated { color: #5a6b7e; font-size: .9rem; }
   </style>
 
   <!-- Adcash Library -->
   <script id="aclib" type="text/javascript" src="https://acscdn.com/script/aclib.js"></script>
 </head>
 <body>
-  <header><strong>Mortgage Calculator — Privacy Policy</strong></header>
-  <main>
-    <h1>Privacy Policy</h1>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="brand" aria-label="Mortgage Calculator home">
+        <span class="logo-mark" aria-hidden="true">MC</span>
+        <span data-i18n="brand_name">MortgageCalc</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="/" data-i18n="nav_home">Home</a></li>
+          <li><a href="/calculators/" data-i18n="nav_calculators">Calculators</a></li>
+          <li><a href="/blog" data-i18n="nav_blog">Blog</a></li>
+          <li><a href="/about" data-i18n="nav_about">About</a></li>
+          <li><a href="/contact" data-i18n="nav_contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="main-nav"
+              data-label-open="Open menu" data-label-close="Close menu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="lang-switch">
+        <label for="lang-select" data-i18n="language_label">Language</label>
+        <select id="lang-select" aria-label="Language">
+          <option value="en" data-i18n-option="lang_en">English</option>
+          <option value="es" data-i18n-option="lang_es">Español</option>
+          <option value="fr" data-i18n-option="lang_fr">Français</option>
+          <option value="pt" data-i18n-option="lang_pt">Português</option>
+          <option value="de" data-i18n-option="lang_de">Deutsch</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================ MAIN ============================ -->
+  <main id="main" class="container">
+    <h1 class="page-title">Privacy Policy</h1>
     <p class="updated">Last updated: August 15, 2026</p>
 
     <p>MortgageCalc ("we", "us", "our") operates <strong>www.mortgage-pro-calc.com</strong> (the "Website"), a free mortgage calculator that also provides amortization schedules and payment breakdowns in multiple languages.</p>
@@ -69,6 +109,30 @@
     <h2>11. Contact</h2>
     <p>If you have questions about this Privacy Policy, contact us at support@mortgage-pro-calc.com.</p>
   </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="/privacy.html" data-i18n="privacy">Privacy Policy</a>
+        <a href="/terms.html" data-i18n="terms">Terms of Use</a>
+        <a href="/contact" data-i18n="nav_contact">Contact</a>
+      </nav>
+      <p class="footer-disclaimer" data-i18n="disclaimer">This calculator provides estimates for educational purposes only. Contact a licensed lender for an official quote.</p>
+      <p class="footer-copy">© 2026 MortgageCalc. <span data-i18n="rights">All rights reserved.</span></p>
+    </div>
+  </footer>
+
+  <!-- ============================ SCRIPTS ============================ -->
+  <script src="js/i18n/i18n.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/analytics.js"></script>
+  <script>
+    window.i18n.init();
+    document.getElementById('lang-select').addEventListener('change', function (e) {
+      window.i18n.switchLanguage(e.target.value);
+    });
+  </script>
 
   <!-- Adcash Zone -->
   <script type="text/javascript">
