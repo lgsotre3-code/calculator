@@ -727,6 +727,40 @@ table.amortization tbody tr:nth-child(even) { background: #f7fafc; }
   .contact-form { padding: 20px; }
 }
 
+/* ---------- 11c. Small-phone fixes (calculator inputs & buttons) ---------- */
+@media (max-width: 420px) {
+  /* Let slider drop to its own line so the number input isn't squeezed */
+  .input-row {
+    flex-wrap: wrap;
+    row-gap: 8px;
+  }
+  .input-row input[type="range"] {
+    flex: 1 1 100%;
+  }
+  .input-row input[type="number"] {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 90px;
+  }
+  .input-row > .helper {
+    flex: 0 0 auto;
+  }
+
+  /* Equal-width action buttons instead of one dominant + one shrunk */
+  .btn-secondary {
+    flex: 1;
+  }
+
+  /* Reduce header crowding on very small screens */
+  .header-inner {
+    padding: 10px 16px;
+    gap: 10px;
+  }
+  .main-nav ul {
+    gap: 12px;
+  }
+}
+
 @media (min-width: 760px) {
   .contact-grid { grid-template-columns: 1fr 1fr; }
 }
