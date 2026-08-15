@@ -63,7 +63,12 @@
   </url>
 
   <url>
-    <loc>https://www.mortgage-pro-calc.com/refinance</loc>
+    <loc>https://www.mortgage-pro-calc.com/amortization-guide</loc>
+    <lastmod>2026-08-15</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/refinance-guide</loc>
     <lastmod>2026-08-15</lastmod>
     <priority>0.8</priority>
   </url>
@@ -73,7 +78,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.mortgage-pro-calc.com/how-much-house-can-i-afford</loc>
+    <loc>https://www.mortgage-pro-calc.com/affordability-guide</loc>
     <lastmod>2026-08-15</lastmod>
     <priority>0.8</priority>
   </url>

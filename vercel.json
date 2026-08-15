@@ -1,5 +1,11 @@
 {
   "cleanUrls": true,
+  "redirects": [
+    { "source": "/refinance", "destination": "/refinance-guide", "permanent": true },
+    { "source": "/refinance/", "destination": "/refinance-guide/", "permanent": true },
+    { "source": "/how-much-house-can-i-afford", "destination": "/affordability-guide", "permanent": true },
+    { "source": "/how-much-house-can-i-afford/", "destination": "/affordability-guide/", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",

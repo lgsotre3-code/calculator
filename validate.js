@@ -8,9 +8,10 @@ const pages = [
   'about/index.html',
   'contact/index.html',
   '404.html',
-  'refinance/index.html',
+  'amortization-guide/index.html',
+  'refinance-guide/index.html',
   'fha-vs-conventional/index.html',
-  'how-much-house-can-i-afford/index.html',
+  'affordability-guide/index.html',
 ];
 
 let jsonOk = true;

@@ -425,6 +425,42 @@ table.amortization tbody tr:nth-child(even) { background: #f7fafc; }
   font-size: 1rem;
 }
 .cta-box p { margin: 0 0 12px; font-size: 0.9rem; color: var(--text-muted); }
+
+/* Amortization formula */
+.formula {
+  margin: 12px 0;
+  padding: 12px 16px;
+  background: #f7fafc;
+  border-left: 4px solid var(--blue);
+  border-radius: 6px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+  overflow-x: auto;
+}
+
+/* Related guides */
+.related-guides {
+  margin-top: 24px;
+  padding: 16px;
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+}
+.related-guides h3 {
+  margin: 0 0 10px;
+  color: var(--navy);
+  font-size: 1rem;
+}
+.related-guides ul {
+  list-style: none;
+  margin: 0 0 14px;
+  padding: 0;
+}
+.related-guides li { margin: 0 0 6px; }
+.related-guides li::before { content: '→ '; color: var(--blue); }
+.related-guides li a { color: var(--blue); text-decoration: none; }
+.related-guides li a:hover { text-decoration: underline; }
+.related-guides .btn { display: inline-block; }
 .cta-links {
   display: flex;
   gap: 12px;
