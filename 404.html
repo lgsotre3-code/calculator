@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!--
+  Mortgage Calculator — 404 (404.html)
+  Served by Vercel for any URL that does not match a page.
+  BEFORE GOING LIVE: replace "seudominio.com" and the ad/analytics IDs below.
+-->
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- ============ SEO ============ -->
+  <title data-i18n-title="404_title">Page Not Found — Mortgage Calculator</title>
+  <meta name="description" data-i18n-desc="404_description" content="Page not found. Return to the free mortgage calculator with taxes, insurance and extra payments.">
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#1a365d">
+  <link rel="canonical" href="https://seudominio.com/404.html">
+
+  <!-- ============ Multilingual SEO: hreflang ============ -->
+  <link rel="alternate" hreflang="en" href="https://seudominio.com/?lang=en">
+  <link rel="alternate" hreflang="es" href="https://seudominio.com/?lang=es">
+  <link rel="alternate" hreflang="fr" href="https://seudominio.com/?lang=fr">
+  <link rel="alternate" hreflang="pt" href="https://seudominio.com/?lang=pt">
+  <link rel="alternate" hreflang="de" href="https://seudominio.com/?lang=de">
+  <link rel="alternate" hreflang="x-default" href="https://seudominio.com/">
+
+  <!-- ============ Favicon ============ -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/img/favicon.svg">
+
+  <!-- ============ Performance: preconnect ============ -->
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+  <!-- ============ Google AdSense (replace ca-pub-XXXXXXXX) ============ -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX" crossorigin="anonymous"></script>
+
+  <!-- ============ Google Analytics 4 (replace G-XXXXXXXXXX) ============ -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
+  </script>
+
+  <!-- ============ Styles ============ -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="brand" aria-label="Mortgage Calculator home">
+        <span class="logo-mark" aria-hidden="true">MC</span>
+        <span data-i18n="brand_name">MortgageCalc</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="/" data-i18n="nav_home">Home</a></li>
+          <li><a href="/blog" data-i18n="nav_blog">Blog</a></li>
+          <li><a href="/about" data-i18n="nav_about">About</a></li>
+          <li><a href="/contact" data-i18n="nav_contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="lang-switch">
+        <label for="lang-select" data-i18n="language_label">Language</label>
+        <select id="lang-select" aria-label="Language">
+          <option value="en" data-i18n-option="lang_en">English</option>
+          <option value="es" data-i18n-option="lang_es">Español</option>
+          <option value="fr" data-i18n-option="lang_fr">Français</option>
+          <option value="pt" data-i18n-option="lang_pt">Português</option>
+          <option value="de" data-i18n-option="lang_de">Deutsch</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================ MAIN ============================ -->
+  <main id="main" class="container" style="text-align:center;padding-top:48px;padding-bottom:72px;">
+    <h1 class="page-title" data-i18n="404_title">Page Not Found</h1>
+    <p class="page-intro" data-i18n="404_text" style="margin-left:auto;margin-right:auto;">Sorry, the page you're looking for doesn't exist or was moved.</p>
+    <p>
+      <a href="/" class="btn btn-primary" data-i18n="404_home">Back to Home</a>
+    </p>
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="/privacy.html" data-i18n="privacy">Privacy Policy</a>
+        <a href="/terms.html" data-i18n="terms">Terms of Use</a>
+        <a href="/contact" data-i18n="nav_contact">Contact</a>
+      </nav>
+      <p class="footer-disclaimer" data-i18n="disclaimer">This calculator provides estimates for educational purposes only. Contact a licensed lender for an official quote.</p>
+      <p class="footer-copy">© 2026 MortgageCalc. <span data-i18n="rights">All rights reserved.</span></p>
+    </div>
+  </footer>
+
+  <!-- ============================ SCRIPTS ============================ -->
+  <script src="js/i18n/i18n.js"></script>
+  <script src="js/analytics.js"></script>
+  <script>
+    window.i18n.init();
+    document.getElementById('lang-select').addEventListener('change', function (e) {
+      window.i18n.switchLanguage(e.target.value);
+    });
+  </script>
+</body>
+</html>

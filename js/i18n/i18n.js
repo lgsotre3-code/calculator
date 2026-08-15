@@ -27,6 +27,14 @@
   const SUPPORTED = ['en', 'es', 'fr', 'pt', 'de'];
   const STORAGE_KEY = 'preferred_language';
 
+  // Dictionaries live in the same folder as i18n.js. Resolve them relative to
+  // this script's own URL so subpages (/blog/, /about/, /contact/, /404.html)
+  // load them correctly regardless of the page depth.
+  const SCRIPT_SRC = (document.currentScript && document.currentScript.src) || '';
+  const DICT_BASE = SCRIPT_SRC
+    ? SCRIPT_SRC.substring(0, SCRIPT_SRC.lastIndexOf('/') + 1)
+    : 'js/i18n/';
+
   class I18n {
     constructor() {
       this.currentLang = 'en';
@@ -80,7 +88,7 @@
     fetchDict(lang) {
       return new Promise((resolve) => {
         const s = document.createElement('script');
-        s.src = 'js/i18n/' + lang + '.js';
+        s.src = DICT_BASE + lang + '.js';
         s.onload = () => {
           this.adoptDictionaries();
           this.currentLang = lang;
@@ -136,6 +144,13 @@
         if (val !== key) el.setAttribute('placeholder', val);
       });
 
+      // Value attributes (e.g. translated form field defaults)
+      document.querySelectorAll('[data-i18n-value]').forEach((el) => {
+        const key = el.getAttribute('data-i18n-value');
+        const val = t(key);
+        if (val !== key) el.setAttribute('value', val);
+      });
+
       // ARIA labels
       document.querySelectorAll('[data-i18n-aria]').forEach((el) => {
         const key = el.getAttribute('data-i18n-aria');
@@ -150,17 +165,23 @@
         if (val !== key) opt.textContent = val;
       });
 
-      // Document-level SEO
+      // Document-level SEO. Pages may override the shared keys with
+      // <title data-i18n-title="..."> and <meta name="description" data-i18n-desc="...">.
+      const titleEl = document.querySelector('title');
+      const titleKey = (titleEl && titleEl.getAttribute('data-i18n-title')) || 'meta_title';
+      const descEl = document.querySelector('meta[name="description"]');
+      const descKey = (descEl && descEl.getAttribute('data-i18n-desc')) || 'meta_description';
+
       document.documentElement.lang = this.currentLang === 'en' ? 'en-US' : this.currentLang;
-      document.title = t('meta_title');
+      document.title = t(titleKey);
 
       const setMeta = (selector, value) => {
         const m = document.querySelector(selector);
         if (m) m.setAttribute('content', value);
       };
-      setMeta('meta[name="description"]', t('meta_description'));
-      setMeta('meta[property="og:title"]', t('meta_title'));
-      setMeta('meta[property="og:description"]', t('meta_description'));
+      setMeta('meta[name="description"]', t(descKey));
+      setMeta('meta[property="og:title"]', t(titleKey));
+      setMeta('meta[property="og:description"]', t(descKey));
 
       // Language selector: highlight current language.
       const sel = document.getElementById('lang-select');

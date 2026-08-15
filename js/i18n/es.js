@@ -164,5 +164,56 @@ window.TRANSLATIONS.es = {
   "faq10_a": "Una tabla de amortización es una lista de todos los pagos durante la vida del préstamo, que muestra cuánto va al principal, cuánto a los intereses y el saldo restante tras cada mes. Esta calculadora de amortización de hipoteca la genera al instante y puede incluir pagos extras.",
 
   "faq11_q": "¿Los pagos hipotecarios quincenales ahorran dinero de verdad?",
-  "faq11_a": "Sí. Pagar la mitad de tu pago mensual cada dos semanas supone 26 medias mensualidades al año — el equivalente a 13 pagos completos en vez de 12. Ese pago extra anual va al principal, recorta años del préstamo y reduce considerablemente los intereses totales."
+  "faq11_a": "Sí. Pagar la mitad de tu pago mensual cada dos semanas supone 26 medias mensualidades al año — el equivalente a 13 pagos completos en vez de 12. Ese pago extra anual va al principal, recorta años del préstamo y reduce considerablemente los intereses totales.",
+
+  /* ---------- Página del Blog ---------- */
+  "blog_title": "Blog de la Calculadora de Hipoteca",
+  "blog_description": "Artículos, guías y noticias sobre hipotecas, préstamos, refinanciamiento y consejos para comprar tu casa.",
+  "blog_subtitle": "Consejos de expertos, guías y las noticias hipotecarias más recientes — actualizadas con frecuencia.",
+  "blog_post_1_title": "Cómo Calcular los Pagos de Hipoteca: Guía Paso a Paso",
+  "blog_post_1_excerpt": "Aprende la fórmula detrás de los pagos de hipoteca y cómo usar nuestra calculadora para planificar la compra de tu casa.",
+  "blog_post_2_title": "¿Refinanciar o Usar el Home Equity? ¿Cuál Es lo Correcto para Ti?",
+  "blog_post_2_excerpt": "Compara los pros y contras de refinanciar y de usar el home equity para tomar la mejor decisión financiera.",
+  "blog_post_3_title": "FHA vs. Préstamo Convencional: ¿Cuál Es la Diferencia?",
+  "blog_post_3_excerpt": "Entiende las diferencias clave entre las hipotecas FHA y las convencionales para elegir el préstamo correcto.",
+  "blog_post_4_title": "¿Cuánta Casa Puedo Pagar? Una Guía Completa",
+  "blog_post_4_excerpt": "Calcula tu presupuesto de compra según tus ingresos, deudas, pago inicial y tasa de interés.",
+  "blog_post_5_title": "Hipoteca de Tasa Ajustable (ARM) vs. Tasa Fija: ¿Cuál Es Mejor?",
+  "blog_post_5_excerpt": "Compara hipotecas de tasa ajustable y de tasa fija para encontrar la mejor opción para tus finanzas.",
+  "try_calculator": "Prueba la Calculadora de Hipoteca Gratuita",
+  "try_calculator_text": "Estima tu pago mensual con impuestos, seguros y pagos extras en segundos.",
+
+  /* ---------- Página Acerca de ---------- */
+  "about_title": "Acerca de MortgageCalc",
+  "about_description": "Conoce nuestra calculadora de hipoteca gratuita con impuestos, seguros y pagos extras — creada para ayudarte a comprar tu casa con confianza.",
+  "about_mission": "Nuestra Misión",
+  "about_mission_text": "Creemos que comprar una casa debe ser una decisión informada. Nuestra calculadora gratuita te ayuda a entender exactamente cuánto puedes pagar — incluyendo impuestos, seguros y pagos extras — para planificar con confianza.",
+  "about_what_we_offer": "Lo Que Ofrecemos",
+  "about_feature_1": "Estimaciones precisas del pago mensual con impuestos y seguros",
+  "about_feature_2": "Tabla de amortización completa con principal, intereses y saldo",
+  "about_feature_3": "Análisis de pagos extras para mostrar cuánto tiempo e intereses ahorras",
+  "about_feature_4": "Disponible en 5 idiomas: inglés, español, francés, portugués y alemán",
+  "about_feature_5": "100% gratuito, sin registro, compatible con móviles",
+  "about_why_trust_us": "Por Qué Confiar en Nosotros",
+  "about_why_text": "Nuestros cálculos siguen las fórmulas hipotecarias estándar y las pautas financieras de EE. UU. La herramienta es transparente, gratuita y diseñada para tu educación financiera.",
+
+  /* ---------- Página de Contacto ---------- */
+  "contact_title": "Contacto — Calculadora de Hipoteca",
+  "contact_description": "Contacta al equipo de MortgageCalc con preguntas, comentarios o sugerencias sobre nuestra calculadora de hipoteca gratuita.",
+  "contact_subtitle": "¿Tienes una pregunta, comentario o sugerencia? Nos encantaría escucharte.",
+  "contact_get_in_touch": "Ponte en Contacto",
+  "contact_response": "Normalmente respondemos en un plazo de 24 horas en días hábiles.",
+  "contact_email": "Correo electrónico:",
+  "contact_send_message": "Envía un Mensaje",
+  "contact_name": "Nombre",
+  "contact_email_label": "Correo electrónico",
+  "contact_message": "Mensaje",
+  "contact_send": "Enviar Mensaje",
+  "contact_success": "¡Gracias! Tu mensaje ha sido enviado. Te responderemos en 24 horas.",
+
+  /* ---------- Página 404 ---------- */
+  "404_title": "Página No Encontrada — Calculadora de Hipoteca",
+  "404_description": "Página no encontrada. Vuelve a la calculadora de hipoteca gratuita con impuestos, seguros y pagos extras.",
+  "404_text": "Lo sentimos, la página que buscas no existe o ha sido movida.",
+  "404_home": "Volver al Inicio"
 };

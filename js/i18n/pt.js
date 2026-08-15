@@ -164,5 +164,56 @@ window.TRANSLATIONS.pt = {
   "faq10_a": "Uma tabela de amortização é uma lista com cada parcela durante a vida do financiamento, mostrando quanto vai para o principal, quanto para juros e o saldo restante após cada mês. Esta calculadora de amortização gera isso na hora e pode incluir pagamentos extras.",
 
   "faq11_q": "Pagamentos quinzenais realmente economizam dinheiro?",
-  "faq11_a": "Sim. Pagar metade da parcela a cada duas semanas resulta em 26 meias-parcelas por ano — o equivalente a 13 parcelas completas em vez de 12. Essa parcela extra anual vai para o principal, cortando anos do financiamento e reduzindo bastante os juros totais."
+  "faq11_a": "Sim. Pagar metade da parcela a cada duas semanas resulta em 26 meias-parcelas por ano — o equivalente a 13 parcelas completas em vez de 12. Essa parcela extra anual vai para o principal, cortando anos do financiamento e reduzindo bastante os juros totais.",
+
+  /* ---------- Página do Blog ---------- */
+  "blog_title": "Blog da Calculadora de Financiamento",
+  "blog_description": "Artigos, guias e notícias sobre financiamento imobiliário, empréstimos, refinanciamento e dicas para comprar a casa própria.",
+  "blog_subtitle": "Dicas de especialistas, guias e as notícias mais recentes sobre financiamento — atualizados com frequência.",
+  "blog_post_1_title": "Como Calcular Parcelas de Financiamento: Guia Passo a Passo",
+  "blog_post_1_excerpt": "Aprenda a fórmula por trás das parcelas de financiamento e como usar nossa calculadora para planejar a compra da sua casa.",
+  "blog_post_2_title": "Refinanciar ou Usar o Home Equity: O Que É Certo Para Você?",
+  "blog_post_2_excerpt": "Compare os prós e contras de refinanciar e de usar o home equity para tomar a melhor decisão financeira.",
+  "blog_post_3_title": "FHA vs. Empréstimo Convencional: Qual É a Diferença?",
+  "blog_post_3_excerpt": "Entenda as principais diferenças entre financiamentos FHA e convencionais para escolher o empréstimo certo.",
+  "blog_post_4_title": "Quanto de Casa Posso Pagar? Um Guia Completo",
+  "blog_post_4_excerpt": "Calcule seu orçamento para comprar uma casa com base na sua renda, dívidas, entrada e taxa de juros.",
+  "blog_post_5_title": "Taxa Variável (ARM) vs. Taxa Fixa: Qual É Melhor?",
+  "blog_post_5_excerpt": "Compare financiamentos de taxa ajustável e de taxa fixa para encontrar a melhor opção para suas finanças.",
+  "try_calculator": "Experimente a Calculadora de Financiamento Gratuita",
+  "try_calculator_text": "Calcule sua parcela mensal com impostos, seguros e pagamentos extras em segundos.",
+
+  /* ---------- Página Sobre ---------- */
+  "about_title": "Sobre o MortgageCalc",
+  "about_description": "Conheça nossa calculadora de financiamento gratuita com impostos, seguros e pagamentos extras — feita para ajudar você a comprar sua casa com confiança.",
+  "about_mission": "Nossa Missão",
+  "about_mission_text": "Acreditamos que comprar uma casa deve ser uma decisão bem informada. Nossa calculadora gratuita ajuda você a entender exatamente quanto pode pagar — incluindo impostos, seguros e pagamentos extras — para planejar com confiança.",
+  "about_what_we_offer": "O Que Oferecemos",
+  "about_feature_1": "Estimativas precisas da parcela mensal com impostos e seguros",
+  "about_feature_2": "Tabela de amortização completa com principal, juros e saldo",
+  "about_feature_3": "Análise de pagamentos extras para mostrar quanto tempo e juros você economiza",
+  "about_feature_4": "Disponível em 5 idiomas: inglês, espanhol, francês, português e alemão",
+  "about_feature_5": "100% gratuito, sem cadastro, compatível com celular",
+  "about_why_trust_us": "Por Que Confiar em Nós",
+  "about_why_text": "Nossos cálculos seguem as fórmulas padrão de financiamento e as diretrizes financeiras dos EUA. A ferramenta é transparente, gratuita e feita pensando na sua educação financeira.",
+
+  /* ---------- Página de Contato ---------- */
+  "contact_title": "Fale Conosco — Calculadora de Financiamento",
+  "contact_description": "Fale com a equipe do MortgageCalc sobre dúvidas, comentários ou sugestões sobre nossa calculadora de financiamento gratuita.",
+  "contact_subtitle": "Tem uma pergunta, comentário ou sugestão? Adoraríamos ouvir você.",
+  "contact_get_in_touch": "Entre em Contato",
+  "contact_response": "Normalmente respondemos em até 24 horas em dias úteis.",
+  "contact_email": "E-mail:",
+  "contact_send_message": "Envie uma Mensagem",
+  "contact_name": "Nome",
+  "contact_email_label": "E-mail",
+  "contact_message": "Mensagem",
+  "contact_send": "Enviar Mensagem",
+  "contact_success": "Obrigado! Sua mensagem foi enviada. Responderemos em até 24 horas.",
+
+  /* ---------- Página 404 ---------- */
+  "404_title": "Página Não Encontrada — Calculadora de Financiamento",
+  "404_description": "Página não encontrada. Volte para a calculadora de financiamento gratuita com impostos, seguros e pagamentos extras.",
+  "404_text": "Desculpe, a página que você procura não existe ou foi movida.",
+  "404_home": "Voltar para o Início"
 };

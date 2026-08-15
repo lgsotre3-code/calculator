@@ -164,5 +164,56 @@ window.TRANSLATIONS.fr = {
   "faq10_a": "Un tableau d'amortissement est une liste de chaque paiement sur la durée du prêt, montrant la part de capital, la part d'intérêts et le solde restant après chaque mois. Ce calculateur d'amortissement hypothécaire le génère instantanément et peut inclure les paiements extras.",
 
   "faq11_q": "Les paiements hypothécaires bimensuels font-ils vraiment économiser ?",
-  "faq11_a": "Oui. Payer la moitié de votre mensualité toutes les deux semaines revient à 26 demi-paiements par an — l'équivalent de 13 paiements complets au lieu de 12. Ce paiement supplémentaire annuel va au capital, réduisant la durée du prêt et les intérêts totaux de façon substantielle."
+  "faq11_a": "Oui. Payer la moitié de votre mensualité toutes les deux semaines revient à 26 demi-paiements par an — l'équivalent de 13 paiements complets au lieu de 12. Ce paiement supplémentaire annuel va au capital, réduisant la durée du prêt et les intérêts totaux de façon substantielle.",
+
+  /* ---------- Page Blog ---------- */
+  "blog_title": "Blog du Calculateur Hypothécaire",
+  "blog_description": "Articles, guides et actualités sur les hypothèques, les prêts, le refinancement et des conseils pour acheter votre maison.",
+  "blog_subtitle": "Conseils d'experts, guides et les dernières actualités hypothécaires — mis à jour régulièrement.",
+  "blog_post_1_title": "Comment Calculer les Mensualités Hypothécaires : Guide Étape par Étape",
+  "blog_post_1_excerpt": "Découvrez la formule derrière les mensualités hypothécaires et comment utiliser notre calculateur pour planifier l'achat de votre maison.",
+  "blog_post_2_title": "Refinancement ou Prêt sur Valeur Domiciliaire : Que Choisir ?",
+  "blog_post_2_excerpt": "Comparez les avantages et inconvénients du refinancement et des prêts sur valeur domiciliaire pour prendre la meilleure décision financière.",
+  "blog_post_3_title": "FHA vs. Prêt Conventionnel : Quelle Différence ?",
+  "blog_post_3_excerpt": "Comprenez les différences clés entre les prêts hypothécaires FHA et conventionnels pour choisir le bon prêt.",
+  "blog_post_4_title": "Quelle Maison Puis-je Me Permettre ? Un Guide Complet",
+  "blog_post_4_excerpt": "Calculez votre budget d'achat selon vos revenus, dettes, apport initial et taux d'intérêt.",
+  "blog_post_5_title": "Prêt à Taux Variable (ARM) vs. à Taux Fixe : Lequel Est le Meilleur ?",
+  "blog_post_5_excerpt": "Comparez les prêts à taux ajustable et à taux fixe pour trouver la meilleure option pour vos finances.",
+  "try_calculator": "Essayez le Calculateur Hypothécaire Gratuit",
+  "try_calculator_text": "Estimez votre mensualité avec taxes, assurances et paiements supplémentaires en quelques secondes.",
+
+  /* ---------- Page À Propos ---------- */
+  "about_title": "À Propos de MortgageCalc",
+  "about_description": "Découvrez notre calculateur hypothécaire gratuit avec taxes, assurances et paiements supplémentaires — conçu pour vous aider à acheter votre maison en toute confiance.",
+  "about_mission": "Notre Mission",
+  "about_mission_text": "Nous croyons que l'achat d'une maison doit être une décision éclairée. Notre calculateur gratuit vous aide à comprendre exactement ce que vous pouvez vous permettre — taxes, assurances et paiements supplémentaires compris — pour planifier en toute confiance.",
+  "about_what_we_offer": "Ce Que Nous Offrons",
+  "about_feature_1": "Estimations précises de la mensualité avec taxes et assurances",
+  "about_feature_2": "Tableau d'amortissement complet avec capital, intérêts et solde",
+  "about_feature_3": "Analyse des paiements supplémentaires pour montrer le temps et les intérêts économisés",
+  "about_feature_4": "Disponible en 5 langues : anglais, espagnol, français, portugais et allemand",
+  "about_feature_5": "100 % gratuit, sans inscription, compatible mobile",
+  "about_why_trust_us": "Pourquoi Nous Faire Confiance",
+  "about_why_text": "Nos calculs suivent les formules hypothécaires standard et les directives financières américaines. L'outil est transparent, gratuit et conçu pour votre éducation financière.",
+
+  /* ---------- Page Contact ---------- */
+  "contact_title": "Contact — Calculateur Hypothécaire",
+  "contact_description": "Contactez l'équipe MortgageCalc pour des questions, des retours ou des suggestions sur notre calculateur hypothécaire gratuit.",
+  "contact_subtitle": "Une question, un retour ou une suggestion ? Nous serions ravis de vous entendre.",
+  "contact_get_in_touch": "Entrer en Contact",
+  "contact_response": "Nous répondons généralement sous 24 heures en jours ouvrés.",
+  "contact_email": "E-mail :",
+  "contact_send_message": "Envoyer un Message",
+  "contact_name": "Nom",
+  "contact_email_label": "E-mail",
+  "contact_message": "Message",
+  "contact_send": "Envoyer le Message",
+  "contact_success": "Merci ! Votre message a été envoyé. Nous vous répondrons sous 24 heures.",
+
+  /* ---------- Page 404 ---------- */
+  "404_title": "Page Non Trouvée — Calculateur Hypothécaire",
+  "404_description": "Page non trouvée. Revenez au calculateur hypothécaire gratuit avec taxes, assurances et paiements supplémentaires.",
+  "404_text": "Désolé, la page que vous recherchez n'existe pas ou a été déplacée.",
+  "404_home": "Retour à l'Accueil"
 };

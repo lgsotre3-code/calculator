@@ -165,5 +165,56 @@ window.TRANSLATIONS.en = {
   "faq10_a": "An amortization schedule is a table listing every payment over the life of the loan, showing how much goes to principal, how much to interest, and the remaining balance after each month. This mortgage amortization calculator generates it instantly and can include extra payments.",
 
   "faq11_q": "Do biweekly mortgage payments really save money?",
-  "faq11_a": "Yes. Paying half your monthly payment every two weeks results in 26 half-payments a year — the equivalent of 13 full payments instead of 12. That extra payment per year goes to principal, cutting years off the loan and reducing total interest substantially."
+  "faq11_a": "Yes. Paying half your monthly payment every two weeks results in 26 half-payments a year — the equivalent of 13 full payments instead of 12. That extra payment per year goes to principal, cutting years off the loan and reducing total interest substantially.",
+
+  /* ---------- Blog page ---------- */
+  "blog_title": "Mortgage Calculator Blog",
+  "blog_description": "Articles, guides and news about mortgages, home loans, refinancing and home buying tips.",
+  "blog_subtitle": "Expert tips, guides and the latest mortgage news — updated regularly.",
+  "blog_post_1_title": "How to Calculate Mortgage Payments: A Step-by-Step Guide",
+  "blog_post_1_excerpt": "Learn the formula behind mortgage payments and how to use our calculator to plan your home purchase.",
+  "blog_post_2_title": "Refinance vs. Home Equity Loan: Which Is Right for You?",
+  "blog_post_2_excerpt": "Compare the pros and cons of refinancing and home equity loans to make the best financial decision.",
+  "blog_post_3_title": "FHA vs. Conventional Loan: What's the Difference?",
+  "blog_post_3_excerpt": "Understand the key differences between FHA and conventional mortgages to choose the right loan.",
+  "blog_post_4_title": "How Much House Can I Afford? A Complete Guide",
+  "blog_post_4_excerpt": "Calculate your home buying budget based on your income, debts, down payment and interest rate.",
+  "blog_post_5_title": "ARM vs. Fixed-Rate Mortgage: Which Is Better?",
+  "blog_post_5_excerpt": "Compare adjustable-rate and fixed-rate mortgages to find the best option for your finances.",
+  "try_calculator": "Try the Free Mortgage Calculator",
+  "try_calculator_text": "Estimate your monthly payment with taxes, insurance and extra payments in seconds.",
+
+  /* ---------- About page ---------- */
+  "about_title": "About MortgageCalc",
+  "about_description": "Learn about our free mortgage calculator with taxes, insurance and extra payments — built to help you make confident home buying decisions.",
+  "about_mission": "Our Mission",
+  "about_mission_text": "We believe that buying a home should be an informed decision. Our free mortgage calculator helps you understand exactly what you can afford — including taxes, insurance and extra payments — so you can plan with confidence.",
+  "about_what_we_offer": "What We Offer",
+  "about_feature_1": "Accurate monthly payment estimates with taxes and insurance",
+  "about_feature_2": "Complete amortization schedule with principal, interest and balance",
+  "about_feature_3": "Extra payment analysis to show how much time and interest you can save",
+  "about_feature_4": "Available in 5 languages: English, Spanish, French, Portuguese and German",
+  "about_feature_5": "100% free, no registration, mobile-friendly",
+  "about_why_trust_us": "Why Trust Us",
+  "about_why_text": "Our calculations follow standard mortgage formulas and US financial guidelines. The tool is transparent, free and designed with your financial education in mind.",
+
+  /* ---------- Contact page ---------- */
+  "contact_title": "Contact Us — Mortgage Calculator",
+  "contact_description": "Contact the MortgageCalc team with questions, feedback or suggestions about our free mortgage calculator.",
+  "contact_subtitle": "Have a question, feedback or suggestion? We'd love to hear from you.",
+  "contact_get_in_touch": "Get in Touch",
+  "contact_response": "We typically respond within 24 hours on business days.",
+  "contact_email": "Email:",
+  "contact_send_message": "Send a Message",
+  "contact_name": "Name",
+  "contact_email_label": "Email",
+  "contact_message": "Message",
+  "contact_send": "Send Message",
+  "contact_success": "Thank you! Your message has been sent. We will reply within 24 hours.",
+
+  /* ---------- 404 page ---------- */
+  "404_title": "Page Not Found — Mortgage Calculator",
+  "404_description": "Page not found. Return to the free mortgage calculator with taxes, insurance and extra payments.",
+  "404_text": "Sorry, the page you're looking for doesn't exist or was moved.",
+  "404_home": "Back to Home"
 };

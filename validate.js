@@ -1,29 +1,43 @@
-// Validate: (1) JSON-LD blocks in index.html, (2) data-i18n keys vs dictionaries.
+// Validate: (1) JSON-LD blocks in every HTML page, (2) data-i18n keys vs dictionaries.
 const fs = require('fs');
 const path = require('path');
 
-const html = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
+const pages = [
+  'index.html',
+  'blog/index.html',
+  'about/index.html',
+  'contact/index.html',
+  '404.html',
+];
 
-// 1) JSON-LD blocks
-const blocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
 let jsonOk = true;
-for (const [, json] of blocks) {
-  try {
-    const data = JSON.parse(json.trim());
-    if (data['@type'] === 'FAQPage' && data.mainEntity.length < 10) {
-      console.log('WARN: FAQPage has <10 questions (' + data.mainEntity.length + ')');
+const keysUsed = new Set();
+
+for (const page of pages) {
+  const html = fs.readFileSync(path.join(__dirname, page), 'utf8');
+
+  // 1) JSON-LD blocks
+  const blocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
+  for (const [, json] of blocks) {
+    try {
+      const data = JSON.parse(json.trim());
+      if (data['@type'] === 'FAQPage' && data.mainEntity.length < 10) {
+        console.log('WARN: FAQPage has <10 questions (' + data.mainEntity.length + ')');
+      }
+      console.log('OK  JSON-LD @type=' + data['@type'] + ' (' + page + ')');
+    } catch (e) {
+      jsonOk = false;
+      console.log('FAIL JSON-LD (' + page + '): ' + e.message);
     }
-    console.log('OK  JSON-LD @type=' + data['@type']);
-  } catch (e) {
-    jsonOk = false;
-    console.log('FAIL JSON-LD: ' + e.message);
+  }
+
+  // 2) data-i18n keys used in this page
+  for (const m of html.matchAll(/data-i18n(?:-placeholder|-aria|-option|-value|-title|-desc)?="([^"]+)"/g)) {
+    keysUsed.add(m[1]);
   }
 }
-if (!blocks.length) console.log('FAIL: no JSON-LD found');
 
-// 2) data-i18n keys used in HTML
-const keysUsed = new Set();
-for (const m of html.matchAll(/data-i18n(?:-placeholder|-aria|-option)?="([^"]+)"/g)) keysUsed.add(m[1]);
+if (!keysUsed.size) console.log('FAIL: no data-i18n keys found');
 
 // 3) keys defined in each dictionary
 const vm = require('vm');

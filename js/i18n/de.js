@@ -164,5 +164,56 @@ window.TRANSLATIONS.de = {
   "faq10_a": "Ein Tilgungsplan ist eine Tabelle mit jeder Zahlung über die Laufzeit des Darlehens, die zeigt, wie viel in die Tilgung und in die Zinsen fließt und welcher Saldo nach jedem Monat bleibt. Dieser Hypotheken-Amortisationsrechner erstellt ihn sofort und kann Sondertilgungen einbeziehen.",
 
   "faq11_q": "Sparen 14-tägliche Hypothekenzahlungen wirklich Geld?",
-  "faq11_a": "Ja. Wer alle zwei Wochen die halbe Monatsrate zahlt, leistet 26 halbe Zahlungen im Jahr — das entspricht 13 vollen statt 12 Zahlungen. Diese zusätzliche Jahreszahlung fließt in die Tilgung, verkürzt die Laufzeit um Jahre und reduziert die Gesamtzinsen erheblich."
+  "faq11_a": "Ja. Wer alle zwei Wochen die halbe Monatsrate zahlt, leistet 26 halbe Zahlungen im Jahr — das entspricht 13 vollen statt 12 Zahlungen. Diese zusätzliche Jahreszahlung fließt in die Tilgung, verkürzt die Laufzeit um Jahre und reduziert die Gesamtzinsen erheblich.",
+
+  /* ---------- Blog-Seite ---------- */
+  "blog_title": "Hypothekenrechner-Blog",
+  "blog_description": "Artikel, Ratgeber und Neuigkeiten zu Hypotheken, Krediten, Refinanzierung und Tipps für den Hauskauf.",
+  "blog_subtitle": "Expertentipps, Ratgeber und die neuesten Hypothekennachrichten — regelmäßig aktualisiert.",
+  "blog_post_1_title": "Hypothekenraten Berechnen: Eine Schritt-für-Schritt-Anleitung",
+  "blog_post_1_excerpt": "Lernen Sie die Formel hinter Hypothekenraten kennen und wie Sie unseren Rechner für die Planung Ihres Hauskaufs nutzen.",
+  "blog_post_2_title": "Refinanzierung oder Eigenheimkredit: Was Ist das Richtige für Sie?",
+  "blog_post_2_excerpt": "Vergleichen Sie die Vor- und Nachteile von Refinanzierung und Eigenheimkrediten, um die beste finanzielle Entscheidung zu treffen.",
+  "blog_post_3_title": "FHA vs. Konventionelles Darlehen: Was Ist der Unterschied?",
+  "blog_post_3_excerpt": "Verstehen Sie die wichtigsten Unterschiede zwischen FHA- und konventionellen Hypotheken, um das richtige Darlehen zu wählen.",
+  "blog_post_4_title": "Wie Viel Haus Kann Ich Mir Leisten? Ein Vollständiger Ratgeber",
+  "blog_post_4_excerpt": "Berechnen Sie Ihr Budget für den Hauskauf anhand von Einkommen, Schulden, Anzahlung und Zinssatz.",
+  "blog_post_5_title": "Variabler Zinssatz (ARM) vs. Fester Zinssatz: Was Ist Besser?",
+  "blog_post_5_excerpt": "Vergleichen Sie Hypotheken mit variablem und festem Zinssatz, um die beste Option für Ihre Finanzen zu finden.",
+  "try_calculator": "Testen Sie den Kostenlosen Hypothekenrechner",
+  "try_calculator_text": "Schätzen Sie Ihre Monatsrate mit Steuern, Versicherungen und Sonderzahlungen in Sekunden.",
+
+  /* ---------- Über-Seite ---------- */
+  "about_title": "Über MortgageCalc",
+  "about_description": "Erfahren Sie mehr über unseren kostenlosen Hypothekenrechner mit Steuern, Versicherungen und Sonderzahlungen — entwickelt, um Ihnen beim Hauskauf Sicherheit zu geben.",
+  "about_mission": "Unsere Mission",
+  "about_mission_text": "Wir glauben, dass der Kauf eines Hauses eine fundierte Entscheidung sein sollte. Unser kostenloser Rechner hilft Ihnen zu verstehen, was Sie sich leisten können — einschließlich Steuern, Versicherungen und Sonderzahlungen — für eine sichere Planung.",
+  "about_what_we_offer": "Was Wir Bieten",
+  "about_feature_1": "Präzise Schätzungen der Monatsrate mit Steuern und Versicherungen",
+  "about_feature_2": "Vollständiger Tilgungsplan mit Tilgung, Zinsen und Saldo",
+  "about_feature_3": "Analyse von Sonderzahlungen, um zu zeigen, wie viel Zeit und Zinsen Sie sparen",
+  "about_feature_4": "In 5 Sprachen verfügbar: Englisch, Spanisch, Französisch, Portugiesisch und Deutsch",
+  "about_feature_5": "100 % kostenlos, ohne Anmeldung, mobilfreundlich",
+  "about_why_trust_us": "Warum Sie Uns Vertrauen Können",
+  "about_why_text": "Unsere Berechnungen folgen den Standard-Hypothekenformeln und den US-Finanzrichtlinien. Das Tool ist transparent, kostenlos und auf Ihre finanzielle Bildung ausgerichtet.",
+
+  /* ---------- Kontakt-Seite ---------- */
+  "contact_title": "Kontakt — Hypothekenrechner",
+  "contact_description": "Kontaktieren Sie das MortgageCalc-Team bei Fragen, Feedback oder Anregungen zu unserem kostenlosen Hypothekenrechner.",
+  "contact_subtitle": "Eine Frage, Feedback oder eine Anregung? Wir freuen uns auf Ihre Nachricht.",
+  "contact_get_in_touch": "Kontakt Aufnehmen",
+  "contact_response": "Wir antworten in der Regel innerhalb von 24 Stunden an Werktagen.",
+  "contact_email": "E-Mail:",
+  "contact_send_message": "Nachricht Senden",
+  "contact_name": "Name",
+  "contact_email_label": "E-Mail",
+  "contact_message": "Nachricht",
+  "contact_send": "Nachricht Senden",
+  "contact_success": "Vielen Dank! Ihre Nachricht wurde gesendet. Wir werden innerhalb von 24 Stunden antworten.",
+
+  /* ---------- 404-Seite ---------- */
+  "404_title": "Seite Nicht Gefunden — Hypothekenrechner",
+  "404_description": "Seite nicht gefunden. Kehren Sie zum kostenlosen Hypothekenrechner mit Steuern, Versicherungen und Sonderzahlungen zurück.",
+  "404_text": "Entschuldigung, die gesuchte Seite existiert nicht oder wurde verschoben.",
+  "404_home": "Zurück zur Startseite"
 };
