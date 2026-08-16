@@ -311,7 +311,13 @@
       }
     });
 
-    calculate();
+    // Initial render: wait for the i18n dictionary so labels are
+    // translated on first paint instead of showing raw keys.
+    if (window.i18n && window.i18n.ready) {
+      window.i18n.ready.then(calculate).catch(calculate);
+    } else {
+      calculate();
+    }
   }
 
   if (document.readyState === 'loading') {
