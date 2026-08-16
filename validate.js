@@ -21,6 +21,7 @@ const pages = [
   'rent-vs-buy/index.html',
   'refinance-calculator/index.html',
   'down-payment-calculator/index.html',
+  'affordability-calculator/index.html',
 ];
 
 let jsonOk = true;
