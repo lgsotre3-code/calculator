@@ -226,6 +226,15 @@
         </div>
 
         <div class="calculator__field">
+          <label class="calculator__label" for="rvb-selling-costs" data-i18n="rvb_input_selling_costs">Selling Costs When You Sell (%)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="rvb-selling-costs-slider" class="calculator__slider" min="0" max="12" step="0.5" value="7" aria-label="Selling costs slider">
+            <input type="number" id="rvb-selling-costs" class="calculator__input calculator__input--number" value="7" min="0" max="12" step="0.5" inputmode="decimal">
+          </div>
+          <p class="calculator__hint" data-i18n="rvb_hint_selling_costs">Real estate agent commission plus closing costs, typically 6-8% of sale price in the U.S. Deducted from the buyer's equity so the comparison reflects what you'd actually walk away with.</p>
+        </div>
+
+        <div class="calculator__field">
           <label class="calculator__label" for="rvb-tax" data-i18n="rvb_input_tax">Property Tax (% of home value / year)</label>
           <div class="calculator__control-row">
             <input type="range" id="rvb-tax-slider" class="calculator__slider" min="0" max="5" step="0.1" value="1.2" aria-label="Property tax slider">
