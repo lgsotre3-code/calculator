@@ -486,6 +486,8 @@ window.TRANSLATIONS.pt = {
   "rvb_input_rent_increase": "Aumento Anual do Aluguel (%)",
   "rvb_hint_rent_increase": "Ajuste anual do aluguel — por exemplo, atrelado a um índice de inflação como o IGP-M ou o IPCA.",
   "rvb_input_appreciation": "Valorização Anual do Imóvel (%)",
+  "rvb_input_selling_costs": "Custos de Venda ao Vender (%)",
+  "rvb_hint_selling_costs": "Comissão do corretor mais custos de fechamento, tipicamente 6-8% do preço de venda nos EUA. Deduzido do patrimônio do comprador para refletir o que você realmente levaria.",
   "rvb_input_tax": "Imposto sobre o Imóvel (% do valor por ano)",
   "rvb_input_maintenance": "Manutenção (% do valor por ano)",
   "rvb_input_vacancy": "Vacância / Intervalo de Aluguel (%)",
