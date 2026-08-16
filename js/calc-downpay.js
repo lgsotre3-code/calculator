@@ -173,6 +173,10 @@
     } else {
       calculate();
     }
+
+    // Prefill the interest rate with the current market rate (FRED via the
+    // Vercel function). Best-effort: keeps the default if it fails.
+    C.prefillRate({ inputId: 'downpay-rate', sliderId: 'downpay-rate-slider', noteId: 'current-rate-note', onApplied: calculate });
   }
 
   if (document.readyState === 'loading') {
