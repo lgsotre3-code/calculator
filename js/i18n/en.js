@@ -487,6 +487,8 @@ window.TRANSLATIONS.en = {
   "rvb_input_rent_increase": "Annual Rent Increase (%)",
   "rvb_hint_rent_increase": "Annual rent adjustment — e.g. tied to an inflation index such as the IGP-M or CPI.",
   "rvb_input_appreciation": "Annual Home Appreciation (%)",
+  "rvb_input_selling_costs": "Selling Costs When You Sell (%)",
+  "rvb_hint_selling_costs": "Real estate agent commission plus closing costs, typically 6-8% of sale price in the U.S. Deducted from the buyer's equity so the comparison reflects what you'd actually walk away with.",
   "rvb_input_tax": "Property Tax (% of home value / year)",
   "rvb_input_maintenance": "Maintenance (% of home value / year)",
   "rvb_input_vacancy": "Vacancy / Rental Gap (%)",
