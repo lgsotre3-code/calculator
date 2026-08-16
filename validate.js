@@ -19,6 +19,8 @@ const pages = [
   'loan-portability/index.html',
   'renovation-roi/index.html',
   'rent-vs-buy/index.html',
+  'refinance-calculator/index.html',
+  'down-payment-calculator/index.html',
 ];
 
 let jsonOk = true;

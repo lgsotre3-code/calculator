@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<!--
+  Mortgage Calculator — Down Payment Calculator (down-payment-calculator/index.html)
+  Computes down payment amount, loan amount, monthly payment (P&I), PMI and total
+  interest, plus a side-by-side comparison of 5%, 10%, 15% and 20% down payments.
+  CONFIGURED: domain, AdSense (ca-pub-2920008879492175), Adcash (zone 0c9gzdbpws).
+-->
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G5FRBTR588"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-G5FRBTR588');
+  </script>
+  <meta name="google-site-verification" content="_nxfYFglucpreV_H_ZjRTVWkzrrb9TsWJwPPVQiC8EM">
+  <meta name="impact-site-verification" value="f1f62669-d5c7-4d23-b5c1-75fc1a809c3f">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- ============ SEO: title & description ============ -->
+  <title data-i18n-title="downpay_title">Down Payment Calculator — How Much Should You Put Down? 2026</title>
+  <meta name="description" data-i18n-desc="downpay_description" content="Free down payment calculator. See your down payment amount, loan amount, monthly payment, PMI and total interest — and compare 5%, 10%, 15% and 20% down.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#1a365d">
+  <link rel="canonical" href="https://www.mortgage-pro-calc.com/down-payment-calculator/">
+
+  <!-- ============ Open Graph / Twitter ============ -->
+  <meta property="og:title" content="Down Payment Calculator — How Much Should You Put Down?">
+  <meta property="og:description" content="Calculate your down payment, loan amount, monthly payment, PMI and total interest. Compare 5%, 10%, 15% and 20% down.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.mortgage-pro-calc.com/down-payment-calculator/">
+  <meta property="og:image" content="https://www.mortgage-pro-calc.com/assets/img/mortgage-calculator-og-image.jpg">
+  <meta property="og:site_name" content="Mortgage Calculator">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Down Payment Calculator">
+  <meta name="twitter:description" content="Calculate your down payment, monthly payment, PMI and total interest. Compare 5% to 20% down.">
+  <meta name="twitter:image" content="https://www.mortgage-pro-calc.com/assets/img/mortgage-calculator-og-image.jpg">
+
+  <!-- ============ Multilingual SEO: hreflang ============ -->
+  <link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/down-payment-calculator/?lang=en">
+  <link rel="alternate" hreflang="es" href="https://www.mortgage-pro-calc.com/down-payment-calculator/?lang=es">
+  <link rel="alternate" hreflang="fr" href="https://www.mortgage-pro-calc.com/down-payment-calculator/?lang=fr">
+  <link rel="alternate" hreflang="pt" href="https://www.mortgage-pro-calc.com/down-payment-calculator/?lang=pt">
+  <link rel="alternate" hreflang="de" href="https://www.mortgage-pro-calc.com/down-payment-calculator/?lang=de">
+  <link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/down-payment-calculator/">
+
+  <!-- ============ Favicon ============ -->
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="apple-touch-icon" href="../assets/img/favicon.svg">
+
+  <!-- ============ Performance: preconnect ============ -->
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+  <!-- ============ Schema Markup: WebApplication + FAQPage ============ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Down Payment Calculator",
+    "url": "https://www.mortgage-pro-calc.com/down-payment-calculator/",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "inLanguage": ["en", "es", "fr", "pt", "de"],
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Free down payment calculator that shows your down payment, loan amount, monthly payment, PMI and total interest, with a 5% to 20% comparison."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much should you put down on a house?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Putting 20% down avoids private mortgage insurance (PMI), but you do not have to wait until you have 20% to buy. With a conventional loan you can put down as little as 3%, and FHA loans allow 3.5%. Many buyers put down 5% to 10% and drop PMI later once they reach 20% equity." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the minimum down payment for a conventional loan?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Conventional loans allow a minimum down payment of 3% of the purchase price, though lenders may have credit score requirements. If you put down less than 20%, you generally pay private mortgage insurance (PMI) until you build 20% equity." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does a larger down payment lower your monthly payment?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. A larger down payment reduces the loan amount, so your principal and interest payment is lower. Once you reach 20% down, you also stop paying PMI, which lowers the monthly cost even further. A 20% down payment on the same home can save hundreds of dollars a month compared with 5% down." }
+      }
+    ]
+  }
+  </script>
+
+  <!-- ============ Google AdSense ============ -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2920008879492175" crossorigin="anonymous"></script>
+
+  <!-- ============ Adcash Library ============ -->
+  <script id="aclib" type="text/javascript" src="https://acscdn.com/script/aclib.js"></script>
+
+  <!-- ============ Critical CSS (inline) ============ -->
+  <style>
+    :root{--navy:#1a365d;--navy-dark:#14294a;--blue:#2b6cb0;--blue-light:#4299e1;--bg:#f7fafc;--surface:#fff;--text:#2d3748;--text-muted:#5a6b7e;--border:#e2e8f0;--radius:12px;--max-width:1180px}
+    *,*::before,*::after{box-sizing:border-box}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:var(--text);background:var(--bg)}
+    .site-header{background:var(--navy);color:#fff;box-shadow:0 2px 12px rgba(26,54,93,.08)}
+    .header-inner{max-width:var(--max-width);margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .brand{font-size:1.15rem;font-weight:700;color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+    .container{max-width:var(--max-width);margin:0 auto;padding:24px 20px 48px;width:100%}
+    .page-title{color:var(--navy);margin:0 0 8px;line-height:1.25;font-size:clamp(1.6rem,3.5vw,2.4rem)}
+    .page-intro{color:var(--text-muted);max-width:760px;margin:0 0 28px}
+    .skip-link{position:absolute;left:-999px;top:8px;z-index:100;background:var(--navy);color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none}
+    .skip-link:focus{left:8px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 22px;border:none;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;text-decoration:none;min-height:44px}
+    .btn-primary{background:var(--blue);color:#fff}
+  </style>
+
+  <!-- ============ Styles (render-blocking keeps layout stable / CLS-safe) ============ -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/calculators.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="brand" aria-label="Mortgage Calculator home">
+        <span class="logo-mark" aria-hidden="true">MC</span>
+        <span data-i18n="brand_name">MortgageCalc</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="/" data-i18n="nav_home">Home</a></li>
+          <li><a href="/calculators/" class="active" data-i18n="nav_calculators">Calculators</a></li>
+          <li><a href="/blog" data-i18n="nav_blog">Blog</a></li>
+          <li><a href="/about" data-i18n="nav_about">About</a></li>
+          <li><a href="/contact" data-i18n="nav_contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="main-nav"
+              data-label-open="Open menu" data-label-close="Close menu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="lang-switch">
+        <label for="lang-select" data-i18n="language_label">Language</label>
+        <select id="lang-select" aria-label="Language">
+          <option value="en" data-i18n-option="lang_en">English</option>
+          <option value="es" data-i18n-option="lang_es">Español</option>
+          <option value="fr" data-i18n-option="lang_fr">Français</option>
+          <option value="pt" data-i18n-option="lang_pt">Português</option>
+          <option value="de" data-i18n-option="lang_de">Deutsch</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================ AD — TOP ============================ -->
+  <div id="ad-container-top" class="ad-container" aria-hidden="true"></div>
+
+  <!-- ============================ MAIN ============================ -->
+  <main id="main" class="container">
+
+    <h1 class="page-title" data-i18n="downpay_title">Down Payment Calculator — How Much Should You Put Down? 2026</h1>
+    <p class="page-intro" data-i18n="downpay_subtitle">See exactly what your down payment gets you: the loan amount, the monthly payment, private mortgage insurance and total interest — plus a side-by-side look at 5%, 10%, 15% and 20% down.</p>
+
+    <!-- ============ CALCULATOR ============ -->
+    <div class="calculator">
+
+      <!-- ---------- FORM ---------- -->
+      <form class="calculator__panel" id="downpay-form" aria-label="Down payment inputs" onsubmit="return false">
+        <h2 class="calculator__title" data-i18n="downpay_form_title">Down Payment Inputs</h2>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="downpay-price" data-i18n="downpay_input_price">Home Price ($)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="downpay-price-slider" class="calculator__slider" min="50000" max="2000000" step="1000" value="400000" aria-label="Home price slider">
+            <input type="number" id="downpay-price" class="calculator__input calculator__input--number" value="400000" min="50000" max="2000000" step="1000" inputmode="numeric">
+          </div>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="downpay-pct" data-i18n="downpay_input_pct">Down Payment (%)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="downpay-pct-slider" class="calculator__slider" min="0" max="50" step="0.5" value="10" aria-label="Down payment percentage slider">
+            <input type="number" id="downpay-pct" class="calculator__input calculator__input--number" value="10" min="0" max="50" step="0.5" inputmode="decimal">
+          </div>
+          <p class="calculator__hint" data-i18n="downpay_hint_pct">Putting 20% or more down avoids private mortgage insurance (PMI).</p>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="downpay-rate" data-i18n="downpay_input_rate">Interest Rate (%)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="downpay-rate-slider" class="calculator__slider" min="1" max="15" step="0.01" value="6.5" aria-label="Interest rate slider">
+            <input type="number" id="downpay-rate" class="calculator__input calculator__input--number" value="6.5" min="1" max="15" step="0.01" inputmode="decimal">
+          </div>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="downpay-term" data-i18n="downpay_input_term">Loan Term (years)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="downpay-term-slider" class="calculator__slider" min="1" max="40" step="1" value="30" aria-label="Loan term slider">
+            <input type="number" id="downpay-term" class="calculator__input calculator__input--number" value="30" min="1" max="40" step="1" inputmode="numeric">
+          </div>
+        </div>
+
+        <div class="calculator__actions">
+          <button type="button" id="downpay-calculate" class="btn btn-primary" data-i18n="calculate">Calculate</button>
+          <button type="button" id="downpay-reset" class="btn btn-secondary" data-i18n="reset">Reset</button>
+        </div>
+      </form>
+
+      <!-- ---------- RESULTS ---------- -->
+      <section class="calculator__panel" aria-label="Down payment results">
+        <h2 class="calculator__results-title" data-i18n="downpay_results_title">Results</h2>
+
+        <div class="calculator__verdict" id="downpay-verdict" aria-live="polite"></div>
+
+        <div class="calculator__grid">
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="downpay_out_amount">Down Payment</span>
+            <span class="calculator__card-value" id="downpay-out-amount">$0.00</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="downpay_out_loan">Loan Amount</span>
+            <span class="calculator__card-value" id="downpay-out-loan">$0.00</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="downpay_out_ltv">Loan-to-Value</span>
+            <span class="calculator__card-value" id="downpay-out-ltv">—</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="downpay_out_monthly">Monthly Payment (P&amp;I + PMI)</span>
+            <span class="calculator__card-value" id="downpay-out-monthly">$0.00</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="downpay_out_pmi">Monthly PMI</span>
+            <span class="calculator__card-value" id="downpay-out-pmi">—</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="downpay_out_interest">Total Interest</span>
+            <span class="calculator__card-value" id="downpay-out-interest">$0.00</span>
+          </div>
+        </div>
+
+        <!-- Comparison table -->
+        <h3 class="calculator__results-title" data-i18n="downpay_cmp_title">5% vs. 10% vs. 15% vs. 20% Down</h3>
+        <div class="table-scroll" tabindex="0" aria-label="Down payment comparison table">
+          <table class="scenario-table">
+            <thead>
+              <tr>
+                <th scope="col">&nbsp;</th>
+                <th scope="col">5%</th>
+                <th scope="col">10%</th>
+                <th scope="col">15%</th>
+                <th scope="col">20%</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-i18n="downpay_cmp_down">Down Payment</td>
+                <td id="downpay-cmp-1-down">—</td>
+                <td id="downpay-cmp-2-down">—</td>
+                <td id="downpay-cmp-3-down">—</td>
+                <td id="downpay-cmp-4-down">—</td>
+              </tr>
+              <tr>
+                <td data-i18n="downpay_cmp_loan">Loan Amount</td>
+                <td id="downpay-cmp-1-loan">—</td>
+                <td id="downpay-cmp-2-loan">—</td>
+                <td id="downpay-cmp-3-loan">—</td>
+                <td id="downpay-cmp-4-loan">—</td>
+              </tr>
+              <tr>
+                <td data-i18n="downpay_cmp_payment">Monthly Payment (incl. PMI)</td>
+                <td id="downpay-cmp-1-pay">—</td>
+                <td id="downpay-cmp-2-pay">—</td>
+                <td id="downpay-cmp-3-pay">—</td>
+                <td id="downpay-cmp-4-pay">—</td>
+              </tr>
+              <tr>
+                <td data-i18n="downpay_cmp_pmi">Monthly PMI</td>
+                <td id="downpay-cmp-1-pmi">—</td>
+                <td id="downpay-cmp-2-pmi">—</td>
+                <td id="downpay-cmp-3-pmi">—</td>
+                <td id="downpay-cmp-4-pmi">—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Chart -->
+        <div class="calculator__chart">
+          <h3 data-i18n="downpay_chart_payment_title">Monthly Payment by Down Payment</h3>
+          <div class="calculator__chart-canvas"><canvas id="downpay-chart-payment" role="img" aria-label="Bar chart comparing the monthly payment for 5, 10, 15 and 20 percent down payments"></canvas></div>
+        </div>
+
+        <!-- ============ AD — MIDDLE ============ -->
+        <div id="ad-container-middle" class="ad-container ad-container--tall" aria-hidden="true"></div>
+
+        <!-- Calculator hub -->
+        <nav class="calc-hub" aria-label="Other calculators">
+          <h3 class="calc-hub__title" data-i18n="calc_nav_title">Explore More Calculators</h3>
+          <ul class="calc-hub__list">
+            <li class="calc-hub__item"><a href="/" data-i18n="calc_nav_home">Mortgage Calculator</a></li>
+            <li class="calc-hub__item"><a href="/calculators/" data-i18n="calc_nav_all">All Calculators</a></li>
+            <li class="calc-hub__item"><a href="/refinance-calculator/" data-i18n="calc_nav_refi">Refinance Calculator</a></li>
+            <li class="calc-hub__item"><a href="/rent-vs-buy/" data-i18n="calc_nav_rvb">Rent vs. Buy</a></li>
+          </ul>
+        </nav>
+      </section>
+    </div>
+
+    <!-- ============ SEO CONTENT ============ -->
+    <section class="seo-section">
+      <h2 data-i18n="downpay_sec_1">How to Use the Down Payment Calculator</h2>
+      <p data-i18n="downpay_p_1">Enter the home price, the percentage you plan to put down, the interest rate and the loan term. The calculator instantly shows the down payment amount, the loan you need, your loan-to-value ratio, the monthly principal-and-interest payment plus PMI, and the total interest over the life of the loan. The comparison table shows what the same home costs with 5%, 10%, 15% and 20% down.</p>
+    </section>
+
+    <section class="seo-section">
+      <h2 data-i18n="downpay_sec_2">Why a Larger Down Payment Matters</h2>
+      <p data-i18n="downpay_p_2">A larger down payment means a smaller loan, so you pay less interest over time and your monthly payment is lower. The big milestone is 20%: below it, most lenders require private mortgage insurance, which adds to your monthly cost until you build 20% equity. On a $400,000 home, moving from 5% to 20% down can save several hundred dollars a month once you include PMI.</p>
+    </section>
+
+    <section class="seo-section">
+      <h2 data-i18n="downpay_sec_3">How to Avoid PMI</h2>
+      <p data-i18n="downpay_p_3">The simplest way to avoid PMI is to put down at least 20%. Alternatives include lender-paid mortgage insurance, which comes with a slightly higher rate, or an 80-10-10 piggyback loan structure that splits financing into a first and second mortgage. If you already pay PMI, you can usually request its removal once your loan balance falls to 80% of the original home value.</p>
+    </section>
+
+    <section class="seo-section">
+      <h2 data-i18n="downpay_sec_4">Down Payment Assistance Programs</h2>
+      <p data-i18n="downpay_p_4">Many first-time buyers qualify for down payment assistance from state housing agencies, local programs and FHA, VA or USDA loans, which allow down payments as low as 0% to 3.5%. VA loans are the only option with no down payment requirement for eligible veterans and service members. Check what your state offers before you assume you need a 20% down payment.</p>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="seo-section" id="downpay-faq">
+      <h2 data-i18n="sec_faq">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary data-i18n="downpay_faq1_q">How much should you put down on a house?</summary>
+          <p data-i18n="downpay_faq1_a">Putting 20% down avoids private mortgage insurance (PMI), but you do not have to wait until you have 20% to buy. With a conventional loan you can put down as little as 3%, and FHA loans allow 3.5%. Many buyers put down 5% to 10% and drop PMI later once they reach 20% equity.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="downpay_faq2_q">What is the minimum down payment for a conventional loan?</summary>
+          <p data-i18n="downpay_faq2_a">Conventional loans allow a minimum down payment of 3% of the purchase price, though lenders may have credit score requirements. If you put down less than 20%, you generally pay private mortgage insurance (PMI) until you build 20% equity.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="downpay_faq3_q">Does a larger down payment lower your monthly payment?</summary>
+          <p data-i18n="downpay_faq3_a">Yes. A larger down payment reduces the loan amount, so your principal and interest payment is lower. Once you reach 20% down, you also stop paying PMI, which lowers the monthly cost even further. A 20% down payment on the same home can save hundreds of dollars a month compared with 5% down.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ============ AD — FOOTER ============ -->
+    <div id="ad-container-footer" class="ad-container" aria-hidden="true"></div>
+
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="/privacy.html" data-i18n="privacy">Privacy Policy</a>
+        <a href="/terms.html" data-i18n="terms">Terms of Use</a>
+        <a href="/contact" data-i18n="nav_contact">Contact</a>
+      </nav>
+      <p class="footer-disclaimer" data-i18n="disclaimer">This calculator provides estimates for educational purposes only. Contact a licensed lender for an official quote.</p>
+      <p class="footer-copy">© 2026 MortgageCalc. <span data-i18n="rights">All rights reserved.</span></p>
+    </div>
+  </footer>
+
+  <!-- ============================ SCRIPTS ============================ -->
+  <script src="../js/i18n/i18n.js"></script>
+  <script src="../js/calc-core.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/analytics.js"></script>
+  <script>
+    (function () {
+      window.i18n.init();
+      var sel = document.getElementById('lang-select');
+      if (sel) sel.addEventListener('change', function (e) { window.i18n.switchLanguage(e.target.value); });
+
+      function loadCalc() {
+        var s1 = document.createElement('script');
+        s1.src = 'https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js';
+        document.body.appendChild(s1);
+        s1.onload = function () {
+          var s2 = document.createElement('script');
+          s2.src = '../js/calc-downpay.js';
+          document.body.appendChild(s2);
+        };
+      }
+      if (window.CalcCore && window.CalcCore.whenVisible) {
+        window.CalcCore.whenVisible(document.querySelector('.calculator'), loadCalc);
+      } else {
+        loadCalc();
+      }
+    })();
+  </script>
+
+  <noscript>
+    <p style="text-align:center;padding:24px;">This calculator requires JavaScript. Please enable JavaScript to use the down payment calculator.</p>
+  </noscript>
+
+  <!-- ============ Adcash Zone ============ -->
+  <script type="text/javascript">
+    aclib.runAutoTag({ zoneId: '0c9gzdbpws' });
+  </script>
+</body>
+</html>
