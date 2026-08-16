@@ -22,7 +22,8 @@
   function cache() {
     ['rvb-price', 'rvb-price-slider', 'rvb-down', 'rvb-down-slider', 'rvb-rate', 'rvb-rate-slider',
      'rvb-term', 'rvb-rent', 'rvb-rent-slider', 'rvb-rent-increase', 'rvb-rent-increase-slider',
-     'rvb-appreciation', 'rvb-appreciation-slider', 'rvb-tax', 'rvb-tax-slider',
+     'rvb-appreciation', 'rvb-appreciation-slider', 'rvb-selling-costs', 'rvb-selling-costs-slider',
+     'rvb-tax', 'rvb-tax-slider',
      'rvb-maintenance', 'rvb-maintenance-slider', 'rvb-vacancy', 'rvb-vacancy-slider',
      'rvb-return', 'rvb-return-slider', 'rvb-horizon', 'rvb-horizon-slider',
      'rvb-verdict', 'rvb-out-buy-monthly', 'rvb-out-rent-monthly', 'rvb-out-cashflow',
@@ -63,6 +64,7 @@
       rent: C.clamp(C.val(el['rvb-rent'], 0), 0, 10000),
       rentInc: C.clamp(C.val(el['rvb-rent-increase'], 0), 0, 15),
       app: C.clamp(C.val(el['rvb-appreciation'], 0), 0, 15),
+      sellCost: C.clamp(C.val(el['rvb-selling-costs'], 0), 0, 12),
       tax: C.clamp(C.val(el['rvb-tax'], 0), 0, 5),
       maint: C.clamp(C.val(el['rvb-maintenance'], 0), 0, 5),
       vacancy: C.clamp(C.val(el['rvb-vacancy'], 0), 0, 20),
@@ -113,7 +115,7 @@
       renter = renter * (1 + rM) + diff;
 
       var balance = m <= months ? sched.balances[m] : 0;
-      var equity = hv - balance;
+      var equity = hv - balance - (hv * s.sellCost / 100);
 
       if (m === 1) {
         buyMonthlyY1 = buyM;
@@ -218,6 +220,7 @@
         monthly_rent: s.rent,
         rent_increase_pct: s.rentInc,
         appreciation_pct: s.app,
+        selling_costs_pct: s.sellCost,
         property_tax_pct: s.tax,
         maintenance_pct: s.maint,
         vacancy_pct: s.vacancy,
@@ -235,6 +238,7 @@
     el['rvb-rent'].value = 1800; el['rvb-rent-slider'].value = 1800;
     el['rvb-rent-increase'].value = 4; el['rvb-rent-increase-slider'].value = 4;
     el['rvb-appreciation'].value = 3; el['rvb-appreciation-slider'].value = 3;
+    el['rvb-selling-costs'].value = 7; el['rvb-selling-costs-slider'].value = 7;
     el['rvb-tax'].value = 1.2; el['rvb-tax-slider'].value = 1.2;
     el['rvb-maintenance'].value = 1; el['rvb-maintenance-slider'].value = 1;
     el['rvb-vacancy'].value = 5; el['rvb-vacancy-slider'].value = 5;
@@ -258,6 +262,7 @@
       ['rvb-rate-slider', 'rvb-rate'], ['rvb-rent-slider', 'rvb-rent'],
       ['rvb-rent-increase-slider', 'rvb-rent-increase'],
       ['rvb-appreciation-slider', 'rvb-appreciation'],
+      ['rvb-selling-costs-slider', 'rvb-selling-costs'],
       ['rvb-tax-slider', 'rvb-tax'], ['rvb-maintenance-slider', 'rvb-maintenance'],
       ['rvb-vacancy-slider', 'rvb-vacancy'], ['rvb-return-slider', 'rvb-return'],
       ['rvb-horizon-slider', 'rvb-horizon']
