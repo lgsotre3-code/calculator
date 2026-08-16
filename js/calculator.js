@@ -326,6 +326,18 @@
       renderTable(lastSchedule || amortize(1, state.interestRate, state.loanTerm, 0), showAll ? 0 : 12);
     });
 
+    // Prefill the interest rate with the current market rate (FRED via the
+    // Vercel function). Best-effort: on any failure the default is kept and
+    // the field stays user-editable. Recalculates only when a rate arrives.
+    if (window.CalcCore && window.CalcCore.prefillRate) {
+      window.CalcCore.prefillRate({
+        inputId: 'interest-rate',
+        sliderId: 'interest-rate-slider',
+        noteId: 'current-rate-note',
+        onApplied: () => calculate(false)
+      });
+    }
+
     // Initial render: wait for the i18n dictionary so captions and the
     // schedule note are translated on first paint (no transient
     // "Missing translation" warnings / raw-key flicker).

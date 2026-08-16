@@ -371,5 +371,71 @@
   window.addEventListener('orientationchange', reflowSoon);
   window.addEventListener('resize', reflowSoon);
 
+  /* ------------------------------------------------------------------
+   * Current market mortgage rate (FRED MORTGAGE30US via Vercel function)
+   * ------------------------------------------------------------------ */
+
+  /**
+   * Returns a Promise of the latest 30-year fixed mortgage rate (number)
+   * or null when the endpoint is unreachable / returns garbage. Never
+   * throws — callers use it as a best-effort prefill.
+   */
+  C.getCurrentMortgageRate = function () {
+    if (typeof fetch !== 'function') return Promise.resolve(null);
+    return fetch('/api/mortgage-rate', { cache: 'no-store' })
+      .then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      })
+      .then(function (data) {
+        var rate = parseFloat(data && data.rate);
+        return (isFinite(rate) && rate > 0) ? rate : null;
+      })
+      .catch(function () { return null; });
+  };
+
+  /**
+   * Best-effort prefill of a rate input (+ optional slider) with the
+   * current market rate, then shows a translated note next to the field.
+   *
+   * opts: {
+   *   inputId,             // required — number input to prefill
+   *   sliderId,            // optional — range input to keep in sync
+   *   noteId,              // optional — <p id> to reveal with the note text
+   *   onApplied(rate)      // optional — called with the applied rate
+   * }
+   *
+   * Falls back silently to the page's default value on any failure. The
+   * user's own edits are never overwritten (value is captured at call time
+   * and skipped if it changes before the response arrives).
+   */
+  C.prefillRate = function (opts) {
+    opts = opts || {};
+    if (!opts.inputId) return;
+    var input = document.getElementById(opts.inputId);
+    if (!input) return;
+    var original = input.value;
+
+    C.getCurrentMortgageRate().then(function (rate) {
+      if (!rate || rate <= 0) return;          // silent fallback to default
+      if (input.value !== original) return;    // user already edited — respect it
+      rate = C.clamp(rate, parseFloat(input.min) || 0, parseFloat(input.max) || 15);
+      rate = parseFloat(rate.toFixed(2));
+      input.value = rate;
+      if (opts.sliderId) {
+        var slider = document.getElementById(opts.sliderId);
+        if (slider) slider.value = rate;
+      }
+      if (opts.noteId) {
+        var note = document.getElementById(opts.noteId);
+        if (note) {
+          note.textContent = C.t('current_rate_note').replace('{rate}', rate.toFixed(2));
+          note.hidden = false;
+        }
+      }
+      if (opts.onApplied) opts.onApplied(rate);
+    });
+  };
+
   window.CalcCore = C;
 })();

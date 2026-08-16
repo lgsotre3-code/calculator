@@ -47,6 +47,7 @@ window.TRANSLATIONS.es = {
   "down_payment": "Pago Inicial ($)",
   "down_payment_pct": "Pago Inicial (%)",
   "interest_rate": "Tasa de Interés (%)",
+  "current_rate_note": "Tasa actual: {rate}% (fuente: Freddie Mac PMMS vía FRED)",
   "loan_term": "Plazo del Préstamo (años)",
   "property_tax": "Impuesto a la Propiedad (% del valor al año)",
   "home_insurance": "Seguro del Hogar ($/año)",

@@ -270,6 +270,7 @@
             <input type="range" id="interest-rate-slider" min="1" max="15" step="0.01" value="6.5" aria-label="Interest rate slider">
             <input type="number" id="interest-rate" value="6.5" min="1" max="15" step="0.01" data-i18n-placeholder="ph_interest_rate" placeholder="Ex: 6.5" inputmode="decimal">
           </div>
+          <p id="current-rate-note" class="helper" aria-live="polite" hidden></p>
         </div>
 
         <!-- Loan Term: select -->
@@ -522,6 +523,7 @@
        first paint. Chart.js itself is lazy-loaded only when the charts scroll
        into view (keeps ~230 KB out of the initial mobile load). -->
   <script src="js/i18n/i18n.js" defer></script>
+  <script src="js/calc-core.js" defer></script>
   <script src="js/nav.js" defer></script>
   <script src="js/calculator.js" defer></script>
   <script src="js/chart.js" defer></script>

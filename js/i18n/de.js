@@ -47,6 +47,7 @@ window.TRANSLATIONS.de = {
   "down_payment": "Eigenkapital ($)",
   "down_payment_pct": "Eigenkapital (%)",
   "interest_rate": "Zinssatz (%)",
+  "current_rate_note": "Aktueller Zinssatz: {rate}% (Quelle: Freddie Mac PMMS über FRED)",
   "loan_term": "Laufzeit (Jahre)",
   "property_tax": "Grundsteuer (% des Werts/Jahr)",
   "home_insurance": "Hausversicherung ($/Jahr)",

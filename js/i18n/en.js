@@ -48,6 +48,7 @@ window.TRANSLATIONS.en = {
   "down_payment": "Down Payment ($)",
   "down_payment_pct": "Down Payment (%)",
   "interest_rate": "Interest Rate (%)",
+  "current_rate_note": "Current rate: {rate}% (source: Freddie Mac PMMS via FRED)",
   "loan_term": "Loan Term (years)",
   "property_tax": "Property Tax (% of home value / year)",
   "home_insurance": "Home Insurance ($/year)",

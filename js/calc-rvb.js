@@ -318,6 +318,10 @@
     } else {
       calculate();
     }
+
+    // Prefill the mortgage rate with the current market rate (FRED via the
+    // Vercel function). Best-effort: keeps the default if it fails.
+    C.prefillRate({ inputId: 'rvb-rate', sliderId: 'rvb-rate-slider', onApplied: calculate });
   }
 
   if (document.readyState === 'loading') {
