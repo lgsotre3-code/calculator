@@ -39,6 +39,7 @@
     constructor() {
       this.currentLang = 'en';
       this.translations = {};
+      this.ready = Promise.resolve();
     }
 
     isSupported(lang) {
@@ -114,7 +115,8 @@
 
     init() {
       const detected = this.detectLanguage();
-      return this.load(detected);
+      this.ready = this.load(detected);
+      return this.ready;
     }
 
     t(key) {
@@ -123,6 +125,10 @@
       // Fallback: English dictionary, then the raw key.
       const en = this.translations.en;
       if (en && en[key]) return en[key];
+      // Dictionaries still loading: applyTranslations() re-renders the page as
+      // soon as they arrive, so stay quiet instead of warning on transient
+      // misses that happen before the first dictionary finishes loading.
+      if (!this.translations[this.currentLang] && !en) return key;
       console.warn('[i18n] Missing translation: "' + key + '" (' + this.currentLang + ')');
       return key;
     }

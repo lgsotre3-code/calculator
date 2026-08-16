@@ -326,7 +326,15 @@
       renderTable(lastSchedule || amortize(1, state.interestRate, state.loanTerm, 0), showAll ? 0 : 12);
     });
 
-    calculate(false);
+    // Initial render: wait for the i18n dictionary so captions and the
+    // schedule note are translated on first paint (no transient
+    // "Missing translation" warnings / raw-key flicker).
+    const render = () => calculate(false);
+    if (window.i18n && window.i18n.ready) {
+      window.i18n.ready.then(render).catch(render);
+    } else {
+      render();
+    }
   }
 
   // Expose for manual re-run after i18n switches language.
