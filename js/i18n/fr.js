@@ -486,6 +486,8 @@ window.TRANSLATIONS.fr = {
   "rvb_input_rent_increase": "Augmentation Annuelle du Loyer (%)",
   "rvb_hint_rent_increase": "Ajustement annuel du loyer — par ex. lié à un indice d'inflation comme l'IGP-M ou l'IPC.",
   "rvb_input_appreciation": "Appréciation Annuelle du Logement (%)",
+  "rvb_input_selling_costs": "Frais de Vente à la Revente (%)",
+  "rvb_hint_selling_costs": "Commission de l'agent immobilier plus frais de clôture, généralement 6 à 8% du prix de vente aux États-Unis. Déduit du capital de l'acheteur pour refléter ce que vous obtiendriez réellement.",
   "rvb_input_tax": "Impôt Foncier (% de la valeur par an)",
   "rvb_input_maintenance": "Entretien (% de la valeur par an)",
   "rvb_input_vacancy": "Vacance / Intervalle Locatif (%)",
