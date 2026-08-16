@@ -486,6 +486,8 @@ window.TRANSLATIONS.de = {
   "rvb_input_rent_increase": "Jährliche Mietsteigerung (%)",
   "rvb_hint_rent_increase": "Jährliche Mietanpassung — z. B. an einen Inflationsindex wie den IGP-M oder den VPI gekoppelt.",
   "rvb_input_appreciation": "Jährliche Wertsteigerung des Hauses (%)",
+  "rvb_input_selling_costs": "Verkaufskosten beim Verkauf (%)",
+  "rvb_hint_selling_costs": "Maklerprovision plus Abschlusskosten, in den USA typischerweise 6-8% des Verkaufspreises. Wird vom Eigenkapital des Käufers abgezogen, damit der Vergleich zeigt, was Sie tatsächlich erhalten würden.",
   "rvb_input_tax": "Grundsteuer (% des Hauswerts / Jahr)",
   "rvb_input_maintenance": "Instandhaltung (% des Hauswerts / Jahr)",
   "rvb_input_vacancy": "Leerstand / Mietlücke (%)",
