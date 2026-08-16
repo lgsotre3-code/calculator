@@ -429,8 +429,16 @@
       if (opts.noteId) {
         var note = document.getElementById(opts.noteId);
         if (note) {
-          note.textContent = C.t('current_rate_note').replace('{rate}', rate.toFixed(2));
-          note.hidden = false;
+          // Re-translate the note on every language change. The <p> is filled
+          // imperatively (with the {rate} placeholder), so applyTranslations
+          // cannot update it via data-i18n; re-render it with C.t() using the
+          // language that is active at that moment.
+          var renderNote = function () {
+            note.textContent = C.t('current_rate_note').replace('{rate}', rate.toFixed(2));
+            note.hidden = false;
+          };
+          renderNote();
+          document.addEventListener('i18n:updated', renderNote);
         }
       }
       if (opts.onApplied) opts.onApplied(rate);

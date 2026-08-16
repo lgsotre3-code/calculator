@@ -296,9 +296,11 @@
     doc.text(t('pdf_summary'), margin, 78);
     const colW = contentW / 2;
     const labelW = 128;
+    const summaryRowH = 15;
+    const summaryTop = 92;
     summary.forEach((row, i) => {
       const x = margin + (i % 2) * colW;
-      const yy = 92 + Math.floor(i / 2) * 15;
+      const yy = summaryTop + Math.floor(i / 2) * summaryRowH;
       doc.setFont('helvetica', 'bold');
       doc.text(row[0] + ':', x, yy);
       doc.setFont('helvetica', 'normal');
@@ -306,6 +308,12 @@
     });
 
     /* ---------- Table ---------- */
+    // The summary renders as two columns, so its vertical extent is set by
+    // ceil(n/2) rows — not by where the label text happens to end. Start the
+    // table only after the whole block has been drawn, with a clear gap.
+    const summaryBottom = summaryTop + Math.ceil(summary.length / 2) * summaryRowH;
+    const tableTop = summaryBottom + 15;
+
     const rowH = 14;
     const headerH = 18;
     const footerH = 30;
@@ -337,8 +345,8 @@
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(8.5);
     doc.setTextColor(45, 55, 72);
-    drawHeader(margin);
-    let y = margin + headerH;
+    drawHeader(tableTop);
+    let y = tableTop + headerH;
 
     lastSchedule.rows.forEach(row => {
       // Page break before the row only — a row is never split across pages.
