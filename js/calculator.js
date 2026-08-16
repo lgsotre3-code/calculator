@@ -79,8 +79,9 @@
      'property-tax', 'insurance', 'extra-payment',
      'monthly-payment', 'pi-value', 'tax-value', 'insurance-value', 'monthly-extra',
      'total-interest', 'total-payment', 'payoff-date', 'interest-saved',
-     'amortization-body', 'schedule-footer', 'show-full-schedule',
-     'result-monthly-label']
+      'amortization-body', 'schedule-footer', 'show-full-schedule',
+      'export-pdf', 'pdf-status',
+      'result-monthly-label']
       .forEach(id => { el[id] = document.getElementById(id); });
   }
 
@@ -231,6 +232,179 @@
   }
 
   /* ------------------------------------------------------------------
+   * PDF export (full amortization schedule)
+   * jsPDF is lazy-loaded from the CDN on first use, so it never blocks
+   * the initial page load (mirrors the Chart.js pattern above).
+   * ------------------------------------------------------------------ */
+  let jspdfPromise = null;
+  function loadJspdf() {
+    if (!jspdfPromise) {
+      jspdfPromise = new Promise((resolve, reject) => {
+        if (window.jspdf && window.jspdf.jsPDF) { resolve(window.jspdf); return; }
+        const s = document.createElement('script');
+        s.src = 'https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js';
+        s.defer = true;
+        s.onload = () => (window.jspdf && window.jspdf.jsPDF ? resolve(window.jspdf) : reject(new Error('jsPDF unavailable')));
+        s.onerror = () => reject(new Error('jsPDF failed to load'));
+        document.body.appendChild(s);
+      });
+    }
+    return jspdfPromise;
+  }
+
+  function pdfDateStr() {
+    const d = new Date();
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  }
+
+  /** Builds the paginated PDF. Rows are never split across page boundaries. */
+  function buildPdf(doc, t) {
+    const pageW = doc.internal.pageSize.getWidth();
+    const pageH = doc.internal.pageSize.getHeight();
+    const margin = 40;
+    const contentW = pageW - margin * 2;
+    const hasExtra = state.extraPayment > 0;
+
+    const locale = (window.i18n && window.i18n.currentLang) || 'en';
+    const genDate = new Date().toLocaleDateString(locale === 'en' ? 'en-US' : locale, { year: 'numeric', month: 'long', day: 'numeric' });
+
+    /* ---------- Header ---------- */
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(15);
+    doc.setTextColor(26, 54, 93);
+    doc.text(t('brand_name'), margin, 40);
+    doc.setFontSize(12);
+    doc.text(t('schedule_title'), margin, 56);
+    doc.setDrawColor(226, 232, 240);
+    doc.line(margin, 64, pageW - margin, 64);
+
+    /* ---------- Loan summary ---------- */
+    const downUsd = state.homeValue * state.downPercent / 100;
+    const summary = [
+      [t('pdf_home_value'), usd0.format(state.homeValue)],
+      [t('pdf_down_payment'), usd0.format(downUsd) + ' (' + state.downPercent.toFixed(1).replace(/\.0$/, '') + '%)'],
+      [t('pdf_interest_rate'), state.interestRate.toFixed(2) + '%'],
+      [t('pdf_loan_term'), state.loanTerm + ' ' + t('pdf_years')],
+      [t('pdf_monthly_payment'), usd.format(lastSchedule.M)],
+      [t('pdf_total_interest'), usd.format(lastSchedule.totalInterest)],
+      [t('pdf_payoff_date'), payoffDate(lastSchedule.payoffMonths)]
+    ];
+
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(10);
+    doc.setTextColor(45, 55, 72);
+    doc.text(t('pdf_summary'), margin, 78);
+    const colW = contentW / 2;
+    const labelW = 128;
+    summary.forEach((row, i) => {
+      const x = margin + (i % 2) * colW;
+      const yy = 92 + Math.floor(i / 2) * 15;
+      doc.setFont('helvetica', 'bold');
+      doc.text(row[0] + ':', x, yy);
+      doc.setFont('helvetica', 'normal');
+      doc.text(String(row[1]), x + labelW, yy);
+    });
+
+    /* ---------- Table ---------- */
+    const rowH = 14;
+    const headerH = 18;
+    const footerH = 30;
+    const maxY = pageH - margin - footerH;
+    const monthW = 50;
+    const moneyW = (contentW - monthW) / (hasExtra ? 5 : 4);
+
+    function drawHeader(yy) {
+      doc.setFillColor(237, 242, 247);
+      doc.rect(margin, yy, contentW, headerH, 'F');
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(8.5);
+      doc.setTextColor(45, 55, 72);
+      let x = margin;
+      doc.text(t('month'), x + 4, yy + 12);
+      x += monthW;
+      const labels = [t('payment'), t('principal'), t('interest')];
+      if (hasExtra) labels.push(t('pdf_extra_col'));
+      labels.push(t('balance'));
+      labels.forEach(label => {
+        doc.text(label, x + moneyW - 4, yy + 12, { align: 'right' });
+        x += moneyW;
+      });
+      doc.setDrawColor(203, 213, 224);
+      doc.line(margin, yy + headerH, pageW - margin, yy + headerH);
+      doc.setFont('helvetica', 'normal');
+    }
+
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(8.5);
+    doc.setTextColor(45, 55, 72);
+    drawHeader(margin);
+    let y = margin + headerH;
+
+    lastSchedule.rows.forEach(row => {
+      // Page break before the row only — a row is never split across pages.
+      if (y + rowH > maxY) {
+        doc.addPage();
+        drawHeader(margin);
+        y = margin + headerH;
+      }
+      let x = margin;
+      doc.text(String(row.m), x + 4, y + 11);
+      x += monthW;
+      const cells = [row.payment, row.principal, row.interest];
+      if (hasExtra) cells.push(state.extraPayment);
+      cells.push(row.balance);
+      cells.forEach(v => {
+        doc.text(usd.format(v), x + moneyW - 4, y + 11, { align: 'right' });
+        x += moneyW;
+      });
+      y += rowH;
+    });
+
+    /* ---------- Footer (generation date + site URL + page number) ---------- */
+    const pageCount = doc.internal.getNumberOfPages();
+    for (let p = 1; p <= pageCount; p += 1) {
+      doc.setPage(p);
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(8);
+      doc.setTextColor(113, 128, 150);
+      doc.text(t('pdf_generated_on').replace('{date}', genDate) + ' — https://www.mortgage-pro-calc.com', margin, pageH - 20);
+      doc.text(p + ' / ' + pageCount, pageW - margin, pageH - 20, { align: 'right' });
+    }
+  }
+
+  function exportPdf() {
+    const btn = el['export-pdf'];
+    if (!btn || btn.disabled) return;
+    if (!lastSchedule || !lastSchedule.rows.length) return;
+
+    const t = (window.i18n && window.i18n.t) ? window.i18n.t.bind(window.i18n) : (k => k);
+    const statusEl = el['pdf-status'];
+    const originalLabel = btn.textContent;
+
+    btn.disabled = true;
+    btn.textContent = t('generating_pdf');
+    if (statusEl) statusEl.hidden = true;
+
+    loadJspdf()
+      .then(({ jsPDF }) => {
+        try {
+          const doc = new jsPDF({ orientation: 'portrait', unit: 'pt', format: 'letter' });
+          buildPdf(doc, t);
+          doc.save('amortization-schedule-' + Math.round(state.homeValue) + '-' + pdfDateStr() + '.pdf');
+        } catch (err) {
+          if (statusEl) { statusEl.textContent = t('pdf_error'); statusEl.hidden = false; }
+        }
+      })
+      .catch(() => {
+        if (statusEl) { statusEl.textContent = t('pdf_error'); statusEl.hidden = false; }
+      })
+      .finally(() => {
+        btn.disabled = false;
+        btn.textContent = originalLabel;
+      });
+  }
+
+  /* ------------------------------------------------------------------
    * Main calculation pipeline
    * ------------------------------------------------------------------ */
   function calculate(fromButton) {
@@ -325,6 +499,10 @@
       const showAll = toggle.dataset.mode !== 'less';
       renderTable(lastSchedule || amortize(1, state.interestRate, state.loanTerm, 0), showAll ? 0 : 12);
     });
+
+    // Export the full amortization schedule as a PDF (jsPDF lazy-loaded).
+    const exportBtn = document.getElementById('export-pdf');
+    if (exportBtn) exportBtn.addEventListener('click', exportPdf);
 
     // Prefill the interest rate with the current market rate (FRED via the
     // Vercel function). Best-effort: on any failure the default is kept and

@@ -533,7 +533,14 @@ table.amortization tbody tr:nth-child(even) { background: #f7fafc; }
 table.amortization tbody tr:nth-child(odd) { background: #ffffff; }
 table.amortization tbody tr:hover { background: #eef3f8; }
 
-.schedule-footer { margin: 10px 0; }
+.schedule-footer {
+  margin: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+.schedule-footer #export-pdf:disabled { opacity: 0.6; cursor: wait; }
 
 /* Affiliate CTA box */
 .cta-box {
