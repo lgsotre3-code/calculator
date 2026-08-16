@@ -486,6 +486,8 @@ window.TRANSLATIONS.es = {
   "rvb_input_rent_increase": "Aumento Anual del Alquiler (%)",
   "rvb_hint_rent_increase": "Ajuste anual del alquiler, por ejemplo, ligado a un índice de inflación como el IGP-M o el IPC.",
   "rvb_input_appreciation": "Apreciación Anual de la Vivienda (%)",
+  "rvb_input_selling_costs": "Costos de Venta al Vender (%)",
+  "rvb_hint_selling_costs": "Comisión del agente inmobiliario más costos de cierre, típicamente 6-8% del precio de venta en EE. UU. Se descuenta del patrimonio del comprador para reflejar lo que realmente recibirías.",
   "rvb_input_tax": "Impuesto a la Propiedad (% del valor anual)",
   "rvb_input_maintenance": "Mantenimiento (% del valor anual)",
   "rvb_input_vacancy": "Desocupación / Intervalo de Alquiler (%)",
