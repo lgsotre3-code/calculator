@@ -153,6 +153,7 @@ window.TRANSLATIONS.fr = {
   "p_types_jumbo_conventional": "Les calculateurs de prêt jumbo gèrent les montants au-dessus de la limite conventionnelle, fixée à 766 550 $ en 2026 dans la plupart des comtés américains. Les prêts conventionnels (à taux fixe ou variable) sont l'option la plus courante et c'est ce que ce calculateur modélise par défaut.",
 
   "sec_faq": "Questions Fréquentes sur les Calculateurs Hypothécaires",
+  "sec_explore": "Explorer Plus",
 
   /* ---------- FAQ ---------- */
   "faq1_q": "Quelle est la formule pour calculer un paiement hypothécaire ?",

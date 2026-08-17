@@ -153,6 +153,7 @@ window.TRANSLATIONS.de = {
   "p_types_jumbo_conventional": "Jumbo-Hypothekenrechner behandeln Beträge über der konventionellen Grenze, die 2026 in den meisten US-Countys bei 766.550 $ liegt. Konventionelle Darlehen (fester oder variabler Zins) sind die häufigste Option und das, was dieser Rechner standardmäßig abbildet.",
 
   "sec_faq": "Häufig gestellte Fragen zu Hypothekenrechnern",
+  "sec_explore": "Mehr Entdecken",
 
   /* ---------- FAQ ---------- */
   "faq1_q": "Wie lautet die Formel zur Berechnung einer Hypothekenrate?",

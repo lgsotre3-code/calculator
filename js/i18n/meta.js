@@ -13,14 +13,24 @@
 
   window.META_DATA = {
     en: {
-      title: 'Free Mortgage Calculator with Taxes & Insurance — 2026',
-      description: 'Calculate your monthly mortgage payment with property taxes, home insurance, and extra payments. Get complete amortization schedule, graphs, and payoff date — free, instant.',
-      keywords: 'mortgage calculator, home loan calculator, monthly payment, amortization, property tax, PMI, refinance',
-      ogTitle: 'Free Mortgage Calculator with Taxes & Extra Payments',
-      ogDescription: 'Calculate monthly payment, total interest, and payoff date. Includes amortization schedule and interactive graphs.',
+      title: 'VA & Conventional Mortgage Calculator with Taxes and Insurance — 2026',
+      description: 'Calculate your VA or conventional mortgage payment with property taxes, home insurance, and extra payments. Free amortization schedule and graphs. Zero down payment options available.',
+      keywords: 'mortgage calculator, VA mortgage, conventional mortgage, VA loan payment, home loan calculator, property tax, PMI, amortization, refinance, mortgage affordability',
+      ogTitle: 'VA & Conventional Mortgage Calculator with Taxes & Extra Payments',
+      ogDescription: 'Calculate monthly payment, total interest, and payoff date for VA and conventional loans. Includes amortization schedule and interactive graphs.',
       ogLocale: 'en_US',
-      twitterTitle: 'Free Mortgage Calculator 2026',
-      twitterDescription: 'Calculate mortgage payments with taxes and insurance. Instant results and full amortization table.'
+      twitterTitle: 'VA & Conventional Mortgage Calculator 2026',
+      twitterDescription: 'Calculate VA or conventional mortgage payments with taxes and insurance. Zero down payment options. Instant results.'
+    },
+    va: {
+      title: 'VA Mortgage Calculator with Taxes and Insurance — 2026',
+      description: 'Calculate your VA home loan payment with property taxes, home insurance, and extra payments. Free amortization schedule. Zero down payment available.',
+      keywords: 'VA mortgage calculator, VA loan payment, VA home loan, VA mortgage with taxes, VA loan eligibility, zero down payment',
+      ogTitle: 'VA Mortgage Calculator with Taxes & Insurance',
+      ogDescription: 'Calculate VA mortgage payments with taxes, insurance, and extra payments. Zero down payment. Free amortization table.',
+      ogLocale: 'en_US',
+      twitterTitle: 'VA Mortgage Calculator 2026',
+      twitterDescription: 'Calculate VA loan payments with taxes and insurance. Instant results.'
     },
     pt: {
       title: 'Calculadora de Financiamento com IPTU e Seguro — 2026',

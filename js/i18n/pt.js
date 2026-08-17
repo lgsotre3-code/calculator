@@ -153,6 +153,7 @@ window.TRANSLATIONS.pt = {
   "p_types_jumbo_conventional": "As calculadoras de hipoteca jumbo lidam com valores acima do limite convencional, que em 2026 é de $766.550 na maioria dos condados dos EUA. Os empréstimos convencionais (taxa fixa ou variável) são a opção mais comum e são o que esta calculadora modela por padrão.",
 
   "sec_faq": "Perguntas Frequentes sobre Calculadoras de Financiamento",
+  "sec_explore": "Explorar Mais",
 
   /* ---------- FAQ ---------- */
   "faq1_q": "Qual é a fórmula para calcular a parcela de um financiamento?",

@@ -154,6 +154,7 @@ window.TRANSLATIONS.en = {
   "p_types_jumbo_conventional": "Jumbo mortgage calculators handle loan amounts above the conforming limit, which for 2026 is $766,550 in most U.S. counties. Conventional loans (fixed or adjustable rate) are the most common option and are what this calculator models by default.",
 
   "sec_faq": "Frequently Asked Questions About Mortgage Calculators",
+  "sec_explore": "Explore More",
 
   /* ---------- FAQ (schema FAQPage) ---------- */
   "faq1_q": "What is the formula for calculating a mortgage payment?",
