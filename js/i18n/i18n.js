@@ -189,6 +189,11 @@
       setMeta('meta[property="og:title"]', t(titleKey));
       setMeta('meta[property="og:description"]', t(descKey));
 
+      // Extended meta tags (keywords, og:locale, twitter) via meta.js
+      if (typeof window.updateMetaTags === 'function') {
+        window.updateMetaTags(this.currentLang);
+      }
+
       // Language selector: highlight current language.
       const sel = document.getElementById('lang-select');
       if (sel && sel.value !== this.currentLang) sel.value = this.currentLang;
