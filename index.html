@@ -10,7 +10,7 @@
     3. Replace the affiliate links (#) with your real partner URLs.
   ============================================================================
 -->
-<html lang="en-US">
+<html lang="en-US" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <!-- Google Consent Mode v2 (default consent: EEA/UK/CH denied, rest granted) -->
@@ -103,6 +103,12 @@
   <!-- ============ Favicon ============ -->
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
   <link rel="apple-touch-icon" href="assets/img/favicon.svg">
+
+  <!-- ============ Fonts & Icons ============ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- ============ Performance: preconnect ============ -->
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
@@ -267,6 +273,11 @@
           <option value="de" data-i18n-option="lang_de">Deutsch</option>
         </select>
       </div>
+
+      <!-- Dark mode toggle -->
+      <button type="button" class="theme-toggle-btn" onclick="themeToggle()" aria-label="Toggle dark mode">
+        <i class="fas fa-sun" id="theme-toggle-icon"></i>
+      </button>
     </div>
   </header>
 
@@ -289,7 +300,7 @@
 
         <!-- Home Value: range + number -->
         <div class="form-group">
-          <label for="home-value" data-i18n="home_value">Home Value ($)</label>
+          <label for="home-value"><i class="fas fa-home"></i> <span data-i18n="home_value">Home Value ($)</span></label>
           <div class="input-row">
             <input type="range" id="home-value-slider" min="50000" max="2000000" step="1000" value="350000" aria-label="Home value slider">
             <input type="number" id="home-value" value="350000" min="50000" max="2000000" step="1000" data-i18n-placeholder="ph_home_value" placeholder="Ex: 350000" inputmode="numeric">
@@ -298,7 +309,7 @@
 
         <!-- Down Payment: % slider + $ number, both shown -->
         <div class="form-group">
-          <label for="down-payment" data-i18n="down_payment">Down Payment ($)</label>
+          <label for="down-payment"><i class="fas fa-percentage"></i> <span data-i18n="down_payment">Down Payment ($)</span></label>
           <div class="input-row">
             <input type="range" id="down-payment-slider" min="0" max="50" step="0.5" value="20" aria-label="Down payment percentage slider">
             <input type="number" id="down-payment" value="70000" min="0" step="100" data-i18n-placeholder="ph_down_payment" placeholder="Ex: 70000" inputmode="numeric">
@@ -309,7 +320,7 @@
 
         <!-- Interest Rate: range + number -->
         <div class="form-group">
-          <label for="interest-rate" data-i18n="interest_rate">Interest Rate (%)</label>
+          <label for="interest-rate"><i class="fas fa-chart-line"></i> <span data-i18n="interest_rate">Interest Rate (%)</span></label>
           <div class="input-row">
             <input type="range" id="interest-rate-slider" min="1" max="15" step="0.01" value="6.5" aria-label="Interest rate slider">
             <input type="number" id="interest-rate" value="6.5" min="1" max="15" step="0.01" data-i18n-placeholder="ph_interest_rate" placeholder="Ex: 6.5" inputmode="decimal">
@@ -319,7 +330,7 @@
 
         <!-- Loan Term: select -->
         <div class="form-group input-group--loan-term">
-          <label for="loan-term" data-i18n="loan_term">Loan Term (years)</label>
+          <label for="loan-term"><i class="fas fa-calendar-alt"></i> <span data-i18n="loan_term">Loan Term (years)</span></label>
           <select id="loan-term" aria-label="Loan term in years">
             <option value="10" data-i18n-option="years_10">10 years</option>
             <option value="15" data-i18n-option="years_15">15 years</option>
@@ -331,33 +342,33 @@
 
         <!-- Property Tax (optional differential) -->
         <div class="form-group">
-          <label for="property-tax" data-i18n="property_tax">Property Tax (% of home value / year)</label>
+          <label for="property-tax"><i class="fas fa-landmark"></i> <span data-i18n="property_tax">Property Tax (% of home value / year)</span></label>
           <input type="number" id="property-tax" value="1.2" min="0" max="5" step="0.1" data-i18n-placeholder="ph_property_tax" placeholder="Ex: 1.2" inputmode="decimal" style="width:100%">
         </div>
 
         <!-- Home Insurance (optional differential) -->
         <div class="form-group">
-          <label for="insurance" data-i18n="home_insurance">Home Insurance ($/year)</label>
+          <label for="insurance"><i class="fas fa-shield-alt"></i> <span data-i18n="home_insurance">Home Insurance ($/year)</span></label>
           <input type="number" id="insurance" value="1200" min="0" max="10000" step="100" data-i18n-placeholder="ph_insurance" placeholder="Ex: 1200" inputmode="numeric" style="width:100%">
         </div>
 
         <!-- Extra Payment (optional differential) -->
         <div class="form-group">
-          <label for="extra-payment" data-i18n="extra_payment">Extra Payment ($/month)</label>
+          <label for="extra-payment"><i class="fas fa-plus-circle" style="color:var(--green)"></i> <span data-i18n="extra_payment">Extra Payment ($/month)</span></label>
           <input type="number" id="extra-payment" value="0" min="0" max="5000" step="50" data-i18n-placeholder="ph_extra_payment" placeholder="Ex: 100" inputmode="numeric" style="width:100%">
         </div>
 
         <!-- Actions -->
         <div class="btn-row">
-          <button type="button" id="calculate-btn" class="btn btn-primary" data-i18n="calculate">Calculate</button>
-          <button type="button" id="reset-btn" class="btn btn-secondary" data-i18n="reset">Reset</button>
+          <button type="button" id="calculate-btn" class="btn btn-primary"><i class="fas fa-calculator"></i> <span data-i18n="calculate">Calculate</span></button>
+          <button type="button" id="reset-btn" class="btn btn-secondary"><i class="fas fa-undo"></i> <span data-i18n="reset">Reset</span></button>
         </div>
       </form>
 
       <!-- ---------- RESULTS ---------- -->
       <section class="results-section" aria-label="Calculation results">
 
-        <h2 data-i18n="results_title">Your Mortgage Results</h2>
+        <h2><i class="fas fa-chart-bar"></i> <span data-i18n="results_title">Your Mortgage Results</span></h2>
 
         <div class="result-grid">
           <!-- Monthly payment (main card, includes breakdown) -->
@@ -372,19 +383,19 @@
           </div>
 
           <div class="result-card">
-            <span class="result-label" data-i18n="total_interest">Total Interest Paid</span>
+            <span class="result-label"><i class="fas fa-chart-line" style="color:var(--red);margin-right:4px"></i> <span data-i18n="total_interest">Total Interest Paid</span></span>
             <span class="result-value" id="total-interest">$0.00</span>
           </div>
           <div class="result-card">
-            <span class="result-label" data-i18n="total_payment">Total Payment</span>
+            <span class="result-label"><i class="fas fa-coins" style="color:var(--blue);margin-right:4px"></i> <span data-i18n="total_payment">Total Payment</span></span>
             <span class="result-value" id="total-payment">$0.00</span>
           </div>
           <div class="result-card">
-            <span class="result-label" data-i18n="payoff_date">Payoff Date</span>
+            <span class="result-label"><i class="fas fa-calendar-check" style="color:var(--green);margin-right:4px"></i> <span data-i18n="payoff_date">Payoff Date</span></span>
             <span class="result-value" id="payoff-date">—</span>
           </div>
           <div class="result-card">
-            <span class="result-label" data-i18n="interest_saved">Interest Saved (extra payments)</span>
+            <span class="result-label"><i class="fas fa-piggy-bank" style="color:var(--gold);margin-right:4px"></i> <span data-i18n="interest_saved">Interest Saved (extra payments)</span></span>
             <span class="result-value" id="interest-saved">$0.00</span>
           </div>
         </div>
@@ -396,18 +407,18 @@
         <!-- Charts (Chart.js) -->
         <div class="chart-grid">
           <div class="chart-box">
-            <h3 data-i18n="chart_balance_title">Loan Balance Over Time</h3>
+            <h3><i class="fas fa-chart-area"></i> <span data-i18n="chart_balance_title">Loan Balance Over Time</span></h3>
             <div class="chart-canvas"><canvas id="amortization-chart" role="img" aria-label="Chart of loan balance over time"></canvas></div>
           </div>
           <div class="chart-box">
-            <h3 data-i18n="chart_breakdown_title">Monthly Payment Breakdown</h3>
+            <h3><i class="fas fa-chart-pie"></i> <span data-i18n="chart_breakdown_title">Monthly Payment Breakdown</span></h3>
             <div class="chart-canvas"><canvas id="breakdown-chart" role="img" aria-label="Doughnut chart of monthly payment breakdown"></canvas></div>
           </div>
         </div>
 
         <!-- Amortization schedule -->
         <div class="schedule">
-          <h2 data-i18n="schedule_title">Amortization Schedule</h2>
+          <h2><i class="fas fa-table"></i> <span data-i18n="schedule_title">Amortization Schedule</span></h2>
           <p class="schedule-note" id="schedule-footer" aria-live="polite"></p>
           <div class="table-scroll" tabindex="0" aria-label="Amortization schedule table">
             <table class="amortization" id="amortization-table">
@@ -424,8 +435,8 @@
             </table>
           </div>
           <div class="schedule-footer">
-            <button type="button" id="show-full-schedule" class="btn btn-secondary" data-i18n="show_full_schedule">Show complete amortization schedule</button>
-            <button type="button" id="export-pdf" class="btn btn-secondary" data-i18n="export_pdf">Export PDF</button>
+            <button type="button" id="show-full-schedule" class="btn btn-secondary"><i class="fas fa-list"></i> <span data-i18n="show_full_schedule">Show complete amortization schedule</span></button>
+            <button type="button" id="export-pdf" class="btn btn-secondary"><i class="fas fa-file-pdf"></i> <span data-i18n="export_pdf">Export PDF</span></button>
             <span id="pdf-status" class="schedule-note" aria-live="polite" hidden></span>
           </div>
         </div>
@@ -435,18 +446,18 @@
           <h3 data-i18n="pre_approval_title">Ready to buy? Get pre-approved</h3>
           <p data-i18n="pre_approval_text">Get a free pre-approval quote from a licensed lender and know exactly what you qualify for.</p>
           <div class="cta-links">
-            <a href="#" class="btn btn-affiliate" data-cta="pre_approved" rel="nofollow sponsored" data-i18n="get_pre_approved">Get Pre-Approved</a>
-            <a href="#" class="btn btn-outline" data-cta="compare_rates" rel="nofollow sponsored" data-i18n="compare_rates">Compare Mortgage Rates</a>
+            <a href="#" class="btn btn-affiliate" data-cta="pre_approved" rel="nofollow sponsored"><i class="fas fa-check-circle"></i> <span data-i18n="get_pre_approved">Get Pre-Approved</span></a>
+            <a href="#" class="btn btn-outline" data-cta="compare_rates" rel="nofollow sponsored"><i class="fas fa-balance-scale"></i> <span data-i18n="compare_rates">Compare Mortgage Rates</span></a>
           </div>
         </aside>
 
         <!-- Social share -->
         <div class="share-row">
           <span data-i18n="share">Share</span>
-          <button class="share-btn" data-share="facebook" data-i18n-aria="share_facebook" aria-label="Share on Facebook">f</button>
-          <button class="share-btn" data-share="twitter" data-i18n-aria="share_twitter" aria-label="Share on X">𝕏</button>
-          <button class="share-btn" data-share="linkedin" data-i18n-aria="share_linkedin" aria-label="Share on LinkedIn">in</button>
-          <button class="share-btn" data-share="whatsapp" data-i18n-aria="share_whatsapp" aria-label="Share on WhatsApp">w</button>
+          <button class="share-btn" data-share="facebook" data-i18n-aria="share_facebook" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></button>
+          <button class="share-btn" data-share="twitter" data-i18n-aria="share_twitter" aria-label="Share on X"><i class="fab fa-x-twitter"></i></button>
+          <button class="share-btn" data-share="linkedin" data-i18n-aria="share_linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></button>
+          <button class="share-btn" data-share="whatsapp" data-i18n-aria="share_whatsapp" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></button>
         </div>
 
       </section>
@@ -455,38 +466,38 @@
     <!-- ============================ SEO CONTENT ============================ -->
 
     <section class="seo-section" id="what-is-mortgage-calculator">
-      <h2 data-i18n="sec_what_is">What is a Mortgage Calculator and How Does It Work?</h2>
+      <h2><i class="fas fa-info-circle"></i> <span data-i18n="sec_what_is">What is a Mortgage Calculator and How Does It Work?</span></h2>
       <p data-i18n="p_what_is">A mortgage calculator is a financial tool that estimates your monthly mortgage payment based on the home price, down payment, interest rate, and loan term. This mortgage payment calculator with taxes and insurance goes further by adding property taxes, home insurance, and extra payments, giving you a complete picture of your home loan costs — from the monthly mortgage payment to the total interest you will pay over the life of the loan.</p>
     </section>
 
     <section class="seo-section" id="how-to-use-mortgage-calculator">
-      <h2 data-i18n="sec_how_to_use">How to Use This Mortgage Calculator with Taxes and Insurance</h2>
+      <h2><i class="fas fa-book-open"></i> <span data-i18n="sec_how_to_use">How to Use This Mortgage Calculator with Taxes and Insurance</span></h2>
       <p data-i18n="p_how_to_use">Using this mortgage calculator with taxes and insurance is easy. Enter your home value, down payment, interest rate, and loan term, and the monthly mortgage calculator instantly shows your payment breakdown, total interest, and payoff date. Add property taxes and home insurance for an accurate all-in monthly cost, then test a mortgage calculator with extra payments to see how much time and interest you can save.</p>
     </section>
 
     <section class="seo-section" id="amortization-explained">
-      <h2 data-i18n="sec_amortization">Understanding Your Mortgage Amortization Schedule</h2>
+      <h2><i class="fas fa-table"></i> <span data-i18n="sec_amortization">Understanding Your Mortgage Amortization Schedule</span></h2>
       <p data-i18n="p_amortization">An amortization schedule shows how each monthly payment is split between principal and interest over the life of the loan. This mortgage amortization calculator provides a month-by-month breakdown so you can see exactly how much interest you are paying and how quickly you are building home equity.</p>
       <h3 data-i18n="h3_amortization_extra">Mortgage Amortization Schedule with Extra Payments</h3>
       <p data-i18n="p_amortization_extra">Using a mortgage amortization schedule with extra payments lets you visualize the impact of paying $100, $200 or more per month. Extra payments go straight to the principal, shortening your loan term and dramatically reducing the total interest paid. Try it above and watch the payoff date move forward.</p>
     </section>
 
     <section class="seo-section" id="affordability-guide">
-      <h2 data-i18n="sec_affordability">How Much Mortgage Can I Afford? | Affordability Guide</h2>
+      <h2><i class="fas fa-dollar-sign"></i> <span data-i18n="sec_affordability">How Much Mortgage Can I Afford? | Affordability Guide</span></h2>
       <p data-i18n="p_affordability">Before buying, use a mortgage affordability calculator to check your numbers. The classic rule says your monthly housing costs should not exceed 28% of your gross income, while total debt payments should stay below 36%. A mortgage qualification calculator helps you test different down payments and interest rates against your budget.</p>
       <h3 data-i18n="h3_affordability_income">Mortgage Affordability by Income</h3>
       <p data-i18n="p_affordability_income">As a rough guide: at a 6.5% rate on a 30-year loan, a household earning $8,000 per month can typically afford a home worth around $320,000–$380,000. Adjust the inputs above to find a monthly mortgage payment that fits your income and debts.</p>
     </section>
 
     <section class="seo-section" id="refinance-calculator">
-      <h2 data-i18n="sec_refinance">Should You Refinance? | Refinance Mortgage Calculator Guide</h2>
+      <h2><i class="fas fa-sync-alt"></i> <span data-i18n="sec_refinance">Should You Refinance? | Refinance Mortgage Calculator Guide</span></h2>
       <p data-i18n="p_refinance">If you are considering a new loan, use a refinance mortgage calculator to compare your current terms with a new rate and term. The mortgage refinance break-even calculator principle tells you how many months it takes for the monthly savings to cover the closing costs — typically the break-even point is reached in 24 to 48 months.</p>
       <h3 data-i18n="h3_refinance_breakeven">Mortgage Refinance Break-Even Calculator</h3>
       <p data-i18n="p_refinance_breakeven">To find your break-even point, divide the total closing costs by the monthly savings from the new payment. For example, if refinancing saves $250 per month and costs $6,000 in fees, you break even in 24 months — after that, every month is pure savings.</p>
     </section>
 
     <section class="seo-section" id="types-of-mortgages">
-      <h2 data-i18n="sec_types">Types of Mortgages: FHA, VA, USDA, Jumbo, and Conventional</h2>
+      <h2><i class="fas fa-university"></i> <span data-i18n="sec_types">Types of Mortgages: FHA, VA, USDA, Jumbo, and Conventional</span></h2>
       <p data-i18n="p_types">Different loans suit different buyers. Government-backed programs like the FHA mortgage calculator, VA mortgage calculator, and USDA mortgage calculator typically offer lower down payments for qualifying borrowers, while conventional loans often reward strong credit with lower rates.</p>
       <h3 data-i18n="h3_types_government">FHA, VA and USDA Loans</h3>
       <p data-i18n="p_types_government">FHA loans allow down payments as low as 3.5% with a credit score around 580. VA loans offer zero down payment for eligible veterans. USDA loans target rural buyers. Each has its own insurance or guarantee fee — a mortgage insurance calculator can help you estimate the true monthly cost.</p>
@@ -500,7 +511,7 @@
 
     <!-- ============ FAQ (schema FAQPage matches these Q&As) ============ -->
     <section class="seo-section" id="frequently-asked-questions">
-      <h2 data-i18n="sec_faq">Frequently Asked Questions About Mortgage Calculators</h2>
+      <h2><i class="fas fa-question-circle"></i> <span data-i18n="sec_faq">Frequently Asked Questions About Mortgage Calculators</span></h2>
       <div class="faq-list">
         <details class="faq-item">
           <summary data-i18n="faq1_q">What is the formula for calculating a mortgage payment?</summary>
@@ -555,12 +566,12 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <nav class="footer-nav" aria-label="Footer navigation">
-        <a href="/privacy.html" data-i18n="privacy">Privacy Policy</a>
-        <a href="/terms.html" data-i18n="terms">Terms of Use</a>
-        <a href="/contact" data-i18n="nav_contact">Contact</a>
+        <a href="/privacy.html"><i class="fas fa-shield-alt"></i> <span data-i18n="privacy">Privacy Policy</span></a>
+        <a href="/terms.html"><i class="fas fa-file-contract"></i> <span data-i18n="terms">Terms of Use</span></a>
+        <a href="/contact"><i class="fas fa-envelope"></i> <span data-i18n="nav_contact">Contact</span></a>
       </nav>
       <p class="footer-disclaimer" data-i18n="disclaimer">This calculator provides estimates for educational purposes only. Contact a licensed lender for an official quote.</p>
-      <p class="footer-copy">© 2026 MortgageCalc. <span data-i18n="rights">All rights reserved.</span></p>
+      <p class="footer-copy">&copy; 2026 MortgageCalc. <span data-i18n="rights">All rights reserved.</span></p>
     </div>
   </footer>
 
@@ -568,6 +579,8 @@
   <!-- Deferred: they execute in order after parsing, so they no longer block
        first paint. Chart.js itself is lazy-loaded only when the charts scroll
        into view (keeps ~230 KB out of the initial mobile load). -->
+  <script src="js/dark-mode.js" defer></script>
+  <script src="js/animations.js" defer></script>
   <script src="js/i18n/i18n.js" defer></script>
   <script src="js/calc-core.js" defer></script>
   <script src="js/nav.js" defer></script>
