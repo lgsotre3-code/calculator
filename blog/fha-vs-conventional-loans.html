@@ -37,24 +37,43 @@
 
   <!-- Cookiebot CMP (Google-certified: Consent Mode v2 + Microsoft Clarity Consent Mode) -->
   <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="d817fd6b-d033-4ae1-8682-d2b44b49a66a" data-blockingmode="manual" async></script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G5FRBTR588"></script>
+    <!-- Smart Lazy Load Third-Party Scripts (AdSense, Analytics, Clarity) -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-G5FRBTR588');
-  </script>
+    (function() {
+      var loaded = false;
+      function loadThirdParty() {
+        if (loaded) return;
+        loaded = true;
+        // GA4
+        var ga = document.createElement('script');
+        ga.async = true;
+        ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-G5FRBTR588';
+        document.head.appendChild(ga);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-G5FRBTR588');
 
-  <!-- Microsoft Clarity -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "y3enp4munj");
+        // Clarity
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "y3enp4munj");
+
+        // AdSense
+        var ads = document.createElement('script');
+        ads.async = true;
+        ads.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2920008879492175';
+        ads.crossOrigin = 'anonymous';
+        document.head.appendChild(ads);
+      }
+      ['touchstart', 'scroll', 'mousemove', 'keydown'].forEach(function(e) {
+        window.addEventListener(e, loadThirdParty, { once: true, passive: true });
+      });
+      setTimeout(loadThirdParty, 2000);
+    })();
   </script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="_nxfYFglucpreV_H_ZjRTVWkzrrb9TsWJwPPVQiC8EM">
   <meta name="impact-site-verification" value="f1f62669-d5c7-4d23-b5c1-75fc1a809c3f">
 
@@ -128,7 +147,7 @@
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
   <!-- ============ AdSense ============ -->
   <meta name="google-adsense-account" content="ca-pub-2920008879492175">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2920008879492175" crossorigin="anonymous"></script>
+  
 
   <!-- ============ Adcash Library ============ -->
   <!-- ============ Styles ============ -->
