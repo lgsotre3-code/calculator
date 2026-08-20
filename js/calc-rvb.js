@@ -288,7 +288,7 @@
       addButton: '#rvb-scenario-add',
       clearButton: '#rvb-scenario-clear',
       nameInput: '#rvb-scenario-name',
-      empty: t('scenario_empty'),
+      emptyKey: 'scenario_empty',
       buildCells: function () {
         var s = read();
         var r = run(s);

@@ -231,6 +231,7 @@
     var list = [];
     var container = null;
     var emptyMsg = '';
+    var emptyKey = '';
     var inputRefs = null;      // optional: { el, key } used to preview names
     var activeColumn = null;   // hidden first column header (localized)
 
@@ -240,7 +241,11 @@
       if (!list.length) {
         var empty = document.createElement('p');
         empty.className = 'scenario-table__empty';
-        empty.textContent = emptyMsg;
+        if (emptyKey && window.i18n && window.i18n.t) {
+          empty.textContent = window.i18n.t(emptyKey);
+        } else {
+          empty.textContent = emptyMsg;
+        }
         container.appendChild(empty);
         return;
       }
@@ -290,6 +295,7 @@
         container = document.querySelector(opts.container);
         if (!container) return;
         emptyMsg = opts.empty || '';
+        emptyKey = opts.emptyKey || '';
         if (opts.nameHint) emptyMsg = emptyMsg.replace('{name}', opts.nameHint || '');
 
         var addBtn = document.querySelector(opts.addButton);
@@ -317,6 +323,10 @@
         }
 
         render();
+
+        document.addEventListener('i18n:updated', function () {
+          render();
+        });
       },
       get list() { return list; }
     };

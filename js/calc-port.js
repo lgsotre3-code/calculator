@@ -202,7 +202,7 @@
       addButton: '#port-scenario-add',
       clearButton: '#port-scenario-clear',
       nameInput: '#port-scenario-name',
-      empty: t('scenario_empty'),
+      emptyKey: 'scenario_empty',
       buildCells: function () {
         var s = read();
         var n = s.term * 12;

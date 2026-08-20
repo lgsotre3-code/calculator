@@ -149,7 +149,7 @@
       addButton: '#reno-scenario-add',
       clearButton: '#reno-scenario-clear',
       nameInput: '#reno-scenario-name',
-      empty: t('scenario_empty'),
+      emptyKey: 'scenario_empty',
       buildCells: function () {
         var s = read();
         var newValue = s.value * (1 + s.gain / 100);
