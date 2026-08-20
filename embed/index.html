@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, follow">
+  <title>Mortgage Calculator — MortgageCalc</title>
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Calculator styles -->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/calculators.css">
+
+  <style>
+    /* Embed-specific overrides */
+    html, body { margin: 0; padding: 0; }
+    body { min-height: 100vh; }
+
+    /* Hide elements not needed in embed */
+    .share-row,
+    .scenario-section,
+    .ad-container,
+    .schedule-footer #export-pdf,
+    #current-rate-note { display: none !important; }
+
+    /* Embed footer */
+    .embed-footer {
+      text-align: center;
+      padding: 16px 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      margin-top: 32px;
+    }
+    .embed-footer a {
+      color: var(--blue);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .embed-footer a:hover { text-decoration: underline; }
+
+    /* Tighten layout for embed */
+    .container { max-width: 100%; padding: 16px; }
+
+    @media (max-width: 480px) {
+      .container { padding: 12px; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+
+    <div class="calculator-wrapper">
+
+      <!-- ---------- FORM (inputs) ---------- -->
+      <form id="mortgage-form" class="input-section" aria-label="Mortgage calculator inputs" onsubmit="return false">
+
+        <!-- Home Value: range + number -->
+        <div class="form-group">
+          <label for="home-value"><i class="fas fa-home"></i> <span>Home Value ($)</span></label>
+          <div class="input-row">
+            <input type="range" id="home-value-slider" min="50000" max="2000000" step="1000" value="350000" aria-label="Home value slider">
+            <input type="number" id="home-value" value="350000" min="50000" max="2000000" step="1000" placeholder="Ex: 350000" inputmode="numeric">
+          </div>
+        </div>
+
+        <!-- Down Payment: % slider + $ number, both shown -->
+        <div class="form-group">
+          <label for="down-payment"><i class="fas fa-percentage"></i> <span>Down Payment ($)</span></label>
+          <div class="input-row">
+            <input type="range" id="down-payment-slider" min="0" max="50" step="0.5" value="20" aria-label="Down payment percentage slider">
+            <input type="number" id="down-payment" value="70000" min="0" step="100" placeholder="Ex: 70000" inputmode="numeric">
+            <span id="down-payment-percent" class="helper" aria-live="polite">20%</span>
+          </div>
+          <p id="down-payment-caption" class="helper" aria-live="polite"></p>
+        </div>
+
+        <!-- Interest Rate: range + number -->
+        <div class="form-group">
+          <label for="interest-rate"><i class="fas fa-chart-line"></i> <span>Interest Rate (%)</span></label>
+          <div class="input-row">
+            <input type="range" id="interest-rate-slider" min="1" max="15" step="0.01" value="6.5" aria-label="Interest rate slider">
+            <input type="number" id="interest-rate" value="6.5" min="1" max="15" step="0.01" placeholder="Ex: 6.5" inputmode="decimal">
+          </div>
+        </div>
+
+        <!-- Loan Term: select -->
+        <div class="form-group input-group--loan-term">
+          <label for="loan-term"><i class="fas fa-calendar-alt"></i> <span>Loan Term (years)</span></label>
+          <select id="loan-term" aria-label="Loan term in years">
+            <option value="10">10 years</option>
+            <option value="15">15 years</option>
+            <option value="20">20 years</option>
+            <option value="25">25 years</option>
+            <option value="30" selected>30 years</option>
+          </select>
+        </div>
+
+        <!-- Property Tax -->
+        <div class="form-group">
+          <label for="property-tax"><i class="fas fa-landmark"></i> <span>Property Tax (% of home value / year)</span></label>
+          <input type="number" id="property-tax" value="1.2" min="0" max="5" step="0.1" placeholder="Ex: 1.2" inputmode="decimal" style="width:100%">
+        </div>
+
+        <!-- Home Insurance -->
+        <div class="form-group">
+          <label for="insurance"><i class="fas fa-shield-alt"></i> <span>Home Insurance ($/year)</span></label>
+          <input type="number" id="insurance" value="1200" min="0" max="10000" step="100" placeholder="Ex: 1200" inputmode="numeric" style="width:100%">
+        </div>
+
+        <!-- Extra Payment -->
+        <div class="form-group">
+          <label for="extra-payment"><i class="fas fa-plus-circle" style="color:var(--green)"></i> <span>Extra Payment ($/month)</span></label>
+          <input type="number" id="extra-payment" value="0" min="0" max="5000" step="50" placeholder="Ex: 100" inputmode="numeric" style="width:100%">
+        </div>
+
+        <!-- Actions -->
+        <div class="btn-row">
+          <button type="button" id="calculate-btn" class="btn btn-primary"><i class="fas fa-calculator"></i> <span>Calculate</span></button>
+          <button type="button" id="reset-btn" class="btn btn-secondary"><i class="fas fa-undo"></i> <span>Reset</span></button>
+        </div>
+      </form>
+
+      <!-- ---------- RESULTS ---------- -->
+      <section class="results-section" aria-label="Calculation results">
+
+        <h2><i class="fas fa-chart-bar"></i> <span>Your Mortgage Results</span></h2>
+
+        <div class="result-grid">
+          <!-- Monthly payment (main card, includes breakdown) -->
+          <div class="result-card result-card--main">
+            <span class="result-label">Monthly Payment</span>
+            <span class="result-value" id="monthly-payment">$0.00</span>
+            <p class="breakdown">
+              <span>Payment breakdown:</span>
+              <span id="pi-value">$0.00</span> &middot; <span class="tax" id="tax-value">$0.00</span> &middot;
+              <span class="ins" id="insurance-value">$0.00</span><span id="monthly-extra"></span>
+            </p>
+          </div>
+
+          <div class="result-card">
+            <span class="result-label"><i class="fas fa-chart-line" style="color:var(--red);margin-right:4px"></i> <span>Total Interest Paid</span></span>
+            <span class="result-value" id="total-interest">$0.00</span>
+          </div>
+          <div class="result-card">
+            <span class="result-label"><i class="fas fa-coins" style="color:var(--blue);margin-right:4px"></i> <span>Total Payment</span></span>
+            <span class="result-value" id="total-payment">$0.00</span>
+          </div>
+          <div class="result-card">
+            <span class="result-label"><i class="fas fa-calendar-check" style="color:var(--green);margin-right:4px"></i> <span>Payoff Date</span></span>
+            <span class="result-value" id="payoff-date">&mdash;</span>
+          </div>
+          <div class="result-card">
+            <span class="result-label"><i class="fas fa-piggy-bank" style="color:var(--gold);margin-right:4px"></i> <span>Interest Saved (extra payments)</span></span>
+            <span class="result-value" id="interest-saved">$0.00</span>
+          </div>
+        </div>
+
+        <!-- Charts (Chart.js) -->
+        <div class="chart-grid">
+          <div class="chart-box">
+            <h3><i class="fas fa-chart-area"></i> <span>Loan Balance Over Time</span></h3>
+            <div class="chart-canvas"><canvas id="amortization-chart" role="img" aria-label="Chart of loan balance over time"></canvas></div>
+          </div>
+          <div class="chart-box">
+            <h3><i class="fas fa-chart-pie"></i> <span>Monthly Payment Breakdown</span></h3>
+            <div class="chart-canvas"><canvas id="breakdown-chart" role="img" aria-label="Doughnut chart of monthly payment breakdown"></canvas></div>
+          </div>
+        </div>
+
+        <!-- Amortization schedule -->
+        <div class="schedule">
+          <h2><i class="fas fa-table"></i> <span>Amortization Schedule</span></h2>
+          <p class="schedule-note" id="schedule-footer" aria-live="polite"></p>
+          <div class="table-scroll" tabindex="0" aria-label="Amortization schedule table">
+            <table class="amortization" id="amortization-table">
+              <thead>
+                <tr>
+                  <th scope="col">Month</th>
+                  <th scope="col">Payment</th>
+                  <th scope="col">Principal</th>
+                  <th scope="col">Interest</th>
+                  <th scope="col">Balance</th>
+                </tr>
+              </thead>
+              <tbody id="amortization-body"></tbody>
+            </table>
+          </div>
+          <div class="schedule-footer">
+            <button type="button" id="show-full-schedule" class="btn btn-secondary"><i class="fas fa-list"></i> <span>Show complete amortization schedule</span></button>
+            <span id="pdf-status" class="schedule-note" aria-live="polite" hidden></span>
+          </div>
+        </div>
+
+      </section>
+    </div>
+
+  </main>
+
+  <!-- Embed footer -->
+  <footer class="embed-footer">
+    Powered by <a href="https://www.mortgage-pro-calc.com/" target="_blank" rel="noopener">MortgageCalc</a> &mdash; mortgage-pro-calc.com
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/js/calc-core.js" defer></script>
+  <script src="/js/calculator.js" defer></script>
+  <script src="/js/analytics.js" defer></script>
+
+  <!-- Chart.js (lazy-loaded) -->
+  <script>
+    (function () {
+      var src = 'https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js';
+      var target = document.querySelector('.chart-grid') || document.getElementById('amortization-chart');
+      function loadChartScript() {
+        if (window.__chartLoading || window.Chart) return;
+        window.__chartLoading = true;
+        var s = document.createElement('script');
+        s.src = src;
+        s.defer = true;
+        s.onload = function () { if (window.refreshCharts) window.refreshCharts(); };
+        document.body.appendChild(s);
+      }
+      if (target && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { if (e.isIntersecting) { io.disconnect(); loadChartScript(); } });
+        }, { rootMargin: '400px' });
+        io.observe(target);
+      } else {
+        loadChartScript();
+      }
+    })();
+  </script>
+</body>
+</html>
