@@ -512,6 +512,35 @@
     const exportBtn = document.getElementById('export-pdf');
     if (exportBtn) exportBtn.addEventListener('click', exportPdf);
 
+    // Compare Scenarios: save the current calculation as a named column.
+    if (window.CalcCore && window.CalcCore.scenarios) {
+      const t = (window.i18n && window.i18n.t) ? window.i18n.t.bind(window.i18n) : (k => k);
+      window.CalcCore.scenarios.init({
+        container: '#mc-scenario-table',
+        addButton: '#mc-scenario-add',
+        clearButton: '#mc-scenario-clear',
+        nameInput: '#mc-scenario-name',
+        empty: t('scenario_empty'),
+        buildCells: () => {
+          readInputs();
+          const principal = state.homeValue - state.homeValue * state.downPercent / 100;
+          const sched = amortize(principal, state.interestRate, state.loanTerm, state.extraPayment);
+          const monthlyTax = state.homeValue * state.propertyTax / 100 / 12;
+          const monthlyIns = state.insurance / 12;
+          const totalMonthly = sched.M + monthlyTax + monthlyIns;
+          return {
+            cells: {
+              [t('monthly_payment')]: usd.format(totalMonthly),
+              [t('total_interest')]: usd.format(sched.totalInterest),
+              [t('total_payment')]: usd.format(sched.totalPaid),
+              [t('payoff_date')]: payoffDate(sched.payoffMonths),
+              [t('extra_payment')]: usd.format(state.extraPayment) + '/mo'
+            }
+          };
+        }
+      });
+    }
+
     // Prefill the interest rate with the current market rate (FRED via the
     // Vercel function). Best-effort: on any failure the default is kept and
     // the field stays user-editable. Recalculates only when a rate arrives.
