@@ -13,14 +13,14 @@
 
   window.META_DATA = {
     en: {
-      title: 'VA & Conventional Mortgage Calculator with Taxes and Insurance — 2026',
-      description: 'Calculate your VA or conventional mortgage payment with property taxes, home insurance, and extra payments. Free amortization schedule and graphs. Zero down payment options available.',
-      keywords: 'mortgage calculator, VA mortgage, conventional mortgage, VA loan payment, home loan calculator, property tax, PMI, amortization, refinance, mortgage affordability',
-      ogTitle: 'VA & Conventional Mortgage Calculator with Taxes & Extra Payments',
-      ogDescription: 'Calculate monthly payment, total interest, and payoff date for VA and conventional loans. Includes amortization schedule and interactive graphs.',
+      title: 'Free Mortgage Calculator with Taxes, Insurance & Extra Payments — 2026',
+      description: 'Calculate your monthly mortgage payment with taxes, insurance, and extra payments. Free mortgage calculator with amortization schedule and payment breakdown.',
+      keywords: 'mortgage calculator, home loan calculator, mortgage payment calculator, monthly mortgage calculator, mortgage calculator with taxes and insurance, mortgage calculator with extra payments, mortgage amortization calculator, mortgage payment breakdown, mortgage affordability calculator',
+      ogTitle: 'Mortgage Calculator with Taxes & Extra Payments',
+      ogDescription: 'Calculate monthly payment, total interest, and payoff date. Includes amortization schedule and interactive graphs.',
       ogLocale: 'en_US',
-      twitterTitle: 'VA & Conventional Mortgage Calculator 2026',
-      twitterDescription: 'Calculate VA or conventional mortgage payments with taxes and insurance. Zero down payment options. Instant results.'
+      twitterTitle: 'Mortgage Calculator 2026',
+      twitterDescription: 'Calculate mortgage payments with taxes and insurance. Instant results and amortization schedule.'
     },
     va: {
       title: 'VA Mortgage Calculator with Taxes and Insurance — 2026',
