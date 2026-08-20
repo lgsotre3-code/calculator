@@ -1,10 +1,10 @@
 /**
- * calc-fvc.js — Finance vs. Pay Cash calculator
+ * calc-fvc.js â€” Finance vs. Pay Cash calculator
  * ---------------------------------------------
  * Model: both options assume you own the home.
- *   • Financing: pay a down payment, keep (price − down) invested at the
+ *   â€¢ Financing: pay a down payment, keep (price âˆ’ down) invested at the
  *     investment return, and make monthly P&I payments.
- *   • Pay cash: pay the full price today; the purchase price no longer
+ *   â€¢ Pay cash: pay the full price today; the purchase price no longer
  *     earns anything, but the monthly payments you avoid are invested.
  * The option with the higher end-of-term invested capital wins.
  *

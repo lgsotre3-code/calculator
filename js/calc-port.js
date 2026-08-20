@@ -1,5 +1,5 @@
 /**
- * calc-port.js — Loan Portability calculator
+ * calc-port.js â€” Loan Portability calculator
  * ------------------------------------------
  * Compares the current mortgage with a new one at the offered rate, on the
  * same outstanding balance and remaining term, and includes portability
@@ -83,7 +83,7 @@
     el['port-out-monthly-savings'].textContent = C.money(Math.max(monthlySavings, 0));
     el['port-out-total-savings'].textContent = C.money(Math.max(totalSavings, 0));
     el['port-out-interest-saved'].textContent = C.money(interestSaved);
-    el['port-out-payback'].textContent = payback === null ? '—' : C.num(payback) + ' ' + t('months_abbr');
+    el['port-out-payback'].textContent = payback === null ? 'â€”' : C.num(payback) + ' ' + t('months_abbr');
     el['port-out-net'].textContent = C.money(net);
     el['port-out-net'].parentElement.classList.toggle('calculator__card--good', net >= 0);
     el['port-out-net'].parentElement.classList.toggle('calculator__card--bad', net < 0);
@@ -97,7 +97,7 @@
       verdict.textContent = t('port_verdict_ok')
         .replace('{monthly}', C.money(monthlySavings))
         .replace('{total}', C.money(totalSavings))
-        .replace('{payback}', payback === null ? '—' : C.num(payback) + ' ' + t('months_abbr'));
+        .replace('{payback}', payback === null ? 'â€”' : C.num(payback) + ' ' + t('months_abbr'));
       verdict.classList.add('calculator__verdict');
     }
 
@@ -110,7 +110,7 @@
         [t('port_out_monthly_savings')]: C.money(Math.max(monthlySavings, 0)),
         [t('port_out_total_savings')]: C.money(Math.max(totalSavings, 0)),
         [t('port_out_interest_saved')]: C.money(interestSaved),
-        [t('port_out_payback')]: payback === null ? '—' : C.num(payback) + ' ' + t('months_abbr'),
+        [t('port_out_payback')]: payback === null ? 'â€”' : C.num(payback) + ' ' + t('months_abbr'),
         [t('port_out_net')]: C.money(net)
       }
     };
@@ -217,7 +217,7 @@
             [t('port_out_new')]: C.money(neu.M),
             [t('port_out_monthly_savings')]: C.money(Math.max(monthlySavings, 0)),
             [t('port_out_total_savings')]: C.money(Math.max(totalSavings, 0)),
-            [t('port_out_payback')]: payback === null ? '—' : C.num(payback) + ' ' + t('months_abbr'),
+            [t('port_out_payback')]: payback === null ? 'â€”' : C.num(payback) + ' ' + t('months_abbr'),
             [t('port_out_net')]: C.money(totalSavings - s.costs)
           }
         };

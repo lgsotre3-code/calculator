@@ -1,10 +1,10 @@
 /**
- * calc-reno.js — Renovation ROI calculator
+ * calc-reno.js â€” Renovation ROI calculator
  * ----------------------------------------
  * Estimates the return on investment of a home renovation.
- *   • New value = current value × (1 + expected increase / 100)
- *   • Profit / loss = value increase − renovation cost
- *   • ROI = profit / cost × 100
+ *   â€¢ New value = current value Ã— (1 + expected increase / 100)
+ *   â€¢ Profit / loss = value increase âˆ’ renovation cost
+ *   â€¢ ROI = profit / cost Ã— 100
  * Also charts the typical cost recovery by renovation type (static,
  * industry-reference data) and current vs. renovated value.
  *

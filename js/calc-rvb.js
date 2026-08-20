@@ -1,10 +1,10 @@
 /**
- * calc-rvb.js — Rent vs. Buy calculator
+ * calc-rvb.js â€” Rent vs. Buy calculator
  * -------------------------------------
  * Monthly simulation over the holding period:
- *   • Buyer net worth  = home equity (home value − remaining balance).
- *   • Renter net worth = the down payment (invested) plus the monthly
- *     cash-flow difference (buy cost − effective rent), compounded at the
+ *   â€¢ Buyer net worth  = home equity (home value âˆ’ remaining balance).
+ *   â€¢ Renter net worth = the down payment (invested) plus the monthly
+ *     cash-flow difference (buy cost âˆ’ effective rent), compounded at the
  *     chosen investment return. Positive differences are invested; if rent
  *     costs more than buying, the renter account is drawn down.
  * The option with the higher net worth at the end of the horizon wins, and
