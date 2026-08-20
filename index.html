@@ -251,6 +251,7 @@
 
   <!-- ============ Styles (render-blocking keeps layout stable; CLS-safe) ============ -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/calculators.css">
 </head>
 
 <body>
@@ -458,6 +459,18 @@
             <span id="pdf-status" class="schedule-note" aria-live="polite" hidden></span>
           </div>
         </div>
+
+        <!-- Compare Scenarios -->
+        <section class="scenario-section" aria-label="Compare scenarios">
+          <h3 class="scenario-section__title" data-i18n="scenario_title">Compare Scenarios</h3>
+          <p class="scenario-section__hint" data-i18n="scenario_hint">Save different combinations of inputs and view them side by side.</p>
+          <div class="scenario-actions">
+            <input type="text" id="mc-scenario-name" placeholder="Scenario name" data-i18n-placeholder="scenario_name_ph" data-i18n-aria="scenario_name_ph" aria-label="Scenario name">
+            <button type="button" id="mc-scenario-add" class="btn btn-secondary" data-i18n="scenario_add">Compare Scenario</button>
+            <button type="button" id="mc-scenario-clear" class="btn btn-outline" data-i18n="scenario_clear">Clear all</button>
+          </div>
+          <div id="mc-scenario-table" class="table-scroll table-scroll--scenarios" tabindex="0" aria-label="Scenario comparison table"></div>
+        </section>
 
         <!-- TODO: reativar quando houver parceria de afiliado fechada
         <aside class="cta-box" aria-label="Get pre-approved">
