@@ -520,7 +520,7 @@
         addButton: '#mc-scenario-add',
         clearButton: '#mc-scenario-clear',
         nameInput: '#mc-scenario-name',
-        empty: t('scenario_empty'),
+        emptyKey: 'scenario_empty',
         buildCells: () => {
           readInputs();
           const principal = state.homeValue - state.homeValue * state.downPercent / 100;
