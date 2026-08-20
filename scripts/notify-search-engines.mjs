@@ -84,16 +84,14 @@ async function notifyGoogle() {
       return;
     }
 
-    // --- submit sitemap via sitemaps.submit ---------------------------------
+    // --- submit sitemap via sitemaps.submit (PUT, no body) -------------------
     const submitRes = await fetch(
-      `https://searchconsole.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE_URL)}/sitemaps:submit`,
+      `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE_URL)}/sitemaps/${encodeURIComponent(SITEMAP_URL)}`,
       {
-        method: 'POST',
+        method: 'PUT',
         headers: {
           Authorization: `Bearer ${tokenBody.access_token}`,
-          'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ feedpath: SITEMAP_URL }),
       },
     );
 
@@ -105,7 +103,11 @@ async function notifyGoogle() {
       log('Google Search Console', false, msg);
     }
   } catch (err) {
-    log('Google Search Console', false, err.message);
+    const detail = [
+      err.message,
+      err.stack && err.stack.split('\n').slice(0, 3).join(' | '),
+    ].filter(Boolean).join(' — ');
+    log('Google Search Console', false, detail || 'Unknown error');
   }
 }
 
