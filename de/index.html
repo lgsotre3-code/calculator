@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <!--
-  Locale shell: /de/
-  Redirects to the main page with ?lang=de.
+  ============================================================================
+  Mortgage Calculator — Home Page (index.html)
+  ----------------------------------------------------------------------------
+  CONFIGURED: domain (www.mortgage-pro-calc.com), AdSense (ca-pub-2920008879492175).
+  TODO before launch:
+    1. GA4: uncomment the Analytics block below and set your Measurement ID (G-...).
+    2. GTM: uncomment the GTM snippet and set your container ID (GTM-...) if used.
+    3. Replace the affiliate links (#) with your real partner URLs.
+  ============================================================================
 -->
-<html lang="de">
+<html lang="de" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <!-- Google Consent Mode v2 (default consent: EEA/UK/CH denied, rest granted) -->
@@ -40,60 +47,610 @@
   </script>
 
   <!-- Cookiebot CMP (Google-certified: Consent Mode v2 + Microsoft Clarity Consent Mode) -->
-  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="d817fd6b-d033-4ae1-8682-d2b44b49a66a" data-blockingmode="manual" async></script>
-    <!-- Smart Lazy Load Third-Party Scripts (AdSense, Analytics, Clarity) -->
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="d817fd6b-d033-4ae1-8682-d2b44b49a66a" data-blockingmode="auto" type="text/javascript"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G5FRBTR588"></script>
   <script>
-    (function() {
-      var loaded = false;
-      function loadThirdParty() {
-        if (loaded) return;
-        loaded = true;
-        // GA4
-        var ga = document.createElement('script');
-        ga.async = true;
-        ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-G5FRBTR588';
-        document.head.appendChild(ga);
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-G5FRBTR588');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-G5FRBTR588');
+  </script>
 
-        // Clarity
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "y3enp4munj");
-
-        // AdSense
-        var ads = document.createElement('script');
-        ads.async = true;
-        ads.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2920008879492175';
-        ads.crossOrigin = 'anonymous';
-        document.head.appendChild(ads);
-      }
-      ['touchstart', 'scroll', 'mousemove', 'keydown'].forEach(function(e) {
-        window.addEventListener(e, loadThirdParty, { once: true, passive: true });
-      });
-      setTimeout(loadThirdParty, 2000);
-    })();
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "y3enp4munj");
   </script>
   <meta name="google-site-verification" content="_nxfYFglucpreV_H_ZjRTVWkzrrb9TsWJwPPVQiC8EM">
   <meta name="impact-site-verification" value="f1f62669-d5c7-4d23-b5c1-75fc1a809c3f">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="0; url=../index.html?lang=de">
-  <title>Hypothekenrechner mit Steuern und Versicherung | Baufinanzierungsrechner 2026</title>
-  <meta name="description" content="Berechnen Sie Ihre monatliche Hypothekenrate inklusive Grundsteuer, Hausversicherung und Sondertilgungen. Kostenloser Hypothekenrechner mit Tilgungsplan und Ratenaufschlüsselung.">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- ============ SEO: title & description ============ -->
+  <title>Hypothekenrechner mit Steuern und Versicherung — 2026</title>
+  <meta name="description" content="Berechnen Sie Ihre monatliche Rate mit Steuern, Versicherung und Sondertilgungen. Erhalten Sie Tilgungsplan, Grafiken und Tilgungsdatum — kostenlos, sofort.">
+  <meta name="keywords" content="hypothekenrechner, monatliche rate, tilgung, grundsteuer, versicherung, refinanzierung">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#1a365d">
   <link rel="canonical" href="https://www.mortgage-pro-calc.com/de/">
+
+  <!-- ============ Open Graph / Twitter ============ -->
+  <meta property="og:title" content="Hypothekenrechner mit Steuern und Sondertilgungen">
+  <meta property="og:description" content="Berechnen Sie monatliche Rate, Gesamtzinsen und Tilgungsdatum. Inklusive Tilgungsplan und interaktiven Grafiken.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.mortgage-pro-calc.com/de/">
+  <meta property="og:image" content="https://www.mortgage-pro-calc.com/assets/img/mortgage-calculator-og-image.jpg">
+  <meta property="og:site_name" content="Mortgage Calculator">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Hypothekenrechner 2026">
+  <meta name="twitter:description" content="Berechnen Sie Raten mit Steuern und Versicherung. Sofortige Ergebnisse und vollständiger Tilgungsplan.">
+  <meta name="twitter:image" content="https://www.mortgage-pro-calc.com/assets/img/mortgage-calculator-og-image.jpg">
+
+  <!-- ============ Multilingual SEO: hreflang ============ -->
   <link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/en/">
   <link rel="alternate" hreflang="es" href="https://www.mortgage-pro-calc.com/es/">
   <link rel="alternate" hreflang="fr" href="https://www.mortgage-pro-calc.com/fr/">
   <link rel="alternate" hreflang="pt" href="https://www.mortgage-pro-calc.com/pt/">
   <link rel="alternate" hreflang="de" href="https://www.mortgage-pro-calc.com/de/">
   <link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/">
-  <script>location.replace('../index.html?lang=de');</script>
+
+  <!-- ============ Favicon ============ -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/img/favicon.svg">
+
+  <!-- ============ Fonts & Icons ============ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- ============ Performance: preconnect ============ -->
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+  <!-- ============ Schema Markup: WebApplication ============ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Mortgage Calculator with Taxes, Insurance & Extra Payments",
+    "alternateName": "Mortgage Payment Calculator with Taxes and Insurance",
+    "description": "Calculate your monthly mortgage payment with taxes, insurance, and extra payments. Free mortgage calculator with amortization schedule and payment breakdown.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "url": "https://www.mortgage-pro-calc.com/",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "inLanguage": ["en", "es", "fr", "pt", "de"]
+  }
+  </script>
+
+  <!-- ============ Schema Markup: FAQPage ============
+       (Matches the visible FAQ section; kept in English for the default crawl.) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the formula for calculating a mortgage payment?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The monthly mortgage payment formula is M = P [ i(1 + i)^n ] / [ (1 + i)^n – 1 ], where M = monthly payment, P = principal, i = monthly interest rate, and n = total number of payments." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do property taxes and insurance affect my monthly payment?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Lenders often collect them through an escrow account, adding a monthly portion to your payment. Property tax is usually a percentage of the home value, while home insurance is a fixed annual premium divided by 12. Including both gives you the true monthly cost." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do extra payments help pay off my mortgage faster?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Extra payments go directly to the principal, so you pay less interest on the remaining balance and shorten the loan term. For example, adding $100 per month to a $350,000 loan at 6.5% can save tens of thousands in interest and shave years off the payoff date." }
+      },
+      {
+        "@type": "Question",
+        "name": "How much mortgage can I afford based on my income?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A common guideline is the 28/36 rule: keep housing costs at or below 28% of gross income and total debt at or below 36%. A mortgage affordability calculator applies your exact income, debts, down payment and rate to find a realistic price range." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is PMI and when can I drop it?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Private mortgage insurance (PMI) protects the lender when your down payment is below 20%. Once you reach 20% equity — either through payments or appreciation — you can request to remove PMI and lower your payment." }
+      },
+      {
+        "@type": "Question",
+        "name": "When does it make sense to refinance my mortgage?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Refinancing makes sense when you can lower your rate enough to recover closing costs within a reasonable time, or when you want to shorten the term. Use a refinance mortgage calculator to compare your current and new payments and find your break-even month." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is an amortization schedule?",
+        "acceptedAnswer": { "@type": "Answer", "text": "An amortization schedule is a table listing every payment over the life of the loan, showing how much goes to principal, how much to interest, and the remaining balance after each month." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do biweekly mortgage payments really save money?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Paying half your monthly payment every two weeks results in 26 half-payments a year — the equivalent of 13 full payments instead of 12. That extra payment per year goes to principal, cutting years off the loan and reducing total interest substantially." }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I make a bigger down payment?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A larger down payment means a smaller loan, lower monthly payments, and less total interest — and avoiding PMI when you put down 20% or more. The trade-off is tying up cash you might need elsewhere." }
+      },
+      {
+        "@type": "Question",
+        "name": "Fixed-rate or adjustable-rate mortgage: which is better?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A fixed-rate mortgage keeps the same interest rate and payment for the whole term, which makes budgeting predictable. An adjustable-rate mortgage (ARM) starts lower but can rise after the initial period." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the principal and interest breakdown of a mortgage payment?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Each payment splits into principal (the amount that reduces your loan balance and builds equity) and interest (the cost of borrowing). Early in the loan most of the payment goes to interest; over time the split shifts until almost the entire payment goes to principal." }
+      }
+    ]
+  }
+  </script>
+
+  <!-- ============ Google AdSense (Auto Ads)
+       Replace ca-pub-2920008879492175 with your publisher ID.
+       The three manual placements (top / middle / footer) live in the page
+       body inside .ad-container elements — paste your ad-unit snippet there. -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2920008879492175" crossorigin="anonymous"></script>
+
+  <!-- ============ Adcash Library ============ -->
+  <!-- ============ Google Analytics 4 ============
+       TODO: uncomment and set YOUR Measurement ID (e.g. G-ABC123XYZ).
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
+  </script>
+  =========================================================== -->
+
+  <!-- ============ Google Tag Manager (optional)
+       Create a container first, then uncomment and set GTM-XXXXXXX.
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+  =========================================================== -->
+
+  <!-- ============ Styles (render-blocking keeps layout stable; CLS-safe) ============ -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/calculators.css">
 </head>
-<body style="font-family:system-ui,sans-serif;text-align:center;padding:40px;">
-  <p>Weiterleitung zum Hypothekenrechner…</p>
+
+<body>
+  <!-- Skip link for keyboard users -->
+  <a class="skip-link" href="#main" data-i18n="skip">Zum Inhalt springen</a>
+
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="brand" aria-label="Mortgage Calculator home">
+        <span class="logo-mark" aria-hidden="true">MC</span>
+        <span data-i18n="brand_name">MortgageCalc</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="/" data-i18n="nav_home">Start</a></li>
+          <li><a href="/calculators/" data-i18n="nav_calculators">Rechner</a></li>
+          <li><a href="/blog" data-i18n="nav_blog">Blog</a></li>
+          <li><a href="/about" data-i18n="nav_about">Über uns</a></li>
+          <li><a href="/contact" data-i18n="nav_contact">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="main-nav"
+              data-label-open="Open menu" data-label-close="Close menu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- Language selector (detection + manual override live in js/i18n/i18n.js) -->
+      <div class="lang-switch">
+        <label for="lang-select" data-i18n="language_label">Sprache</label>
+        <select id="lang-select" aria-label="Language">
+          <option value="en" data-i18n-option="lang_en">English</option>
+          <option value="es" data-i18n-option="lang_es">Español</option>
+          <option value="fr" data-i18n-option="lang_fr">Français</option>
+          <option value="pt" data-i18n-option="lang_pt">Português</option>
+          <option value="de" data-i18n-option="lang_de">Deutsch</option>
+        </select>
+      </div>
+
+      <!-- Dark mode toggle -->
+      <button type="button" class="theme-toggle-btn" onclick="themeToggle()" aria-label="Toggle dark mode">
+        <i class="fas fa-sun" id="theme-toggle-icon"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============================ AD — TOP ============================
+       Paste your AdSense unit here (728x90 leaderboard recommended). -->
+  <div id="ad-container-top" class="ad-container" aria-hidden="true"></div>
+
+  <!-- ============================ MAIN ============================ -->
+  <main id="main" class="container">
+
+    <!-- H1 + intro -->
+    <h1 class="page-title" data-i18n="title">Kostenloser Hypothekenrechner mit Steuern, Versicherung und Sondertilgungen — 2026</h1>
+    <p class="page-intro" data-i18n="h1_intro">Berechnen Sie Ihre monatliche Hypothekenrate einschließlich Grundsteuer, Hausversicherung und Sondertilgungen. Mit vollständigem Tilgungsplan und Ratenaufschlüsselung — sofort und kostenlos.</p>
+
+    <!-- ============================ CALCULATOR ============================ -->
+    <div class="calculator-wrapper">
+
+      <!-- ---------- FORM (inputs) ---------- -->
+      <form id="mortgage-form" class="input-section" aria-label="Mortgage calculator inputs" onsubmit="return false">
+
+        <!-- Home Value: range + number -->
+        <div class="form-group">
+          <label for="home-value"><i class="fas fa-home"></i> <span data-i18n="home_value">Immobilienwert ($)</span></label>
+          <div class="input-row">
+            <input type="range" id="home-value-slider" min="50000" max="2000000" step="1000" value="350000" aria-label="Home value slider">
+            <input type="number" id="home-value" value="350000" min="50000" max="2000000" step="1000" data-i18n-placeholder="ph_home_value" placeholder="z. B. 350000" inputmode="numeric">
+          </div>
+        </div>
+
+        <!-- Down Payment: % slider + $ number, both shown -->
+        <div class="form-group">
+          <label for="down-payment"><i class="fas fa-percentage"></i> <span data-i18n="down_payment">Eigenkapital ($)</span></label>
+          <div class="input-row">
+            <input type="range" id="down-payment-slider" min="0" max="50" step="0.5" value="20" aria-label="Down payment percentage slider">
+            <input type="number" id="down-payment" value="70000" min="0" step="100" data-i18n-placeholder="ph_down_payment" placeholder="z. B. 70000" inputmode="numeric">
+            <span id="down-payment-percent" class="helper" aria-live="polite">20%</span>
+          </div>
+          <p id="down-payment-caption" class="helper" aria-live="polite"></p>
+        </div>
+
+        <!-- Interest Rate: range + number -->
+        <div class="form-group">
+          <label for="interest-rate"><i class="fas fa-chart-line"></i> <span data-i18n="interest_rate">Zinssatz (%)</span></label>
+          <div class="input-row">
+            <input type="range" id="interest-rate-slider" min="1" max="15" step="0.01" value="6.5" aria-label="Interest rate slider">
+            <input type="number" id="interest-rate" value="6.5" min="1" max="15" step="0.01" data-i18n-placeholder="ph_interest_rate" placeholder="z. B. 6.5" inputmode="decimal">
+          </div>
+          <p id="current-rate-note" class="helper" aria-live="polite" hidden></p>
+        </div>
+
+        <!-- Loan Term: select -->
+        <div class="form-group input-group--loan-term">
+          <label for="loan-term"><i class="fas fa-calendar-alt"></i> <span data-i18n="loan_term">Laufzeit (Jahre)</span></label>
+          <select id="loan-term" aria-label="Loan term in years">
+            <option value="10" data-i18n-option="years_10">10 Jahre</option>
+            <option value="15" data-i18n-option="years_15">15 Jahre</option>
+            <option value="20" data-i18n-option="years_20">20 Jahre</option>
+            <option value="25" data-i18n-option="years_25">25 Jahre</option>
+            <option value="30" selected data-i18n-option="years_30">30 Jahre</option>
+          </select>
+        </div>
+
+        <!-- Property Tax (optional differential) -->
+        <div class="form-group">
+          <label for="property-tax"><i class="fas fa-landmark"></i> <span data-i18n="property_tax">Grundsteuer (% des Werts/Jahr)</span></label>
+          <input type="number" id="property-tax" value="1.2" min="0" max="5" step="0.1" data-i18n-placeholder="ph_property_tax" placeholder="z. B. 1.2" inputmode="decimal" style="width:100%">
+        </div>
+
+        <!-- Home Insurance (optional differential) -->
+        <div class="form-group">
+          <label for="insurance"><i class="fas fa-shield-alt"></i> <span data-i18n="home_insurance">Hausversicherung ($/Jahr)</span></label>
+          <input type="number" id="insurance" value="1200" min="0" max="10000" step="100" data-i18n-placeholder="ph_insurance" placeholder="z. B. 1200" inputmode="numeric" style="width:100%">
+        </div>
+
+        <!-- Extra Payment (optional differential) -->
+        <div class="form-group">
+          <label for="extra-payment"><i class="fas fa-plus-circle" style="color:var(--green)"></i> <span data-i18n="extra_payment">Sondertilgung ($/Monat)</span></label>
+          <input type="number" id="extra-payment" value="0" min="0" max="5000" step="50" data-i18n-placeholder="ph_extra_payment" placeholder="z. B. 100" inputmode="numeric" style="width:100%">
+        </div>
+
+        <!-- Actions -->
+        <div class="btn-row">
+          <button type="button" id="calculate-btn" class="btn btn-primary"><i class="fas fa-calculator"></i> <span data-i18n="calculate">Berechnen</span></button>
+          <button type="button" id="reset-btn" class="btn btn-secondary"><i class="fas fa-undo"></i> <span data-i18n="reset">Zurücksetzen</span></button>
+        </div>
+      </form>
+
+      <!-- ---------- RESULTS ---------- -->
+      <section class="results-section" aria-label="Calculation results">
+
+        <h2><i class="fas fa-chart-bar"></i> <span data-i18n="results_title">Ihre Hypothekenergebnisse</span></h2>
+
+        <div class="result-grid">
+          <!-- Monthly payment (main card, includes breakdown) -->
+          <div class="result-card result-card--main">
+            <span class="result-label" data-i18n="monthly_payment">Monatliche Rate</span>
+            <span class="result-value" id="monthly-payment">$0.00</span>
+            <p class="breakdown">
+              <span data-i18n="breakdown">Ratenaufschlüsselung</span>
+              <span id="pi-value">$0.00</span> · <span class="tax" id="tax-value">$0.00</span> ·
+              <span class="ins" id="insurance-value">$0.00</span><span id="monthly-extra"></span>
+            </p>
+          </div>
+
+          <div class="result-card">
+            <span class="result-label"><i class="fas fa-chart-line" style="color:var(--red);margin-right:4px"></i> <span data-i18n="total_interest">Gesamtzinsen</span></span>
+            <span class="result-value" id="total-interest">$0.00</span>
+          </div>
+          <div class="result-card">
+            <span class="result-label"><i class="fas fa-coins" style="color:var(--blue);margin-right:4px"></i> <span data-i18n="total_payment">Gesamtzahlung</span></span>
+            <span class="result-value" id="total-payment">$0.00</span>
+          </div>
+          <div class="result-card">
+            <span class="result-label"><i class="fas fa-calendar-check" style="color:var(--green);margin-right:4px"></i> <span data-i18n="payoff_date">Fälligkeitsdatum</span></span>
+            <span class="result-value" id="payoff-date">—</span>
+          </div>
+          <div class="result-card">
+            <span class="result-label"><i class="fas fa-piggy-bank" style="color:var(--gold);margin-right:4px"></i> <span data-i18n="interest_saved">Zinsersparnis (Sondertilgungen)</span></span>
+            <span class="result-value" id="interest-saved">$0.00</span>
+          </div>
+        </div>
+
+        <!-- ============ AD — MIDDLE (between form and results)
+             Paste your AdSense unit here (336x280 rectangle recommended). -->
+        <div id="ad-container-middle" class="ad-container ad-container--tall" aria-hidden="true"></div>
+
+        <!-- Charts (Chart.js) -->
+        <div class="chart-grid">
+          <div class="chart-box">
+            <h3><i class="fas fa-chart-area"></i> <span data-i18n="chart_balance_title">Darlehenssaldo im Zeitverlauf</span></h3>
+            <div class="chart-canvas"><canvas id="amortization-chart" role="img" aria-label="Chart of loan balance over time"></canvas></div>
+          </div>
+          <div class="chart-box">
+            <h3><i class="fas fa-chart-pie"></i> <span data-i18n="chart_breakdown_title">Aufschlüsselung der Monatsrate</span></h3>
+            <div class="chart-canvas"><canvas id="breakdown-chart" role="img" aria-label="Doughnut chart of monthly payment breakdown"></canvas></div>
+          </div>
+        </div>
+
+        <!-- Amortization schedule -->
+        <div class="schedule">
+          <h2><i class="fas fa-table"></i> <span data-i18n="schedule_title">Tilgungsplan</span></h2>
+          <p class="schedule-note" id="schedule-footer" aria-live="polite"></p>
+          <div class="table-scroll" tabindex="0" aria-label="Amortization schedule table">
+            <table class="amortization" id="amortization-table">
+              <thead>
+                <tr>
+                  <th scope="col" data-i18n="month">Monat</th>
+                  <th scope="col" data-i18n="payment">Zahlung</th>
+                  <th scope="col" data-i18n="principal">Tilgung</th>
+                  <th scope="col" data-i18n="interest">Zinsen</th>
+                  <th scope="col" data-i18n="balance">Saldo</th>
+                </tr>
+              </thead>
+              <tbody id="amortization-body"></tbody>
+            </table>
+          </div>
+          <div class="schedule-footer">
+            <button type="button" id="show-full-schedule" class="btn btn-secondary"><i class="fas fa-list"></i> <span data-i18n="show_full_schedule">Kompletten Tilgungsplan anzeigen</span></button>
+            <button type="button" id="export-pdf" class="btn btn-secondary"><i class="fas fa-file-pdf"></i> <span data-i18n="export_pdf">Als PDF exportieren</span></button>
+            <span id="pdf-status" class="schedule-note" aria-live="polite" hidden></span>
+          </div>
+        </div>
+
+        <!-- Compare Scenarios -->
+        <section class="scenario-section" aria-label="Compare scenarios">
+          <h3 class="scenario-section__title" data-i18n="scenario_title">Szenarien Vergleichen</h3>
+          <p class="scenario-section__hint" data-i18n="scenario_hint">Speichern Sie verschiedene Eingabekombinationen und sehen Sie sie nebeneinander.</p>
+          <div class="scenario-actions">
+            <input type="text" id="mc-scenario-name" placeholder="Scenario name" data-i18n-placeholder="scenario_name_ph" data-i18n-aria="scenario_name_ph" aria-label="Szenarioname">
+            <button type="button" id="mc-scenario-add" class="btn btn-secondary" data-i18n="scenario_add">Szenario Vergleichen</button>
+            <button type="button" id="mc-scenario-clear" class="btn btn-outline" data-i18n="scenario_clear">Alle löschen</button>
+          </div>
+          <div id="mc-scenario-table" class="table-scroll table-scroll--scenarios" tabindex="0" aria-label="Scenario comparison table"></div>
+        </section>
+
+        <!-- TODO: reativar quando houver parceria de afiliado fechada
+        <aside class="cta-box" aria-label="Get pre-approved">
+          <h3 data-i18n="pre_approval_title">Bereit zum Kauf? Lassen Sie sich vorab bestätigen</h3>
+          <p data-i18n="pre_approval_text">Erhalten Sie eine kostenlose Vorabzusage von einem zugelassenen Kreditgeber und wissen Sie genau, was Ihnen zusteht.</p>
+          <div class="cta-links">
+            <a href="#" class="btn btn-affiliate" data-cta="pre_approved" rel="nofollow sponsored"><i class="fas fa-check-circle"></i> <span data-i18n="get_pre_approved">Vorabzusage erhalten</span></a>
+            <a href="#" class="btn btn-outline" data-cta="compare_rates" rel="nofollow sponsored"><i class="fas fa-balance-scale"></i> <span data-i18n="compare_rates">Hypothekenzinsen vergleichen</span></a>
+          </div>
+        </aside>
+        -->
+
+        <!-- Social share -->
+        <div class="share-row">
+          <span data-i18n="share">Teilen</span>
+          <button class="share-btn" data-share="facebook" data-i18n-aria="share_facebook" aria-label="Auf Facebook teilen"><i class="fab fa-facebook-f"></i></button>
+          <button class="share-btn" data-share="twitter" data-i18n-aria="share_twitter" aria-label="Auf X teilen"><i class="fab fa-x-twitter"></i></button>
+          <button class="share-btn" data-share="linkedin" data-i18n-aria="share_linkedin" aria-label="Auf LinkedIn teilen"><i class="fab fa-linkedin-in"></i></button>
+          <button class="share-btn" data-share="whatsapp" data-i18n-aria="share_whatsapp" aria-label="Auf WhatsApp teilen"><i class="fab fa-whatsapp"></i></button>
+        </div>
+
+      </section>
+    </div>
+
+    <!-- ============================ SEO CONTENT ============================ -->
+
+    <section class="seo-section" id="what-is-mortgage-calculator">
+      <h2><i class="fas fa-info-circle"></i> <span data-i18n="sec_what_is">Was ist ein Hypothekenrechner und wie funktioniert er?</span></h2>
+      <p data-i18n="p_what_is">Ein Hypothekenrechner ist ein Finanztool, das Ihre monatliche Hypothekenrate anhand von Kaufpreis, Eigenkapital, Zinssatz und Laufzeit schätzt. Dieser Hypothekenrechner mit Steuern und Versicherung geht weiter und berücksichtigt auch Grundsteuer, Hausversicherung und Sondertilgungen — für ein vollständiges Bild der tatsächlichen Kosten Ihrer Baufinanzierung.</p>
+    </section>
+
+    <section class="seo-section" id="how-to-use-mortgage-calculator">
+      <h2><i class="fas fa-book-open"></i> <span data-i18n="sec_how_to_use">So verwenden Sie diesen Hypothekenrechner mit Steuern und Versicherung</span></h2>
+      <p data-i18n="p_how_to_use">Die Bedienung dieses Hypothekenrechners mit Steuern und Versicherung ist einfach. Geben Sie Immobilienwert, Eigenkapital, Zinssatz und Laufzeit ein, und der Rechner zeigt sofort Ratenaufschlüsselung, Gesamtzinsen und Fälligkeitsdatum. Fügen Sie Steuern und Versicherung hinzu, um die echten monatlichen Kosten zu sehen, und testen Sie einen Hypothekenrechner mit Sondertilgungen, um zu sehen, wie viel Zeit und Zinsen Sie sparen.</p>
+    </section>
+
+    <section class="seo-section" id="amortization-explained">
+      <h2><i class="fas fa-table"></i> <span data-i18n="sec_amortization">So verstehen Sie Ihren Hypotheken-Tilgungsplan</span></h2>
+      <p data-i18n="p_amortization">Ein Tilgungsplan zeigt, wie jede Monatsrate während der gesamten Laufzeit auf Tilgung und Zinsen verteilt wird. Dieser Hypotheken-Amortisationsrechner liefert die monatliche Aufschlüsselung, damit Sie genau sehen, wie viele Zinsen Sie zahlen und wie schnell Sie Wohneigentum aufbauen.</p>
+      <h3 data-i18n="h3_amortization_extra">Hypotheken-Tilgungsplan mit Sondertilgungen</h3>
+      <p data-i18n="p_amortization_extra">Ein Tilgungsplan mit Sondertilgungen macht sichtbar, welche Wirkung 100 $, 200 $ oder mehr pro Monat haben. Sondertilgungen fließen direkt in die Tilgung, verkürzen die Laufzeit und reduzieren die Gesamtzinsen erheblich. Probieren Sie es oben aus und beobachten Sie, wie das Fälligkeitsdatum nach vorn rückt.</p>
+    </section>
+
+    <section class="seo-section" id="affordability-guide">
+      <h2><i class="fas fa-dollar-sign"></i> <span data-i18n="sec_affordability">Wie viel Hypothek kann ich mir leisten? | Leitfaden zur Erschwinglichkeit</span></h2>
+      <p data-i18n="p_affordability">Bevor Sie kaufen, prüfen Sie Ihre Zahlen mit einem Hypotheken-Erschwinglichkeitsrechner. Die klassische Faustregel: Wohnkosten sollten 28 % des Bruttoeinkommens nicht übersteigen, die Gesamtverschuldung unter 36 % bleiben. Ein Hypotheken-Qualifizierungsrechner hilft Ihnen, verschiedene Eigenkapitalquoten und Zinssätze mit Ihrem Budget zu testen.</p>
+      <h3 data-i18n="h3_affordability_income">Hypotheken-Erschwinglichkeit nach Einkommen</h3>
+      <p data-i18n="p_affordability_income">Als Anhaltspunkt: Bei 6,5 % Zinsen über 30 Jahre kann ein Haushalt mit 8.000 $ Monatseinkommen typischerweise ein Haus zwischen 320.000 $ und 380.000 $ erwerben. Passen Sie oben die Werte an, um eine monatliche Rate zu finden, die zu Ihrem Einkommen und Ihren Schulden passt.</p>
+    </section>
+
+    <section class="seo-section" id="refinance-calculator">
+      <h2><i class="fas fa-sync-alt"></i> <span data-i18n="sec_refinance">Sollte ich refinanzieren? | Leitfaden zum Hypotheken-Umschuldungsrechner</span></h2>
+      <p data-i18n="p_refinance">Wenn Sie über einen neuen Vertrag nachdenken, vergleichen Sie mit einem Hypotheken-Umschuldungsrechner Ihre aktuellen Konditionen mit neuem Zinssatz und neuer Laufzeit. Das Prinzip des Break-even-Rechners zeigt, wie viele Monate die monatliche Ersparnis benötigt, um die Abschlusskosten zu decken — meist 24 bis 48 Monate.</p>
+      <h3 data-i18n="h3_refinance_breakeven">Break-even-Rechner für die Umschuldung</h3>
+      <p data-i18n="p_refinance_breakeven">Teilen Sie die gesamten Abschlusskosten durch die monatliche Ersparnis der neuen Rate, um Ihren Break-even-Punkt zu finden. Beispiel: Sparen Sie 250 $ pro Monat und kostet die Umschuldung 6.000 $ Gebühren, ist der Break-even nach 24 Monaten erreicht — danach ist jeder Monat reine Ersparnis.</p>
+    </section>
+
+    <section class="seo-section" id="types-of-mortgages">
+      <h2><i class="fas fa-university"></i> <span data-i18n="sec_types">Hypothekenarten: FHA, VA, USDA, Jumbo und konventionell</span></h2>
+      <p data-i18n="p_types">Verschiedene Darlehen passen zu verschiedenen Käufern. Staatlich geförderte Programme wie der FHA-Hypothekenrechner, der VA-Hypothekenrechner und der USDA-Hypothekenrechner bieten berechtigten Kreditnehmern oft niedrigere Eigenkapitalanforderungen, während konventionelle Darlehen gute Bonität häufig mit niedrigeren Zinsen belohnen.</p>
+      <h3 data-i18n="h3_types_government">FHA-, VA- und USDA-Darlehen</h3>
+      <p data-i18n="p_types_government">FHA-Darlehen erlauben Eigenkapital ab 3,5 % mit einem Score von etwa 580. VA-Darlehen bieten anspruchsberechtigten Veteranen ein Darlehen ohne Eigenkapital. USDA-Darlehen richten sich an Käufer im ländlichen Raum. Jedes hat seine eigene Versicherung oder Garantiegebühr: Ein Hypothekenversicherungsrechner hilft, die echten monatlichen Kosten zu schätzen.</p>
+      <h3 data-i18n="h3_types_jumbo_conventional">Jumbo- und konventionelle Darlehen</h3>
+      <p data-i18n="p_types_jumbo_conventional">Jumbo-Hypothekenrechner behandeln Beträge über der konventionellen Grenze, die 2026 in den meisten US-Countys bei 766.550 $ liegt. Konventionelle Darlehen (fester oder variabler Zins) sind die häufigste Option und das, was dieser Rechner standardmäßig abbildet.</p>
+    </section>
+
+    <!-- ============ AD — FOOTER (before the FAQ / near page end)
+         Paste your AdSense unit here (728x90 leaderboard recommended). -->
+    <div id="ad-container-footer" class="ad-container" aria-hidden="true"></div>
+
+    <!-- ============ FAQ (schema FAQPage matches these Q&As) ============ -->
+    <section class="seo-section" id="frequently-asked-questions">
+      <h2><i class="fas fa-question-circle"></i> <span data-i18n="sec_faq">Häufig gestellte Fragen zu Hypothekenrechnern</span></h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary data-i18n="faq1_q">Wie lautet die Formel zur Berechnung einer Hypothekenrate?</summary>
+          <p data-i18n="faq1_a">Die Formel für die monatliche Hypothekenrate lautet M = P [ i(1 + i)^n ] / [ (1 + i)^n – 1 ], wobei M = Monatsrate, P = Darlehenssumme, i = monatlicher Zinssatz und n = Gesamtzahl der Zahlungen ist.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq2_q">Wie teilt sich eine Hypothekenrate in Tilgung und Zinsen auf?</summary>
+          <p data-i18n="faq2_a">Jede Zahlung teilt sich auf in Tilgung (der Betrag, der Ihren Darlehenssaldo reduziert und Eigenkapital aufbaut) und Zinsen (die Kosten der Kreditaufnahme). Am Anfang der Laufzeit fließt der größte Teil der Rate in die Zinsen; mit der Zeit kehrt sich das Verhältnis um, bis fast die gesamte Rate in die Tilgung fließt.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq3_q">Wie wirken sich Grundsteuer und Versicherung auf meine Monatsrate aus?</summary>
+          <p data-i18n="faq3_a">Kreditgeber ziehen diese oft über ein Treuhandkonto ein und schlagen einen monatlichen Anteil auf Ihre Rate auf. Die Grundsteuer ist meist ein Prozentsatz des Immobilienwerts, die Versicherung eine feste Jahresprämie geteilt durch 12. Beides einzubeziehen ergibt die echten monatlichen Kosten — genau das unterscheidet einen Hypothekenrechner mit Steuern und Versicherung.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq4_q">Wie helfen Sondertilgungen, die Hypothek schneller abzuzahlen?</summary>
+          <p data-i18n="faq4_a">Sondertilgungen fließen direkt in die Tilgung, sodass Sie auf den Restbetrag weniger Zinsen zahlen und die Laufzeit verkürzen. Beispiel: 100 $ zusätzlich pro Monat bei 350.000 $ und 6,5 % Zinsen sparen mehrere zehntausend Dollar an Zinsen und verkürzen die Laufzeit um Jahre.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq5_q">Wie viel Hypothek kann ich mir nach meinem Einkommen leisten?</summary>
+          <p data-i18n="faq5_a">Eine übliche Faustregel ist die 28/36-Regel: Wohnkosten bei höchstens 28 % des Bruttoeinkommens halten und die Gesamtverschuldung bei höchstens 36 %. Ein Erschwinglichkeitsrechner wendet Ihr genaues Einkommen, Ihre Schulden, Ihr Eigenkapital und den Zinssatz an, um eine realistische Preisspanne zu finden.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq6_q">Sollte ich mehr Eigenkapital einbringen?</summary>
+          <p data-i18n="faq6_a">Mehr Eigenkapital bedeutet einen kleineren Kredit, niedrigere Monatsraten und weniger Gesamtzinsen — und ab 20 % Eigenkapital entfällt die PMI. Der Nachteil: Sie binden Bargeld, das Sie woanders brauchen könnten. Wägen Sie eine höhere Anzahlung gegen Ihre Rücklagen und Anlageziele ab.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq7_q">Fester oder variabler Zinssatz: Was ist besser?</summary>
+          <p data-i18n="faq7_a">Ein Darlehen mit festem Zinssatz hält Zins und Rate über die gesamte Laufzeit konstant und macht das Budget planbar. Ein Darlehen mit variablem Zinssatz (ARM) startet niedriger, kann aber nach der Anfangsfrist steigen. Wenn Sie langfristig bleiben möchten, ist ein fester Zins meist sicherer.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq8_q">Was ist PMI und wann kann ich es streichen?</summary>
+          <p data-i18n="faq8_a">Die private Hypothekenversicherung (PMI) schützt den Kreditgeber, wenn Ihr Eigenkapital unter 20 % liegt. Ein Hypothekenrechner mit PMI zeigt diese zusätzlichen Monatskosten. Sobald Sie 20 % Eigenkapital erreicht haben — durch Zahlungen oder Wertsteigerung — können Sie die Streichung der PMI beantragen und Ihre Rate senken.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq9_q">Wann lohnt sich eine Refinanzierung meiner Hypothek?</summary>
+          <p data-i18n="faq9_a">Eine Refinanzierung lohnt sich, wenn Sie den Zinssatz so weit senken können, dass die Abschlusskosten in angemessener Zeit gedeckt sind, oder wenn Sie die Laufzeit verkürzen möchten. Nutzen Sie einen Umschuldungsrechner, um Ihre aktuelle und neue Rate zu vergleichen und Ihren Break-even-Monat zu finden.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq10_q">Was ist ein Tilgungsplan?</summary>
+          <p data-i18n="faq10_a">Ein Tilgungsplan ist eine Tabelle mit jeder Zahlung über die Laufzeit des Darlehens, die zeigt, wie viel in die Tilgung und in die Zinsen fließt und welcher Saldo nach jedem Monat bleibt. Dieser Hypotheken-Amortisationsrechner erstellt ihn sofort und kann Sondertilgungen einbeziehen.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq11_q">Sparen 14-tägliche Hypothekenzahlungen wirklich Geld?</summary>
+          <p data-i18n="faq11_a">Ja. Wer alle zwei Wochen die halbe Monatsrate zahlt, leistet 26 halbe Zahlungen im Jahr — das entspricht 13 vollen statt 12 Zahlungen. Diese zusätzliche Jahreszahlung fließt in die Tilgung, verkürzt die Laufzeit um Jahre und reduziert die Gesamtzinsen erheblich.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ============ RELATED RESOURCES ============ -->
+    <section class="seo-section related-resources">
+      <h2><i class="fas fa-external-link-alt"></i> <span data-i18n="sec_explore">Mehr Entdecken</span></h2>
+      <ul>
+        <li><a href="/va-mortgage-calculator/"><i class="fas fa-shield-alt"></i> VA Mortgage Calculator with Taxes &amp; Insurance</a></li>
+        <li><a href="/blog/va-loan-vs-conventional/"><i class="fas fa-balance-scale"></i> VA Loan vs. Conventional Mortgage: Which Is Better?</a></li>
+        <li><a href="/blog/mortgage-affordability-28-36-rule/"><i class="fas fa-calculator"></i> How Much Mortgage Can You Afford? The 28/36 Rule</a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="/privacy.html"><i class="fas fa-shield-alt"></i> <span data-i18n="privacy">Datenschutzerklärung</span></a>
+        <a href="/terms.html"><i class="fas fa-file-contract"></i> <span data-i18n="terms">Nutzungsbedingungen</span></a>
+        <a href="/contact"><i class="fas fa-envelope"></i> <span data-i18n="nav_contact">Kontakt</span></a>
+      </nav>
+      <p class="footer-disclaimer" data-i18n="disclaimer">Dieser Rechner liefert nur Schätzwerte zu Bildungszwecken. Wenden Sie sich für ein verbindliches Angebot an einen zugelassenen Kreditgeber.</p>
+      <p class="footer-copy">&copy; 2026 MortgageCalc. <span data-i18n="rights">Alle Rechte vorbehalten.</span></p>
+    </div>
+  </footer>
+
+  <!-- ============================ SCRIPTS ============================ -->
+  <!-- Deferred: they execute in order after parsing, so they no longer block
+       first paint. Chart.js itself is lazy-loaded only when the charts scroll
+       into view (keeps ~230 KB out of the initial mobile load). -->
+  <script src="js/dark-mode.js" defer></script>
+  <script src="js/animations.js" defer></script>
+  <script src="js/i18n/meta.js" defer></script>
+  <script src="js/i18n/i18n.js" defer></script>
+  <script src="js/calc-core.js" defer></script>
+  <script src="js/nav.js" defer></script>
+  <script src="js/calculator.js" defer></script>
+  <script src="js/chart.js" defer></script>
+  <script src="js/analytics.js" defer></script>
+
+  <script>
+    (function () {
+      var src = 'https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js';
+      var target = document.querySelector('.chart-grid') || document.getElementById('amortization-chart');
+      function loadChartScript() {
+        if (window.__chartLoading || window.Chart) return;
+        window.__chartLoading = true;
+        var s = document.createElement('script');
+        s.src = src;
+        s.defer = true;
+        s.onload = function () { if (window.refreshCharts) window.refreshCharts(); };
+        document.body.appendChild(s);
+      }
+      if (target && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { if (e.isIntersecting) { io.disconnect(); loadChartScript(); } });
+        }, { rootMargin: '400px' });
+        io.observe(target);
+      } else {
+        loadChartScript();
+      }
+    })();
+  </script>
+
+  <!-- Init: detect language, load dictionary, apply translations -->
+  <script>
+    // The deferred scripts above run before DOMContentLoaded, so window.i18n
+    // is guaranteed to exist by the time this listener fires.
+    document.addEventListener('DOMContentLoaded', function () {
+      window.i18n.init();
+
+      // Manual language switch (overrides auto-detection and persists).
+      document.getElementById('lang-select').addEventListener('change', function (e) {
+        window.i18n.switchLanguage(e.target.value);
+      });
+    });
+  </script>
+
+  <noscript>
+    <p style="text-align:center;padding:24px;">This calculator requires JavaScript. Please enable JavaScript to use the mortgage calculator.</p>
+  </noscript>
+
+  <!-- ============ Adcash Zone ============ -->
 </body>
 </html>
