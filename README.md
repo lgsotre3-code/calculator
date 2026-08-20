@@ -105,3 +105,45 @@ Scenarios feature. See `IMPLEMENTATION.md`.
 ## Deploy
 
 Automatic via Vercel (`vercel.json`, `cleanUrls: true`). Push to `main` to deploy.
+
+## Search Engine Notification
+
+A GitHub Actions workflow (`.github/workflows/notify-search-engines.yml`)
+automatically notifies Google, Bing and Yandex whenever `sitemap.xml` changes
+on `main`. It can also be triggered manually from the Actions tab.
+
+### Setup
+
+#### 1. Google Search Console (service account)
+
+1. Go to [Google Cloud Console](https://console.cloud.google.com/) and select
+   (or create) a project.
+2. **Enable the Search Console API**: APIs & Services → Library → search
+   "Search Console API" → Enable.
+3. **Create a service account**: APIs & Services → Credentials → Create
+   Credentials → Service Account. Name it (e.g. `github-sitemap-notifier`).
+4. **Generate a JSON key**: click the new service account → Keys → Add Key →
+   Create new key → JSON → download.
+5. **Grant access in Search Console**: open
+   [Search Console](https://search.google.com/search-console), select the
+   property `https://www.mortgage-pro-calc.com/`, go to Settings → Users and
+   permissions → Add user, paste the service account email (from step 4),
+   choose **Owner**, and click Add.
+6. **Store the key as a GitHub Secret**: in the repo, go to Settings →
+   Secrets and variables → Actions → New repository secret. Name it
+   `GOOGLE_SERVICE_ACCOUNT_JSON` and paste the **entire** JSON file contents
+   as the value.
+
+#### 2. IndexNow (Bing, Yandex, Naver, …)
+
+1. Go to [Bing Webmaster Tools](https://www.bing.com/webmasters/) and add
+   (or select) the site `https://www.mortgage-pro-calc.com/`.
+2. In **Settings → API Access → IndexNow API**, generate a key. Bing will
+   give you a key string (e.g. `a1b2c3d4e5f6…`).
+3. **Store the key as a GitHub Secret**: repo → Settings → Secrets → Actions
+   → New secret, name `INDEXNOW_KEY`, value = the key string.
+4. **Host the key file on the site**: create a file in the repo root named
+   exactly `{your-key}.txt` (e.g. `a1b2c3d4e5f6.txt`) containing only the
+   key string. Vercel will serve it at
+   `https://www.mortgage-pro-calc.com/{your-key}.txt` so Bing/Yandex can
+   verify ownership.
