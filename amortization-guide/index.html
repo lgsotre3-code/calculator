@@ -321,7 +321,8 @@
   <script src="../js/i18n/pt.js" defer></script>
   <script src="../js/i18n/de.js" defer></script>
   <script>
-    window.i18n.init();
+document.addEventListener('DOMContentLoaded', function () {
+window.i18n.init();
     const langSel = document.getElementById('lang-select');
     if (langSel) langSel.addEventListener('change', function (e) {
       window.i18n.switchLanguage(e.target.value);
@@ -334,6 +335,7 @@
         gtmId: null
       }
     };
-  </script>
+});
+</script>
 </body>
 </html>

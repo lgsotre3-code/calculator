@@ -30,10 +30,21 @@
   // Dictionaries live in the same folder as i18n.js. Resolve them relative to
   // this script's own URL so subpages (/blog/, /about/, /contact/, /404.html)
   // load them correctly regardless of the page depth.
-  const SCRIPT_SRC = (document.currentScript && document.currentScript.src) || '';
-  const DICT_BASE = SCRIPT_SRC
-    ? SCRIPT_SRC.substring(0, SCRIPT_SRC.lastIndexOf('/') + 1)
-    : 'js/i18n/';
+  // NOTE: document.currentScript is null for deferred scripts, so we also
+  // scan the DOM for the <script> tag that loaded this file.
+  function resolveDictBase() {
+    var cs = document.currentScript;
+    if (cs && cs.src) return cs.src.substring(0, cs.src.lastIndexOf('/') + 1);
+    var scripts = document.getElementsByTagName('script');
+    for (var i = 0; i < scripts.length; i++) {
+      var s = scripts[i];
+      if (s.src && s.src.indexOf('/js/i18n/i18n.js') !== -1) {
+        return s.src.substring(0, s.src.lastIndexOf('/') + 1);
+      }
+    }
+    return 'js/i18n/';
+  }
+  var DICT_BASE = resolveDictBase();
 
   class I18n {
     constructor() {

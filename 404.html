@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 <!--
-  Mortgage Calculator â€” 404 (404.html)
+  Mortgage Calculator — 404 (404.html)
   Served by Vercel for any URL that does not match a page.
   CONFIGURED: domain (www.mortgage-pro-calc.com), AdSense (ca-pub-2920008879492175).
   TODO: GA4/GTM IDs and affiliate links before launch.
@@ -86,7 +86,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <!-- ============ SEO ============ -->
-  <title data-i18n-title="404_title">Page Not Found â€” Mortgage Calculator</title>
+  <title data-i18n-title="404_title">Page Not Found — Mortgage Calculator</title>
   <meta name="description" data-i18n-desc="404_description" content="Page not found. Return to the free mortgage calculator with taxes, insurance and extra payments.">
   <meta name="robots" content="noindex, follow">
   <meta name="theme-color" content="#1a365d">
@@ -185,11 +185,13 @@
   <script src="js/nav.js" defer></script>
   <script src="js/analytics.js" defer></script>
   <script>
-    window.i18n.init();
+document.addEventListener('DOMContentLoaded', function () {
+window.i18n.init();
     document.getElementById('lang-select').addEventListener('change', function (e) {
       window.i18n.switchLanguage(e.target.value);
     });
-  </script>
+});
+</script>
 
   <!-- ============ Adcash Zone ============ -->
 </body>

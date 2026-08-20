@@ -193,7 +193,7 @@
     </div>
   </header>
 
-  <!-- ============================ AD â€” TOP ============================ -->
+  <!-- ============================ AD — TOP ============================ -->
   <div id="ad-container-top" class="ad-container" aria-hidden="true"></div>
 
   <!-- ============================ MAIN ============================ -->
@@ -207,7 +207,7 @@
       <p>That is why it pays to compare several lenders before you commit. The best option for you depends on your credit score, how much you can put down, and whether you prefer an all-online experience or help from a person. Below we compare four of the most popular lenders for first-time buyers in 2026.</p>
     </section>
 
-    <!-- ============ AD â€” MIDDLE ============ -->
+    <!-- ============ AD — MIDDLE ============ -->
     <div id="ad-container-middle" class="ad-container ad-container--tall" aria-hidden="true"></div>
 
     <section class="seo-section">
@@ -326,7 +326,7 @@
       <a href="/" class="btn btn-secondary">Back to the Mortgage Calculator</a>
     </nav>
 
-    <!-- ============ AD â€” FOOTER ============ -->
+    <!-- ============ AD — FOOTER ============ -->
     <div id="ad-container-footer" class="ad-container" aria-hidden="true"></div>
 
   </main>
@@ -349,12 +349,14 @@
   <script src="../js/nav.js" defer></script>
   <script src="../js/analytics.js" defer></script>
   <script>
-    window.i18n.init();
+document.addEventListener('DOMContentLoaded', function () {
+window.i18n.init();
     const langSel = document.getElementById('lang-select');
     if (langSel) langSel.addEventListener('change', function (e) {
       window.i18n.switchLanguage(e.target.value);
     });
-  </script>
+});
+</script>
 
   <!-- ============ Adcash Zone ============ -->
 </body>

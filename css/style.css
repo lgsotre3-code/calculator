@@ -208,6 +208,10 @@ img, canvas, svg, video { max-width: 100%; height: auto; }
   cursor: pointer;
   font-family: inherit;
 }
+.lang-switch select option {
+  color: #1e293b;
+  background: #fff;
+}
 
 /* Theme toggle */
 .theme-toggle-btn {

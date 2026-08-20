@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 <!--
-  Mortgage Calculator â€” VA Mortgage Calculator (va-mortgage-calculator/index.html)
+  Mortgage Calculator — VA Mortgage Calculator (va-mortgage-calculator/index.html)
   CONFIGURED: domain, AdSense (ca-pub-2920008879492175), Adcash (zone 0c9gzdbpws).
 -->
 <html lang="en-US">
@@ -84,14 +84,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <!-- ============ SEO: title & description ============ -->
-  <title>VA Mortgage Calculator with Taxes and Insurance â€” 2026</title>
+  <title>VA Mortgage Calculator with Taxes and Insurance — 2026</title>
   <meta name="description" content="Calculate your VA mortgage payment with property taxes, home insurance, and extra payments. Free amortization schedule and graphs.">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#1a365d">
   <link rel="canonical" href="https://www.mortgage-pro-calc.com/va-mortgage-calculator/">
 
   <!-- ============ Open Graph / Twitter ============ -->
-  <meta property="og:title" content="VA Mortgage Calculator with Taxes and Insurance â€” 2026">
+  <meta property="og:title" content="VA Mortgage Calculator with Taxes and Insurance — 2026">
   <meta property="og:description" content="Calculate your VA home loan payment with zero down payment, property taxes, home insurance, and extra payments. Free amortization schedule and graphs.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://www.mortgage-pro-calc.com/va-mortgage-calculator/">
@@ -232,7 +232,7 @@
     </div>
   </header>
 
-  <!-- ============================ AD â€” TOP ============================ -->
+  <!-- ============================ AD — TOP ============================ -->
   <div id="ad-container-top" class="ad-container" aria-hidden="true"></div>
 
   <!-- ============================ MAIN ============================ -->
@@ -347,7 +347,7 @@
           </div>
           <div class="result-card">
             <span class="result-label"><i class="fas fa-calendar-check" style="color:var(--green);margin-right:4px"></i> <span data-i18n="payoff_date">Payoff Date</span></span>
-            <span class="result-value" id="payoff-date">â€”</span>
+            <span class="result-value" id="payoff-date">—</span>
           </div>
           <div class="result-card">
             <span class="result-label"><i class="fas fa-piggy-bank" style="color:var(--gold);margin-right:4px"></i> <span data-i18n="interest_saved">Interest Saved (extra payments)</span></span>
@@ -355,7 +355,7 @@
           </div>
         </div>
 
-        <!-- ============ AD â€” MIDDLE ============ -->
+        <!-- ============ AD — MIDDLE ============ -->
         <div id="ad-container-middle" class="ad-container ad-container--tall" aria-hidden="true"></div>
 
         <!-- Charts (Chart.js) -->
@@ -429,7 +429,7 @@
       <p>Finally, use the optional extra payment field to see how adding even a small amount each month toward your principal can dramatically reduce the total interest paid and shorten your loan term. After entering all your inputs, click the Calculate button to see your results. The calculator will display your total monthly payment broken down into principal and interest, property taxes, and homeowners insurance. You will also see the total interest paid over the life of the loan, the total amount paid, and your estimated payoff date. Scroll down to view interactive charts showing your loan balance over time and a pie chart of the monthly payment breakdown.</p>
     </section>
 
-    <!-- AD â€” MIDDLE -->
+    <!-- AD — MIDDLE -->
     <div id="ad-container-middle-2" class="ad-container ad-container--tall" aria-hidden="true"></div>
 
     <!-- Section 3: VA vs. Conventional Loan Comparison -->
@@ -449,7 +449,7 @@
             <tr>
               <td>Down Payment</td>
               <td>0%</td>
-              <td>3%â€“20%</td>
+              <td>3%–20%</td>
             </tr>
             <tr>
               <td>PMI</td>
@@ -458,7 +458,7 @@
             </tr>
             <tr>
               <td>Funding Fee</td>
-              <td>1.25%â€“3.3% (one-time)</td>
+              <td>1.25%–3.3% (one-time)</td>
               <td>None</td>
             </tr>
             <tr>
@@ -511,7 +511,7 @@
               <td>3.3%</td>
             </tr>
             <tr>
-              <td>5%â€“9.99%</td>
+              <td>5%–9.99%</td>
               <td>1.50%</td>
               <td>1.50%</td>
             </tr>
@@ -553,7 +553,7 @@
       </div>
     </section>
 
-    <!-- ============ AD â€” FOOTER ============ -->
+    <!-- ============ AD — FOOTER ============ -->
     <div id="ad-container-footer" class="ad-container" aria-hidden="true"></div>
 
   </main>
@@ -577,11 +577,11 @@
   <script src="../js/nav.js" defer></script>
   <script src="../js/analytics.js" defer></script>
   <script>
-    (function () {
+document.addEventListener('DOMContentLoaded', function () {
+(function () {
       window.i18n.init();
       var sel = document.getElementById('lang-select');
       if (sel) sel.addEventListener('change', function (e) { window.i18n.switchLanguage(e.target.value); });
-
       function loadCalc() {
         var s0 = document.createElement('script');
         s0.src = 'https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js';
@@ -604,7 +604,8 @@
         loadCalc();
       }
     })();
-  </script>
+});
+</script>
 
   <noscript>
     <p style="text-align:center;padding:24px;">This calculator requires JavaScript. Please enable JavaScript to use the VA mortgage calculator.</p>

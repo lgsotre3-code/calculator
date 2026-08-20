@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 <!--
-  Mortgage Calculator â€” All Calculators (calculators/index.html)
+  Mortgage Calculator — All Calculators (calculators/index.html)
   CONFIGURED: domain (www.mortgage-pro-calc.com), AdSense (ca-pub-2920008879492175).
 -->
 <html lang="en-US">
@@ -202,7 +202,7 @@
     </div>
   </header>
 
-  <!-- ============================ AD â€” TOP ============================ -->
+  <!-- ============================ AD — TOP ============================ -->
   <div id="ad-container-top" class="ad-container" aria-hidden="true"></div>
 
   <!-- ============================ MAIN ============================ -->
@@ -250,7 +250,7 @@
 
       <article class="calc-card">
         <h2><a href="/down-payment-calculator/" data-i18n="calc_nav_downpay">Down Payment Calculator</a></h2>
-        <p data-i18n="downpay_description">Free down payment calculator. See your down payment amount, loan amount, monthly payment, PMI and total interest â€” and compare 5%, 10%, 15% and 20% down.</p>
+        <p data-i18n="downpay_description">Free down payment calculator. See your down payment amount, loan amount, monthly payment, PMI and total interest — and compare 5%, 10%, 15% and 20% down.</p>
         <a href="/down-payment-calculator/" class="btn btn-primary" data-cta="hub_to_downpay" data-i18n="hub_cta">Open calculator</a>
       </article>
 
@@ -261,7 +261,7 @@
       </article>
     </section>
 
-    <!-- ============ AD â€” MIDDLE ============ -->
+    <!-- ============ AD — MIDDLE ============ -->
     <div id="ad-container-middle" class="ad-container ad-container--tall" aria-hidden="true"></div>
 
     <!-- ============ CTA back to the main calculator ============ -->
@@ -271,7 +271,7 @@
       <a href="/" class="btn btn-primary" data-cta="hub_cta_to_calculator" data-i18n="calc_nav_home">Mortgage Calculator</a>
     </aside>
 
-    <!-- ============ AD â€” FOOTER ============ -->
+    <!-- ============ AD — FOOTER ============ -->
     <div id="ad-container-footer" class="ad-container" aria-hidden="true"></div>
 
   </main>
@@ -294,11 +294,13 @@
   <script src="../js/nav.js" defer></script>
   <script src="../js/analytics.js" defer></script>
   <script>
-    window.i18n.init();
+document.addEventListener('DOMContentLoaded', function () {
+window.i18n.init();
     document.getElementById('lang-select').addEventListener('change', function (e) {
       window.i18n.switchLanguage(e.target.value);
     });
-  </script>
+});
+</script>
 
   <!-- ============ Adcash Zone ============ -->
 </body>

@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 <!--
-  Terms of Use â€” REQUIRED for Google AdSense approval.
+  Terms of Use — REQUIRED for Google AdSense approval.
 -->
 <html lang="en-US">
 <head>
@@ -159,7 +159,7 @@
     <p>To the maximum extent permitted by law, we shall not be liable for any direct, indirect, incidental, consequential, or special damages arising from your use of, or inability to use, the Website, including any reliance on the information provided.</p>
 
     <h2>5. Intellectual Property</h2>
-    <p>All content on this Website â€” including text, graphics, logos, and code â€” is the property of MortgageCalc or its licensors and is protected by copyright and other intellectual property laws. You may not copy, reproduce, or redistribute it without our prior written consent.</p>
+    <p>All content on this Website — including text, graphics, logos, and code — is the property of MortgageCalc or its licensors and is protected by copyright and other intellectual property laws. You may not copy, reproduce, or redistribute it without our prior written consent.</p>
 
     <h2>6. Third-Party Links</h2>
     <p>The Website may contain links to third-party websites or affiliate partners. We are not responsible for the content or policies of those websites, and a link does not imply endorsement.</p>
@@ -195,10 +195,12 @@
   <script src="js/nav.js" defer></script>
   <script src="js/analytics.js" defer></script>
   <script>
-    window.i18n.init();
+document.addEventListener('DOMContentLoaded', function () {
+window.i18n.init();
     document.getElementById('lang-select').addEventListener('change', function (e) {
       window.i18n.switchLanguage(e.target.value);
     });
-  </script>
+});
+</script>
 </body>
 </html>

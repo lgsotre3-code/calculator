@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 <!--
-  Privacy Policy â€” REQUIRED for Google AdSense approval.
+  Privacy Policy — REQUIRED for Google AdSense approval.
 -->
 <html lang="en-US">
 <head>
@@ -153,8 +153,8 @@
     <p>We use local storage in your browser to remember your preferred language so you do not have to choose it on every visit. This data never leaves your device.</p>
     <p>We also use third-party services described below that may set cookies:</p>
     <ul>
-      <li><strong>Google AdSense</strong> â€” to display ads. Google uses cookies (including DoubleClick cookies) to serve ads based on your prior visits. You can opt out via <a href="https://adssettings.google.com" rel="nofollow noopener">Google Ads Settings</a>.</li>
-      <li><strong>Google Analytics</strong> â€” to understand how visitors use the site so we can improve it. Data is anonymized when possible.</li>
+      <li><strong>Google AdSense</strong> — to display ads. Google uses cookies (including DoubleClick cookies) to serve ads based on your prior visits. You can opt out via <a href="https://adssettings.google.com" rel="nofollow noopener">Google Ads Settings</a>.</li>
+      <li><strong>Google Analytics</strong> — to understand how visitors use the site so we can improve it. Data is anonymized when possible.</li>
     </ul>
 
     <h2>3. Advertising</h2>
@@ -203,10 +203,12 @@
   <script src="js/nav.js" defer></script>
   <script src="js/analytics.js" defer></script>
   <script>
-    window.i18n.init();
+document.addEventListener('DOMContentLoaded', function () {
+window.i18n.init();
     document.getElementById('lang-select').addEventListener('change', function (e) {
       window.i18n.switchLanguage(e.target.value);
     });
-  </script>
+});
+</script>
 </body>
 </html>

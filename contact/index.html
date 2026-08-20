@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 <!--
-  Mortgage Calculator â€” Contact (contact/index.html)
+  Mortgage Calculator — Contact (contact/index.html)
   CONFIGURED: domain (www.mortgage-pro-calc.com), AdSense (ca-pub-2920008879492175), Adcash (zone 0c9gzdbpws).
   Form: FormSubmit (mortgageprocalc@zohomail.com). First submission sends a
   confirmation email to the inbox before the message is relayed.
@@ -200,7 +200,7 @@
     </div>
   </header>
 
-  <!-- ============================ AD â€” TOP ============================ -->
+  <!-- ============================ AD — TOP ============================ -->
   <div id="ad-container-top" class="ad-container" aria-hidden="true"></div>
 
   <!-- ============================ MAIN ============================ -->
@@ -253,7 +253,7 @@
 
     </div>
 
-    <!-- ============ AD â€” FOOTER ============ -->
+    <!-- ============ AD — FOOTER ============ -->
     <div id="ad-container-footer" class="ad-container" aria-hidden="true"></div>
 
   </main>
@@ -276,22 +276,20 @@
   <script src="../js/nav.js" defer></script>
   <script src="../js/analytics.js" defer></script>
   <script>
-    window.i18n.init();
+document.addEventListener('DOMContentLoaded', function () {
+window.i18n.init();
     document.getElementById('lang-select').addEventListener('change', function (e) {
       window.i18n.switchLanguage(e.target.value);
     });
-
     // FormSubmit: submit via AJAX so success/error show in-page.
     var form = document.getElementById('contact-form');
     var successBox = document.getElementById('contact-success');
     var errorBox = document.getElementById('contact-error');
     var submitBtn = document.getElementById('contact-submit');
-
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       submitBtn.disabled = true;
       errorBox.classList.remove('notice--visible');
-
       var payload = {
         name: document.getElementById('contact-name').value,
         email: document.getElementById('contact-email').value,
@@ -301,7 +299,6 @@
         _template: 'table',
         _subject: 'Novo contato do site!'
       };
-
       fetch('https://formsubmit.co/ajax/mortgageprocalc@zohomail.com', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
@@ -322,7 +319,8 @@
           errorBox.classList.add('notice--visible');
         });
     });
-  </script>
+});
+</script>
 
   <!-- ============ Adcash Zone ============ -->
 </body>
