@@ -324,6 +324,7 @@
             <span id="down-payment-percent" class="helper" aria-live="polite">20%</span>
           </div>
           <p id="down-payment-caption" class="helper" aria-live="polite"></p>
+          <p id="ltv-display" class="helper" aria-live="polite"></p>
         </div>
 
         <!-- Interest Rate: range + number -->
@@ -375,6 +376,13 @@
           <input type="number" id="insurance" value="1200" min="0" max="10000" step="100" data-i18n-placeholder="ph_insurance" placeholder="Ex: 1200" inputmode="numeric" style="width:100%">
         </div>
 
+        <!-- PMI (Private Mortgage Insurance) — only applies when LTV > 80% -->
+        <div class="form-group" id="pmi-group">
+          <label for="pmi-rate"><i class="fas fa-shield-alt"></i> <span data-i18n="pmi_rate">PMI Rate (% / year)</span></label>
+          <input type="number" id="pmi-rate" value="0.5" min="0" max="3" step="0.1" data-i18n-placeholder="ph_pmi_rate" placeholder="Ex: 0.5" inputmode="decimal" style="width:100%">
+          <p id="pmi-note" class="helper" aria-live="polite"></p>
+        </div>
+
         <!-- Extra Payment (optional differential) -->
         <div class="form-group">
           <label for="extra-payment"><i class="fas fa-plus-circle" style="color:var(--green)"></i> <span data-i18n="extra_payment">Extra Payment (/month)</span></label>
@@ -401,8 +409,9 @@
             <p class="breakdown">
               <span data-i18n="breakdown">Payment breakdown</span>
               <span id="pi-value">$0.00</span> · <span class="tax" id="tax-value">$0.00</span> ·
-              <span class="ins" id="insurance-value">$0.00</span><span id="monthly-extra"></span>
+              <span class="ins" id="insurance-value">$0.00</span><span id="pmi-value"></span><span id="monthly-extra"></span>
             </p>
+            <p id="pmi-removed-note" class="helper" aria-live="polite" hidden></p>
           </div>
 
           <div class="result-card">

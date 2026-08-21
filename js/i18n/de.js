@@ -52,6 +52,11 @@ window.TRANSLATIONS.de = {
   "loan_term": "Laufzeit (Jahre)",
   "property_tax": "Grundsteuer (% des Werts/Jahr)",
   "home_insurance": "Hausversicherung (/Jahr)",
+  "pmi_rate": "PMI-Satz (% / Jahr)",
+  "pmi_not_applicable": "Nicht relevant — Eigenkapital ≥ 20% vermeidet PMI",
+  "pmi_removed_note": "PMI entfällt ab {date}",
+  "pmi_label": "Private Hypothekenversicherung",
+  "ltv_display": "{ltv}% LTV",
   "extra_payment": "Sondertilgung (/Monat)",
   "down_payment_caption": "{usd} ({pct}% von {home})",
 
@@ -61,6 +66,7 @@ window.TRANSLATIONS.de = {
   "ph_interest_rate": "z. B. 6.5",
   "ph_property_tax": "z. B. 1.2",
   "ph_insurance": "z. B. 1200",
+  "ph_pmi_rate": "z. B. 0.5",
   "ph_extra_payment": "z. B. 100",
 
   /* ---------- Laufzeit-Optionen ---------- */

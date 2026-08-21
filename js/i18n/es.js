@@ -52,6 +52,11 @@ window.TRANSLATIONS.es = {
   "loan_term": "Plazo del Préstamo (años)",
   "property_tax": "Impuesto a la Propiedad (% del valor al año)",
   "home_insurance": "Seguro del Hogar (/año)",
+  "pmi_rate": "Tasa PMI (% / año)",
+  "pmi_not_applicable": "No aplica — 20%+ de enganche evita PMI",
+  "pmi_removed_note": "PMI eliminado en {date}",
+  "pmi_label": "Seguro Hipotecario Privado",
+  "ltv_display": "{ltv}% LTV",
   "extra_payment": "Pago Extra (/mes)",
   "down_payment_caption": "{usd} ({pct}% de {home})",
 
@@ -61,6 +66,7 @@ window.TRANSLATIONS.es = {
   "ph_interest_rate": "Ej: 6.5",
   "ph_property_tax": "Ej: 1.2",
   "ph_insurance": "Ej: 1200",
+  "ph_pmi_rate": "Ej: 0.5",
   "ph_extra_payment": "Ej: 100",
 
   /* ---------- Opciones de plazo ---------- */

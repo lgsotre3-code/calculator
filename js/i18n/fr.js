@@ -52,6 +52,11 @@ window.TRANSLATIONS.fr = {
   "loan_term": "Durée du prêt (années)",
   "property_tax": "Taxe foncière (% de la valeur / an)",
   "home_insurance": "Assurance habitation (/an)",
+  "pmi_rate": "Taux PMI (% / an)",
+  "pmi_not_applicable": "Non applicable — apport ≥ 20% exonère du PMI",
+  "pmi_removed_note": "PMI supprimé en {date}",
+  "pmi_label": "Assurance Prêt Hypothécaire",
+  "ltv_display": "{ltv}% LTV",
   "extra_payment": "Paiement extra (/mois)",
   "down_payment_caption": "{usd} ({pct}% de {home})",
 
@@ -61,6 +66,7 @@ window.TRANSLATIONS.fr = {
   "ph_interest_rate": "Ex : 6.5",
   "ph_property_tax": "Ex : 1.2",
   "ph_insurance": "Ex : 1200",
+  "ph_pmi_rate": "Ex : 0.5",
   "ph_extra_payment": "Ex : 100",
 
   /* ---------- Options de durée ---------- */

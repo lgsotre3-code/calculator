@@ -53,6 +53,11 @@ window.TRANSLATIONS.en = {
   "loan_term": "Loan Term (years)",
   "property_tax": "Property Tax (% of home value / year)",
   "home_insurance": "Home Insurance (/year)",
+  "pmi_rate": "PMI Rate (% / year)",
+  "pmi_not_applicable": "Not applicable — 20%+ down payment avoids PMI",
+  "pmi_removed_note": "PMI removed in {date}",
+  "pmi_label": "Private Mortgage Insurance",
+  "ltv_display": "{ltv}% LTV",
   "extra_payment": "Extra Payment (/month)",
   "down_payment_caption": "{usd} ({pct}% of {home})",
 
@@ -62,6 +67,7 @@ window.TRANSLATIONS.en = {
   "ph_interest_rate": "Ex: 6.5",
   "ph_property_tax": "Ex: 1.2",
   "ph_insurance": "Ex: 1200",
+  "ph_pmi_rate": "Ex: 0.5",
   "ph_extra_payment": "Ex: 100",
 
   /* ---------- Loan term options ---------- */

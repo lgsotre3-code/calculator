@@ -23,6 +23,7 @@
     loanTerm: 30,          // years (10 / 15 / 20 / 25 / 30)
     propertyTax: 1.2,      // annual % of home value (0 – 5)
     insurance: 1200,       // US$ / year (0 – 10000)
+    pmiRate: 0.5,          // annual % of loan amount (0 – 3); only applies when LTV > 80%
     extraPayment: 0        // US$ / month (0 – 5000)
   };
 
@@ -30,6 +31,7 @@
   const DOWN_MAX_PCT = 50;
   const RATE_MIN = 1, RATE_MAX = 15;
   const TAX_MAX = 5, INS_MAX = 10000, EXTRA_MAX = 5000;
+  const PMI_MAX = 3;
 
   /* ------------------------------------------------------------------
    * Currency / number formatting helpers (delegates to window.Currency)
@@ -61,6 +63,7 @@
     loanTerm: DEFAULTS.loanTerm,
     propertyTax: DEFAULTS.propertyTax,
     insurance: DEFAULTS.insurance,
+    pmiRate: DEFAULTS.pmiRate,
     extraPayment: DEFAULTS.extraPayment
   };
 
@@ -74,10 +77,13 @@
   function cacheElements() {
     ['home-value-slider', 'home-value',
      'down-payment-slider', 'down-payment', 'down-payment-percent', 'down-payment-caption',
+     'ltv-display',
      'interest-rate-slider', 'interest-rate',
      'loan-term',
-     'property-tax', 'insurance', 'extra-payment',
-     'monthly-payment', 'pi-value', 'tax-value', 'insurance-value', 'monthly-extra',
+     'property-tax', 'insurance', 'pmi-rate', 'pmi-note', 'pmi-group',
+     'extra-payment',
+     'monthly-payment', 'pi-value', 'tax-value', 'insurance-value', 'pmi-value', 'monthly-extra',
+     'pmi-removed-note',
      'total-interest', 'total-payment', 'payoff-date', 'interest-saved',
       'amortization-body', 'schedule-footer', 'show-full-schedule',
       'export-pdf', 'pdf-status',
@@ -95,6 +101,7 @@
     state.loanTerm = parseInt(document.getElementById('loan-term').value, 10) || 30;
     state.propertyTax = clamp(num('property-tax') || 0, 0, TAX_MAX);
     state.insurance = clamp(num('insurance') || 0, 0, INS_MAX);
+    state.pmiRate = clamp(num('pmi-rate') || 0, 0, PMI_MAX);
     state.extraPayment = clamp(num('extra-payment') || 0, 0, EXTRA_MAX);
 
     // Down payment in dollars always derives from the percentage so the
@@ -108,6 +115,36 @@
     el['down-payment-caption'].textContent = capT
       ? capT.replace('{usd}', usd0.format(downUsd)).replace('{pct}', state.downPercent.toFixed(1).replace(/\.0$/, '')).replace('{home}', usd0.format(state.homeValue))
       : usd0.format(downUsd) + ' (' + state.downPercent.toFixed(1).replace(/\.0$/, '') + '% of ' + usd0.format(state.homeValue) + ')';
+
+    // LTV display
+    const ltv = 100 - state.downPercent;
+    const ltvT = window.i18n ? window.i18n.t('ltv_display') : null;
+    el['ltv-display'].textContent = ltvT
+      ? ltvT.replace('{ltv}', ltv.toFixed(1).replace(/\.0$/, ''))
+      : ltv.toFixed(1).replace(/\.0$/, '') + '% LTV';
+
+    // PMI: only applies when LTV > 80% (down payment < 20%)
+    const pmiApplies = state.downPercent < 20;
+    const pmiInput = el['pmi-rate'];
+    const pmiNote = el['pmi-note'];
+    const pmiGroup = el['pmi-group'];
+    if (pmiInput) {
+      pmiInput.disabled = !pmiApplies;
+      pmiInput.style.opacity = pmiApplies ? '1' : '0.5';
+    }
+    if (pmiNote) {
+      if (pmiApplies) {
+        pmiNote.textContent = '';
+        pmiNote.hidden = true;
+      } else {
+        const naT = window.i18n ? window.i18n.t('pmi_not_applicable') : null;
+        pmiNote.textContent = naT || 'Not applicable — 20%+ down payment avoids PMI';
+        pmiNote.hidden = false;
+      }
+    }
+    if (pmiGroup) {
+      pmiGroup.style.opacity = pmiApplies ? '1' : '0.6';
+    }
   }
 
   /** Syncs slider/number pairs (single direction: the changed element wins). */
@@ -161,6 +198,38 @@
   }
 
   /* ------------------------------------------------------------------
+   * PMI computation
+   * PMI (Private Mortgage Insurance) applies when LTV > 80%.
+   * It is charged monthly on the remaining loan balance until the
+   * balance drops to 80% of the original home value.
+   * ------------------------------------------------------------------ */
+  function computePmi(sched, principal) {
+    const pmiApplies = state.downPercent < 20 && state.pmiRate > 0;
+    if (!pmiApplies) return { initialMonthly: 0, removedMonth: 0, totalPmi: 0 };
+
+    const threshold = state.homeValue * 0.80;
+    const monthlyRate = state.pmiRate / 100 / 12;
+    let totalPmi = 0;
+    let removedMonth = 0;
+
+    for (let i = 0; i < sched.rows.length; i++) {
+      const row = sched.rows[i];
+      const startBalance = i === 0 ? principal : sched.rows[i - 1].balance;
+      if (!removedMonth && startBalance <= threshold) {
+        removedMonth = row.m;
+      }
+      if (!removedMonth || row.m <= removedMonth) {
+        totalPmi += startBalance * monthlyRate;
+      }
+    }
+
+    // Initial monthly PMI (based on original loan amount)
+    const initialMonthly = principal * monthlyRate;
+
+    return { initialMonthly, removedMonth, totalPmi };
+  }
+
+  /* ------------------------------------------------------------------
    * Payoff date (loan starts today)
    * ------------------------------------------------------------------ */
   function payoffDate(months) {
@@ -173,8 +242,9 @@
   /* ------------------------------------------------------------------
    * Render
    * ------------------------------------------------------------------ */
-  function renderResults(sched, monthlyTax, monthlyIns, monthlyExtra) {
-    const totalMonthly = sched.M + monthlyTax + monthlyIns;
+  function renderResults(sched, monthlyTax, monthlyIns, monthlyExtra, pmiInfo) {
+    const monthlyPmi = pmiInfo ? pmiInfo.initialMonthly : 0;
+    const totalMonthly = sched.M + monthlyTax + monthlyIns + monthlyPmi;
     const t = (window.i18n && window.i18n.t) ? window.i18n.t.bind(window.i18n) : (k => k);
 
     el['monthly-payment'].textContent = usd.format(totalMonthly);
@@ -182,8 +252,36 @@
     el['tax-value'].textContent = usd.format(monthlyTax);
     el['insurance-value'].textContent = usd.format(monthlyIns);
     el['monthly-extra'].textContent = monthlyExtra > 0 ? ' + ' + usd.format(monthlyExtra) + '/' + t('month_abbr') : '';
+
+    // PMI value in breakdown
+    if (el['pmi-value']) {
+      if (monthlyPmi > 0) {
+        el['pmi-value'].textContent = ' · ' + usd.format(monthlyPmi) + ' PMI';
+        el['pmi-value'].title = t('pmi_label');
+      } else {
+        el['pmi-value'].textContent = '';
+      }
+    }
+
+    // PMI removal note
+    if (el['pmi-removed-note']) {
+      if (pmiInfo && pmiInfo.removedMonth > 0) {
+        const removedNoteT = t('pmi_removed_note');
+        const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+        const d = new Date();
+        d.setMonth(d.getMonth() + pmiInfo.removedMonth);
+        const removedDate = d.toLocaleDateString((window.i18n && window.i18n.currentLang) || 'en', { month: 'long', year: 'numeric' });
+        el['pmi-removed-note'].textContent = removedNoteT
+          ? removedNoteT.replace('{date}', removedDate)
+          : 'PMI removed in ' + removedDate;
+        el['pmi-removed-note'].hidden = false;
+      } else {
+        el['pmi-removed-note'].hidden = true;
+      }
+    }
+
     el['total-interest'].textContent = usd.format(sched.totalInterest);
-    el['total-payment'].textContent = usd.format(sched.totalPaid);
+    el['total-payment'].textContent = usd.format(sched.totalPaid + (pmiInfo ? pmiInfo.totalPmi : 0));
     el['payoff-date'].textContent = payoffDate(sched.payoffMonths);
 
     // Interest saved thanks to extra payments (0 when there are none).
@@ -422,16 +520,17 @@
     const sched = amortize(principal, state.interestRate, state.loanTerm, state.extraPayment);
     const monthlyTax = state.homeValue * state.propertyTax / 100 / 12;
     const monthlyIns = state.insurance / 12;
+    const pmiInfo = computePmi(sched, principal);
 
     lastSchedule = sched;
     lastBaseM = sched.M;
 
-    renderResults(sched, monthlyTax, monthlyIns, state.extraPayment);
+    renderResults(sched, monthlyTax, monthlyIns, state.extraPayment, pmiInfo);
     renderTable(sched, 12); // first 12 months; user can expand the full schedule
 
     // Charts (if chart.js is loaded and Chart is available)
     if (typeof window.updateCharts === 'function') {
-      window.updateCharts(sched, { principal: principal, pi: sched.M, tax: monthlyTax, insurance: monthlyIns, extra: state.extraPayment });
+      window.updateCharts(sched, { principal: principal, pi: sched.M, tax: monthlyTax, insurance: monthlyIns, pmi: pmiInfo.initialMonthly, extra: state.extraPayment });
     }
 
     // Analytics (if analytics.js / GTM are present)
@@ -445,8 +544,9 @@
         loan_term: state.loanTerm,
         property_tax: state.propertyTax,
         insurance: state.insurance,
+        pmi_rate: state.pmiRate,
         extra_payment: state.extraPayment,
-        monthly_payment: sched.M + monthlyTax + monthlyIns,
+        monthly_payment: sched.M + monthlyTax + monthlyIns + pmiInfo.initialMonthly,
         trigger: fromButton ? 'button' : 'input'
       });
     }
@@ -465,6 +565,7 @@
     document.getElementById('loan-term').value = DEFAULTS.loanTerm;
     document.getElementById('property-tax').value = DEFAULTS.propertyTax;
     document.getElementById('insurance').value = DEFAULTS.insurance;
+    document.getElementById('pmi-rate').value = DEFAULTS.pmiRate;
     document.getElementById('extra-payment').value = DEFAULTS.extraPayment;
     calculate(false);
   }
@@ -494,6 +595,10 @@
     ['loan-term', 'property-tax', 'insurance', 'extra-payment'].forEach(id => {
       document.getElementById(id).addEventListener('input', () => recalc());
     });
+
+    // PMI rate input
+    const pmiInput = document.getElementById('pmi-rate');
+    if (pmiInput) pmiInput.addEventListener('input', () => recalc());
 
     const calcBtn = document.getElementById('calculate-btn');
     if (calcBtn) calcBtn.addEventListener('click', () => calculate(true));
@@ -542,12 +647,13 @@
           const sched = amortize(principal, state.interestRate, state.loanTerm, state.extraPayment);
           const monthlyTax = state.homeValue * state.propertyTax / 100 / 12;
           const monthlyIns = state.insurance / 12;
-          const totalMonthly = sched.M + monthlyTax + monthlyIns;
+          const pmiInfo = computePmi(sched, principal);
+          const totalMonthly = sched.M + monthlyTax + monthlyIns + pmiInfo.initialMonthly;
           return {
             cells: {
               [t('monthly_payment')]: usd.format(totalMonthly),
               [t('total_interest')]: usd.format(sched.totalInterest),
-              [t('total_payment')]: usd.format(sched.totalPaid),
+              [t('total_payment')]: usd.format(sched.totalPaid + pmiInfo.totalPmi),
               [t('payoff_date')]: payoffDate(sched.payoffMonths),
               [t('extra_payment')]: usd.format(state.extraPayment) + '/mo'
             }
