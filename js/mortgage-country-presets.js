@@ -61,8 +61,15 @@
    * Country labels are NOT translated here — they live in the i18n
    * dictionaries as `rvb_country_XX` (e.g. rvb_country_US), reused
    * from the Rent vs. Buy calculator for consistency.
-   * This list provides only the codes and a static English fallback.
-   */
+ * This list provides only the codes and a static English fallback.
+ *
+ * 2026-08-21  Cross-calculator note: propertyTax values are intentionally
+ *              identical to `tax` in rvb-country-presets.js. If you update
+ *              one file, update the other to keep them in sync. The two files
+ *              remain separate because each calculator needs a different
+ *              subset of regional fields — Finance vs. Cash and Renovation ROI
+ *              have no regional inputs at all, so no shared preset file is used.
+ */
   var COUNTRY_LIST = [
     { code: 'US', fallback: 'United States' },
     { code: 'BR', fallback: 'Brazil' },

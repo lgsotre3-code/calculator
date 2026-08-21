@@ -13,6 +13,13 @@
  * Country selection is INDEPENDENT of language and currency (same
  * philosophy as the currency selector). Choosing "Brazil" does NOT
  * force Portuguese or BRL — it only fills in the input defaults.
+ *
+ * 2026-08-21  Cross-calculator note: `tax` values are intentionally identical
+ *              to `propertyTax` in mortgage-country-presets.js. If you update
+ *              one file, update the other to keep them in sync. The two files
+ *              remain separate because each calculator needs a different
+ *              subset of regional fields — Finance vs. Cash and Renovation ROI
+ *              have no regional inputs at all, so no shared preset file is used.
  */
 (function () {
   'use strict';
