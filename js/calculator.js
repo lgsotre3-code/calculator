@@ -40,7 +40,11 @@
   const usd0 = { format: function (v) { return window.Currency ? window.Currency.format0(v) : '$' + Math.round(v); } };
 
   function clamp(v, min, max) { return Math.min(Math.max(v, min), max); }
-  function num(id) { const v = parseFloat(document.getElementById(id).value); return isFinite(v) ? v : 0; }
+  function num(id) {
+    const el = document.getElementById(id);
+    const v = el ? parseFloat(el.value) : NaN; // campo ausente (ex.: VA não tem PMI) => 0
+    return isFinite(v) ? v : 0;
+  }
 
   /** Debounce — sliders fire many 'input' events per drag; recalc after a pause. */
   function debounce(fn, wait) {
@@ -119,9 +123,11 @@
     // LTV display
     const ltv = 100 - state.downPercent;
     const ltvT = window.i18n ? window.i18n.t('ltv_display') : null;
-    el['ltv-display'].textContent = ltvT
-      ? ltvT.replace('{ltv}', ltv.toFixed(1).replace(/\.0$/, ''))
-      : ltv.toFixed(1).replace(/\.0$/, '') + '% LTV';
+    if (el['ltv-display']) {
+      el['ltv-display'].textContent = ltvT
+        ? ltvT.replace('{ltv}', ltv.toFixed(1).replace(/\.0$/, ''))
+        : ltv.toFixed(1).replace(/\.0$/, '') + '% LTV';
+    }
 
     // PMI: only applies when LTV > 80% (down payment < 20%)
     const pmiApplies = state.downPercent < 20;
@@ -565,7 +571,8 @@
     document.getElementById('loan-term').value = DEFAULTS.loanTerm;
     document.getElementById('property-tax').value = DEFAULTS.propertyTax;
     document.getElementById('insurance').value = DEFAULTS.insurance;
-    document.getElementById('pmi-rate').value = DEFAULTS.pmiRate;
+    const pmiEl = document.getElementById('pmi-rate');
+    if (pmiEl) pmiEl.value = DEFAULTS.pmiRate;
     document.getElementById('extra-payment').value = DEFAULTS.extraPayment;
     calculate(false);
   }

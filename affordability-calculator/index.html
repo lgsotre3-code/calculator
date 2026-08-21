@@ -43,7 +43,7 @@
   </script>
 
   <!-- Cookiebot CMP (Google-certified: Consent Mode v2 + Microsoft Clarity Consent Mode) -->
-  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="d817fd6b-d033-4ae1-8682-d2b44b49a66a" data-blockingmode="manual" async></script>
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="d817fd6b-d033-4ae1-8682-d2b44b49a66a" data-blockingmode="auto" async></script>
     <!-- Smart Lazy Load Third-Party Scripts (AdSense, Analytics, Clarity) -->
   <script>
     (function() {
@@ -457,19 +457,46 @@ document.addEventListener('DOMContentLoaded', function () {
       var sel = document.getElementById('lang-select');
       if (sel) sel.addEventListener('change', function (e) { window.i18n.switchLanguage(e.target.value); });
       function loadCalc() {
-        var s1 = document.createElement('script');
-        s1.src = 'https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js';
-        document.body.appendChild(s1);
-        s1.onload = function () {
-          var s2 = document.createElement('script');
-          s2.src = '../js/calc-afford.js';
-          document.body.appendChild(s2);
-        };
+        // Carrega o modulo de calculo de forma INDEPENDENTE do Chart.js CDN:
+        // a calculadora funciona mesmo se o CDN estiver lento ou bloqueado
+        // (os graficos degradam graciosamente via CalcCore).
+        var s = document.createElement('script');
+        s.src = '../js/calc-afford.js';
+        s.onerror = function () { console.error('Falha ao carregar ../js/calc-afford.js'); };
+        document.body.appendChild(s);
       }
       if (window.CalcCore && window.CalcCore.whenVisible) {
         window.CalcCore.whenVisible(document.querySelector('.calculator'), loadCalc);
       } else {
         loadCalc();
+      }
+    })();
+
+    // Chart.js (CDN) e lazy-loaded SEPARADAMENTE, apenas quando a area dos
+    // graficos se aproxima da viewport. A calculadora NUNCA depende dele.
+    (function () {
+      var src = 'https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js';
+      var target = document.querySelector('.calculator__chart');
+      function loadChartLib() {
+        if (window.__chartCdnLoading || window.Chart) return;
+        window.__chartCdnLoading = true;
+        var s = document.createElement('script');
+        s.src = src;
+        s.onload = function () {
+          var el = document.querySelector('.calculator') || document.querySelector('.calculator-wrapper');
+          var inp = el && el.querySelector('input, select');
+          if (inp) inp.dispatchEvent(new Event('input', { bubbles: true }));
+        };
+        s.onerror = function () { window.__chartCdnLoading = false; };
+        document.body.appendChild(s);
+      }
+      if (target && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { if (e.isIntersecting) { io.disconnect(); loadChartLib(); } });
+        }, { rootMargin: '400px' });
+        io.observe(target);
+      } else {
+        loadChartLib();
       }
     })();
 });
