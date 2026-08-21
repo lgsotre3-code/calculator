@@ -151,7 +151,7 @@
       document.querySelectorAll('[data-i18n]').forEach((el) => {
         const key = el.getAttribute('data-i18n');
         const val = t(key);
-        if (val !== key) el.textContent = val;
+        if (val !== key) el.innerHTML = val;
       });
 
       // Placeholders

@@ -22,6 +22,10 @@ const pages = [
   'refinance-calculator/index.html',
   'down-payment-calculator/index.html',
   'affordability-calculator/index.html',
+  'blog/mortgage-affordability-28-36-rule/index.html',
+  'blog/va-loan-vs-conventional/index.html',
+  'blog/mortgage-payments-guide/index.html',
+  'blog/arm-vs-fixed-rate/index.html',
 ];
 
 let jsonOk = true;
