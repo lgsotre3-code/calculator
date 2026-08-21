@@ -558,6 +558,7 @@ window.TRANSLATIONS.pt = {
   "rvb_country_FR": "França",
   "rvb_country_DE": "Alemanha",
   "rvb_country_GB": "Reino Unido",
+  "mortgage_country_label": "País / Região",
 
   /* ---------- Página Calculadora de Refinanciamento (/refinance-calculator) ---------- */
   "refi_title": "Calculadora de Refinanciamento — Vale a Pena Refinanciar? 2026",

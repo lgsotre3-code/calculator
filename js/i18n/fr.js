@@ -558,6 +558,7 @@ window.TRANSLATIONS.fr = {
   "rvb_country_FR": "France",
   "rvb_country_DE": "Allemagne",
   "rvb_country_GB": "Royaume-Uni",
+  "mortgage_country_label": "Pays / Région",
 
   /* ---------- Page Calculateur de Refinancement (/refinance-calculator) ---------- */
   "refi_title": "Calculateur de Refinancement — Devez-vous Refinancer ? 2026",

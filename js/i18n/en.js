@@ -559,6 +559,7 @@ window.TRANSLATIONS.en = {
   "rvb_country_FR": "France",
   "rvb_country_DE": "Germany",
   "rvb_country_GB": "United Kingdom",
+  "mortgage_country_label": "Country / Region",
 
   /* ---------- Refinance Calculator page (/refinance-calculator) ---------- */
   "refi_title": "Refinance Calculator — Should You Refinance? 2026",

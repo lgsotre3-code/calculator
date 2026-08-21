@@ -504,6 +504,18 @@
     // Re-render when the user switches currency (independent of language).
     document.addEventListener('currency:changed', function () { calculate(false); });
 
+    // Country presets: fill property-tax and insurance when a country is selected.
+    const countrySelect = document.getElementById('mortgage-country');
+    if (countrySelect && window.MortgageCountryPresets) {
+      countrySelect.addEventListener('change', function () {
+        const p = window.MortgageCountryPresets.get(this.value);
+        if (!p) return; // 'custom' — leave fields as-is
+        document.getElementById('property-tax').value = p.propertyTax;
+        document.getElementById('insurance').value = p.insurance;
+        calculate(false);
+      });
+    }
+
     // Expand/collapse the full amortization schedule.
     const toggle = document.getElementById('show-full-schedule');
     if (toggle) toggle.addEventListener('click', () => {

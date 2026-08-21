@@ -558,6 +558,7 @@ window.TRANSLATIONS.de = {
   "rvb_country_FR": "Frankreich",
   "rvb_country_DE": "Deutschland",
   "rvb_country_GB": "Vereinigtes Königreich",
+  "mortgage_country_label": "Land / Region",
 
   /* ---------- Seite Refinanzierungsrechner (/refinance-calculator) ---------- */
   "refi_title": "Refinanzierungsrechner — Sollten Sie Refinanzieren? 2026",

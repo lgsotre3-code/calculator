@@ -348,6 +348,21 @@
           </select>
         </div>
 
+        <!-- Country / Region (optional presets) -->
+        <div class="form-group">
+          <label for="mortgage-country"><i class="fas fa-globe"></i> <span data-i18n="mortgage_country_label">País / Região</span></label>
+          <select id="mortgage-country" aria-label="Country or region for preset defaults">
+            <option value="custom" data-i18n-option="rvb_country_custom">Personalizado / Genérico</option>
+            <option value="US" data-i18n-option="rvb_country_US">Estados Unidos</option>
+            <option value="BR" data-i18n-option="rvb_country_BR">Brasil</option>
+            <option value="PT" data-i18n-option="rvb_country_PT">Portugal</option>
+            <option value="ES" data-i18n-option="rvb_country_ES">Espanha</option>
+            <option value="FR" data-i18n-option="rvb_country_FR">França</option>
+            <option value="DE" data-i18n-option="rvb_country_DE">Alemanha</option>
+            <option value="GB" data-i18n-option="rvb_country_GB">Reino Unido</option>
+          </select>
+        </div>
+
         <!-- Property Tax (optional differential) -->
         <div class="form-group">
           <label for="property-tax"><i class="fas fa-landmark"></i> <span data-i18n="property_tax">Imposto sobre a Propriedade (% do valor/ano)</span></label>
@@ -615,9 +630,10 @@
   <script src="js/i18n/meta.js" defer></script>
   <script src="js/i18n/i18n.js" defer></script>
   <script src="js/currencies.js" defer></script>
-  <script src="js/calc-core.js" defer></script>
-  <script src="js/nav.js" defer></script>
-  <script src="js/calculator.js" defer></script>
+<script src="js/calc-core.js" defer></script>
+<script src="js/mortgage-country-presets.js" defer></script>
+<script src="js/nav.js" defer></script>
+<script src="js/calculator.js" defer></script>
   <script src="js/chart.js" defer></script>
   <script src="js/analytics.js" defer></script>
 
