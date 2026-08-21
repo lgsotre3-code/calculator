@@ -28,7 +28,7 @@
      'rvb-return', 'rvb-return-slider', 'rvb-horizon', 'rvb-horizon-slider',
      'rvb-verdict', 'rvb-out-buy-monthly', 'rvb-out-rent-monthly', 'rvb-out-cashflow',
      'rvb-out-buy-nw', 'rvb-out-rent-nw', 'rvb-out-better', 'rvb-out-break-even',
-     'rvb-chart-nw', 'rvb-chart-cost', 'rvb-calculate', 'rvb-reset']
+     'rvb-chart-nw', 'rvb-chart-cost', 'rvb-calculate', 'rvb-reset', 'rvb-country']
       .forEach(function (id) { el[id] = document.getElementById(id); });
   }
 
@@ -272,6 +272,32 @@
 
     el['rvb-calculate'].addEventListener('click', calculate);
     el['rvb-reset'].addEventListener('click', reset);
+
+    /* ---------- Country presets ---------- */
+    function applyCountryPreset(code) {
+      var presets = window.RvbPresets;
+      if (!presets) return;
+      var p = presets.get(code);
+      if (!p) return; // 'custom' — leave fields as-is
+
+      function setVal(inputId, sliderId, val) {
+        el[inputId].value = val;
+        el[sliderId].value = val;
+      }
+      setVal('rvb-tax', 'rvb-tax-slider', p.tax);
+      setVal('rvb-maintenance', 'rvb-maintenance-slider', p.maint);
+      setVal('rvb-appreciation', 'rvb-appreciation-slider', p.appreciation);
+      setVal('rvb-rent-increase', 'rvb-rent-increase-slider', p.rentInc);
+      setVal('rvb-selling-costs', 'rvb-selling-costs-slider', p.sellCost);
+      setVal('rvb-vacancy', 'rvb-vacancy-slider', p.vacancy);
+    }
+
+    if (el['rvb-country']) {
+      el['rvb-country'].addEventListener('change', function () {
+        applyCountryPreset(this.value);
+        calculate();
+      });
+    }
 
     // Re-render labels and charts when the UI language changes.
     document.addEventListener('i18n:updated', function () {

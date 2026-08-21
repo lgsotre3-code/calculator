@@ -256,6 +256,20 @@
         <h2 class="calculator__title" data-i18n="rvb_form_title">Rent vs. Buy Inputs</h2>
 
         <div class="calculator__field">
+          <label class="calculator__label" for="rvb-country" data-i18n="rvb_input_country">Country / Region</label>
+          <select id="rvb-country" class="calculator__input">
+            <option value="custom" data-i18n-option="rvb_country_custom">Custom / Generic</option>
+            <option value="US" data-i18n-option="rvb_country_US">United States</option>
+            <option value="BR" data-i18n-option="rvb_country_BR">Brazil</option>
+            <option value="PT" data-i18n-option="rvb_country_PT">Portugal</option>
+            <option value="ES" data-i18n-option="rvb_country_ES">Spain</option>
+            <option value="FR" data-i18n-option="rvb_country_FR">France</option>
+            <option value="DE" data-i18n-option="rvb_country_DE">Germany</option>
+            <option value="GB" data-i18n-option="rvb_country_GB">United Kingdom</option>
+          </select>
+        </div>
+
+        <div class="calculator__field">
           <label class="calculator__label" for="rvb-price" data-i18n="rvb_input_price">Home Price ($)</label>
           <div class="calculator__control-row">
             <input type="range" id="rvb-price-slider" class="calculator__slider" min="50000" max="2000000" step="1000" value="350000" aria-label="Home price slider">
@@ -513,8 +527,13 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.appendChild(s1);
         s1.onload = function () {
           var s2 = document.createElement('script');
-          s2.src = '../js/calc-rvb.js';
+          s2.src = '../js/rvb-country-presets.js';
           document.body.appendChild(s2);
+          s2.onload = function () {
+            var s3 = document.createElement('script');
+            s3.src = '../js/calc-rvb.js';
+            document.body.appendChild(s3);
+          };
         };
       }
       if (window.CalcCore && window.CalcCore.whenVisible) {

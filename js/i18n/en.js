@@ -550,6 +550,15 @@ window.TRANSLATIONS.en = {
   "rvb_faq2_a": "The calculator models net worth over your holding period. If you rent, the down payment plus any monthly cash-flow advantage is invested. If you buy, you build home equity while paying interest, property tax and maintenance. The option with the higher net worth at the end wins.",
   "rvb_faq3_q": "How many years should you stay in a home to make buying worth it?",
   "rvb_faq3_a": "As a rule of thumb, buying usually beats renting after 4 to 7 years, because that is roughly how long it takes for equity and rent increases to offset closing costs. Run the calculator with your numbers to find your own break-even year.",
+  "rvb_input_country": "Country / Region",
+  "rvb_country_custom": "Custom / Generic",
+  "rvb_country_US": "United States",
+  "rvb_country_BR": "Brazil",
+  "rvb_country_PT": "Portugal",
+  "rvb_country_ES": "Spain",
+  "rvb_country_FR": "France",
+  "rvb_country_DE": "Germany",
+  "rvb_country_GB": "United Kingdom",
 
   /* ---------- Refinance Calculator page (/refinance-calculator) ---------- */
   "refi_title": "Refinance Calculator — Should You Refinance? 2026",

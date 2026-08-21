@@ -549,6 +549,15 @@ window.TRANSLATIONS.es = {
   "rvb_faq2_a": "La calculadora modela el patrimonio neto durante tu período de permanencia. Si alquilas, el pago inicial más cualquier ventaja mensual de flujo de caja se invierte. Si compras, generas patrimonio inmobiliario mientras pagas intereses, impuestos y mantenimiento. Gana la opción con mayor patrimonio neto al final.",
   "rvb_faq3_q": "¿Cuántos años debes quedarte en una vivienda para que comprar valga la pena?",
   "rvb_faq3_a": "Como regla general, comprar suele superar a alquilar después de 4 a 7 años, porque es aproximadamente lo que tarda el patrimonio y los aumentos de alquiler en compensar los costos de cierre. Ejecuta la calculadora con tus cifras para encontrar tu propio año de equilibrio.",
+  "rvb_input_country": "País / Región",
+  "rvb_country_custom": "Personalizado / Genérico",
+  "rvb_country_US": "Estados Unidos",
+  "rvb_country_BR": "Brasil",
+  "rvb_country_PT": "Portugal",
+  "rvb_country_ES": "España",
+  "rvb_country_FR": "Francia",
+  "rvb_country_DE": "Alemania",
+  "rvb_country_GB": "Reino Unido",
 
   /* ---------- Refinance Calculator page (/refinance-calculator) ---------- */
   "refi_title": "Calculadora de Refinanciación — ¿Te Conviene Refinanciar? 2026",

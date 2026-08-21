@@ -549,6 +549,15 @@ window.TRANSLATIONS.pt = {
   "rvb_faq2_a": "A calculadora modela o patrimônio líquido durante o seu período de permanência. Se você aluga, a entrada mais qualquer vantagem mensal de fluxo de caixa é investida. Se você compra, gera patrimônio imobiliário enquanto paga juros, impostos e manutenção. A opção com o maior patrimônio líquido no final vence.",
   "rvb_faq3_q": "Quantos anos você deve ficar em um imóvel para valer a pena comprar?",
   "rvb_faq3_a": "Como regra geral, comprar geralmente supera alugar depois de 4 a 7 anos, porque é aproximadamente o tempo necessário para que o patrimônio e os aumentos de aluguel compensem os custos de fechamento. Rode a calculadora com os seus números para encontrar o seu próprio ano de equilíbrio.",
+  "rvb_input_country": "País / Região",
+  "rvb_country_custom": "Personalizado / Genérico",
+  "rvb_country_US": "Estados Unidos",
+  "rvb_country_BR": "Brasil",
+  "rvb_country_PT": "Portugal",
+  "rvb_country_ES": "Espanha",
+  "rvb_country_FR": "França",
+  "rvb_country_DE": "Alemanha",
+  "rvb_country_GB": "Reino Unido",
 
   /* ---------- Página Calculadora de Refinanciamento (/refinance-calculator) ---------- */
   "refi_title": "Calculadora de Refinanciamento — Vale a Pena Refinanciar? 2026",

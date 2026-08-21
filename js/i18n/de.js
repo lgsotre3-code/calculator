@@ -549,6 +549,15 @@ window.TRANSLATIONS.de = {
   "rvb_faq2_a": "Der Rechner modelliert das Nettovermögen über Ihre Haltedauer. Wenn Sie mieten, wird die Anzahlung plus jeder monatliche Cashflow-Vorteil investiert. Wenn Sie kaufen, bauen Sie Eigenkapital auf, während Sie Zinsen, Grundsteuer und Instandhaltung zahlen. Die Option mit dem höheren Nettovermögen am Ende gewinnt.",
   "rvb_faq3_q": "Wie viele Jahre sollten Sie in einem Haus wohnen, damit sich der Kauf lohnt?",
   "rvb_faq3_a": "Als Faustregel schlägt Kaufen Mieten meist nach 4 bis 7 Jahren, weil das ungefähr die Zeit ist, die Eigenkapital und Mietsteigerungen benötigen, um die Abschlusskosten auszugleichen. Führen Sie den Rechner mit Ihren Zahlen aus, um Ihr eigenes Break-even-Jahr zu finden.",
+  "rvb_input_country": "Land / Region",
+  "rvb_country_custom": "Benutzerdefiniert / Allgemein",
+  "rvb_country_US": "Vereinigte Staaten",
+  "rvb_country_BR": "Brasilien",
+  "rvb_country_PT": "Portugal",
+  "rvb_country_ES": "Spanien",
+  "rvb_country_FR": "Frankreich",
+  "rvb_country_DE": "Deutschland",
+  "rvb_country_GB": "Vereinigtes Königreich",
 
   /* ---------- Seite Refinanzierungsrechner (/refinance-calculator) ---------- */
   "refi_title": "Refinanzierungsrechner — Sollten Sie Refinanzieren? 2026",

@@ -549,6 +549,15 @@ window.TRANSLATIONS.fr = {
   "rvb_faq2_a": "Le calculateur modélise le patrimoine net sur votre durée de détention. Si vous louez, l'acompte plus tout avantage mensuel de trésorerie est investi. Si vous achetez, vous constituez une valeur nette immobilière tout en payant des intérêts, des impôts fonciers et de l'entretien. L'option avec le patrimoine net le plus élevé à la fin gagne.",
   "rvb_faq3_q": "Combien d'années devez-vous rester dans un logement pour que l'achat en vaille la peine ?",
   "rvb_faq3_a": "En règle générale, acheter bat généralement louer après 4 à 7 ans, car c'est à peu près le temps qu'il faut pour que la valeur nette et les hausses de loyer compensent les frais de clôture. Lancez le calculateur avec vos chiffres pour trouver votre propre année d'équilibre.",
+  "rvb_input_country": "Pays / Région",
+  "rvb_country_custom": "Personnalisé / Générique",
+  "rvb_country_US": "États-Unis",
+  "rvb_country_BR": "Brésil",
+  "rvb_country_PT": "Portugal",
+  "rvb_country_ES": "Espagne",
+  "rvb_country_FR": "France",
+  "rvb_country_DE": "Allemagne",
+  "rvb_country_GB": "Royaume-Uni",
 
   /* ---------- Page Calculateur de Refinancement (/refinance-calculator) ---------- */
   "refi_title": "Calculateur de Refinancement — Devez-vous Refinancer ? 2026",
