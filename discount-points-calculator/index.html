@@ -4,7 +4,7 @@
   Calculate whether buying mortgage discount points is worth it.
   CONFIGURED: domain, AdSense (ca-pub-2920008879492175), GA4, Clarity.
 -->
-<html lang="en-US">
+<html lang="en-US" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <!-- Google Consent Mode v2 (default consent: EEA/UK/CH denied, rest granted) -->
@@ -224,6 +224,10 @@
           <option value="GBP">&pound; GBP</option>
         </select>
       </div>
+      <!-- Dark mode toggle -->
+      <button type="button" class="theme-toggle-btn" onclick="themeToggle()" aria-label="Toggle dark mode">
+        <i class="fas fa-sun" id="theme-toggle-icon"></i>
+      </button>
     </div>
   </header>
 
@@ -457,5 +461,6 @@ document.addEventListener('DOMContentLoaded', function () {
   <noscript>
     <p style="text-align:center;padding:24px;">This calculator requires JavaScript. Please enable JavaScript to use the discount points calculator.</p>
   </noscript>
+  <script src="../js/dark-mode.js" defer></script>
 </body>
 </html>

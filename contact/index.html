@@ -6,7 +6,7 @@
   confirmation email to the inbox before the message is relayed.
   TODO: GA4/GTM IDs and affiliate links before launch.
 -->
-<html lang="en-US">
+<html lang="en-US" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <!-- Google Consent Mode v2 (default consent: EEA/UK/CH denied, rest granted) -->
@@ -198,6 +198,11 @@
         </select>
       </div>
     </div>
+  
+      <!-- Dark mode toggle -->
+      <button type="button" class="theme-toggle-btn" onclick="themeToggle()" aria-label="Toggle dark mode">
+        <i class="fas fa-sun" id="theme-toggle-icon"></i>
+      </button>
   </header>
 
   <!-- ============================ AD — TOP ============================ -->
@@ -324,5 +329,6 @@ window.i18n.init();
 </script>
 
   <!-- ============ Adcash Zone ============ -->
+  <script src="../js/dark-mode.js" defer></script>
 </body>
 </html>
