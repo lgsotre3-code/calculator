@@ -737,6 +737,8 @@ window.TRANSLATIONS.de = {
   "pts_faq3_q": "Sind Hypothekenpunkte steuerlich absetzbar?",
   "pts_faq3_a": "In den Vereinigten Staaten sind Discount-Points in der Regel im Jahr des Hypothekenabschlags als vorausgezahlte Hypothekenzinsen steuerlich absetzbar. Steuervorschriften variieren jedoch nach Land und Situation. Konsultieren Sie einen Steuerberater für fallbezogene Beratung.",
   "calc_nav_points": "Discount Points",
+  "calc_nav_va": "VA-Hypothekenrechner",
+  "va_description": "Berechnen Sie Ihre VA-Hypothekenzahlung mit Grundsteuern, Wohngebäudeversicherung und zusätzlichen Zahlungen. Kostenloser Tilgungsplan und Grafiken.",
 
   /* ---------- Blog: 28/36 Rule ---------- */
   "blog2836_h1": "How Much Mortgage Can You Afford? The 28/36 Rule Explained",

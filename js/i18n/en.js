@@ -738,6 +738,8 @@ window.TRANSLATIONS.en = {
   "pts_faq3_q": "Are mortgage points tax deductible?",
   "pts_faq3_a": "In the United States, discount points are generally tax deductible in the year you close on the mortgage, as prepaid home mortgage interest. However, tax rules vary by country and situation. Consult a tax professional for advice specific to your case.",
   "calc_nav_points": "Discount Points",
+  "calc_nav_va": "VA Mortgage Calculator",
+  "va_description": "Calculate your VA mortgage payment with property taxes, home insurance and extra payments. Free amortization schedule and graphs.",
 
   /* ---------- Blog: 28/36 Rule ---------- */
   "blog2836_h1": "How Much Mortgage Can You Afford? The 28/36 Rule Explained",
