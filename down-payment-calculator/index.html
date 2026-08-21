@@ -221,6 +221,17 @@
           <option value="de" data-i18n-option="lang_de">Deutsch</option>
         </select>
       </div>
+
+      <!-- Currency selector -->
+      <div class="lang-switch currency-switch">
+        <label for="currency-select" data-i18n="currency_label">Currency</label>
+        <select id="currency-select" aria-label="Currency">
+          <option value="USD">$ USD</option>
+          <option value="EUR">&euro; EUR</option>
+          <option value="BRL">R$ BRL</option>
+          <option value="GBP">&pound; GBP</option>
+        </select>
+      </div>
     </div>
   </header>
 
@@ -441,6 +452,7 @@
 
   <!-- ============================ SCRIPTS ============================ -->
   <script src="../js/i18n/i18n.js" defer></script>
+  <script src="../js/currencies.js" defer></script>
   <script src="../js/calc-core.js" defer></script>
   <script src="../js/nav.js" defer></script>
   <script src="../js/analytics.js" defer></script>

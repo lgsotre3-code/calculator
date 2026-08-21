@@ -51,15 +51,13 @@
   };
 
   /* ------------------------------------------------------------------
-   * Formatting helpers (US-style, consistent with the main calculator).
+   * Formatting helpers (delegates to window.Currency for dynamic currency).
    * ------------------------------------------------------------------ */
-  var usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 });
-  var usd0 = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
   var numFmt = new Intl.NumberFormat('en-US', { maximumFractionDigits: 1 });
   var pctFmt = new Intl.NumberFormat('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 1 });
 
-  C.money = function (v) { return usd.format(v); };
-  C.money0 = function (v) { return usd0.format(v); };
+  C.money = function (v) { return window.Currency ? window.Currency.format(v) : '$' + v.toFixed(2); };
+  C.money0 = function (v) { return window.Currency ? window.Currency.format0(v) : '$' + Math.round(v); };
   C.num = function (v) { return numFmt.format(v); };
   C.pct = function (v) { return pctFmt.format(v) + '%'; };
 
@@ -127,7 +125,7 @@
             callbacks: {
               label: function (ctx) {
                 var label = ctx.dataset.label || '';
-                return label + ': ' + usd0.format(ctx.parsed.y);
+                return label + ': ' + C.money0(ctx.parsed.y);
               }
             }
           }
@@ -166,7 +164,7 @@
             callbacks: {
               label: function (ctx) {
                 var prefix = ctx.dataset.label ? ctx.dataset.label + ': ' : '';
-                return prefix + (isPct ? ctx.parsed.y.toFixed(0) + '%' : usd0.format(ctx.parsed.y));
+                return prefix + (isPct ? ctx.parsed.y.toFixed(0) + '%' : C.money0(ctx.parsed.y));
               }
             }
           }
@@ -204,7 +202,7 @@
           legend: { position: 'bottom', labels: { boxWidth: 12, padding: 12, font: { size: chartFont() } } },
           tooltip: {
             callbacks: {
-              label: function (ctx) { return ctx.label + ': ' + usd0.format(ctx.parsed); }
+              label: function (ctx) { return ctx.label + ': ' + C.money0(ctx.parsed); }
             }
           }
         }
@@ -213,10 +211,7 @@
   };
 
   function compactUsd(v) {
-    var abs = Math.abs(v);
-    if (abs >= 1000000) return '$' + (v / 1000000).toFixed(1) + 'M';
-    if (abs >= 1000) return '$' + (v / 1000).toFixed(0) + 'k';
-    return '$' + Math.round(v);
+    return window.Currency ? window.Currency.compact(v) : '$' + Math.round(v);
   }
 
   /* ------------------------------------------------------------------

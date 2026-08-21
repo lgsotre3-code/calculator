@@ -32,10 +32,10 @@
   const TAX_MAX = 5, INS_MAX = 10000, EXTRA_MAX = 5000;
 
   /* ------------------------------------------------------------------
-   * Currency / number formatting helpers (US-style, e.g. $123,456.78)
+   * Currency / number formatting helpers (delegates to window.Currency)
    * ------------------------------------------------------------------ */
-  const usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 });
-  const usd0 = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
+  const usd = { format: function (v) { return window.Currency ? window.Currency.format(v) : '$' + v.toFixed(2); } };
+  const usd0 = { format: function (v) { return window.Currency ? window.Currency.format0(v) : '$' + Math.round(v); } };
 
   function clamp(v, min, max) { return Math.min(Math.max(v, min), max); }
   function num(id) { const v = parseFloat(document.getElementById(id).value); return isFinite(v) ? v : 0; }
@@ -500,6 +500,9 @@
 
     const resetBtn = document.getElementById('reset-btn');
     if (resetBtn) resetBtn.addEventListener('click', reset);
+
+    // Re-render when the user switches currency (independent of language).
+    document.addEventListener('currency:changed', function () { calculate(false); });
 
     // Expand/collapse the full amortization schedule.
     const toggle = document.getElementById('show-full-schedule');

@@ -139,6 +139,11 @@
       C.schedule(calculate);
     });
 
+    // Re-render when the user switches currency (independent of language).
+    document.addEventListener('currency:changed', function () {
+      C.schedule(calculate);
+    });
+
     // Re-render when the layout crosses a breakpoint or rotates (mobile fonts).
     document.addEventListener('calc:reflow', function () {
       C.schedule(calculate);

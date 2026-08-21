@@ -166,6 +166,7 @@
     el['downpay-reset'].addEventListener('click', reset);
 
     document.addEventListener('i18n:updated', function () { C.schedule(calculate); });
+    document.addEventListener('currency:changed', function () { C.schedule(calculate); });
     document.addEventListener('calc:reflow', function () { C.schedule(calculate); });
 
     if (window.i18n && window.i18n.ready) {
