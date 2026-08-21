@@ -162,6 +162,10 @@ window.TRANSLATIONS.es = {
 
   "sec_faq": "Preguntas Frecuentes sobre Calculadoras de Hipoteca",
   "sec_explore": "Explora Más",
+  "explore_link_points": "Calculadora de Puntos de Descuento — ¿Deberías Comprar Puntos?",
+  "explore_link_va": "Calculadora de Hipoteca VA con Impuestos y Seguros",
+  "explore_link_va_vs_conv": "Préstamo VA vs. Hipoteca Convencional: ¿Cuál es Mejor?",
+  "explore_link_afford": "¿Cuánta Hipoteca Puedo Pagar? La Regla 28/36",
 
   /* ---------- FAQ ---------- */
   "faq1_q": "¿Cuál es la fórmula para calcular un pago de hipoteca?",

@@ -163,6 +163,10 @@ window.TRANSLATIONS.en = {
 
   "sec_faq": "Frequently Asked Questions About Mortgage Calculators",
   "sec_explore": "Explore More",
+  "explore_link_points": "Discount Points Calculator — Should You Buy Points?",
+  "explore_link_va": "VA Mortgage Calculator with Taxes & Insurance",
+  "explore_link_va_vs_conv": "VA Loan vs. Conventional Mortgage: Which Is Better?",
+  "explore_link_afford": "How Much Mortgage Can You Afford? The 28/36 Rule",
 
   /* ---------- FAQ (schema FAQPage) ---------- */
   "faq1_q": "What is the formula for calculating a mortgage payment?",

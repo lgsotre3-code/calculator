@@ -162,6 +162,10 @@ window.TRANSLATIONS.fr = {
 
   "sec_faq": "Questions Fréquentes sur les Calculateurs Hypothécaires",
   "sec_explore": "Explorer Plus",
+  "explore_link_points": "Calculateur de Points de Réduction — Devriez-vous Acheter des Points ?",
+  "explore_link_va": "Calculateur Hypothécaire VA avec Taxes et Assurances",
+  "explore_link_va_vs_conv": "Prêt VA vs. Hypothèque Conventionnelle : Quel est le Meilleur ?",
+  "explore_link_afford": "Combien d'Hypothèque Pouvez-vous-vous Permettre ? La Règle 28/36",
 
   /* ---------- FAQ ---------- */
   "faq1_q": "Quelle est la formule pour calculer un paiement hypothécaire ?",

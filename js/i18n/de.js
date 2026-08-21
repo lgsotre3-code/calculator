@@ -162,6 +162,10 @@ window.TRANSLATIONS.de = {
 
   "sec_faq": "Häufig gestellte Fragen zu Hypothekenrechnern",
   "sec_explore": "Mehr Entdecken",
+  "explore_link_points": "Rabattpunkte-Rechner — Sollten Sie Punkte Kaufen?",
+  "explore_link_va": "VA-Hypothekenrechner mit Steuern und Versicherungen",
+  "explore_link_va_vs_conv": "VA-Darlehen vs. Konventionalhypothek: Was ist Besser?",
+  "explore_link_afford": "Wie Viel Hypothek Können Sie Sich Leisten? Die 28/36-Regel",
 
   /* ---------- FAQ ---------- */
   "faq1_q": "Wie lautet die Formel zur Berechnung einer Hypothekenrate?",

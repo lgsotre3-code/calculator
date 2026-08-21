@@ -162,6 +162,10 @@ window.TRANSLATIONS.pt = {
 
   "sec_faq": "Perguntas Frequentes sobre Calculadoras de Financiamento",
   "sec_explore": "Explorar Mais",
+  "explore_link_points": "Calculadora de Pontos de Desconto — Você Deveria Comprar Pontos?",
+  "explore_link_va": "Calculadora de Financiamento VA com Impostos e Seguros",
+  "explore_link_va_vs_conv": "Financiamento VA vs. Hipoteca Convencional: Qual é Melhor?",
+  "explore_link_afford": "Quanto Financiamento Você Pode Pagar? A Regra 28/36",
 
   /* ---------- FAQ ---------- */
   "faq1_q": "Qual é a fórmula para calcular a parcela de um financiamento?",
