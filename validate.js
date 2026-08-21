@@ -26,6 +26,7 @@ const pages = [
   'blog/va-loan-vs-conventional/index.html',
   'blog/mortgage-payments-guide/index.html',
   'blog/arm-vs-fixed-rate/index.html',
+  'blog/refinance-break-even/index.html',
 ];
 
 let jsonOk = true;

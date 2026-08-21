@@ -219,6 +219,8 @@ window.TRANSLATIONS.pt = {
   "blog_post_6_excerpt": "Comparamos Rocket Mortgage, Bank of America, Chase e Guild Mortgage para compradores de primeira casa, com dicas e o que considerar.",
   "blog_post_7_title": "Empréstimos FHA vs. Convencionais: Qual É o Certo para Você?",
   "blog_post_7_excerpt": "Entrada, score de crédito, seguro hipotecário e mais: uma comparação clara para escolher o empréstimo certo.",
+  "blog_post_8_title": "Quando o Refinanciamento Compensa? O Método do Ponto de Equilíbrio Explicado",
+  "blog_post_8_excerpt": "Aprenda o método do ponto de equilíbrio para decidir se refinanciar sua hipoteca vale a pena. Números reais, fórmula clara.",
   "try_calculator": "Experimente a Calculadora de Financiamento Gratuita",
   "try_calculator_text": "Calcule sua parcela mensal com impostos, seguros e pagamentos extras em segundos.",
 

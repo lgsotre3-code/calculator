@@ -220,6 +220,8 @@ window.TRANSLATIONS.en = {
   "blog_post_6_excerpt": "We compare Rocket Mortgage, Bank of America, Chase and Guild Mortgage for first-time buyers, plus tips and what to look for.",
   "blog_post_7_title": "FHA vs. Conventional Loans: Which Is Right for You?",
   "blog_post_7_excerpt": "Down payment, credit score, mortgage insurance and more — a clear side-by-side to help you choose the right loan.",
+  "blog_post_8_title": "When Does Refinancing Pay Off? The Break-Even Method Explained",
+  "blog_post_8_excerpt": "Learn the break-even method to decide if refinancing your mortgage is worth it. Real numbers, clear formula.",
   "try_calculator": "Try the Free Mortgage Calculator",
   "try_calculator_text": "Estimate your monthly payment with taxes, insurance and extra payments in seconds.",
 

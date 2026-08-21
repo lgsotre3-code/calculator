@@ -219,6 +219,8 @@ window.TRANSLATIONS.fr = {
   "blog_post_6_excerpt": "Nous comparons Rocket Mortgage, Bank of America, Chase et Guild Mortgage pour les primo-accédants, avec des conseils.",
   "blog_post_7_title": "Prêts FHA vs. Conventionnels : Lequel Vous Convient ?",
   "blog_post_7_excerpt": "Apport initial, cote de crédit, assurance hypothécaire et plus : une comparaison claire pour choisir le bon prêt.",
+  "blog_post_8_title": "Quand le Rachat de Crédit Paie-t-il ? La Méthode du Seuil de Rentabilité Expliquée",
+  "blog_post_8_excerpt": "Découvrez la méthode du seuil de rentabilité pour décider si le rachat de votre hypothèque en vaut la peine. Chiffres réels, formule claire.",
   "try_calculator": "Essayez le Calculateur Hypothécaire Gratuit",
   "try_calculator_text": "Estimez votre mensualité avec taxes, assurances et paiements supplémentaires en quelques secondes.",
 

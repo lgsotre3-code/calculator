@@ -219,6 +219,8 @@ window.TRANSLATIONS.de = {
   "blog_post_6_excerpt": "Wir vergleichen Rocket Mortgage, Bank of America, Chase und Guild Mortgage für Erstkäufer – mit Tipps und worauf Sie achten sollten.",
   "blog_post_7_title": "FHA vs. Konventionelle Darlehen: Welches Ist das Richtige für Sie?",
   "blog_post_7_excerpt": "Anzahlung, Bonität, Hypothekenversicherung und mehr: ein klarer Vergleich, um das richtige Darlehen zu wählen.",
+  "blog_post_8_title": "Wann Lohnt sich Umschulden? Die Gewinnschwelle Erklärt",
+  "blog_post_8_excerpt": "Erfahren Sie, wie Sie mit der Gewinnschwellen-Methode entscheiden, ob sich eine Umschuldung lohnt. Reale Zahlen, klare Formel.",
   "try_calculator": "Testen Sie den Kostenlosen Hypothekenrechner",
   "try_calculator_text": "Schätzen Sie Ihre Monatsrate mit Steuern, Versicherungen und Sonderzahlungen in Sekunden.",
 
