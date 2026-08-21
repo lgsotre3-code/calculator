@@ -26,13 +26,24 @@
     GBP: { code: 'GBP', symbol: '\u00A3' }
   };
 
+  /* Language → Intl locale for number separators (thousands, decimal). */
+  var LANG_LOCALE = {
+    en: 'en-US', pt: 'pt-BR', es: 'es-ES', fr: 'fr-FR', de: 'de-DE'
+  };
+
+  function fmtLocale() {
+    var lang = (window.i18n && window.i18n.currentLang) || 'en';
+    return LANG_LOCALE[lang] || 'en-US';
+  }
+
   var active = DEFAULT;
   var fmt, fmt0;
 
   function rebuild() {
     var c = CURRENCIES[active] || CURRENCIES[DEFAULT];
-    fmt  = new Intl.NumberFormat('en-US', { style: 'currency', currency: c.code, minimumFractionDigits: 2 });
-    fmt0 = new Intl.NumberFormat('en-US', { style: 'currency', currency: c.code, minimumFractionDigits: 0, maximumFractionDigits: 0 });
+    var loc = fmtLocale();
+    fmt  = new Intl.NumberFormat(loc, { style: 'currency', currency: c.code, minimumFractionDigits: 2 });
+    fmt0 = new Intl.NumberFormat(loc, { style: 'currency', currency: c.code, minimumFractionDigits: 0, maximumFractionDigits: 0 });
   }
 
   function load() {
@@ -68,6 +79,11 @@
           dispatch();
         });
       }
+      /* Rebuild formatters when language changes (number separators follow UI language). */
+      document.addEventListener('i18n:updated', function () {
+        rebuild();
+        dispatch();
+      });
     },
 
     getActive: function () { return active; },
@@ -84,11 +100,9 @@
     format0: function (v) { return fmt0.format(v); },
 
     compact: function (v) {
-      var sym = CURRENCIES[active] ? CURRENCIES[active].symbol : '$';
-      var abs = Math.abs(v);
-      if (abs >= 1e6)  return sym + (v / 1e6).toFixed(1) + 'M';
-      if (abs >= 1e3)  return sym + (v / 1e3).toFixed(0) + 'k';
-      return sym + Math.round(v);
+      var loc = fmtLocale();
+      var opts = { notation: 'compact', compactDisplay: 'short', style: 'currency', currency: (CURRENCIES[active] || CURRENCIES[DEFAULT]).code, maximumFractionDigits: 1 };
+      try { return new Intl.NumberFormat(loc, opts).format(v); } catch (e) { return '$' + v.toFixed(0); }
     },
 
     symbol: function () {

@@ -560,6 +560,9 @@ select:focus {
   font-weight: 900;
   letter-spacing: -0.03em;
   line-height: 1.1;
+  min-height: 3.6rem;
+  display: flex;
+  align-items: baseline;
 }
 [data-theme="dark"] .result-card--main .result-value { color: var(--gold); }
 
@@ -578,6 +581,7 @@ select:focus {
   font-weight: 800;
   color: var(--navy);
   font-variant-numeric: tabular-nums;
+  min-height: 1.8rem;
 }
 [data-theme="dark"] .result-value { color: var(--text); }
 .result-value small {
@@ -1030,7 +1034,7 @@ table.amortization tbody tr:hover { background: rgba(59,130,246,0.04); }
   .container { padding: 16px 15px 40px; }
   .result-grid { grid-template-columns: 1fr; }
   .result-card { width: 100%; margin-bottom: 12px; }
-  .result-card--main .result-value { font-size: 2.2rem; }
+  .result-card--main .result-value { font-size: 2.2rem; min-height: 2.7rem; }
   .input-row { flex-direction: column; align-items: stretch; gap: 10px; }
   .input-row input[type="range"] { flex: 1 1 auto; }
   .input-row input[type="number"] { width: 100%; }
@@ -1075,7 +1079,7 @@ table.amortization tbody tr:hover { background: rgba(59,130,246,0.04); }
   .contact-form { padding: 20px; }
   .btn-row .btn { flex: 1 1 100%; }
   .chart-canvas { height: 220px; }
-  .result-card--main .result-value { font-size: 2rem; }
+  .result-card--main .result-value { font-size: 2rem; min-height: 2.5rem; }
 }
 
 @media (min-width: 760px) {
