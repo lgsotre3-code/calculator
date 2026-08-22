@@ -80,6 +80,69 @@
     { code: 'GB', fallback: 'United Kingdom' }
   ];
 
+  /**
+   * U.S. state-level refinements for the US preset.
+   *
+   * propertyTax — effective property tax rate (% of home value / year),
+   *   approximations from Tax Foundation effective-rate tables.
+   * insurance  — rough annual homeowner premium (USD, HO-3, ~$300k dwelling),
+   *   higher in catastrophe-exposed markets (FL/OK/TX/LA).
+   * Both are starting points, not quotes.
+   */
+  var US_STATES = {
+    AL: { name: 'Alabama',        propertyTax: 0.37, insurance: 2250 },
+    AK: { name: 'Alaska',         propertyTax: 1.19, insurance: 2600 },
+    AZ: { name: 'Arizona',        propertyTax: 0.60, insurance: 2000 },
+    AR: { name: 'Arkansas',       propertyTax: 0.62, insurance: 2200 },
+    CA: { name: 'California',     propertyTax: 0.71, insurance: 1600 },
+    CO: { name: 'Colorado',       propertyTax: 0.51, insurance: 2500 },
+    CT: { name: 'Connecticut',    propertyTax: 2.14, insurance: 1900 },
+    DE: { name: 'Delaware',       propertyTax: 0.57, insurance: 1200 },
+    DC: { name: 'District of Columbia', propertyTax: 0.57, insurance: 1500 },
+    FL: { name: 'Florida',        propertyTax: 0.80, insurance: 4200 },
+    GA: { name: 'Georgia',        propertyTax: 0.92, insurance: 2300 },
+    HI: { name: 'Hawaii',         propertyTax: 0.32, insurance: 1400 },
+    ID: { name: 'Idaho',          propertyTax: 0.68, insurance: 1300 },
+    IL: { name: 'Illinois',       propertyTax: 2.08, insurance: 2100 },
+    IN: { name: 'Indiana',        propertyTax: 0.83, insurance: 1700 },
+    IA: { name: 'Iowa',           propertyTax: 1.53, insurance: 2000 },
+    KS: { name: 'Kansas',         propertyTax: 1.40, insurance: 2100 },
+    KY: { name: 'Kentucky',       propertyTax: 0.90, insurance: 1800 },
+    LA: { name: 'Louisiana',      propertyTax: 0.55, insurance: 3200 },
+    ME: { name: 'Maine',          propertyTax: 1.15, insurance: 1400 },
+    MD: { name: 'Maryland',       propertyTax: 1.09, insurance: 1500 },
+    MA: { name: 'Massachusetts',  propertyTax: 1.09, insurance: 1700 },
+    MI: { name: 'Michigan',       propertyTax: 1.38, insurance: 1800 },
+    MN: { name: 'Minnesota',      propertyTax: 1.09, insurance: 2000 },
+    MS: { name: 'Mississippi',    propertyTax: 0.78, insurance: 2400 },
+    MO: { name: 'Missouri',       propertyTax: 1.01, insurance: 1900 },
+    MT: { name: 'Montana',        propertyTax: 0.84, insurance: 2200 },
+    NE: { name: 'Nebraska',       propertyTax: 1.64, insurance: 2300 },
+    NV: { name: 'Nevada',         propertyTax: 0.53, insurance: 1300 },
+    NH: { name: 'New Hampshire',  propertyTax: 1.77, insurance: 1300 },
+    NJ: { name: 'New Jersey',     propertyTax: 2.23, insurance: 1700 },
+    NM: { name: 'New Mexico',     propertyTax: 0.79, insurance: 1800 },
+    NY: { name: 'New York',       propertyTax: 1.73, insurance: 2000 },
+    NC: { name: 'North Carolina', propertyTax: 0.82, insurance: 1700 },
+    ND: { name: 'North Dakota',   propertyTax: 0.99, insurance: 1900 },
+    OH: { name: 'Ohio',           propertyTax: 1.53, insurance: 1600 },
+    OK: { name: 'Oklahoma',       propertyTax: 0.87, insurance: 3000 },
+    OR: { name: 'Oregon',         propertyTax: 0.93, insurance: 1500 },
+    PA: { name: 'Pennsylvania',   propertyTax: 1.50, insurance: 1500 },
+    RI: { name: 'Rhode Island',   propertyTax: 1.63, insurance: 1900 },
+    SC: { name: 'South Carolina', propertyTax: 0.88, insurance: 2100 },
+    SD: { name: 'South Dakota',   propertyTax: 1.27, insurance: 2000 },
+    TN: { name: 'Tennessee',      propertyTax: 0.71, insurance: 1900 },
+    TX: { name: 'Texas',          propertyTax: 1.60, insurance: 3300 },
+    UT: { name: 'Utah',           propertyTax: 0.58, insurance: 1400 },
+    VT: { name: 'Vermont',        propertyTax: 1.83, insurance: 1500 },
+    VA: { name: 'Virginia',       propertyTax: 0.82, insurance: 1500 },
+    WA: { name: 'Washington',     propertyTax: 0.94, insurance: 1500 },
+    WV: { name: 'West Virginia',  propertyTax: 0.61, insurance: 1400 },
+    WI: { name: 'Wisconsin',      propertyTax: 1.62, insurance: 1600 },
+    WY: { name: 'Wyoming',        propertyTax: 0.61, insurance: 1800 }
+  };
+
   window.MortgageCountryPresets = {
     /**
      * Returns the preset object for a country code, or null for 'custom'.
@@ -93,6 +156,22 @@
      */
     list: function () {
       return COUNTRY_LIST;
+    },
+
+    /**
+     * Returns the sorted list of U.S. state codes (for populating the
+     * state <select>). Returns [] on older copies without data.
+     */
+    states: function () {
+      return Object.keys(US_STATES).sort();
+    },
+
+    /**
+     * Returns { name, propertyTax, insurance } for a U.S. state code,
+     * or null if unknown.
+     */
+    getState: function (code) {
+      return US_STATES[code] || null;
     }
   };
 })();

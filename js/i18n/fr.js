@@ -571,6 +571,10 @@ window.TRANSLATIONS.fr = {
   "rvb_country_FR": "France",
   "rvb_country_DE": "Allemagne",
   "rvb_country_GB": "Royaume-Uni",
+  "us_state_label": "État américain",
+  "us_state_default": "Moyenne de l’État (défaut US)",
+  "copy_link": "Copier le lien",
+  "link_copied": "Lien copié !",
   "mortgage_country_label": "Pays / Région",
 
   /* ---------- Page Calculateur de Refinancement (/refinance-calculator) ---------- */

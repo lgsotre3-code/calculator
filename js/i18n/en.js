@@ -572,6 +572,10 @@ window.TRANSLATIONS.en = {
   "rvb_country_FR": "France",
   "rvb_country_DE": "Germany",
   "rvb_country_GB": "United Kingdom",
+  "us_state_label": "U.S. State",
+  "us_state_default": "State average (US default)",
+  "copy_link": "Copy share link",
+  "link_copied": "Link copied!",
   "mortgage_country_label": "Country / Region",
 
   /* ---------- Refinance Calculator page (/refinance-calculator) ---------- */

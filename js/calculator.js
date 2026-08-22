@@ -628,6 +628,38 @@
       });
     }
 
+    // U.S. state refinement: shown only when country = US; fills tax/insurance
+    // with state averages. All accesses guarded (VA page has no such fields).
+    const countrySel = document.getElementById('mortgage-country');
+    const usStateSel = document.getElementById('mortgage-us-state');
+    const usStateGroup = document.getElementById('us-state-group');
+    if (countrySel && usStateSel && usStateGroup &&
+        window.MortgageCountryPresets && typeof window.MortgageCountryPresets.states === 'function') {
+      window.MortgageCountryPresets.states().forEach((code) => {
+        const st = window.MortgageCountryPresets.getState(code);
+        if (!st) return;
+        const opt = document.createElement('option');
+        opt.value = code;
+        opt.textContent = code + ' — ' + st.name;
+        usStateSel.appendChild(opt);
+      });
+      const syncStateVis = () => { usStateGroup.hidden = countrySel.value !== 'US'; };
+      syncStateVis();
+      countrySel.addEventListener('change', function () {
+        syncStateVis();
+        if (this.value !== 'US') usStateSel.value = '';
+      });
+      usStateSel.addEventListener('change', function () {
+        const st = window.MortgageCountryPresets.getState(this.value);
+        if (!st) return; // '' = state average (country default)
+        const taxEl = document.getElementById('property-tax');
+        const insEl = document.getElementById('insurance');
+        if (taxEl) taxEl.value = st.propertyTax;
+        if (insEl) insEl.value = st.insurance;
+        calculate(false);
+      });
+    }
+
     // Expand/collapse the full amortization schedule.
     const toggle = document.getElementById('show-full-schedule');
     if (toggle) toggle.addEventListener('click', () => {
