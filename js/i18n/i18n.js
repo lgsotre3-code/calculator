@@ -220,12 +220,33 @@
       }));
     }
 
+    /**
+     * Pages that ship a real, dedicated locale folder (with its own
+     * canonical + hreflang tags). For these, switching language should
+     * navigate to that folder instead of tacking on ?lang=xx — otherwise
+     * we create a second, competing URL for content Google already has
+     * a clean indexable copy of.
+     */
+    hasLocaleFolder() {
+      const path = window.location.pathname;
+      return path === '/' || path === '/index.html' ||
+        /^\/(en|es|fr|pt|de)\/?$/.test(path);
+    }
+
     /** Called by the <select id="lang-select"> change handler. */
     switchLanguage(lang) {
       if (!this.isSupported(lang)) return;
       try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) { /* ignore */ }
+
+      if (this.hasLocaleFolder()) {
+        // Navigate to the real locale folder (matches canonical/hreflang).
+        window.location.href = '/' + lang + '/';
+        return;
+      }
+
       this.load(lang).then(() => {
-        // Keep a shareable URL without forcing a reload.
+        // No dedicated folder for this page — keep the shareable ?lang=xx
+        // URL (static-hosting friendly), same as before.
         const url = new URL(window.location.href);
         url.searchParams.set('lang', lang);
         window.history.replaceState({}, '', url.toString());
