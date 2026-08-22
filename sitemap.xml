@@ -61,36 +61,161 @@
 
   <url>
     <loc>https://www.mortgage-pro-calc.com/blog/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-22</lastmod>
     <priority>0.8</priority>
   </url>
+
   <url>
     <loc>https://www.mortgage-pro-calc.com/blog/best-mortgage-lenders</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/blog/best-mortgage-lenders"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mortgage-pro-calc.com/es/blog/best-mortgage-lenders"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.mortgage-pro-calc.com/fr/blog/best-mortgage-lenders"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.mortgage-pro-calc.com/pt/blog/best-mortgage-lenders"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.mortgage-pro-calc.com/de/blog/best-mortgage-lenders"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/blog/best-mortgage-lenders"/>
   </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/es/blog/best-mortgage-lenders</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/fr/blog/best-mortgage-lenders</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/pt/blog/best-mortgage-lenders</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/de/blog/best-mortgage-lenders</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <url>
     <loc>https://www.mortgage-pro-calc.com/blog/fha-vs-conventional-loans</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/blog/fha-vs-conventional-loans"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mortgage-pro-calc.com/es/blog/fha-vs-conventional-loans"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.mortgage-pro-calc.com/fr/blog/fha-vs-conventional-loans"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.mortgage-pro-calc.com/pt/blog/fha-vs-conventional-loans"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.mortgage-pro-calc.com/de/blog/fha-vs-conventional-loans"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/blog/fha-vs-conventional-loans"/>
   </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/es/blog/fha-vs-conventional-loans</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/fr/blog/fha-vs-conventional-loans</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/pt/blog/fha-vs-conventional-loans</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/de/blog/fha-vs-conventional-loans</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <url>
     <loc>https://www.mortgage-pro-calc.com/blog/va-loan-vs-conventional/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/blog/va-loan-vs-conventional/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mortgage-pro-calc.com/es/blog/va-loan-vs-conventional/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.mortgage-pro-calc.com/fr/blog/va-loan-vs-conventional/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.mortgage-pro-calc.com/pt/blog/va-loan-vs-conventional/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.mortgage-pro-calc.com/de/blog/va-loan-vs-conventional/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/blog/va-loan-vs-conventional/"/>
   </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/es/blog/va-loan-vs-conventional/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/fr/blog/va-loan-vs-conventional/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/pt/blog/va-loan-vs-conventional/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/de/blog/va-loan-vs-conventional/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <url>
     <loc>https://www.mortgage-pro-calc.com/blog/mortgage-affordability-28-36-rule/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/blog/mortgage-affordability-28-36-rule/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mortgage-pro-calc.com/es/blog/mortgage-affordability-28-36-rule/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.mortgage-pro-calc.com/fr/blog/mortgage-affordability-28-36-rule/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.mortgage-pro-calc.com/pt/blog/mortgage-affordability-28-36-rule/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.mortgage-pro-calc.com/de/blog/mortgage-affordability-28-36-rule/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/blog/mortgage-affordability-28-36-rule/"/>
   </url>
   <url>
+    <loc>https://www.mortgage-pro-calc.com/es/blog/mortgage-affordability-28-36-rule/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/fr/blog/mortgage-affordability-28-36-rule/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/pt/blog/mortgage-affordability-28-36-rule/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/de/blog/mortgage-affordability-28-36-rule/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
     <loc>https://www.mortgage-pro-calc.com/blog/refinance-break-even/</loc>
-    <lastmod>2026-08-21</lastmod>
+    <lastmod>2026-08-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/blog/refinance-break-even/"/>
@@ -99,6 +224,104 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.mortgage-pro-calc.com/pt/blog/refinance-break-even/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://www.mortgage-pro-calc.com/de/blog/refinance-break-even/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/blog/refinance-break-even/"/>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/es/blog/refinance-break-even/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/fr/blog/refinance-break-even/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/pt/blog/refinance-break-even/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/de/blog/refinance-break-even/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/blog/mortgage-payments-guide/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/blog/mortgage-payments-guide/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mortgage-pro-calc.com/es/blog/mortgage-payments-guide/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.mortgage-pro-calc.com/fr/blog/mortgage-payments-guide/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.mortgage-pro-calc.com/pt/blog/mortgage-payments-guide/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.mortgage-pro-calc.com/de/blog/mortgage-payments-guide/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/blog/mortgage-payments-guide/"/>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/es/blog/mortgage-payments-guide/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/fr/blog/mortgage-payments-guide/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/pt/blog/mortgage-payments-guide/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/de/blog/mortgage-payments-guide/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/blog/arm-vs-fixed-rate/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/blog/arm-vs-fixed-rate/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mortgage-pro-calc.com/es/blog/arm-vs-fixed-rate/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.mortgage-pro-calc.com/fr/blog/arm-vs-fixed-rate/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.mortgage-pro-calc.com/pt/blog/arm-vs-fixed-rate/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.mortgage-pro-calc.com/de/blog/arm-vs-fixed-rate/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/blog/arm-vs-fixed-rate/"/>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/es/blog/arm-vs-fixed-rate/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/fr/blog/arm-vs-fixed-rate/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/pt/blog/arm-vs-fixed-rate/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/de/blog/arm-vs-fixed-rate/</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <url>
