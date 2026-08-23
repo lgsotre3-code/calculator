@@ -83,7 +83,7 @@ for (const lang of langs) {
 const ROOT_FORM_IDS = [
   'mortgage-form','home-value-slider','home-value','down-payment-slider','down-payment',
   'down-payment-percent','down-payment-caption','ltv-display','interest-rate-slider',
-  'interest-rate','current-rate-note','loan-term','payment-frequency','start-date','mortgage-country','us-state-group',
+  'interest-rate','current-rate-note','rate-refresh-btn','rate-cache-note','loan-term','payment-frequency','start-date','mortgage-country','us-state-group',
   'mortgage-us-state','zip-group','zip-code','zip-lookup-btn','zip-status',
   'property-tax','insurance','hoa','closing-costs','closing-costs-usd',
   'finance-closing-costs','pmi-group','pmi-rate','pmi-note','extra-payment',

@@ -75,6 +75,11 @@ window.TRANSLATIONS.pt = {
   "zip_lookup_btn": "Buscar dados",
   "zip_success": "Dados carregados",
   "zip_error": "Não foi possível buscar os dados. Preencha manualmente.",
+  "rate_refresh_title": "Buscar a taxa de mercado atual para este país",
+  "rate_fetched_on": "Taxa obtida em {date}",
+  "rate_fetching": "Buscando taxa...",
+  "rate_fetch_error": "Não foi possível buscar a taxa. Preencha manualmente.",
+  "rate_fallback": "Usando taxa de reserva",
   "ph_zip_code": "00000-000",
 
   /* ---------- Placeholders ---------- */

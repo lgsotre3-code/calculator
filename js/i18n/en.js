@@ -74,6 +74,11 @@ window.TRANSLATIONS.en = {
   "zip_lookup_btn": "Fetch data",
   "zip_success": "Data loaded",
   "zip_error": "Could not fetch data. Enter values manually.",
+  "rate_refresh_title": "Fetch current market rate for this country",
+  "rate_fetched_on": "Rate fetched on {date}",
+  "rate_fetching": "Fetching rate...",
+  "rate_fetch_error": "Could not fetch rate. Enter manually.",
+  "rate_fallback": "Using fallback rate",
 
   /* ---------- Placeholders ---------- */
   "ph_home_value": "Ex: 350000",

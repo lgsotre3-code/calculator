@@ -708,9 +708,14 @@
     if (countrySelect && window.MortgageCountryPresets) {
       countrySelect.addEventListener('change', function () {
         const p = window.MortgageCountryPresets.get(this.value);
-        if (!p) return; // 'custom' — leave fields as-is
-        document.getElementById('property-tax').value = p.propertyTax;
-        document.getElementById('insurance').value = p.insurance;
+        if (p) {
+          document.getElementById('property-tax').value = p.propertyTax;
+          document.getElementById('insurance').value = p.insurance;
+        }
+        // Fetch the market rate for the newly selected country
+        if (window.RateFetcher) {
+          fetchCountryRate(this.value, true);
+        }
         calculate(false);
       });
     }
@@ -890,17 +895,102 @@
       });
     }
 
-    // Prefill the interest rate with the current market rate (FRED via the
-    // Vercel function). Best-effort: on any failure the default is kept and
-    // the field stays user-editable. Recalculates only when a rate arrives.
-    if (window.CalcCore && window.CalcCore.prefillRate) {
-      window.CalcCore.prefillRate({
-        inputId: 'interest-rate',
-        sliderId: 'interest-rate-slider',
-        noteId: 'current-rate-note',
-        onApplied: () => calculate(false)
+    // Prefill the interest rate with the current market rate using RateFetcher.
+    // When a country is selected, fetches the rate for that country. Falls back
+    // to CalcCore.prefillRate (FRED) when RateFetcher is not available.
+    const refreshBtn = document.getElementById('rate-refresh-btn');
+    const rateCacheNote = document.getElementById('rate-cache-note');
+
+    function applyRateToUI(rate, source) {
+      if (!rate || rate <= 0) return;
+      const input = document.getElementById('interest-rate');
+      const slider = document.getElementById('interest-rate-slider');
+      if (!input) return;
+      const original = input.value;
+      const min = parseFloat(input.min) || 0;
+      const max = parseFloat(input.max) || 15;
+      rate = CalcCore.clamp(rate, min, max);
+      rate = parseFloat(rate.toFixed(2));
+      input.value = rate;
+      if (slider) slider.value = rate;
+      // Show source note
+      const note = document.getElementById('current-rate-note');
+      if (note) {
+        const renderNote = function () {
+          note.textContent = CalcCore.t('current_rate_note').replace('{rate}', rate.toFixed(2));
+          note.hidden = false;
+        };
+        renderNote();
+        document.addEventListener('i18n:updated', renderNote);
+      }
+      if (source) showCacheNote(source);
+      calculate(false);
+    }
+
+    function showCacheNote(source) {
+      if (!rateCacheNote) return;
+      const cached = window.RateFetcher && window.RateFetcher.getCachedRate
+        ? window.RateFetcher.getCachedRate(getCurrentCountry())
+        : null;
+      if (!cached) return;
+      const date = new Date(cached.timestamp);
+      const renderCache = function () {
+        rateCacheNote.innerHTML = '<i class="fas fa-check-circle"></i> '
+          + CalcCore.t('rate_fetched_on').replace('{date}', date.toLocaleDateString());
+        rateCacheNote.hidden = false;
+      };
+      renderCache();
+      document.addEventListener('i18n:updated', renderCache);
+    }
+
+    function getCurrentCountry() {
+      const sel = document.getElementById('mortgage-country');
+      return sel ? sel.value : 'US';
+    }
+
+    function fetchCountryRate(countryCode, showSpinner) {
+      if (!window.RateFetcher) {
+        // Fallback to original CalcCore.prefillRate
+        if (window.CalcCore && window.CalcCore.prefillRate) {
+          window.CalcCore.prefillRate({
+            inputId: 'interest-rate',
+            sliderId: 'interest-rate-slider',
+            noteId: 'current-rate-note',
+            onApplied: () => calculate(false)
+          });
+        }
+        return;
+      }
+      if (showSpinner && refreshBtn) {
+        refreshBtn.classList.add('spin');
+        refreshBtn.disabled = true;
+      }
+      window.RateFetcher.fetchRate(countryCode).then(function (rate) {
+        if (showSpinner && refreshBtn) {
+          refreshBtn.classList.remove('spin');
+          refreshBtn.disabled = false;
+        }
+        if (rate && rate > 0) {
+          applyRateToUI(rate);
+        }
+      }).catch(function () {
+        if (showSpinner && refreshBtn) {
+          refreshBtn.classList.remove('spin');
+          refreshBtn.disabled = false;
+        }
       });
     }
+
+    // Show refresh button and auto-fetch on page load
+    if (refreshBtn && window.RateFetcher) {
+      refreshBtn.hidden = false;
+      refreshBtn.addEventListener('click', function () {
+        fetchCountryRate(getCurrentCountry(), true);
+      });
+    }
+
+    // Auto-fetch rate for the current country on load
+    fetchCountryRate(getCurrentCountry(), false);
 
     // Initial render: wait for the i18n dictionary so captions and the
     // schedule note are translated on first paint (no transient

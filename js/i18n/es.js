@@ -75,6 +75,11 @@ window.TRANSLATIONS.es = {
   "zip_lookup_btn": "Buscar datos",
   "zip_success": "Datos cargados",
   "zip_error": "No se pudieron obtener los datos. Ingrese los valores manualmente.",
+  "rate_refresh_title": "Obtener la tasa de mercado actual para este país",
+  "rate_fetched_on": "Tasa obtenida el {date}",
+  "rate_fetching": "Obteniendo tasa...",
+  "rate_fetch_error": "No se pudo obtener la tasa. Ingrese manualmente.",
+  "rate_fallback": "Usando tasa de respaldo",
   "ph_zip_code": "00000",
 
   /* ---------- Marcadores de posición ---------- */

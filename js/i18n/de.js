@@ -75,6 +75,11 @@ window.TRANSLATIONS.de = {
   "zip_lookup_btn": "Daten abrufen",
   "zip_success": "Daten geladen",
   "zip_error": "Daten konnten nicht abgerufen werden. Bitte manuell eingeben.",
+  "rate_refresh_title": "Aktuellen Marktzinssatz für dieses Land abrufen",
+  "rate_fetched_on": "Zinssatz abgerufen am {date}",
+  "rate_fetching": "Zinssatz wird abgerufen...",
+  "rate_fetch_error": "Zinssatz konnte nicht abgerufen werden. Bitte manuell eingeben.",
+  "rate_fallback": "Fallback-Zinssatz wird verwendet",
   "ph_zip_code": "00000",
 
   /* ---------- Platzhalter ---------- */

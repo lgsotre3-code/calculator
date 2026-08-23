@@ -75,6 +75,11 @@ window.TRANSLATIONS.fr = {
   "zip_lookup_btn": "Rechercher",
   "zip_success": "Données chargées",
   "zip_error": "Impossible de récupérer les données. Saisissez les valeurs manuellement.",
+  "rate_refresh_title": "Obtenir le taux du marché actuel pour ce pays",
+  "rate_fetched_on": "Taux récupéré le {date}",
+  "rate_fetching": "Récupération du taux...",
+  "rate_fetch_error": "Impossible de récupérer le taux. Saisissez-le manuellement.",
+  "rate_fallback": "Utilisation du taux de secours",
   "ph_zip_code": "00000",
 
   /* ---------- Indicateurs ---------- */
