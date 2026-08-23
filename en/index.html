@@ -364,6 +364,24 @@
           </select>
         </div>
 
+        <!-- U.S. State (refines the US preset; shown only when country = US) -->
+        <div class="form-group" id="us-state-group" hidden>
+          <label for="mortgage-us-state"><i class="fas fa-map-marker-alt"></i> <span data-i18n="us_state_label">U.S. State</span></label>
+          <select id="mortgage-us-state" aria-label="U.S. state for property tax and insurance defaults">
+            <option value="" data-i18n-option="us_state_default">State average (US default)</option>
+          </select>
+        </div>
+
+        <!-- ZIP / Postal Code (auto-fill taxes & insurance) -->
+        <div class="form-group" id="zip-group" hidden>
+          <label for="zip-code"><i class="fas fa-map-pin"></i> <span data-i18n="zip_code_label">ZIP / Postal Code</span></label>
+          <div class="input-row">
+            <input type="text" id="zip-code" maxlength="10" data-i18n-placeholder="ph_zip_code" placeholder="00000" inputmode="numeric" style="flex:1;min-width:0">
+            <button type="button" id="zip-lookup-btn" class="btn btn-secondary" style="white-space:nowrap" data-i18n="zip_lookup_btn">Fetch data</button>
+          </div>
+          <p id="zip-status" class="helper" aria-live="polite"></p>
+        </div>
+
         <!-- Property Tax (optional differential) -->
         <div class="form-group">
           <label for="property-tax"><i class="fas fa-landmark"></i> <span data-i18n="property_tax">Property Tax (% of home value / year)</span></label>
@@ -374,6 +392,25 @@
         <div class="form-group">
           <label for="insurance"><i class="fas fa-shield-alt"></i> <span data-i18n="home_insurance">Home Insurance (/year)</span></label>
           <input type="number" id="insurance" value="1200" min="0" max="10000" step="100" data-i18n-placeholder="ph_insurance" placeholder="Ex: 1200" inputmode="numeric" style="width:100%">
+        </div>
+
+        <!-- HOA (Homeowners Association fee) -->
+        <div class="form-group">
+          <label for="hoa"><i class="fas fa-building"></i> <span data-i18n="hoa_monthly">HOA (monthly)</span></label>
+          <input type="number" id="hoa" value="0" min="0" max="10000" step="25" data-i18n-placeholder="ph_hoa" placeholder="Ex: 200" inputmode="numeric" style="width:100%">
+        </div>
+
+        <!-- Closing Costs -->
+        <div class="form-group">
+          <label for="closing-costs"><i class="fas fa-receipt"></i> <span data-i18n="closing_costs">Closing Costs (% of home value)</span></label>
+          <input type="number" id="closing-costs" value="3" min="0" max="15" step="0.5" data-i18n-placeholder="ph_closing_costs" placeholder="Ex: 3" inputmode="decimal" style="width:100%">
+          <p class="helper" id="closing-costs-usd"></p>
+          <div style="margin-top:6px">
+            <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:0.88rem">
+              <input type="checkbox" id="finance-closing-costs">
+              <span data-i18n="finance_closing_costs">Finance Closing Costs into loan</span>
+            </label>
+          </div>
         </div>
 
         <!-- PMI (Private Mortgage Insurance) — only applies when LTV > 80% -->
@@ -409,7 +446,7 @@
             <p class="breakdown">
               <span data-i18n="breakdown">Payment breakdown</span>
               <span id="pi-value">$0.00</span> · <span class="tax" id="tax-value">$0.00</span> ·
-              <span class="ins" id="insurance-value">$0.00</span><span id="pmi-value"></span><span id="monthly-extra"></span>
+              <span class="ins" id="insurance-value">$0.00</span><span id="hoa-value"></span><span id="pmi-value"></span><span id="monthly-extra"></span>
             </p>
             <p id="pmi-removed-note" class="helper" aria-live="polite" hidden></p>
           </div>
@@ -421,6 +458,10 @@
           <div class="result-card">
             <span class="result-label"><i class="fas fa-coins" style="color:var(--blue);margin-right:4px"></i> <span data-i18n="total_payment">Total Payment</span></span>
             <span class="result-value" id="total-payment">$0.00</span>
+          </div>
+          <div class="result-card" id="closing-costs-card" hidden>
+            <span class="result-label"><i class="fas fa-receipt" style="color:var(--gold);margin-right:4px"></i> <span data-i18n="closing_costs_upfront">Closing Costs (upfront)</span></span>
+            <span class="result-value" id="closing-costs-total">$0.00</span>
           </div>
           <div class="result-card">
             <span class="result-label"><i class="fas fa-calendar-check" style="color:var(--green);margin-right:4px"></i> <span data-i18n="payoff_date">Payoff Date</span></span>
@@ -469,6 +510,7 @@
           <div class="schedule-footer">
             <button type="button" id="show-full-schedule" class="btn btn-secondary"><i class="fas fa-list"></i> <span data-i18n="show_full_schedule">Show full schedule</span></button>
             <button type="button" id="export-pdf" class="btn btn-secondary"><i class="fas fa-file-pdf"></i> <span data-i18n="export_pdf">Export PDF</span></button>
+            <button type="button" id="copy-share-link" class="btn btn-secondary"><i class="fas fa-link"></i> <span data-i18n="copy_link">Copy share link</span></button>
             <span id="pdf-status" class="schedule-note" aria-live="polite" hidden></span>
           </div>
         </div>
@@ -657,6 +699,8 @@
 <script src="/js/mortgage-country-presets.js" defer></script>
 <script src="/js/nav.js" defer></script>
 <script src="/js/calculator.js" defer></script>
+  <script src="/js/zip-lookup.js" defer></script>
+  <script src="/js/scenario-url.js" defer></script>
   <script src="/js/chart.js" defer></script>
   <script src="/js/analytics.js" defer></script>
 

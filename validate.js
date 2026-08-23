@@ -79,4 +79,39 @@ for (const lang of langs) {
     console.log('OK  ' + lang + ': ' + keysUsed.size + ' keys used, all covered');
   }
 }
-console.log(allOk && jsonOk ? '\nALL CHECKS PASSED' : '\nCHECKS FAILED');
+// 4) Locale form parity — ensure {lang}/index.html has same form IDs as root
+const ROOT_FORM_IDS = [
+  'mortgage-form','home-value-slider','home-value','down-payment-slider','down-payment',
+  'down-payment-percent','down-payment-caption','ltv-display','interest-rate-slider',
+  'interest-rate','current-rate-note','loan-term','mortgage-country','us-state-group',
+  'mortgage-us-state','zip-group','zip-code','zip-lookup-btn','zip-status',
+  'property-tax','insurance','hoa','closing-costs','closing-costs-usd',
+  'finance-closing-costs','pmi-group','pmi-rate','pmi-note','extra-payment',
+  'calculate-btn','reset-btn','monthly-payment','pi-value','tax-value',
+  'insurance-value','hoa-value','pmi-value','monthly-extra','pmi-removed-note',
+  'total-interest','total-payment','closing-costs-card','closing-costs-total',
+  'payoff-date','interest-saved','ad-container-middle','amortization-chart',
+  'breakdown-chart','schedule-footer','amortization-table','amortization-body',
+  'show-full-schedule','export-pdf','copy-share-link','pdf-status',
+  'mc-scenario-name','mc-scenario-add','mc-scenario-clear','mc-scenario-table'
+];
+function extractIds(file) {
+  const html = fs.readFileSync(file, 'utf8');
+  const ids = new Set();
+  for (const m of html.matchAll(/\bid=["']([^"']+)["']/g)) ids.add(m[1]);
+  return ids;
+}
+const rootIds = extractIds(path.join(__dirname, 'index.html'));
+const rootFormIds = ROOT_FORM_IDS.filter(id => rootIds.has(id));
+let localeOk = true;
+for (const lang of ['en','es','fr','pt','de']) {
+  const localeIds = extractIds(path.join(__dirname, lang, 'index.html'));
+  const missing = rootFormIds.filter(id => !localeIds.has(id));
+  if (missing.length) {
+    localeOk = false;
+    console.log('FAIL locale /' + lang + '/: missing IDs — ' + missing.join(', '));
+  } else {
+    console.log('OK  locale /' + lang + '/: ' + rootFormIds.length + ' form IDs, all present');
+  }
+}
+console.log(allOk && jsonOk && localeOk ? '\nALL CHECKS PASSED' : '\nCHECKS FAILED');
