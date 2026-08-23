@@ -942,5 +942,12 @@ window.TRANSLATIONS.de = {
   "th_principal": "Kapital",
   "th_interest": "Zinsen",
   "th_balance": "Restguthaben",
-  "cta_to_calculator": "Hypothekenrechner"
+  "cta_to_calculator": "Hypothekenrechner",
+
+  /* ---------- Amortization system (Price / SAC) ---------- */
+  "amortization_system_label": "Tilgungssystem",
+  "amortization_system_price": "Price (gleiche Rate)",
+  "amortization_system_sac": "SAC (fallende Rate)",
+  "amortization_system_helper": "Price hält die Rate konstant. SAC hält die Tilgung konstant, daher beginnt die Rate höher und sinkt im Laufe der Zeit.",
+  "sac_first_payment": "1. Rate (SAC)"
 };

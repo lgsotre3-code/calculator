@@ -943,5 +943,12 @@ window.TRANSLATIONS.en = {
   "th_principal": "Principal",
   "th_interest": "Interest",
   "th_balance": "Balance",
-  "cta_to_calculator": "Mortgage Calculator"
+  "cta_to_calculator": "Mortgage Calculator",
+
+  /* ---------- Amortization system (Price / SAC) ---------- */
+  "amortization_system_label": "Amortization System",
+  "amortization_system_price": "Price (fixed payment)",
+  "amortization_system_sac": "SAC (decreasing payment)",
+  "amortization_system_helper": "Price keeps the payment fixed. SAC keeps the amortization constant, so the payment starts higher and decreases over time.",
+  "sac_first_payment": "1st Payment (SAC)"
 };

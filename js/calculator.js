@@ -29,7 +29,8 @@
     closingCostsPct: 3,    // % of home value (0 – 15); closing costs amount
     financeClosingCosts: false, // if true, closing costs added to loan principal
     pmiRate: 0.5,          // annual % of loan amount (0 – 3); only applies when LTV > 80%
-    extraPayment: 0        // US$ / month (0 – 5000)
+    extraPayment: 0,        // US$ / month (0 – 5000)
+    amortizationSystem: 'price' // 'price' (fixed payment) or 'sac' (constant amortization)
   };
 
   const HOME_MIN = 50000, HOME_MAX = 2000000;
@@ -79,7 +80,8 @@
     closingCostsPct: DEFAULTS.closingCostsPct,
     financeClosingCosts: DEFAULTS.financeClosingCosts,
     pmiRate: DEFAULTS.pmiRate,
-    extraPayment: DEFAULTS.extraPayment
+    extraPayment: DEFAULTS.extraPayment,
+    amortizationSystem: DEFAULTS.amortizationSystem
   };
 
   let lastSchedule = null;   // amortization rows (used by chart.js)
@@ -97,6 +99,7 @@
      'loan-term', 'payment-frequency', 'start-date',
       'property-tax', 'insurance', 'hoa', 'closing-costs', 'closing-costs-usd', 'finance-closing-costs', 'pmi-rate', 'pmi-note', 'pmi-group',
       'extra-payment',
+      'amortization-system',
       'monthly-payment', 'pi-value', 'tax-value', 'insurance-value', 'hoa-value', 'pmi-value', 'monthly-extra',
       'pmi-removed-note',
       'total-interest', 'total-payment', 'payoff-date', 'interest-saved',
@@ -124,6 +127,7 @@
     state.financeClosingCosts = document.getElementById('finance-closing-costs').checked;
     state.pmiRate = clamp(num('pmi-rate') || 0, 0, PMI_MAX);
     state.extraPayment = clamp(num('extra-payment') || 0, 0, EXTRA_MAX);
+    state.amortizationSystem = (el['amortization-system'] && el['amortization-system'].value) || 'price';
 
     // Down payment in dollars always derives from the percentage so the
     // slider and the number field can never disagree.
@@ -237,6 +241,68 @@
   }
 
   /* ------------------------------------------------------------------
+   * Core math: SAC amortization (Sistema de Amortização Constante)
+   * Amortization (principal portion) is constant each period.
+   * Interest is charged on the remaining balance, so the total
+   * payment decreases over time.
+   * ------------------------------------------------------------------ */
+  function amortizeSAC(principal, annualRate, termYears, extraMonthly, frequency) {
+    const freq = frequency || 'monthly';
+    const periodsPerYear = freq === 'weekly' ? 52 : freq === 'biweekly' ? 26 : 12;
+    const r = annualRate / 100 / periodsPerYear;       // periodic rate
+    const n = termYears * periodsPerYear;               // total scheduled periods
+    const constantAmort = principal / n;                 // fixed amortization per period
+
+    let balance = principal;
+    let period = 0;
+    let totalInterest = 0;
+    const rows = [];
+
+    while (balance > 0.005 && period < n) {
+      period += 1;
+      const interest = balance * r;
+      const periodExtra = extraMonthly * (12 / periodsPerYear);
+      let principalPaid = constantAmort + periodExtra;
+      if (!isFinite(principalPaid) || principalPaid <= 0) principalPaid = Math.max(constantAmort, interest);
+      if (principalPaid >= balance) principalPaid = balance;
+      totalInterest += interest;
+      balance -= principalPaid;
+      rows.push({
+        m: period,
+        payment: interest + principalPaid,
+        principal: principalPaid,
+        interest: interest,
+        balance: Math.max(balance, 0)
+      });
+    }
+
+    const payoffMonths = Math.round(period * (12 / periodsPerYear));
+
+    // First payment (highest) for display as M
+    const firstInterest = principal * r;
+    const M = rows.length > 0 ? rows[0].payment : principal / n;
+
+    return {
+      rows,
+      M,
+      payoffPeriods: period,
+      payoffMonths,
+      totalInterest,
+      totalPaid: principal + totalInterest,
+      periodsPerYear,
+      frequency: freq
+    };
+  }
+
+  /* ------------------------------------------------------------------
+   * Dispatcher — calls amortize (Price) or amortizeSAC based on system
+   * ------------------------------------------------------------------ */
+  function computeSchedule(principal, annualRate, termYears, extraMonthly, frequency, system) {
+    if (system === 'sac') return amortizeSAC(principal, annualRate, termYears, extraMonthly, frequency);
+    return amortize(principal, annualRate, termYears, extraMonthly, frequency);
+  }
+
+  /* ------------------------------------------------------------------
    * PMI computation
    * PMI (Private Mortgage Insurance) applies when LTV > 80%.
    * It is charged monthly on the remaining loan balance until the
@@ -294,11 +360,19 @@
     el['insurance-value'].textContent = usd.format(monthlyIns);
     el['monthly-extra'].textContent = monthlyExtra > 0 ? ' + ' + usd.format(monthlyExtra) + '/' + t('month_abbr') : '';
 
-    // Update the main payment label to reflect frequency
+    // Update the main payment label to reflect frequency + system
     if (el['monthly-payment']) {
-      el['monthly-payment'].previousElementSibling.textContent = freqLabel
-        ? t('payment') + ' (' + freqLabel + ')'
-        : t('monthly_payment');
+      let label;
+      if (state.amortizationSystem === 'sac') {
+        label = freqLabel
+          ? t('sac_first_payment') + ' (' + freqLabel + ')'
+          : t('sac_first_payment');
+      } else {
+        label = freqLabel
+          ? t('payment') + ' (' + freqLabel + ')'
+          : t('monthly_payment');
+      }
+      el['monthly-payment'].previousElementSibling.textContent = label;
     }
 
     // HOA value in breakdown
@@ -354,7 +428,7 @@
     // Interest saved thanks to extra payments (0 when there are none).
     const basePrincipal = state.homeValue - state.homeValue * state.downPercent / 100;
     const baseEffective = state.financeClosingCosts ? basePrincipal + closingCostsUsd : basePrincipal;
-    const base = amortize(baseEffective, state.interestRate, state.loanTerm, 0);
+    const base = computeSchedule(baseEffective, state.interestRate, state.loanTerm, 0, undefined, state.amortizationSystem);
     const saved = Math.max(base.totalInterest - sched.totalInterest, 0);
     el['interest-saved'].textContent = usd.format(saved);
   }
@@ -589,7 +663,7 @@
     const closingCostsUsd = state.homeValue * state.closingCostsPct / 100;
     // If financing closing costs, add them to the loan principal
     const effectivePrincipal = state.financeClosingCosts ? principal + closingCostsUsd : principal;
-    const sched = amortize(effectivePrincipal, state.interestRate, state.loanTerm, state.extraPayment, state.paymentFrequency);
+    const sched = computeSchedule(effectivePrincipal, state.interestRate, state.loanTerm, state.extraPayment, state.paymentFrequency, state.amortizationSystem);
     const monthlyTax = state.homeValue * state.propertyTax / 100 / 12;
     const monthlyIns = state.insurance / 12;
     const monthlyHoa = state.hoa;
@@ -657,6 +731,8 @@
     const pmiEl = document.getElementById('pmi-rate');
     if (pmiEl) pmiEl.value = DEFAULTS.pmiRate;
     document.getElementById('extra-payment').value = DEFAULTS.extraPayment;
+    const sysEl = document.getElementById('amortization-system');
+    if (sysEl) sysEl.value = DEFAULTS.amortizationSystem;
     calculate(false);
   }
 
@@ -694,6 +770,10 @@
     const financeCcCheckbox = document.getElementById('finance-closing-costs');
     if (financeCcCheckbox) financeCcCheckbox.addEventListener('change', () => recalc());
 
+    // Amortization system selector triggers recalculation
+    const amortSysSelect = document.getElementById('amortization-system');
+    if (amortSysSelect) amortSysSelect.addEventListener('change', () => recalc());
+
     const calcBtn = document.getElementById('calculate-btn');
     if (calcBtn) calcBtn.addEventListener('click', () => calculate(true));
 
@@ -711,6 +791,11 @@
         if (p) {
           document.getElementById('property-tax').value = p.propertyTax;
           document.getElementById('insurance').value = p.insurance;
+        }
+        // Pre-select SAC when Brazil is chosen (suggestion, not forced)
+        const sysEl = document.getElementById('amortization-system');
+        if (sysEl) {
+          sysEl.value = this.value === 'BR' ? 'sac' : 'price';
         }
         // Persist country choice so locale defaults don't override it
         try { localStorage.setItem('mortgage_country', this.value); } catch (e) {}
@@ -860,7 +945,7 @@
     const toggle = document.getElementById('show-full-schedule');
     if (toggle) toggle.addEventListener('click', () => {
       const showAll = toggle.dataset.mode !== 'less';
-      renderTable(lastSchedule || amortize(1, state.interestRate, state.loanTerm, 0), showAll ? 0 : 12);
+      renderTable(lastSchedule || computeSchedule(1, state.interestRate, state.loanTerm, 0, undefined, state.amortizationSystem), showAll ? 0 : 12);
     });
 
     // Export the full amortization schedule as a PDF (jsPDF lazy-loaded).
@@ -879,7 +964,7 @@
         buildCells: () => {
           readInputs();
           const principal = state.homeValue - state.homeValue * state.downPercent / 100;
-          const sched = amortize(principal, state.interestRate, state.loanTerm, state.extraPayment, state.paymentFrequency);
+          const sched = computeSchedule(principal, state.interestRate, state.loanTerm, state.extraPayment, state.paymentFrequency, state.amortizationSystem);
           const monthlyTax = state.homeValue * state.propertyTax / 100 / 12;
           const monthlyIns = state.insurance / 12;
           const pmiInfo = computePmi(sched, principal);

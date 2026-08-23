@@ -942,5 +942,12 @@ window.TRANSLATIONS.es = {
   "th_principal": "Capital",
   "th_interest": "Interés",
   "th_balance": "Saldo",
-  "cta_to_calculator": "Calculadora Hipotecaria"
+  "cta_to_calculator": "Calculadora Hipotecaria",
+
+  /* ---------- Amortization system (Price / SAC) ---------- */
+  "amortization_system_label": "Sistema de Amortización",
+  "amortization_system_price": "Price (cuota fija)",
+  "amortization_system_sac": "SAC (cuota decreciente)",
+  "amortization_system_helper": "Price mantiene la cuota fija. SAC mantiene la amortización constante, por lo que la cuota comienza más alta y disminuye con el tiempo.",
+  "sac_first_payment": "1ª Cuota (SAC)"
 };

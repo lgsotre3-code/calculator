@@ -28,7 +28,8 @@
     { id: 'start-date',            key: 'sd' },
     { id: 'property-tax',          key: 'x' },
     { id: 'insurance',             key: 'i' },
-    { id: 'extra-payment',         key: 'e' }
+    { id: 'extra-payment',         key: 'e' },
+    { id: 'amortization-system',   key: 'a' }
   ];
 
   function el(id) { return document.getElementById(id); }

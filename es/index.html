@@ -384,6 +384,16 @@
           </select>
         </div>
 
+        <!-- Amortization System (Price or SAC) -->
+        <div class="form-group">
+          <label for="amortization-system"><i class="fas fa-balance-scale"></i> <span data-i18n="amortization_system_label">Amortization System</span></label>
+          <select id="amortization-system" aria-label="Amortization system">
+            <option value="price" selected data-i18n-option="amortization_system_price">Price (fixed payment)</option>
+            <option value="sac" data-i18n-option="amortization_system_sac">SAC (decreasing payment)</option>
+          </select>
+          <p class="helper" data-i18n="amortization_system_helper">Price keeps the payment fixed. SAC keeps the amortization constant, so the payment starts higher and decreases over time.</p>
+        </div>
+
         <!-- U.S. State (refines the US preset; shown only when country = US) -->
         <div class="form-group" id="us-state-group" hidden>
           <label for="mortgage-us-state"><i class="fas fa-map-marker-alt"></i> <span data-i18n="us_state_label">U.S. State</span></label>

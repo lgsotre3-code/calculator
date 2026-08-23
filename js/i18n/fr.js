@@ -942,5 +942,12 @@ window.TRANSLATIONS.fr = {
   "th_principal": "Capital",
   "th_interest": "Intérêt",
   "th_balance": "Solde",
-  "cta_to_calculator": "Calculatrice Hypothécaire"
+  "cta_to_calculator": "Calculatrice Hypothécaire",
+
+  /* ---------- Amortization system (Price / SAC) ---------- */
+  "amortization_system_label": "Système d'Amortissement",
+  "amortization_system_price": "Price (paiement fixe)",
+  "amortization_system_sac": "SAC (paiement décroissant)",
+  "amortization_system_helper": "Price maintient le paiement fixe. SAC maintient l'amortissement constant, donc le paiement commence plus élevé et diminue au fil du temps.",
+  "sac_first_payment": "1er Paiement (SAC)"
 };

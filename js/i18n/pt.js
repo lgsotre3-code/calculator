@@ -942,5 +942,12 @@ window.TRANSLATIONS.pt = {
   "th_principal": "Principal",
   "th_interest": "Juros",
   "th_balance": "Saldo",
-  "cta_to_calculator": "Calculadora Hipotecária"
+  "cta_to_calculator": "Calculadora Hipotecária",
+
+  /* ---------- Amortization system (Price / SAC) ---------- */
+  "amortization_system_label": "Sistema de Amortização",
+  "amortization_system_price": "Price (parcela fixa)",
+  "amortization_system_sac": "SAC (parcela decrescente)",
+  "amortization_system_helper": "Price mantém a parcela fixa. SAC mantém a amortização constante, então a parcela começa mais alta e diminui ao longo do tempo.",
+  "sac_first_payment": "1ª Parcela (SAC)"
 };
