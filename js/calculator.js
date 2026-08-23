@@ -712,6 +712,8 @@
           document.getElementById('property-tax').value = p.propertyTax;
           document.getElementById('insurance').value = p.insurance;
         }
+        // Persist country choice so locale defaults don't override it
+        try { localStorage.setItem('mortgage_country', this.value); } catch (e) {}
         // Fetch the market rate for the newly selected country
         if (window.RateFetcher) {
           fetchCountryRate(this.value, true);
@@ -900,6 +902,66 @@
     // to CalcCore.prefillRate (FRED) when RateFetcher is not available.
     const refreshBtn = document.getElementById('rate-refresh-btn');
     const rateCacheNote = document.getElementById('rate-cache-note');
+
+    // Locale → country + currency mapping.
+    // When the user visits a locale folder (/pt/, /es/, etc.), auto-apply
+    // the matching country, currency, and property-tax/insurance presets
+    // so the calculator feels本地化 from the first paint.
+    var LOCALE_DEFAULTS = {
+      pt: { country: 'BR', currency: 'BRL' },
+      es: { country: 'ES', currency: 'EUR' },
+      fr: { country: 'FR', currency: 'EUR' },
+      de: { country: 'DE', currency: 'EUR' }
+      // en / root → keep US / USD (no override needed)
+    };
+
+    function detectLocaleFromPath() {
+      var path = window.location.pathname;
+      var m = path.match(/^\/(en|es|fr|pt|de)\//);
+      return m ? m[1] : null;
+    }
+
+    function applyLocaleDefaults() {
+      var locale = detectLocaleFromPath();
+      if (!locale) return;
+      var defaults = LOCALE_DEFAULTS[locale];
+      if (!defaults) return;
+
+      // Don't override if the user already has a saved country preference
+      var savedCountry = null;
+      try { savedCountry = localStorage.getItem('mortgage_country'); } catch (e) {}
+      if (savedCountry) return;
+
+      // Don't override if scenario-url.js already set the country from URL params
+      var countrySel = document.getElementById('mortgage-country');
+      if (countrySel && countrySel.value !== 'custom') return;
+
+      // Set country select
+      if (countrySel && defaults.country) {
+        countrySel.value = defaults.country;
+        // Apply country presets (property tax, insurance)
+        if (window.MortgageCountryPresets) {
+          var p = window.MortgageCountryPresets.get(defaults.country);
+          if (p) {
+            document.getElementById('property-tax').value = p.propertyTax;
+            document.getElementById('insurance').value = p.insurance;
+          }
+        }
+        // Update US state visibility
+        var usStateGroup = document.getElementById('us-state-group');
+        if (usStateGroup) usStateGroup.hidden = defaults.country !== 'US';
+        // Fire change event so rate fetch and other handlers pick it up
+        countrySel.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+
+      // Set currency (if Currency module is available)
+      if (defaults.currency && window.Currency && typeof window.Currency.setActive === 'function') {
+        window.Currency.setActive(defaults.currency);
+      }
+    }
+
+    // Apply locale defaults before rate fetch
+    applyLocaleDefaults();
 
     function applyRateToUI(rate, source) {
       if (!rate || rate <= 0) return;
