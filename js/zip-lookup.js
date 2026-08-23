@@ -127,6 +127,24 @@
       });
   }
 
+  /* ------------------------------------------------------------------
+   * USA — Zippopotam.us (free, no key): ZIP -> city/state.
+   * Census does not offer a plain "ZIP -> city/state" lookup (only full
+   * address geocoding or ZCTA statistics), so this fills that gap the
+   * same way BrasilAPI /cep does for Brazil.
+   * ------------------------------------------------------------------ */
+  function fetchUSA_Place(zip) {
+    return fetchWithTimeout('https://api.zippopotam.us/us/' + zip, FETCH_TIMEOUT)
+      .then(function (data) {
+        var place = data && data.places && data.places[0];
+        if (!place) throw new Error('No place');
+        return {
+          city: place['place name'] || '',
+          uf: place['state abbreviation'] || ''
+        };
+      });
+  }
+
   function getUSFallback(stateAbbr) {
     var s = (stateAbbr || '').toUpperCase();
     var ref = US_TAX[s] || US_DEFAULT;
@@ -150,17 +168,23 @@
       if (country === 'BR') return fetchBrazil(code);
 
       if (country === 'US') {
-        return fetchUSA_Census(code).then(function (census) {
-          var fallback = getUSFallback(stateAbbr);
+        // Census (median home value) and Zippopotam (city/state) run in
+        // parallel and fail independently — either can be missing without
+        // blocking the other, same graceful-degradation pattern as Brazil.
+        var censusPromise = fetchUSA_Census(code).catch(function () { return null; });
+        var placePromise = fetchUSA_Place(code).catch(function () { return null; });
+
+        return Promise.all([censusPromise, placePromise]).then(function (results) {
+          var census = results[0];
+          var place = results[1];
+          var fallback = getUSFallback(stateAbbr || (place && place.uf));
           return {
             taxPct: fallback.taxPct,
             insMonthly: fallback.insMonthly,
-            medianHomeValue: census.medianHomeValue || null
+            medianHomeValue: (census && census.medianHomeValue) || null,
+            city: (place && place.city) || '',
+            uf: (place && place.uf) || ''
           };
-        }).catch(function () {
-          // Fallback: pure state mapping
-          var fb = getUSFallback(stateAbbr);
-          return { taxPct: fb.taxPct, insMonthly: fb.insMonthly, medianHomeValue: null };
         });
       }
 
