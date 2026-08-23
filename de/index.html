@@ -349,6 +349,22 @@
           </select>
         </div>
 
+        <!-- Payment Frequency -->
+        <div class="form-group">
+          <label for="payment-frequency"><i class="fas fa-sync-alt"></i> <span data-i18n="payment_frequency">Zahlungshäufigkeit</span></label>
+          <select id="payment-frequency" aria-label="Payment frequency">
+            <option value="monthly" selected data-i18n-option="freq_monthly">Monatlich</option>
+            <option value="biweekly" data-i18n-option="freq_biweekly">Vierzehntägig</option>
+            <option value="weekly" data-i18n-option="freq_weekly">Wöchentlich</option>
+          </select>
+        </div>
+
+        <!-- Start Date (optional) -->
+        <div class="form-group">
+          <label for="start-date"><i class="fas fa-calendar-day"></i> <span data-i18n="start_date">Startdatum (optional)</span></label>
+          <input type="date" id="start-date" style="width:100%">
+        </div>
+
         <!-- Country / Region (optional presets) -->
         <div class="form-group">
           <label for="mortgage-country"><i class="fas fa-globe"></i> <span data-i18n="mortgage_country_label">Land / Region</span></label>

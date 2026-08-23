@@ -41,7 +41,7 @@
     if (breakdownChart) { breakdownChart.destroy(); breakdownChart = null; }
   }
 
-  function renderBalanceChart(sched) {
+  function renderBalanceChart(sched, bd) {
     const t = chartT();
     const c = chartColors();
     const canvas = document.getElementById('amortization-chart');
@@ -61,6 +61,43 @@
       labels.push(last.m);
       data.push(0);
     }
+
+    // PMI removal vertical line plugin (inline, no external dependency).
+    const pmiRemovedPeriod = bd ? bd.pmiRemovedPeriod : 0;
+    const pmiLinePlugin = {
+      id: 'pmiLine',
+      afterDraw: function (chart) {
+        if (!pmiRemovedPeriod) return;
+        const xScale = chart.scales.x;
+        const yScale = chart.scales.y;
+        const ctx = chart.ctx;
+        // Find the closest x position for the PMI removal period.
+        const meta = chart.getDatasetMeta(0);
+        let targetIdx = -1;
+        for (let i = 0; i < meta.data.length; i++) {
+          const label = labels[i];
+          if (typeof label === 'number' && label >= pmiRemovedPeriod) { targetIdx = i; break; }
+        }
+        if (targetIdx < 0) return;
+        const xPos = meta.data[targetIdx].x;
+        const yTop = yScale.top;
+        const yBot = yScale.bottom;
+        ctx.save();
+        ctx.beginPath();
+        ctx.setLineDash([6, 4]);
+        ctx.strokeStyle = '#38a169';
+        ctx.lineWidth = 2;
+        ctx.moveTo(xPos, yTop);
+        ctx.lineTo(xPos, yBot);
+        ctx.stroke();
+        // Label
+        ctx.fillStyle = '#38a169';
+        ctx.font = 'bold ' + axisFont() + 'px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(t('pmi_removed_label') || 'PMI ends', xPos, yTop - 6);
+        ctx.restore();
+      }
+    };
 
     balanceChart = new Chart(canvas.getContext('2d'), {
       type: 'line',
@@ -98,7 +135,8 @@
             ticks: { font: { size: axisFont() }, callback: (v) => compactUsd(v) }
           }
         }
-      }
+      },
+      plugins: [pmiLinePlugin]
     });
   }
 
@@ -111,12 +149,14 @@
     const hasTax = bd.tax > 0.005;
     const hasIns = bd.insurance > 0.005;
     const hasHoa = bd.hoa > 0.005;
+    const hasPmi = bd.pmi > 0.005;
     const labels = [t('principal_interest')];
     const data = [bd.pi];
     const colors = [c.blue];
     if (hasTax) { labels.push(t('taxes')); data.push(bd.tax); colors.push(c.blueLight); }
     if (hasIns) { labels.push(t('insurance')); data.push(bd.insurance); colors.push(c.sky); }
     if (hasHoa) { labels.push('HOA'); data.push(bd.hoa); colors.push('#805ad5'); }
+    if (hasPmi) { labels.push('PMI'); data.push(bd.pmi); colors.push('#e53e3e'); }
 
     breakdownChart = new Chart(canvas.getContext('2d'), {
       type: 'doughnut',
@@ -145,7 +185,7 @@
   window.updateCharts = function (sched, bd) {
     lastBreakdown = bd;
     destroyCharts();
-    renderBalanceChart(sched);
+    renderBalanceChart(sched, bd);
     renderBreakdownChart(bd);
   };
 
@@ -155,7 +195,7 @@
     const sched = (window.mortgageCalculator && window.mortgageCalculator.getLastSchedule) ? window.mortgageCalculator.getLastSchedule() : null;
     if (!sched) return;
     destroyCharts();
-    renderBalanceChart(sched);
+    renderBalanceChart(sched, lastBreakdown);
     renderBreakdownChart(lastBreakdown);
   };
 

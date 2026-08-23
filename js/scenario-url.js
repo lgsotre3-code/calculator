@@ -24,6 +24,8 @@
     { id: 'down-payment-slider',   key: 'd' },
     { id: 'interest-rate',         key: 'r' },
     { id: 'loan-term',             key: 't' },
+    { id: 'payment-frequency',     key: 'f' },
+    { id: 'start-date',            key: 'sd' },
     { id: 'property-tax',          key: 'x' },
     { id: 'insurance',             key: 'i' },
     { id: 'extra-payment',         key: 'e' }
