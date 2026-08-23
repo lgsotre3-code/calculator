@@ -68,6 +68,12 @@
       manifestLink.rel = 'manifest';
       manifestLink.href = '/manifest.json';
       document.head.appendChild(manifestLink);
+
+      var promoScript = document.createElement('script');
+      promoScript.src = '/js/install-promo.js';
+      promoScript.defer = true;
+      document.head.appendChild(promoScript);
+
       window.addEventListener('load', function () {
         navigator.serviceWorker.register('/sw.js').catch(function () {});
       });

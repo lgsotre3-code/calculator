@@ -1,4 +1,4 @@
-const VERSION = 'v1';
+const VERSION = 'v2';
 const STATIC_CACHE = 'mortgagecalc-static-' + VERSION;
 const PAGE_CACHE = 'mortgagecalc-pages-' + VERSION;
 const MAX_PAGES = 40;
@@ -8,7 +8,7 @@ const STATIC_PATTERN = /\.(css|js|png|jpg|jpeg|webp|avif|svg|ico|woff2?|ttf)$/i;
 self.addEventListener('install', function (event) {
   event.waitUntil(
     caches.open(STATIC_CACHE).then(function (cache) {
-      return cache.addAll(['/assets/img/favicon.svg', '/assets/img/logo-mark.svg']);
+      return cache.addAll(['/assets/img/favicon.svg', '/assets/img/logo-mark.svg', '/js/install-promo.js']);
     })
   );
   self.skipWaiting();
