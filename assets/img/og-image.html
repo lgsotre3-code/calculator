@@ -1,134 +1,87 @@
 <!DOCTYPE html>
 <!--
-  og-image.html — Open Graph image (1200x630)
-  Render this file at exactly 1200x630 to produce the share image:
-    Edge (Windows):  msedge --headless --disable-gpu --screenshot="mortgage-calculator-og.png"
-                     --window-size=1200,630 "file:///.../og-image.html"
-    Chrome (Windows): chrome  --headless --disable-gpu --screenshot=... --window-size=1200,630 ...
-  The PNG is then converted to JPG at assets/img/mortgage-calculator-og-image.jpg.
+  og-image.html - Open Graph share card (1200x630)
+  Render at exactly 1200x630 and convert the PNG to JPG at
+  assets/img/mortgage-calculator-og-image.jpg :
+    chrome --headless --disable-gpu --screenshot=og.png --window-size=1200,630 "file:///.../og-image.html"
 -->
-<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <!-- Google Consent Mode v2 (default consent: EEA/UK/CH denied, rest granted) -->
-  <script data-cookieconsent="ignore">
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('consent', 'default', {
-      'ad_personalization': 'denied',
-      'ad_storage': 'denied',
-      'ad_user_data': 'denied',
-      'analytics_storage': 'denied',
-      'functionality_storage': 'denied',
-      'personalization_storage': 'denied',
-      'security_storage': 'granted',
-      'region': [
-        'GB','AT','BE','BG','CH','CY','DE','DK','EE','ES','FI',
-        'FR','GG','GR','HR','HU','IE','IM','IT','JE','LT','LU',
-        'LV','MT','NL','PL','PT','RO','SE','SI','SK'
-      ],
-      'wait_for_update': 500
-    });
-    gtag('consent', 'default', {
-      'ad_personalization': 'granted',
-      'ad_storage': 'granted',
-      'ad_user_data': 'granted',
-      'analytics_storage': 'granted',
-      'functionality_storage': 'granted',
-      'personalization_storage': 'granted',
-      'security_storage': 'granted',
-      'wait_for_update': 500
-    });
-    gtag('set', 'ads_data_redaction', true);
-    gtag('set', 'url_passthrough', false);
-  </script>
-
-  <!-- Cookiebot CMP (Google-certified: Consent Mode v2 + Microsoft Clarity Consent Mode) -->
-  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="d817fd6b-d033-4ae1-8682-d2b44b49a66a" data-blockingmode="auto" type="text/javascript"></script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G5FRBTR588"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-G5FRBTR588');
-  </script>
-
-  <!-- Microsoft Clarity -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "y3enp4munj");
-  </script>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { width: 1200px; height: 630px; overflow: hidden; }
-    body {
-      background: linear-gradient(135deg, #0a1628 0%, #1a365d 50%, #2b6cb0 100%);
-      font-family: 'Segoe UI', 'Segoe UI Variable Display', Arial, sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px;
-      position: relative;
-    }
-    /* Elementos decorativos */
-    .circle { position: absolute; border-radius: 50%; opacity: 0.12; }
-    .circle-1 { width: 420px; height: 420px; background: #4299e1; top: -110px; right: -110px; }
-    .circle-2 { width: 320px; height: 320px; background: #38a169; bottom: -90px; left: -90px; }
-    .circle-3 { width: 180px; height: 180px; background: #63b3ed; top: 50%; right: 240px; transform: translateY(-50%); }
-    .content { position: relative; z-index: 1; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; color: #fff; }
-    .badge {
-      display: inline-block;
-      background: rgba(66, 153, 225, 0.3);
-      border: 1px solid rgba(66, 153, 225, 0.5);
-      padding: 8px 20px;
-      border-radius: 50px;
-      font-size: 14px;
-      color: #90cdf4;
-      margin-bottom: 20px;
-      align-self: flex-start;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-    h1 { font-size: 64px; font-weight: 800; line-height: 1.08; margin-bottom: 16px; max-width: 760px; }
-    h1 span {
-      background: linear-gradient(135deg, #48bb78, #38a169);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    p { font-size: 22px; color: #a0c4e8; max-width: 660px; line-height: 1.5; margin-bottom: 30px; }
-    .features { display: flex; gap: 30px; flex-wrap: wrap; }
-    .features div { display: flex; align-items: center; gap: 10px; font-size: 16px; color: #bee3f8; }
-    .features svg { width: 20px; height: 20px; fill: #48bb78; flex: none; }
-    .right {
-      position: absolute;
-      right: 60px;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(255, 255, 255, 0.06);
-      padding: 30px 35px;
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      text-align: center;
-      min-width: 220px;
-      backdrop-filter: blur(4px);
-    }
-    .right .amount { font-size: 48px; font-weight: 700; color: #48bb78; }
-    .right .label { font-size: 14px; color: #a0c4e8; margin-top: 5px; }
-    .right .sub {
-      font-size: 13px;
-      color: #a0c4e8;
-      margin-top: 15px;
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
-      padding-top: 15px;
-      line-height: 1.5;
-    }
-    .right .sub b { color: #f6ad55; }
-  </style>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    background: linear-gradient(135deg, #04182F 0%, #062B66 45%, #0A4DA3 100%);
+    font-family: 'Segoe UI', 'Segoe UI Variable Display', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    position: relative;
+  }
+  .circle { position: absolute; border-radius: 50%; opacity: 0.12; }
+  .circle-1 { width: 420px; height: 420px; background: #006FE6; top: -110px; right: -110px; }
+  .circle-2 { width: 320px; height: 320px; background: #19D65B; bottom: -90px; left: -90px; }
+  .circle-3 { width: 180px; height: 180px; background: #16C7F7; top: 50%; right: 240px; transform: translateY(-50%); }
+  .content { position: relative; z-index: 1; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; color: #fff; }
+  .brand-row { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
+  .brand-row svg { width: 56px; height: auto; filter: drop-shadow(0 4px 10px rgba(0,0,0,.35)); }
+  .wordmark { display: flex; align-items: center; gap: 7px; font-size: 27px; font-weight: 800; letter-spacing: .5px; }
+  .wordmark .pro {
+    background: linear-gradient(135deg, #16C7F7, #006FE6);
+    color: #fff; font-size: 13px; font-weight: 900;
+    padding: 4px 9px; border-radius: 6px; letter-spacing: 1.5px;
+  }
+  .wordmark .calc { color: #5EDAFB; }
+  .badge {
+    display: inline-block;
+    background: rgba(22, 199, 247, 0.16);
+    border: 1px solid rgba(22, 199, 247, 0.45);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    color: #7FE1FC;
+    margin-bottom: 20px;
+    align-self: flex-start;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  h1 { font-size: 64px; font-weight: 800; line-height: 1.08; margin-bottom: 16px; max-width: 760px; }
+  h1 span {
+    background: linear-gradient(135deg, #16C7F7, #19D65B);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  p { font-size: 22px; color: #9DC3EE; max-width: 660px; line-height: 1.5; margin-bottom: 30px; }
+  .features { display: flex; gap: 30px; flex-wrap: wrap; }
+  .features div { display: flex; align-items: center; gap: 10px; font-size: 16px; color: #BFDCF5; }
+  .features svg { width: 20px; height: 20px; fill: #19D65B; flex: none; }
+  .right {
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.07);
+    padding: 30px 35px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    text-align: center;
+    min-width: 220px;
+  }
+  .right .amount { font-size: 48px; font-weight: 700; color: #19D65B; }
+  .right .label { font-size: 14px; color: #9DC3EE; margin-top: 5px; }
+  .right .sub {
+    font-size: 13px;
+    color: #9DC3EE;
+    margin-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 15px;
+    line-height: 1.5;
+  }
+  .right .sub b { color: #5EDAFB; }
+</style>
 </head>
 <body>
   <div class="circle circle-1"></div>
@@ -136,6 +89,25 @@
   <div class="circle circle-3"></div>
 
   <div class="content">
+    <div class="brand-row">
+      <svg viewBox="13 10 50 46" aria-hidden="true">
+        <rect x="13" y="41" width="7" height="13" rx="2" fill="#5EDAFB"/>
+        <rect x="22" y="35" width="7" height="19" rx="2" fill="#16C7F7"/>
+        <rect x="30" y="26" width="25" height="24" rx="4" fill="#006FE6"/>
+        <polygon points="27,27 42.5,12 58,27" fill="#0A84E8" stroke="#0A84E8" stroke-width="4" stroke-linejoin="round"/>
+        <circle cx="42.5" cy="34" r="4.5" fill="#FFFFFF"/>
+        <path d="M38,50 v-6 a4,4 0 0 1 8,0 v6 z" fill="#EAF6FF"/>
+        <rect x="47" y="36" width="14" height="17" rx="3.5" fill="#FFFFFF"/>
+        <rect x="49.5" y="38.5" width="9" height="4.5" rx="1.5" fill="#16C7F7"/>
+        <circle cx="52" cy="47" r="1.4" fill="#C9E4F8"/>
+        <circle cx="56.5" cy="47" r="1.4" fill="#C9E4F8"/>
+        <circle cx="52" cy="51" r="1.4" fill="#C9E4F8"/>
+        <rect x="54.5" y="49" width="5.5" height="3" rx="1.5" fill="#19D65B"/>
+      </svg>
+      <div class="wordmark">
+        Mortgage<span class="pro">PRO</span><span class="calc">CALC</span>
+      </div>
+    </div>
     <div class="badge">&#128176; Free Financial Tool</div>
     <h1>Mortgage <span>Calculator</span></h1>
     <p>with Taxes, Insurance &amp; Extra Payments &mdash; Amortization Schedule &amp; Payment Breakdown</p>
