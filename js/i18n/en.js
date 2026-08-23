@@ -53,6 +53,10 @@ window.TRANSLATIONS.en = {
   "loan_term": "Loan Term (years)",
   "property_tax": "Property Tax (% of home value / year)",
   "home_insurance": "Home Insurance (/year)",
+  "hoa_monthly": "HOA (monthly)",
+  "closing_costs": "Closing Costs (% of home value)",
+  "closing_costs_upfront": "Closing Costs (upfront)",
+  "finance_closing_costs": "Finance Closing Costs into loan",
   "pmi_rate": "PMI Rate (% / year)",
   "pmi_not_applicable": "Not applicable — 20%+ down payment avoids PMI",
   "pmi_removed_note": "PMI removed in {date}",
@@ -60,6 +64,10 @@ window.TRANSLATIONS.en = {
   "ltv_display": "{ltv}% LTV",
   "extra_payment": "Extra Payment (/month)",
   "down_payment_caption": "{usd} ({pct}% of {home})",
+  "zip_code_label": "ZIP / Postal Code",
+  "zip_lookup_btn": "Fetch data",
+  "zip_success": "Data loaded",
+  "zip_error": "Could not fetch data. Enter values manually.",
 
   /* ---------- Placeholders ---------- */
   "ph_home_value": "Ex: 350000",
@@ -67,6 +75,9 @@ window.TRANSLATIONS.en = {
   "ph_interest_rate": "Ex: 6.5",
   "ph_property_tax": "Ex: 1.2",
   "ph_insurance": "Ex: 1200",
+  "ph_hoa": "Ex: 200",
+  "ph_closing_costs": "Ex: 3",
+  "ph_zip_code": "00000",
   "ph_pmi_rate": "Ex: 0.5",
   "ph_extra_payment": "Ex: 100",
 

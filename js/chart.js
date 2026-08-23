@@ -110,11 +110,13 @@
 
     const hasTax = bd.tax > 0.005;
     const hasIns = bd.insurance > 0.005;
+    const hasHoa = bd.hoa > 0.005;
     const labels = [t('principal_interest')];
     const data = [bd.pi];
     const colors = [c.blue];
     if (hasTax) { labels.push(t('taxes')); data.push(bd.tax); colors.push(c.blueLight); }
     if (hasIns) { labels.push(t('insurance')); data.push(bd.insurance); colors.push(c.sky); }
+    if (hasHoa) { labels.push('HOA'); data.push(bd.hoa); colors.push('#805ad5'); }
 
     breakdownChart = new Chart(canvas.getContext('2d'), {
       type: 'doughnut',

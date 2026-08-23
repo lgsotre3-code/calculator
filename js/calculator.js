@@ -23,6 +23,9 @@
     loanTerm: 30,          // years (10 / 15 / 20 / 25 / 30)
     propertyTax: 1.2,      // annual % of home value (0 – 5)
     insurance: 1200,       // US$ / year (0 – 10000)
+    hoa: 0,                // US$ / month (0 – 10000)
+    closingCostsPct: 3,    // % of home value (0 – 15); closing costs amount
+    financeClosingCosts: false, // if true, closing costs added to loan principal
     pmiRate: 0.5,          // annual % of loan amount (0 – 3); only applies when LTV > 80%
     extraPayment: 0        // US$ / month (0 – 5000)
   };
@@ -30,7 +33,8 @@
   const HOME_MIN = 50000, HOME_MAX = 2000000;
   const DOWN_MAX_PCT = 50;
   const RATE_MIN = 1, RATE_MAX = 15;
-  const TAX_MAX = 5, INS_MAX = 10000, EXTRA_MAX = 5000;
+  const TAX_MAX = 5, INS_MAX = 10000, HOA_MAX = 10000, EXTRA_MAX = 5000;
+  const CLOSING_MAX_PCT = 15;
   const PMI_MAX = 3;
 
   /* ------------------------------------------------------------------
@@ -67,6 +71,9 @@
     loanTerm: DEFAULTS.loanTerm,
     propertyTax: DEFAULTS.propertyTax,
     insurance: DEFAULTS.insurance,
+    hoa: DEFAULTS.hoa,
+    closingCostsPct: DEFAULTS.closingCostsPct,
+    financeClosingCosts: DEFAULTS.financeClosingCosts,
     pmiRate: DEFAULTS.pmiRate,
     extraPayment: DEFAULTS.extraPayment
   };
@@ -84,11 +91,12 @@
      'ltv-display',
      'interest-rate-slider', 'interest-rate',
      'loan-term',
-     'property-tax', 'insurance', 'pmi-rate', 'pmi-note', 'pmi-group',
-     'extra-payment',
-     'monthly-payment', 'pi-value', 'tax-value', 'insurance-value', 'pmi-value', 'monthly-extra',
-     'pmi-removed-note',
-     'total-interest', 'total-payment', 'payoff-date', 'interest-saved',
+      'property-tax', 'insurance', 'hoa', 'closing-costs', 'closing-costs-usd', 'finance-closing-costs', 'pmi-rate', 'pmi-note', 'pmi-group',
+      'extra-payment',
+      'monthly-payment', 'pi-value', 'tax-value', 'insurance-value', 'hoa-value', 'pmi-value', 'monthly-extra',
+      'pmi-removed-note',
+      'total-interest', 'total-payment', 'payoff-date', 'interest-saved',
+      'closing-costs-card', 'closing-costs-total',
       'amortization-body', 'schedule-footer', 'show-full-schedule',
       'export-pdf', 'pdf-status',
       'result-monthly-label']
@@ -105,6 +113,9 @@
     state.loanTerm = parseInt(document.getElementById('loan-term').value, 10) || 30;
     state.propertyTax = clamp(num('property-tax') || 0, 0, TAX_MAX);
     state.insurance = clamp(num('insurance') || 0, 0, INS_MAX);
+    state.hoa = clamp(num('hoa') || 0, 0, HOA_MAX);
+    state.closingCostsPct = clamp(num('closing-costs') || 0, 0, CLOSING_MAX_PCT);
+    state.financeClosingCosts = document.getElementById('finance-closing-costs').checked;
     state.pmiRate = clamp(num('pmi-rate') || 0, 0, PMI_MAX);
     state.extraPayment = clamp(num('extra-payment') || 0, 0, EXTRA_MAX);
 
@@ -150,6 +161,12 @@
     }
     if (pmiGroup) {
       pmiGroup.style.opacity = pmiApplies ? '1' : '0.6';
+    }
+
+    // Closing costs USD display
+    if (el['closing-costs-usd']) {
+      const ccUsd = state.homeValue * state.closingCostsPct / 100;
+      el['closing-costs-usd'].textContent = usd0.format(ccUsd);
     }
   }
 
@@ -248,9 +265,9 @@
   /* ------------------------------------------------------------------
    * Render
    * ------------------------------------------------------------------ */
-  function renderResults(sched, monthlyTax, monthlyIns, monthlyExtra, pmiInfo) {
+  function renderResults(sched, monthlyTax, monthlyIns, monthlyHoa, monthlyExtra, pmiInfo, closingCostsUsd) {
     const monthlyPmi = pmiInfo ? pmiInfo.initialMonthly : 0;
-    const totalMonthly = sched.M + monthlyTax + monthlyIns + monthlyPmi;
+    const totalMonthly = sched.M + monthlyTax + monthlyIns + monthlyHoa + monthlyPmi;
     const t = (window.i18n && window.i18n.t) ? window.i18n.t.bind(window.i18n) : (k => k);
 
     el['monthly-payment'].textContent = usd.format(totalMonthly);
@@ -258,6 +275,15 @@
     el['tax-value'].textContent = usd.format(monthlyTax);
     el['insurance-value'].textContent = usd.format(monthlyIns);
     el['monthly-extra'].textContent = monthlyExtra > 0 ? ' + ' + usd.format(monthlyExtra) + '/' + t('month_abbr') : '';
+
+    // HOA value in breakdown
+    if (el['hoa-value']) {
+      if (monthlyHoa > 0) {
+        el['hoa-value'].textContent = ' · ' + usd.format(monthlyHoa) + ' HOA';
+      } else {
+        el['hoa-value'].textContent = '';
+      }
+    }
 
     // PMI value in breakdown
     if (el['pmi-value']) {
@@ -290,8 +316,20 @@
     el['total-payment'].textContent = usd.format(sched.totalPaid + (pmiInfo ? pmiInfo.totalPmi : 0));
     el['payoff-date'].textContent = payoffDate(sched.payoffMonths);
 
+    // Closing costs card (only when not financed — show as upfront cost)
+    if (el['closing-costs-card'] && el['closing-costs-total']) {
+      if (!state.financeClosingCosts && closingCostsUsd > 0) {
+        el['closing-costs-total'].textContent = usd.format(closingCostsUsd);
+        el['closing-costs-card'].hidden = false;
+      } else {
+        el['closing-costs-card'].hidden = true;
+      }
+    }
+
     // Interest saved thanks to extra payments (0 when there are none).
-    const base = amortize(state.homeValue - state.homeValue * state.downPercent / 100, state.interestRate, state.loanTerm, 0);
+    const basePrincipal = state.homeValue - state.homeValue * state.downPercent / 100;
+    const baseEffective = state.financeClosingCosts ? basePrincipal + closingCostsUsd : basePrincipal;
+    const base = amortize(baseEffective, state.interestRate, state.loanTerm, 0);
     const saved = Math.max(base.totalInterest - sched.totalInterest, 0);
     el['interest-saved'].textContent = usd.format(saved);
   }
@@ -523,20 +561,24 @@
     readInputs();
 
     const principal = state.homeValue - state.homeValue * state.downPercent / 100;
-    const sched = amortize(principal, state.interestRate, state.loanTerm, state.extraPayment);
+    const closingCostsUsd = state.homeValue * state.closingCostsPct / 100;
+    // If financing closing costs, add them to the loan principal
+    const effectivePrincipal = state.financeClosingCosts ? principal + closingCostsUsd : principal;
+    const sched = amortize(effectivePrincipal, state.interestRate, state.loanTerm, state.extraPayment);
     const monthlyTax = state.homeValue * state.propertyTax / 100 / 12;
     const monthlyIns = state.insurance / 12;
-    const pmiInfo = computePmi(sched, principal);
+    const monthlyHoa = state.hoa;
+    const pmiInfo = computePmi(sched, effectivePrincipal);
 
     lastSchedule = sched;
     lastBaseM = sched.M;
 
-    renderResults(sched, monthlyTax, monthlyIns, state.extraPayment, pmiInfo);
+    renderResults(sched, monthlyTax, monthlyIns, monthlyHoa, state.extraPayment, pmiInfo, closingCostsUsd);
     renderTable(sched, 12); // first 12 months; user can expand the full schedule
 
     // Charts (if chart.js is loaded and Chart is available)
     if (typeof window.updateCharts === 'function') {
-      window.updateCharts(sched, { principal: principal, pi: sched.M, tax: monthlyTax, insurance: monthlyIns, pmi: pmiInfo.initialMonthly, extra: state.extraPayment });
+      window.updateCharts(sched, { principal: effectivePrincipal, pi: sched.M, tax: monthlyTax, insurance: monthlyIns, hoa: monthlyHoa, pmi: pmiInfo.initialMonthly, extra: state.extraPayment });
     }
 
     // Analytics (if analytics.js / GTM are present)
@@ -550,9 +592,10 @@
         loan_term: state.loanTerm,
         property_tax: state.propertyTax,
         insurance: state.insurance,
+        hoa: state.hoa,
         pmi_rate: state.pmiRate,
         extra_payment: state.extraPayment,
-        monthly_payment: sched.M + monthlyTax + monthlyIns + pmiInfo.initialMonthly,
+        monthly_payment: sched.M + monthlyTax + monthlyIns + monthlyHoa + pmiInfo.initialMonthly,
         trigger: fromButton ? 'button' : 'input'
       });
     }
@@ -571,6 +614,9 @@
     document.getElementById('loan-term').value = DEFAULTS.loanTerm;
     document.getElementById('property-tax').value = DEFAULTS.propertyTax;
     document.getElementById('insurance').value = DEFAULTS.insurance;
+    document.getElementById('hoa').value = DEFAULTS.hoa;
+    document.getElementById('closing-costs').value = DEFAULTS.closingCostsPct;
+    document.getElementById('finance-closing-costs').checked = DEFAULTS.financeClosingCosts;
     const pmiEl = document.getElementById('pmi-rate');
     if (pmiEl) pmiEl.value = DEFAULTS.pmiRate;
     document.getElementById('extra-payment').value = DEFAULTS.extraPayment;
@@ -599,13 +645,17 @@
     document.getElementById('interest-rate-slider').addEventListener('input', () => { syncPair('interest-rate-slider', 'interest-rate', true); recalc(); });
     document.getElementById('interest-rate').addEventListener('input', () => { syncPair('interest-rate-slider', 'interest-rate', false); recalc(); });
 
-    ['loan-term', 'property-tax', 'insurance', 'extra-payment'].forEach(id => {
+    ['loan-term', 'property-tax', 'insurance', 'hoa', 'closing-costs', 'extra-payment'].forEach(id => {
       document.getElementById(id).addEventListener('input', () => recalc());
     });
 
     // PMI rate input
     const pmiInput = document.getElementById('pmi-rate');
     if (pmiInput) pmiInput.addEventListener('input', () => recalc());
+
+    // Closing costs checkbox triggers recalculation
+    const financeCcCheckbox = document.getElementById('finance-closing-costs');
+    if (financeCcCheckbox) financeCcCheckbox.addEventListener('change', () => recalc());
 
     const calcBtn = document.getElementById('calculate-btn');
     if (calcBtn) calcBtn.addEventListener('click', () => calculate(true));
@@ -659,6 +709,108 @@
         calculate(false);
       });
     }
+
+    // ---- ZIP / CEP auto-fill (Task 4) ----
+    const zipGroup = document.getElementById('zip-group');
+    const zipInput = document.getElementById('zip-code');
+    const zipBtn = document.getElementById('zip-lookup-btn');
+    const zipStatus = document.getElementById('zip-status');
+    const countryForZip = document.getElementById('mortgage-country');
+    const stateForZip = document.getElementById('mortgage-us-state');
+    var userEditedTax = false, userEditedIns = false;
+
+    // Show ZIP field when country is BR or US; hide otherwise
+    function syncZipVis() {
+      if (!zipGroup || !countryForZip) return;
+      var c = countryForZip.value;
+      zipGroup.hidden = (c !== 'BR' && c !== 'US');
+      // Update placeholder based on country
+      if (zipInput) {
+        zipInput.placeholder = c === 'BR' ? '00000-000' : '00000';
+        zipInput.maxLength = c === 'BR' ? 10 : 5;
+      }
+    }
+    syncZipVis();
+    if (countryForZip) countryForZip.addEventListener('change', function () {
+      syncZipVis();
+      userEditedTax = false;
+      userEditedIns = false;
+      if (zipInput) zipInput.value = '';
+      if (zipStatus) zipStatus.textContent = '';
+    });
+
+    // Track manual edits to tax/insurance so we don't overwrite them
+    var taxEl = document.getElementById('property-tax');
+    var insEl = document.getElementById('insurance');
+    if (taxEl) taxEl.addEventListener('input', function () { userEditedTax = true; });
+    if (insEl) insEl.addEventListener('input', function () { userEditedIns = true; });
+
+    // Debounce timer for ZIP input
+    var zipDebounceTimer = null;
+
+    function runZipLookup() {
+      if (!window.ZipLookup || !zipInput || !zipStatus) return;
+      var raw = (zipInput.value || '').trim();
+      if (!raw) { zipStatus.textContent = ''; return; }
+      var country = countryForZip ? countryForZip.value : '';
+      if (country !== 'BR' && country !== 'US') return;
+      var stateAbbr = stateForZip ? stateForZip.value : '';
+
+      // Show spinner
+      zipBtn.disabled = true;
+      zipBtn.textContent = '...';
+      zipStatus.textContent = '';
+      zipStatus.style.color = '';
+
+      window.ZipLookup.fetch(raw, country, stateAbbr).then(function (result) {
+        zipBtn.disabled = false;
+        var t = (window.i18n && window.i18n.t) ? window.i18n.t.bind(window.i18n) : (k => k);
+
+        if (!userEditedTax && taxEl) {
+          taxEl.value = result.taxPct;
+        }
+        if (!userEditedIns && insEl) {
+          insEl.value = result.insMonthly * 12; // convert monthly to yearly
+        }
+        // Suggest median home value (US only) if user hasn't set one
+        if (result.medianHomeValue && country === 'US') {
+          var hvEl = document.getElementById('home-value');
+          if (hvEl && !hvEl.dataset.userEdited) {
+            hvEl.value = result.medianHomeValue;
+            var slEl = document.getElementById('home-value-slider');
+            if (slEl) slEl.value = result.medianHomeValue;
+          }
+        }
+
+        var city = result.city ? result.city + (result.uf ? ', ' + result.uf : '') : (result.uf || '');
+        var label = t('zip_success') || 'Data loaded';
+        zipStatus.textContent = city ? label + ' (' + city + ')' : label;
+        zipStatus.style.color = 'var(--green)';
+        zipBtn.textContent = t('zip_lookup_btn') || 'Fetch data';
+        calculate(false);
+      }).catch(function (err) {
+        zipBtn.disabled = false;
+        var t = (window.i18n && window.i18n.t) ? window.i18n.t.bind(window.i18n) : (k => k);
+        var msg = t('zip_error') || 'Could not fetch data. Enter values manually.';
+        zipStatus.textContent = msg;
+        zipStatus.style.color = 'var(--red)';
+        zipBtn.textContent = t('zip_lookup_btn') || 'Fetch data';
+      });
+    }
+
+    if (zipBtn) zipBtn.addEventListener('click', runZipLookup);
+    if (zipInput) zipInput.addEventListener('input', function () {
+      if (zipDebounceTimer) clearTimeout(zipDebounceTimer);
+      var raw = (zipInput.value || '').replace(/\D/g, '');
+      var expectedLen = (countryForZip && countryForZip.value === 'BR') ? 8 : 5;
+      if (raw.length === expectedLen) {
+        zipDebounceTimer = setTimeout(runZipLookup, 500);
+      }
+    });
+
+    // Track manual edits on home-value to avoid overwriting
+    var hvEl = document.getElementById('home-value');
+    if (hvEl) hvEl.addEventListener('input', function () { hvEl.dataset.userEdited = '1'; });
 
     // Expand/collapse the full amortization schedule.
     const toggle = document.getElementById('show-full-schedule');
