@@ -455,6 +455,7 @@ select:focus {
 .helper i { font-size: 0.7rem; }
 .helper strong { color: var(--navy); }
 [data-theme="dark"] .helper strong { color: var(--gold); }
+[data-theme="dark"] .helper i { color: var(--green) !important; }
 
 /* Market rate note */
 .market-note {
@@ -682,6 +683,7 @@ select:focus {
   box-shadow: var(--shadow-card);
 }
 .calc-card h2 { font-size: 1.25rem; margin: 0; color: var(--navy); }
+[data-theme="dark"] .calc-card h2 { color: var(--text); }
 .calc-card p { margin: 0; font-size: 0.95rem; color: var(--text-muted); flex: 1; }
 .calc-card .btn { align-self: flex-start; }
 
@@ -859,6 +861,7 @@ table.amortization tbody tr:hover { background: rgba(59,130,246,0.04); }
   transition: all 0.2s;
 }
 .share-btn:hover { background: var(--accent-blue-bg); border-color: var(--blue); color: var(--blue); }
+[data-theme="dark"] .share-btn { color: var(--text); }
 
 /* ---------- 9. SEO content sections ---------- */
 .seo-section {
@@ -1059,6 +1062,7 @@ table.amortization tbody tr:hover { background: rgba(59,130,246,0.04); }
 }
 .blog-card time { display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px; }
 .blog-card h2 { font-size: 1.05rem; line-height: 1.4; color: var(--navy); margin: 0 0 10px; }
+[data-theme="dark"] .blog-card h2 { color: var(--text); }
 .blog-card p { margin: 0; font-size: 0.92rem; color: var(--text); }
 
 .feature-list { list-style: none; padding: 0; margin: 0 0 16px; }
@@ -1076,6 +1080,8 @@ table.amortization tbody tr:hover { background: rgba(59,130,246,0.04); }
 }
 .notice--visible { display: block; }
 .notice--error { background: var(--accent-red-bg); border-color: rgba(239,68,68,0.3); color: #742a2a; }
+[data-theme="dark"] .notice { color: #68d391; }
+[data-theme="dark"] .notice--error { color: #fc8181; }
 
 .contact-section { max-width: 700px; margin: 0 auto; }
 .contact-form {
@@ -1113,6 +1119,7 @@ table.amortization tbody tr:hover { background: rgba(59,130,246,0.04); }
   color: var(--text);
 }
 .contact-info a { color: var(--navy); }
+[data-theme="dark"] .contact-info a { color: var(--blue-light); }
 
 .formula {
   margin: 12px 0; padding: 12px 16px;
@@ -1130,6 +1137,7 @@ table.amortization tbody tr:hover { background: rgba(59,130,246,0.04); }
   border-radius: var(--radius-sm);
 }
 .related-guides h3 { margin: 0 0 10px; color: var(--navy); font-size: 1rem; }
+[data-theme="dark"] .related-guides h3 { color: var(--text); }
 .related-guides ul { list-style: none; margin: 0 0 14px; padding: 0; }
 .related-guides li { margin: 0 0 6px; }
 .related-guides li::before { content: '→ '; color: var(--blue); }

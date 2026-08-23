@@ -349,3 +349,115 @@ table.scenario-table tbody tr:nth-child(even) { background: #f7fafc; }
 
 /* ---------- Renovation types (reference chart) ---------- */
 .reno-table table.amortization { min-width: 380px; }
+
+/* ==========================================================================
+   Dark mode overrides
+   ========================================================================== */
+[data-theme="dark"] .calculator__title,
+[data-theme="dark"] .calculator__label,
+[data-theme="dark"] .calculator__results-title,
+[data-theme="dark"] .scenario-section__title,
+[data-theme="dark"] .calc-hub__title {
+  color: var(--text);
+}
+
+[data-theme="dark"] .calculator__input {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+[data-theme="dark"] .calculator__card {
+  background: var(--surface-alt);
+}
+
+[data-theme="dark"] .calculator__card-value {
+  color: var(--text);
+}
+
+[data-theme="dark"] .calculator__card--main {
+  background: var(--navy);
+  border-color: var(--navy);
+}
+
+[data-theme="dark"] .calculator__card--good {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+[data-theme="dark"] .calculator__card--bad {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+[data-theme="dark"] .calculator__card--bad .calculator__card-value {
+  color: #fc8181;
+}
+
+[data-theme="dark"] .calculator__card--good .calculator__card-value {
+  color: #68d391;
+}
+
+[data-theme="dark"] .calculator__verdict {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--text);
+}
+
+[data-theme="dark"] .calculator__verdict--cash {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--text);
+}
+
+[data-theme="dark"] .calculator__verdict--tie {
+  background: var(--surface-alt);
+  color: var(--text);
+}
+
+[data-theme="dark"] .calculator__verdict--lose {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--text);
+}
+
+[data-theme="dark"] .calculator__chart h3 {
+  color: var(--text);
+}
+
+[data-theme="dark"] .calc-hub {
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .calc-hub__item a {
+  background: var(--surface-alt);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+[data-theme="dark"] .calc-hub__item a:hover {
+  background: var(--surface);
+  border-color: var(--blue);
+}
+
+[data-theme="dark"] table.scenario-table td {
+  border-top-color: var(--border);
+}
+
+[data-theme="dark"] table.scenario-table tbody tr:nth-child(even) {
+  background: var(--surface-alt);
+}
+
+[data-theme="dark"] .scenario-actions input {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+[data-theme="dark"] .calculator__slider::-webkit-slider-thumb {
+  background: var(--blue);
+  border-color: var(--surface);
+}
+
+[data-theme="dark"] .calculator__slider::-moz-range-thumb {
+  background: var(--blue);
+  border-color: var(--surface);
+}
