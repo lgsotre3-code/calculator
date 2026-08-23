@@ -45,6 +45,7 @@
     return 'js/i18n/';
   }
   var DICT_BASE = resolveDictBase();
+  var DICT_VERSION = '?v=1';
 
   class I18n {
     constructor() {
@@ -100,7 +101,7 @@
     fetchDict(lang) {
       return new Promise((resolve) => {
         const s = document.createElement('script');
-        s.src = DICT_BASE + lang + '.js';
+        s.src = DICT_BASE + lang + '.js' + DICT_VERSION;
         s.onload = () => {
           this.adoptDictionaries();
           this.currentLang = lang;
