@@ -31,5 +31,21 @@
       "type": "image/png",
       "purpose": "maskable"
     }
+  ],
+  "screenshots": [
+    {
+      "src": "/assets/img/screenshots/desktop-wide.png",
+      "sizes": "1280x850",
+      "type": "image/png",
+      "form_factor": "wide",
+      "description": "Mortgage calculator with payment breakdown on desktop"
+    },
+    {
+      "src": "/assets/img/screenshots/mobile-narrow.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "description": "Mortgage calculator on mobile"
+    }
   ]
 }
