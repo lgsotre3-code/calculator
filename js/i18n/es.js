@@ -949,5 +949,18 @@ window.TRANSLATIONS.es = {
   "amortization_system_price": "Price (cuota fija)",
   "amortization_system_sac": "SAC (cuota decreciente)",
   "amortization_system_helper": "Price mantiene la cuota fija. SAC mantiene la amortización constante, por lo que la cuota comienza más alta y disminuye con el tiempo.",
-  "sac_first_payment": "1ª Cuota (SAC)"
+  "sac_first_payment": "1ª Cuota (SAC)",
+
+  /* ---------- Extra payment types ---------- */
+  "extra_quarterly": "Pago Extra (trimestral)",
+  "extra_yearly": "Pago Extra (anual)",
+  "extra_onetime": "Pago Extra Único",
+  "extra_onetime_helper": "Mes contado desde el inicio del préstamo (ej: 12 = fin del 1er año).",
+  "ph_extra_quarterly": "Ej: 300",
+  "ph_extra_yearly": "Ej: 2000",
+  "ph_extra_onetime": "Ej: 5000",
+  "ph_extra_onetime_month": "Mes",
+  "quarter_abbr": "trim",
+  "year_abbr": "ano",
+  "one_time_abbr": "único"
 };

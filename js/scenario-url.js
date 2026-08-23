@@ -29,7 +29,11 @@
     { id: 'property-tax',          key: 'x' },
     { id: 'insurance',             key: 'i' },
     { id: 'extra-payment',         key: 'e' },
-    { id: 'amortization-system',   key: 'a' }
+    { id: 'amortization-system',   key: 'a' },
+    { id: 'extra-quarterly',       key: 'eq' },
+    { id: 'extra-yearly',          key: 'ey' },
+    { id: 'extra-onetime',         key: 'eo' },
+    { id: 'extra-onetime-month',   key: 'eom' }
   ];
 
   function el(id) { return document.getElementById(id); }

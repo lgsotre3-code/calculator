@@ -949,5 +949,18 @@ window.TRANSLATIONS.fr = {
   "amortization_system_price": "Price (paiement fixe)",
   "amortization_system_sac": "SAC (paiement décroissant)",
   "amortization_system_helper": "Price maintient le paiement fixe. SAC maintient l'amortissement constant, donc le paiement commence plus élevé et diminue au fil du temps.",
-  "sac_first_payment": "1er Paiement (SAC)"
+  "sac_first_payment": "1er Paiement (SAC)",
+
+  /* ---------- Extra payment types ---------- */
+  "extra_quarterly": "Paiement Supplementaire (trimestriel)",
+  "extra_yearly": "Paiement Supplementaire (annuel)",
+  "extra_onetime": "Paiement Supplementaire Unique",
+  "extra_onetime_helper": "Mois compte a partir du debut du pret (ex: 12 = fin de la 1ere annee).",
+  "ph_extra_quarterly": "Ex: 300",
+  "ph_extra_yearly": "Ex: 2000",
+  "ph_extra_onetime": "Ex: 5000",
+  "ph_extra_onetime_month": "Mois",
+  "quarter_abbr": "trim",
+  "year_abbr": "an",
+  "one_time_abbr": "unique"
 };

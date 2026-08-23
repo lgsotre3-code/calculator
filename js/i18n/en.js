@@ -950,5 +950,18 @@ window.TRANSLATIONS.en = {
   "amortization_system_price": "Price (fixed payment)",
   "amortization_system_sac": "SAC (decreasing payment)",
   "amortization_system_helper": "Price keeps the payment fixed. SAC keeps the amortization constant, so the payment starts higher and decreases over time.",
-  "sac_first_payment": "1st Payment (SAC)"
+  "sac_first_payment": "1st Payment (SAC)",
+
+  /* ---------- Extra payment types ---------- */
+  "extra_quarterly": "Extra Payment (quarterly)",
+  "extra_yearly": "Extra Payment (yearly)",
+  "extra_onetime": "One-time Extra Payment",
+  "extra_onetime_helper": "Month counted from the start of the loan (e.g. 12 = end of year 1).",
+  "ph_extra_quarterly": "Ex: 300",
+  "ph_extra_yearly": "Ex: 2000",
+  "ph_extra_onetime": "Ex: 5000",
+  "ph_extra_onetime_month": "Month #",
+  "quarter_abbr": "qtr",
+  "year_abbr": "yr",
+  "one_time_abbr": "once"
 };

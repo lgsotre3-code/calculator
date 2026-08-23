@@ -30,6 +30,10 @@
     financeClosingCosts: false, // if true, closing costs added to loan principal
     pmiRate: 0.5,          // annual % of loan amount (0 – 3); only applies when LTV > 80%
     extraPayment: 0,        // US$ / month (0 – 5000)
+    extraQuarterly: 0,      // US$ / quarter (0 – 20000)
+    extraYearly: 0,         // US$ / year (0 – 50000)
+    extraOneTime: 0,        // US$ one-time (0 – 200000)
+    extraOneTimeMonth: 0,   // month for one-time payment (0 = not applied)
     amortizationSystem: 'price' // 'price' (fixed payment) or 'sac' (constant amortization)
   };
 
@@ -81,6 +85,10 @@
     financeClosingCosts: DEFAULTS.financeClosingCosts,
     pmiRate: DEFAULTS.pmiRate,
     extraPayment: DEFAULTS.extraPayment,
+    extraQuarterly: DEFAULTS.extraQuarterly,
+    extraYearly: DEFAULTS.extraYearly,
+    extraOneTime: DEFAULTS.extraOneTime,
+    extraOneTimeMonth: DEFAULTS.extraOneTimeMonth,
     amortizationSystem: DEFAULTS.amortizationSystem
   };
 
@@ -98,7 +106,7 @@
      'interest-rate-slider', 'interest-rate',
      'loan-term', 'payment-frequency', 'start-date',
       'property-tax', 'insurance', 'hoa', 'closing-costs', 'closing-costs-usd', 'finance-closing-costs', 'pmi-rate', 'pmi-note', 'pmi-group',
-      'extra-payment',
+      'extra-payment', 'extra-quarterly', 'extra-yearly', 'extra-onetime', 'extra-onetime-month',
       'amortization-system',
       'monthly-payment', 'pi-value', 'tax-value', 'insurance-value', 'hoa-value', 'pmi-value', 'monthly-extra',
       'pmi-removed-note',
@@ -127,6 +135,10 @@
     state.financeClosingCosts = document.getElementById('finance-closing-costs').checked;
     state.pmiRate = clamp(num('pmi-rate') || 0, 0, PMI_MAX);
     state.extraPayment = clamp(num('extra-payment') || 0, 0, EXTRA_MAX);
+    state.extraQuarterly = clamp(num('extra-quarterly') || 0, 0, 20000);
+    state.extraYearly = clamp(num('extra-yearly') || 0, 0, 50000);
+    state.extraOneTime = clamp(num('extra-onetime') || 0, 0, 200000);
+    state.extraOneTimeMonth = clamp(num('extra-onetime-month') || 0, 0, 480);
     state.amortizationSystem = (el['amortization-system'] && el['amortization-system'].value) || 'price';
 
     // Down payment in dollars always derives from the percentage so the
@@ -180,6 +192,37 @@
     }
   }
 
+  /* ------------------------------------------------------------------
+   * Extra payment helpers
+   * ------------------------------------------------------------------ */
+  /** Build the extra payment object from state (used by all computeSchedule calls). */
+  function buildExtraObj() {
+    return {
+      monthly: state.extraPayment,
+      quarterly: state.extraQuarterly,
+      yearly: state.extraYearly,
+      oneTime: state.extraOneTime,
+      oneTimeAtMonth: state.extraOneTimeMonth
+    };
+  }
+
+  /** Returns true if any extra payment field is > 0. */
+  function hasAnyExtra() {
+    return state.extraPayment > 0 || state.extraQuarterly > 0
+      || state.extraYearly > 0 || state.extraOneTime > 0;
+  }
+
+  /** Builds a summary string like "$200/mo + $5,000/yr" for display. */
+  function extraSummaryStr() {
+    const t = (window.i18n && window.i18n.t) ? window.i18n.t.bind(window.i18n) : (k => k);
+    const parts = [];
+    if (state.extraPayment > 0) parts.push(usd.format(state.extraPayment) + '/' + t('month_abbr'));
+    if (state.extraQuarterly > 0) parts.push(usd.format(state.extraQuarterly) + '/' + t('quarter_abbr'));
+    if (state.extraYearly > 0) parts.push(usd.format(state.extraYearly) + '/' + t('year_abbr'));
+    if (state.extraOneTime > 0) parts.push(usd.format(state.extraOneTime) + ' ' + t('one_time_abbr') + ' #' + state.extraOneTimeMonth);
+    return parts.join(' + ');
+  }
+
   /** Syncs slider/number pairs (single direction: the changed element wins). */
   function syncPair(sliderId, inputId, fromSlider) {
     const slider = document.getElementById(sliderId);
@@ -193,6 +236,13 @@
    * Supports monthly, bi-weekly and weekly payment frequencies.
    * ------------------------------------------------------------------ */
   function amortize(principal, annualRate, termYears, extraMonthly, frequency) {
+    // Accept number (legacy) or object with monthly/quarterly/yearly/oneTime/oneTimeAtMonth
+    var extras = typeof extraMonthly === 'object' && extraMonthly !== null
+      ? { monthly: extraMonthly.monthly || 0, quarterly: extraMonthly.quarterly || 0,
+          yearly: extraMonthly.yearly || 0, oneTime: extraMonthly.oneTime || 0,
+          oneTimeAtMonth: extraMonthly.oneTimeAtMonth || 0 }
+      : { monthly: extraMonthly || 0, quarterly: 0, yearly: 0, oneTime: 0, oneTimeAtMonth: 0 };
+
     const freq = frequency || 'monthly';
     const periodsPerYear = freq === 'weekly' ? 52 : freq === 'biweekly' ? 26 : 12;
     const r = annualRate / 100 / periodsPerYear;       // periodic rate
@@ -200,6 +250,12 @@
     const M = r === 0
       ? principal / n
       : principal * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
+
+    // Convert one-time month to the nearest period index for this frequency.
+    // oneTimeAtMonth is 1-indexed in months; convert to period index (1-indexed).
+    var oneTimePeriod = extras.oneTimeAtMonth > 0
+      ? Math.max(1, Math.round(extras.oneTimeAtMonth * (periodsPerYear / 12)))
+      : 0;
 
     let balance = principal;
     let period = 0;
@@ -209,8 +265,24 @@
     while (balance > 0.005 && period < n) {
       period += 1;
       const interest = balance * r;
-      // Convert monthly extra to per-period extra, then apply.
-      const periodExtra = extraMonthly * (12 / periodsPerYear);
+
+      // Combined extra for this period
+      var periodExtra = extras.monthly * (12 / periodsPerYear);
+      // Quarterly: apply every 3rd month (periods 3, 6, 9, ... in month-space)
+      if (extras.quarterly > 0) {
+        var monthInLoan = Math.round(period * (12 / periodsPerYear));
+        if (monthInLoan % 3 === 0) periodExtra += extras.quarterly;
+      }
+      // Yearly: apply every 12th month
+      if (extras.yearly > 0) {
+        var monthInLoan = Math.round(period * (12 / periodsPerYear));
+        if (monthInLoan % 12 === 0) periodExtra += extras.yearly;
+      }
+      // One-time: apply at the target period, once
+      if (extras.oneTime > 0 && period === oneTimePeriod) {
+        periodExtra += extras.oneTime;
+      }
+
       let principalPaid = (M - interest) + periodExtra;
       if (!isFinite(principalPaid) || principalPaid <= 0) principalPaid = Math.max(M, interest);
       if (principalPaid >= balance) principalPaid = balance;
@@ -221,7 +293,8 @@
         payment: interest + principalPaid,
         principal: principalPaid,
         interest: interest,
-        balance: Math.max(balance, 0)
+        balance: Math.max(balance, 0),
+        extra: periodExtra
       });
     }
 
@@ -247,11 +320,22 @@
    * payment decreases over time.
    * ------------------------------------------------------------------ */
   function amortizeSAC(principal, annualRate, termYears, extraMonthly, frequency) {
+    // Accept number (legacy) or object with monthly/quarterly/yearly/oneTime/oneTimeAtMonth
+    var extras = typeof extraMonthly === 'object' && extraMonthly !== null
+      ? { monthly: extraMonthly.monthly || 0, quarterly: extraMonthly.quarterly || 0,
+          yearly: extraMonthly.yearly || 0, oneTime: extraMonthly.oneTime || 0,
+          oneTimeAtMonth: extraMonthly.oneTimeAtMonth || 0 }
+      : { monthly: extraMonthly || 0, quarterly: 0, yearly: 0, oneTime: 0, oneTimeAtMonth: 0 };
+
     const freq = frequency || 'monthly';
     const periodsPerYear = freq === 'weekly' ? 52 : freq === 'biweekly' ? 26 : 12;
     const r = annualRate / 100 / periodsPerYear;       // periodic rate
     const n = termYears * periodsPerYear;               // total scheduled periods
     const constantAmort = principal / n;                 // fixed amortization per period
+
+    var oneTimePeriod = extras.oneTimeAtMonth > 0
+      ? Math.max(1, Math.round(extras.oneTimeAtMonth * (periodsPerYear / 12)))
+      : 0;
 
     let balance = principal;
     let period = 0;
@@ -261,7 +345,21 @@
     while (balance > 0.005 && period < n) {
       period += 1;
       const interest = balance * r;
-      const periodExtra = extraMonthly * (12 / periodsPerYear);
+
+      // Combined extra for this period
+      var periodExtra = extras.monthly * (12 / periodsPerYear);
+      if (extras.quarterly > 0) {
+        var monthInLoan = Math.round(period * (12 / periodsPerYear));
+        if (monthInLoan % 3 === 0) periodExtra += extras.quarterly;
+      }
+      if (extras.yearly > 0) {
+        var monthInLoan = Math.round(period * (12 / periodsPerYear));
+        if (monthInLoan % 12 === 0) periodExtra += extras.yearly;
+      }
+      if (extras.oneTime > 0 && period === oneTimePeriod) {
+        periodExtra += extras.oneTime;
+      }
+
       let principalPaid = constantAmort + periodExtra;
       if (!isFinite(principalPaid) || principalPaid <= 0) principalPaid = Math.max(constantAmort, interest);
       if (principalPaid >= balance) principalPaid = balance;
@@ -272,7 +370,8 @@
         payment: interest + principalPaid,
         principal: principalPaid,
         interest: interest,
-        balance: Math.max(balance, 0)
+        balance: Math.max(balance, 0),
+        extra: periodExtra
       });
     }
 
@@ -348,7 +447,7 @@
   /* ------------------------------------------------------------------
    * Render
    * ------------------------------------------------------------------ */
-  function renderResults(sched, monthlyTax, monthlyIns, monthlyHoa, monthlyExtra, pmiInfo, closingCostsUsd) {
+  function renderResults(sched, monthlyTax, monthlyIns, monthlyHoa, monthlyExtra, pmiInfo, closingCostsUsd, extraObj) {
     const monthlyPmi = pmiInfo ? pmiInfo.initialMonthly : 0;
     const totalMonthly = sched.M + monthlyTax + monthlyIns + monthlyHoa + monthlyPmi;
     const t = (window.i18n && window.i18n.t) ? window.i18n.t.bind(window.i18n) : (k => k);
@@ -358,7 +457,7 @@
     el['pi-value'].textContent = usd.format(sched.M);
     el['tax-value'].textContent = usd.format(monthlyTax);
     el['insurance-value'].textContent = usd.format(monthlyIns);
-    el['monthly-extra'].textContent = monthlyExtra > 0 ? ' + ' + usd.format(monthlyExtra) + '/' + t('month_abbr') : '';
+    el['monthly-extra'].textContent = hasAnyExtra() ? ' + ' + extraSummaryStr() : '';
 
     // Update the main payment label to reflect frequency + system
     if (el['monthly-payment']) {
@@ -504,7 +603,7 @@
     const pageH = doc.internal.pageSize.getHeight();
     const margin = 40;
     const contentW = pageW - margin * 2;
-    const hasExtra = state.extraPayment > 0;
+    const hasExtra = hasAnyExtra();
 
     const locale = (window.i18n && window.i18n.currentLang) || 'en';
     const genDate = new Date().toLocaleDateString(locale === 'en' ? 'en-US' : locale, { year: 'numeric', month: 'long', day: 'numeric' });
@@ -600,7 +699,7 @@
       doc.text(String(row.m), x + 4, y + 11);
       x += monthW;
       const cells = [row.payment, row.principal, row.interest];
-      if (hasExtra) cells.push(state.extraPayment);
+      if (hasExtra) cells.push(row.extra || 0);
       cells.push(row.balance);
       cells.forEach(v => {
         doc.text(usd.format(v), x + moneyW - 4, y + 11, { align: 'right' });
@@ -663,7 +762,7 @@
     const closingCostsUsd = state.homeValue * state.closingCostsPct / 100;
     // If financing closing costs, add them to the loan principal
     const effectivePrincipal = state.financeClosingCosts ? principal + closingCostsUsd : principal;
-    const sched = computeSchedule(effectivePrincipal, state.interestRate, state.loanTerm, state.extraPayment, state.paymentFrequency, state.amortizationSystem);
+    const sched = computeSchedule(effectivePrincipal, state.interestRate, state.loanTerm, buildExtraObj(), state.paymentFrequency, state.amortizationSystem);
     const monthlyTax = state.homeValue * state.propertyTax / 100 / 12;
     const monthlyIns = state.insurance / 12;
     const monthlyHoa = state.hoa;
@@ -672,7 +771,7 @@
     lastSchedule = sched;
     lastBaseM = sched.M;
 
-    renderResults(sched, monthlyTax, monthlyIns, monthlyHoa, state.extraPayment, pmiInfo, closingCostsUsd);
+    renderResults(sched, monthlyTax, monthlyIns, monthlyHoa, state.extraPayment, pmiInfo, closingCostsUsd, buildExtraObj());
     renderTable(sched, 12); // first 12 months; user can expand the full schedule
 
     // Charts (if chart.js is loaded and Chart is available)
@@ -703,7 +802,7 @@
         insurance: state.insurance,
         hoa: state.hoa,
         pmi_rate: state.pmiRate,
-        extra_payment: state.extraPayment,
+        extra_payment: state.extraPayment + state.extraQuarterly / 4 + state.extraYearly / 12 + state.extraOneTime / (state.loanTerm * 12),
         monthly_payment: sched.M + monthlyTax + monthlyIns + monthlyHoa + pmiInfo.initialMonthly,
         trigger: fromButton ? 'button' : 'input'
       });
@@ -731,6 +830,14 @@
     const pmiEl = document.getElementById('pmi-rate');
     if (pmiEl) pmiEl.value = DEFAULTS.pmiRate;
     document.getElementById('extra-payment').value = DEFAULTS.extraPayment;
+    const eqEl = document.getElementById('extra-quarterly');
+    if (eqEl) eqEl.value = DEFAULTS.extraQuarterly;
+    const eyEl = document.getElementById('extra-yearly');
+    if (eyEl) eyEl.value = DEFAULTS.extraYearly;
+    const eoEl = document.getElementById('extra-onetime');
+    if (eoEl) eoEl.value = DEFAULTS.extraOneTime;
+    const eomEl = document.getElementById('extra-onetime-month');
+    if (eomEl) eomEl.value = '';
     const sysEl = document.getElementById('amortization-system');
     if (sysEl) sysEl.value = DEFAULTS.amortizationSystem;
     calculate(false);
@@ -964,7 +1071,7 @@
         buildCells: () => {
           readInputs();
           const principal = state.homeValue - state.homeValue * state.downPercent / 100;
-          const sched = computeSchedule(principal, state.interestRate, state.loanTerm, state.extraPayment, state.paymentFrequency, state.amortizationSystem);
+          const sched = computeSchedule(principal, state.interestRate, state.loanTerm, buildExtraObj(), state.paymentFrequency, state.amortizationSystem);
           const monthlyTax = state.homeValue * state.propertyTax / 100 / 12;
           const monthlyIns = state.insurance / 12;
           const pmiInfo = computePmi(sched, principal);
@@ -975,7 +1082,7 @@
               [t('total_interest')]: usd.format(sched.totalInterest),
               [t('total_payment')]: usd.format(sched.totalPaid + pmiInfo.totalPmi),
               [t('payoff_date')]: payoffDate(sched.payoffMonths),
-              [t('extra_payment')]: usd.format(state.extraPayment) + '/mo'
+              [t('extra_payment')]: extraSummaryStr() || usd.format(0)
             }
           };
         }

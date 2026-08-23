@@ -949,5 +949,18 @@ window.TRANSLATIONS.de = {
   "amortization_system_price": "Price (gleiche Rate)",
   "amortization_system_sac": "SAC (fallende Rate)",
   "amortization_system_helper": "Price hält die Rate konstant. SAC hält die Tilgung konstant, daher beginnt die Rate höher und sinkt im Laufe der Zeit.",
-  "sac_first_payment": "1. Rate (SAC)"
+  "sac_first_payment": "1. Rate (SAC)",
+
+  /* ---------- Extra payment types ---------- */
+  "extra_quarterly": "Sonderzahlung (vierteljaehrlich)",
+  "extra_yearly": "Sonderzahlung (jaehrlich)",
+  "extra_onetime": "Einmalige Sonderzahlung",
+  "extra_onetime_helper": "Monat zaehlt ab Beginn des Darlehens (z.B. 12 = Ende des 1. Jahres).",
+  "ph_extra_quarterly": "z.B. 300",
+  "ph_extra_yearly": "z.B. 2000",
+  "ph_extra_onetime": "z.B. 5000",
+  "ph_extra_onetime_month": "Monat",
+  "quarter_abbr": "Qtr",
+  "year_abbr": "Jr",
+  "one_time_abbr": "einmalig"
 };

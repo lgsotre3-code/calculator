@@ -7,7 +7,7 @@ const ROOT_FORM_IDS = [
   'interest-rate','current-rate-note','rate-refresh-btn','rate-cache-note','loan-term','payment-frequency','start-date','mortgage-country','us-state-group',
   'mortgage-us-state','zip-group','zip-code','zip-lookup-btn','zip-status',
   'property-tax','insurance','hoa','closing-costs','closing-costs-usd',
-  'finance-closing-costs','pmi-group','pmi-rate','pmi-note','extra-payment','amortization-system',
+  'finance-closing-costs','pmi-group','pmi-rate','pmi-note','extra-payment','extra-quarterly','extra-yearly','extra-onetime','extra-onetime-month','amortization-system',
   'calculate-btn','reset-btn','monthly-payment','pi-value','tax-value',
   'insurance-value','hoa-value','pmi-value','monthly-extra','pmi-removed-note',
   'total-interest','total-payment','closing-costs-card','closing-costs-total',

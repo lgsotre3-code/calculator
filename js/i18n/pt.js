@@ -949,5 +949,18 @@ window.TRANSLATIONS.pt = {
   "amortization_system_price": "Price (parcela fixa)",
   "amortization_system_sac": "SAC (parcela decrescente)",
   "amortization_system_helper": "Price mantém a parcela fixa. SAC mantém a amortização constante, então a parcela começa mais alta e diminui ao longo do tempo.",
-  "sac_first_payment": "1ª Parcela (SAC)"
+  "sac_first_payment": "1ª Parcela (SAC)",
+
+  /* ---------- Extra payment types ---------- */
+  "extra_quarterly": "Pagamento Extra (trimestral)",
+  "extra_yearly": "Pagamento Extra (anual)",
+  "extra_onetime": "Pagamento Extra Único",
+  "extra_onetime_helper": "Mês contado a partir do início do financiamento (ex: 12 = fim do 1º ano).",
+  "ph_extra_quarterly": "Ex: 300",
+  "ph_extra_yearly": "Ex: 2000",
+  "ph_extra_onetime": "Ex: 5000",
+  "ph_extra_onetime_month": "Mês",
+  "quarter_abbr": "tri",
+  "year_abbr": "ano",
+  "one_time_abbr": "único"
 };
