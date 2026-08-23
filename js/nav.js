@@ -59,3 +59,18 @@
     init();
   }
 })();
+
+(function () {
+  'use strict';
+  try {
+    if ('serviceWorker' in navigator && location.protocol === 'https:') {
+      var manifestLink = document.createElement('link');
+      manifestLink.rel = 'manifest';
+      manifestLink.href = '/manifest.json';
+      document.head.appendChild(manifestLink);
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('/sw.js').catch(function () {});
+      });
+    }
+  } catch (pwaError) {}
+})();
