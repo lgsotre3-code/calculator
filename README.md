@@ -1,6 +1,6 @@
 # Mortgage Pro Calculator
 
-Responsive mortgage calculator website with 5 calculators in 5 languages
+Responsive mortgage calculator website with 14 calculators in 5 languages
 (en, es, fr, pt, de). Live at **https://www.mortgage-pro-calc.com**
 (deployed automatically on Vercel from the `main` branch).
 
