@@ -134,16 +134,11 @@ img, canvas, svg, video { max-width: 100%; height: auto; }
   min-height: var(--touch-min);
 }
 .brand .logo-mark {
-  width: 32px; height: 32px;
-  border-radius: 8px;
-  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.85rem;
-  font-weight: 900;
-  color: var(--navy);
-  box-shadow: 0 2px 8px rgba(245,166,35,0.35);
+  width: 36px; height: 36px;
+  background: url("../assets/img/logo-mark.svg") center / contain no-repeat;
+  font-size: 0;
+  color: transparent;
+  filter: drop-shadow(0 2px 6px rgba(6,43,102,0.45));
 }
 .main-nav ul {
   list-style: none;
