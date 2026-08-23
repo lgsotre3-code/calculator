@@ -145,6 +145,18 @@ for (const lang of LOCALES) {
     `$1${localeMeta.twitterDescription}$2`
   );
 
+  // 12b. Fix root-relative asset paths (favicon/css/js) so they resolve
+  // correctly from the /<lang>/ subdirectory the locale page is written to.
+  // The template (root index.html) uses paths like "css/style.css" which
+  // are only valid at the site root; once copied into /en/, /es/, etc.
+  // those same relative paths incorrectly resolve to /en/css/style.css
+  // (404), breaking all styling and calculator JS. Rewrite them to be
+  // root-absolute ("/css/style.css") so they work at any depth.
+  html = html.replace(
+    /((?:href|src)=")(assets\/|css\/|js\/)/g,
+    '$1/$2'
+  );
+
   // 12. hreflang block (replace entire block)
   const hreflangLines = ALL_LOCALES.map(l =>
     `  <link rel="alternate" hreflang="${l}" href="${DOMAIN}/${l}/">`
