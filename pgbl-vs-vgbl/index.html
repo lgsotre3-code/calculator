@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<!--
+  Mortgage Calculator — PGBL vs VGBL Calculator (pgbl-vs-vgbl/index.html)
+  Compara dois planos de previdência privada brasileiros: o PGBL (aportes
+  dedutíveis do IR, tributação integral no resgate) e o VGBL (aportes não
+  dedutíveis, tributação apenas dos rendimentos), usando a tabela regressiva
+  de IR (35% → 10%).
+  CONFIGURED: domain, AdSense (ca-pub-2920008879492175), Adcash (zone 0c9gzdbpws).
+-->
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google Consent Mode v2 (default consent: EEA/UK/CH denied, rest granted) -->
+  <script data-cookieconsent="ignore">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_personalization': 'denied',
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'analytics_storage': 'denied',
+      'functionality_storage': 'denied',
+      'personalization_storage': 'denied',
+      'security_storage': 'granted',
+      'region': [
+        'GB','AT','BE','BG','CH','CY','DE','DK','EE','ES','FI',
+        'FR','GG','GR','HR','HU','IE','IM','IT','JE','LT','LU',
+        'LV','MT','NL','PL','PT','RO','SE','SI','SK'
+      ],
+      'wait_for_update': 500
+    });
+    gtag('consent', 'default', {
+      'ad_personalization': 'granted',
+      'ad_storage': 'granted',
+      'ad_user_data': 'granted',
+      'analytics_storage': 'granted',
+      'functionality_storage': 'granted',
+      'personalization_storage': 'granted',
+      'security_storage': 'granted',
+      'wait_for_update': 500
+    });
+    gtag('set', 'ads_data_redaction', true);
+    gtag('set', 'url_passthrough', false);
+  </script>
+
+  <!-- Cookiebot CMP (Google-certified: Consent Mode v2 + Microsoft Clarity Consent Mode) -->
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="d817fd6b-d033-4ae1-8682-d2b44b49a66a" data-blockingmode="auto" async></script>
+    <!-- Smart Lazy Load Third-Party Scripts (AdSense, Analytics, Clarity) -->
+  <script>
+    (function() {
+      var loaded = false;
+      function loadThirdParty() {
+        if (loaded) return;
+        loaded = true;
+        // GA4
+        var ga = document.createElement('script');
+        ga.async = true;
+        ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-G5FRBTR588';
+        document.head.appendChild(ga);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-G5FRBTR588');
+
+        // Clarity
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "y3enp4munj");
+
+        // AdSense
+        var ads = document.createElement('script');
+        ads.async = true;
+        ads.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2920008879492175';
+        ads.crossOrigin = 'anonymous';
+        document.head.appendChild(ads);
+      }
+      ['touchstart', 'scroll', 'mousemove', 'keydown'].forEach(function(e) {
+        window.addEventListener(e, loadThirdParty, { once: true, passive: true });
+      });
+      setTimeout(loadThirdParty, 2000);
+    })();
+  </script>
+  <meta name="google-site-verification" content="_nxfYFglucpreV_H_ZjRTVWkzrrb9TsWJwPPVQiC8EM">
+  <meta name="impact-site-verification" value="f1f62669-d5c7-4d23-b5c1-75fc1a809c3f">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- ============ SEO: title & description (pt-BR — público brasileiro) ============ -->
+  <title>Calculadora PGBL vs VGBL — Qual Melhor para Sua Aposentadoria?</title>
+  <meta name="description" content="Calculadora gratuita de PGBL vs VGBL. Compare o valor líquido na aposentadoria com a tabela regressiva de IR, a dedução fiscal do PGBL e o imposto sobre rendimentos do VGBL. Descubra qual é melhor para o seu perfil.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#1a365d">
+  <link rel="canonical" href="https://www.mortgage-pro-calc.com/pgbl-vs-vgbl/">
+
+  <!-- ============ Open Graph / Twitter ============ -->
+  <meta property="og:title" content="Calculadora PGBL vs VGBL — Qual Melhor para Sua Aposentadoria?">
+  <meta property="og:description" content="Compare PGBL e VGBL: valor líquido na aposentadoria, dedução de IR e imposto no resgate pela tabela regressiva. Descubra qual é melhor para você.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.mortgage-pro-calc.com/pgbl-vs-vgbl/">
+  <meta property="og:image" content="https://www.mortgage-pro-calc.com/assets/img/mortgage-calculator-og-image.jpg">
+  <meta property="og:site_name" content="Mortgage Calculator">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Calculadora PGBL vs VGBL">
+  <meta name="twitter:description" content="Compare PGBL e VGBL: valor líquido na aposentadoria, dedução de IR e imposto no resgate pela tabela regressiva.">
+  <meta name="twitter:image" content="https://www.mortgage-pro-calc.com/assets/img/mortgage-calculator-og-image.jpg">
+
+  <!-- ============ Multilingual SEO: hreflang ============ -->
+  <link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/pgbl-vs-vgbl/?lang=en">
+  <link rel="alternate" hreflang="es" href="https://www.mortgage-pro-calc.com/pgbl-vs-vgbl/?lang=es">
+  <link rel="alternate" hreflang="fr" href="https://www.mortgage-pro-calc.com/pgbl-vs-vgbl/?lang=fr">
+  <link rel="alternate" hreflang="pt" href="https://www.mortgage-pro-calc.com/pgbl-vs-vgbl/?lang=pt">
+  <link rel="alternate" hreflang="de" href="https://www.mortgage-pro-calc.com/pgbl-vs-vgbl/?lang=de">
+  <link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/pgbl-vs-vgbl/">
+
+  <!-- ============ Favicon ============ -->
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="apple-touch-icon" href="../assets/img/favicon.svg">
+
+  <!-- ============ Performance: preconnect ============ -->
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+  <!-- ============ Schema Markup: WebApplication + FAQPage ============ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Calculadora PGBL vs VGBL",
+    "url": "https://www.mortgage-pro-calc.com/pgbl-vs-vgbl/",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "inLanguage": ["en", "es", "fr", "pt", "de"],
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" },
+    "description": "Calculadora gratuita que compara PGBL e VGBL: valor líquido na aposentadoria, dedução de IR dos aportes e imposto no resgate pela tabela regressiva."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Qual é a diferença entre PGBL e VGBL?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No PGBL, os aportes são dedutíveis do Imposto de Renda (até 12% da renda tributável anual), mas no resgate todo o valor — aportes e rendimentos — é tributado. No VGBL, os aportes não são dedutíveis, porém no resgate apenas os rendimentos são tributados. Quem faz a declaração completa do IR geralmente se beneficia mais do PGBL; quem usa o desconto simplificado ou já deduz o máximo tende a ganhar mais com o VGBL." }
+      },
+      {
+        "@type": "Question",
+        "name": "Quando o PGBL vale mais a pena que o VGBL?",
+        "acceptedAnswer": { "@type": "Answer", "text": "O PGBL costuma valer mais a pena para quem faz a declaração completa de Imposto de Renda e tem alíquota marginal de pelo menos 7,5%. Isso acontece porque cada aporte reduz o imposto devido naquele ano, gerando uma economia imediata. A dedução é limitada a 12% da renda tributável bruta anual. Se você usa a declaração simplificada, o VGBL normalmente é a melhor escolha." }
+      },
+      {
+        "@type": "Question",
+        "name": "Como funciona a tabela regressiva de IR na previdência?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A tabela regressiva reduz a alíquota conforme o tempo de aplicação: 35% em até 2 anos, 30% de 2 a 4 anos, 25% de 4 a 6 anos, 20% de 6 a 8 anos, 15% de 8 a 10 anos e 10% acima de 10 anos. Ela vale tanto para o PGBL quanto para o VGBL. Por isso, quanto mais tempo o dinheiro permanece investido, menor é o imposto pago no resgate." }
+      }
+    ]
+  }
+  </script>
+
+  <!-- ============ Google AdSense ============ -->
+  
+
+  <!-- ============ Adcash Library ============ -->
+  <!-- ============ Critical CSS (inline) ============ -->
+  <style>
+    :root{--navy:#1a365d;--navy-dark:#14294a;--blue:#2b6cb0;--blue-light:#4299e1;--bg:#f7fafc;--surface:#fff;--text:#2d3748;--text-muted:#5a6b7e;--border:#e2e8f0;--radius:12px;--max-width:1180px}
+    *,*::before,*::after{box-sizing:border-box}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:var(--text);background:var(--bg)}
+    .site-header{background:var(--navy);color:#fff;box-shadow:0 2px 12px rgba(26,54,93,.08)}
+    .header-inner{max-width:var(--max-width);margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .brand{font-size:1.15rem;font-weight:700;color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+    .container{max-width:var(--max-width);margin:0 auto;padding:24px 20px 48px;width:100%}
+    .page-title{color:var(--navy);margin:0 0 8px;line-height:1.25;font-size:clamp(1.6rem,3.5vw,2.4rem)}
+    .page-intro{color:var(--text-muted);max-width:760px;margin:0 0 28px}
+    .skip-link{position:absolute;left:-999px;top:8px;z-index:100;background:var(--navy);color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none}
+    .skip-link:focus{left:8px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 22px;border:none;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;text-decoration:none;min-height:44px}
+    .btn-primary{background:var(--blue);color:#fff}
+  </style>
+
+  <!-- ============ Styles (render-blocking keeps layout stable / CLS-safe) ============ -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/calculators.css">
+  <!-- Font Awesome Icons (theme toggle + UI icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="brand" aria-label="Mortgage Calculator home">
+        <span class="logo-mark" aria-hidden="true">MC</span>
+        <span data-i18n="brand_name">MortgageCalc</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="/" data-i18n="nav_home">Home</a></li>
+          <li><a href="/calculators/" class="active" data-i18n="nav_calculators">Calculators</a></li>
+          <li><a href="/blog" data-i18n="nav_blog">Blog</a></li>
+          <li><a href="/about" data-i18n="nav_about">About</a></li>
+          <li><a href="/contact" data-i18n="nav_contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="main-nav"
+              data-label-open="Open menu" data-label-close="Close menu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="lang-switch">
+        <label for="lang-select" data-i18n="language_label">Language</label>
+        <select id="lang-select" aria-label="Language">
+          <option value="en" data-i18n-option="lang_en">English</option>
+          <option value="es" data-i18n-option="lang_es">Español</option>
+          <option value="fr" data-i18n-option="lang_fr">Français</option>
+          <option value="pt" data-i18n-option="lang_pt">Português</option>
+          <option value="de" data-i18n-option="lang_de">Deutsch</option>
+        </select>
+      </div>
+
+      <!-- Currency selector -->
+      <div class="lang-switch currency-switch">
+        <label for="currency-select" data-i18n="currency_label">Currency</label>
+        <select id="currency-select" aria-label="Currency">
+          <option value="USD">$ USD</option>
+          <option value="EUR">&euro; EUR</option>
+          <option value="BRL">R$ BRL</option>
+          <option value="GBP">&pound; GBP</option>
+        </select>
+      </div>
+      <!-- Dark mode toggle -->
+      <button type="button" class="theme-toggle-btn" onclick="themeToggle()" aria-label="Toggle dark mode">
+        <i class="fas fa-sun" id="theme-toggle-icon"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============================ AD — TOP ============================ -->
+  <div id="ad-container-top" class="ad-container" aria-hidden="true"></div>
+  <!-- ============================ MAIN ============================ -->
+  <main id="main" class="container">
+
+    <h1 class="page-title" data-i18n="pgbl_title">Calculadora PGBL vs VGBL — Qual Melhor para Sua Aposentadoria?</h1>
+    <p class="page-intro" data-i18n="pgbl_subtitle">Compare PGBL e VGBL em segundos: veja o valor líquido na aposentadoria de cada plano, quanto de imposto você paga no resgate pela tabela regressiva e quanto o PGBL economiza no Imposto de Renda a cada ano.</p>
+
+    <!-- ============ CALCULATOR ============ -->
+    <div class="calculator">
+
+      <!-- ---------- FORM ---------- -->
+      <form class="calculator__panel" id="pgbl-form" aria-label="PGBL vs VGBL inputs" onsubmit="return false">
+        <h2 class="calculator__title" data-i18n="pgbl_form_title">Dados do Plano</h2>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="pgbl-monthly" data-i18n="pgbl_input_monthly">Aporte Mensal (R$)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="pgbl-monthly-slider" class="calculator__slider" min="100" max="10000" step="100" value="500" aria-label="Aporte mensal slider">
+            <input type="number" id="pgbl-monthly" class="calculator__input calculator__input--number" value="500" min="100" max="10000" step="100" inputmode="numeric">
+          </div>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="pgbl-years" data-i18n="pgbl_input_years">Tempo de Contribuição (anos)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="pgbl-years-slider" class="calculator__slider" min="1" max="40" step="1" value="30" aria-label="Tempo de contribuição slider">
+            <input type="number" id="pgbl-years" class="calculator__input calculator__input--number" value="30" min="1" max="40" step="1" inputmode="numeric">
+          </div>
+          <p class="calculator__hint" data-i18n="pgbl_hint_years">O tempo de aplicação define a alíquota da tabela regressiva: acima de 10 anos, o IR cai para 10%.</p>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="pgbl-return" data-i18n="pgbl_input_return">Retorno Anual Esperado (%)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="pgbl-return-slider" class="calculator__slider" min="0" max="15" step="0.5" value="8" aria-label="Retorno anual esperado slider">
+            <input type="number" id="pgbl-return" class="calculator__input calculator__input--number" value="8" min="0" max="15" step="0.5" inputmode="decimal">
+          </div>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="pgbl-tax" data-i18n="pgbl_input_tax">Alíquota Marginal de IR (%)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="pgbl-tax-slider" class="calculator__slider" min="0" max="35" step="0.5" value="27.5" aria-label="Alíquota marginal de IR slider">
+            <input type="number" id="pgbl-tax" class="calculator__input calculator__input--number" value="27.5" min="0" max="35" step="0.5" inputmode="decimal">
+          </div>
+          <p class="calculator__hint" data-i18n="pgbl_hint_tax">Use a alíquota da sua faixa no Imposto de Renda: 7,5%, 15%, 22,5% ou 27,5%. Ela determina quanto cada aporte ao PGBL reduz seu IR.</p>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="pgbl-increase" data-i18n="pgbl_input_increase">Aumento Anual do Aporte (%)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="pgbl-increase-slider" class="calculator__slider" min="0" max="20" step="0.5" value="5" aria-label="Aumento anual do aporte slider">
+            <input type="number" id="pgbl-increase" class="calculator__input calculator__input--number" value="5" min="0" max="20" step="0.5" inputmode="decimal">
+          </div>
+        </div>
+
+        <div class="calculator__actions">
+          <button type="button" id="pgbl-calculate" class="btn btn-primary" data-i18n="calculate">Calculate</button>
+          <button type="button" id="pgbl-reset" class="btn btn-secondary" data-i18n="reset">Reset</button>
+        </div>
+      </form>
+
+      <!-- ---------- RESULTS ---------- -->
+      <section class="calculator__panel" aria-label="PGBL vs VGBL results">
+        <h2 class="calculator__results-title" data-i18n="pgbl_results_title">Resultados</h2>
+
+        <div class="calculator__verdict" id="pgbl-verdict" aria-live="polite"></div>
+
+        <div class="calculator__grid">
+          <div class="calculator__card calculator__card--main">
+            <span class="calculator__card-label" data-i18n="pgbl_out_net_pgbl">Valor Líquido — PGBL</span>
+            <span class="calculator__card-value" id="pgbl-out-net-pgbl">—</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="pgbl_out_net_vgbl">Valor Líquido — VGBL</span>
+            <span class="calculator__card-value" id="pgbl-out-net-vgbl">—</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="pgbl_out_diff">Vantagem</span>
+            <span class="calculator__card-value" id="pgbl-out-diff">—</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="pgbl_out_rate">Alíquota IR no Resgate</span>
+            <span class="calculator__card-value" id="pgbl-out-rate">—</span>
+          </div>
+        </div>
+
+        <!-- Comparison table -->
+        <div class="table-scroll table-scroll--comparison" tabindex="0" aria-label="PGBL vs VGBL comparison">
+          <table class="scenario-table">
+            <thead>
+              <tr>
+                <th scope="col">&nbsp;</th>
+                <th scope="col" data-i18n="pgbl_cmp_pgbl">PGBL</th>
+                <th scope="col" data-i18n="pgbl_cmp_vgbl">VGBL</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-i18n="pgbl_cmp_contrib">Total Aportado</td>
+                <td id="pgbl-cmp-contrib-p">—</td>
+                <td id="pgbl-cmp-contrib-v">—</td>
+              </tr>
+              <tr>
+                <td data-i18n="pgbl_cmp_gross">Saldo Bruto no Resgate</td>
+                <td id="pgbl-cmp-gross-p">—</td>
+                <td id="pgbl-cmp-gross-v">—</td>
+              </tr>
+              <tr>
+                <td data-i18n="pgbl_cmp_earn">Rendimentos</td>
+                <td id="pgbl-cmp-earn-p">—</td>
+                <td id="pgbl-cmp-earn-v">—</td>
+              </tr>
+              <tr>
+                <td data-i18n="pgbl_cmp_taxrate">Alíquota IR (Tabela Regressiva)</td>
+                <td id="pgbl-cmp-taxrate-p">—</td>
+                <td id="pgbl-cmp-taxrate-v">—</td>
+              </tr>
+              <tr>
+                <td data-i18n="pgbl_cmp_tax">Imposto Pago no Resgate</td>
+                <td id="pgbl-cmp-tax-p">—</td>
+                <td id="pgbl-cmp-tax-v">—</td>
+              </tr>
+              <tr>
+                <td data-i18n="pgbl_cmp_benefit">Economia de IR (Dedução dos Aportes)</td>
+                <td id="pgbl-cmp-benefit-p">—</td>
+                <td id="pgbl-cmp-benefit-v">—</td>
+              </tr>
+              <tr>
+                <td data-i18n="pgbl_cmp_net">Valor Líquido Final</td>
+                <td id="pgbl-cmp-net-p">—</td>
+                <td id="pgbl-cmp-net-v">—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Chart -->
+        <div class="calculator__chart">
+          <h3 data-i18n="pgbl_chart_title">Valor Líquido na Aposentadoria: PGBL vs VGBL</h3>
+          <div class="calculator__chart-canvas"><canvas id="pgbl-chart-net" role="img" aria-label="Bar chart comparing the net retirement amount of PGBL and VGBL"></canvas></div>
+        </div>
+
+        <!-- ============ AD — MIDDLE ============ -->
+        <div id="ad-container-middle" class="ad-container ad-container--tall" aria-hidden="true"></div>
+
+        <!-- Calculator hub -->
+        <nav class="calc-hub" aria-label="Other calculators">
+          <h3 class="calc-hub__title" data-i18n="calc_nav_title">Explore More Calculators</h3>
+          <ul class="calc-hub__list">
+            <li class="calc-hub__item"><a href="/" data-i18n="calc_nav_home">Mortgage Calculator</a></li>
+            <li class="calc-hub__item"><a href="/calculators/" data-i18n="calc_nav_all">All Calculators</a></li>
+            <li class="calc-hub__item"><a href="/down-payment-calculator/" data-i18n="calc_nav_downpay">Down Payment Calculator</a></li>
+            <li class="calc-hub__item"><a href="/refinance-guide" data-i18n="calc_nav_refi_guide">Refinancing Guide</a></li>
+          </ul>
+        </nav>
+      </section>
+      </section>
+    </div>
+
+    <!-- ============ SEO CONTENT ============ -->
+    <section class="seo-section">
+      <h2 data-i18n="pgbl_sec_1">Como Usar a Calculadora PGBL vs VGBL</h2>
+      <p data-i18n="pgbl_p_1">Informe o valor do seu aporte mensal, por quantos anos você pretende contribuir e a rentabilidade anual esperada do plano. Depois, ajuste sua alíquota marginal de Imposto de Renda (7,5%, 15%, 22,5% ou 27,5%) e o aumento anual dos aportes. A calculadora projeta o saldo dos dois planos com juros compostos, aplica a tabela regressiva de IR no resgate e mostra o valor líquido de cada um: no PGBL, todo o saldo é tributado, mas você recebe de volta a economia de IR dos aportes; no VGBL, apenas os rendimentos são tributados.</p>
+    </section>
+
+    <section class="seo-section">
+      <h2 data-i18n="pgbl_sec_2">Qual é a Diferença entre PGBL e VGBL?</h2>
+      <p data-i18n="pgbl_p_2">A diferença está na tributação. No PGBL (Plano Gerador de Benefício Livre), os aportes são dedutíveis da base de cálculo do IR — até o limite de 12% da renda tributável anual — mas no resgate incide imposto sobre o valor total (aportes mais rendimentos). No VGBL (Vida Gerador de Benefício Livre), os aportes não são dedutíveis, e o imposto no resgate incide apenas sobre os rendimentos. Os dois usam a mesma tabela regressiva, que reduz a alíquota de 35% para 10% conforme o tempo de aplicação.</p>
+    </section>
+
+    <section class="seo-section">
+      <h2 data-i18n="pgbl_sec_3">PGBL ou VGBL: Qual Escolher?</h2>
+      <p data-i18n="pgbl_p_3">A regra prática é simples: quem faz a declaração completa do Imposto de Renda e paga alíquota de 15% ou 27,5% geralmente se beneficia mais do PGBL, porque a dedução anual compensa a tributação integral no resgate. Quem usa o desconto simplificado, é isento ou já deduz o limite de 12% da renda deve preferir o VGBL, que tributa apenas os rendimentos. Muita gente combina os dois: PGBL até esgotar os 12% de dedutibilidade e VGBL para os aportes que excedem esse limite. Simule os dois cenários acima antes de decidir.</p>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="seo-section" id="pgbl-faq">
+      <h2 data-i18n="sec_faq">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary data-i18n="pgbl_faq1_q">Qual é a diferença entre PGBL e VGBL?</summary>
+          <p data-i18n="pgbl_faq1_a">No PGBL, os aportes são dedutíveis do Imposto de Renda (até 12% da renda tributável anual), mas no resgate todo o valor — aportes e rendimentos — é tributado. No VGBL, os aportes não são dedutíveis, porém no resgate apenas os rendimentos são tributados. Quem faz a declaração completa do IR geralmente se beneficia mais do PGBL; quem usa o desconto simplificado ou já deduz o máximo tende a ganhar mais com o VGBL.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="pgbl_faq2_q">Quando o PGBL vale mais a pena que o VGBL?</summary>
+          <p data-i18n="pgbl_faq2_a">O PGBL costuma valer mais a pena para quem faz a declaração completa de Imposto de Renda e tem alíquota marginal de pelo menos 7,5%. Isso acontece porque cada aporte reduz o imposto devido naquele ano, gerando uma economia imediata. A dedução é limitada a 12% da renda tributável bruta anual. Se você usa a declaração simplificada, o VGBL normalmente é a melhor escolha.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="pgbl_faq3_q">Como funciona a tabela regressiva de IR na previdência?</summary>
+          <p data-i18n="pgbl_faq3_a">A tabela regressiva reduz a alíquota conforme o tempo de aplicação: 35% em até 2 anos, 30% de 2 a 4 anos, 25% de 4 a 6 anos, 20% de 6 a 8 anos, 15% de 8 a 10 anos e 10% acima de 10 anos. Ela vale tanto para o PGBL quanto para o VGBL. Por isso, quanto mais tempo o dinheiro permanece investido, menor é o imposto pago no resgate.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ============ AD — FOOTER ============ -->
+    <div id="ad-container-footer" class="ad-container" aria-hidden="true"></div>
+
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="/privacy.html" data-i18n="privacy">Privacy Policy</a>
+        <a href="/terms.html" data-i18n="terms">Terms of Use</a>
+        <a href="/support/" style="font-weight:600;color:#fff">Support</a>
+        <a href="/contact" data-i18n="nav_contact">Contact</a>
+      </nav>
+      <p class="footer-disclaimer" data-i18n="pgbl_disclaimer">Esta calculadora tem caráter meramente informativo e educacional. Os valores são estimativas e não constituem recomendação de investimento. Consulte um assessor financeiro certificado antes de contratar um plano de previdência.</p>
+      <p class="footer-copy">© 2026 MortgageCalc. <span data-i18n="rights">All rights reserved.</span></p>
+    </div>
+  </footer>
+
+  <!-- ============================ SCRIPTS ============================ -->
+  <script src="../js/i18n/i18n.js" defer></script>
+  <script src="../js/currencies.js" defer></script>
+  <script src="../js/calc-core.js" defer></script>
+  <script src="../js/nav.js" defer></script>
+  <script src="../js/analytics.js" defer></script>
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
+(function () {
+      window.i18n.init();
+      var sel = document.getElementById('lang-select');
+      if (sel) sel.addEventListener('change', function (e) { window.i18n.switchLanguage(e.target.value); });
+      function loadCalc() {
+        // Carrega o modulo de calculo de forma INDEPENDENTE do Chart.js CDN:
+        // a calculadora funciona mesmo se o CDN estiver lento ou bloqueado
+        // (os graficos degradam graciosamente via CalcCore).
+        var s = document.createElement('script');
+        s.src = '../js/calc-pgbl.js';
+        s.onerror = function () { console.error('Falha ao carregar ../js/calc-pgbl.js'); };
+        document.body.appendChild(s);
+      }
+      if (window.CalcCore && window.CalcCore.whenVisible) {
+        window.CalcCore.whenVisible(document.querySelector('.calculator'), loadCalc);
+      } else {
+        loadCalc();
+      }
+    })();
+
+    // Chart.js (CDN) e lazy-loaded SEPARADAMENTE, apenas quando a area dos
+    // graficos se aproxima da viewport. A calculadora NUNCA depende dele.
+    (function () {
+      var src = 'https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js';
+      var target = document.querySelector('.calculator__chart');
+      function loadChartLib() {
+        if (window.__chartCdnLoading || window.Chart) return;
+        window.__chartCdnLoading = true;
+        var s = document.createElement('script');
+        s.src = src;
+        s.onload = function () {
+          var el = document.querySelector('.calculator') || document.querySelector('.calculator-wrapper');
+          var inp = el && el.querySelector('input, select');
+          if (inp) inp.dispatchEvent(new Event('input', { bubbles: true }));
+        };
+        s.onerror = function () { window.__chartCdnLoading = false; };
+        document.body.appendChild(s);
+      }
+      if (target && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { if (e.isIntersecting) { io.disconnect(); loadChartLib(); } });
+        }, { rootMargin: '400px' });
+        io.observe(target);
+      } else {
+        loadChartLib();
+      }
+    })();
+});
+</script>
+
+  <noscript>
+    <p style="text-align:center;padding:24px;">Esta calculadora precisa de JavaScript. Ative o JavaScript para usar a calculadora PGBL vs VGBL.</p>
+  </noscript>
+
+  <!-- ============ Adcash Zone ============ -->
+  <script src="../js/dark-mode.js" defer></script>
+</body>
+</html>
