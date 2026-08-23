@@ -99,8 +99,8 @@
   <link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/">
 
   <!-- ============ Favicon ============ -->
-  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
-  <link rel="apple-touch-icon" href="/assets/img/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/img/favicon.svg">
 
   <!-- ============ Fonts & Icons ============ -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -228,8 +228,8 @@
   =========================================================== -->
 
   <!-- ============ Styles (render-blocking keeps layout stable; CLS-safe) ============ -->
-  <link rel="stylesheet" href="/css/style.css?v=2">
-  <link rel="stylesheet" href="/css/calculators.css?v=2">
+  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="css/calculators.css?v=2">
 </head>
 
 <body>
@@ -386,28 +386,28 @@
 
         <!-- Amortization System (Price or SAC) -->
         <div class="form-group">
-          <label for="amortization-system"><i class="fas fa-balance-scale"></i> <span data-i18n="amortization_system_label">Amortization System</span></label>
+          <label for="amortization-system"><i class="fas fa-balance-scale"></i> <span data-i18n="amortization_system_label">Sistema de Amortização</span></label>
           <select id="amortization-system" aria-label="Amortization system">
-            <option value="price" selected data-i18n-option="amortization_system_price">Price (fixed payment)</option>
-            <option value="sac" data-i18n-option="amortization_system_sac">SAC (decreasing payment)</option>
+            <option value="price" selected data-i18n-option="amortization_system_price">Price (parcela fixa)</option>
+            <option value="sac" data-i18n-option="amortization_system_sac">SAC (parcela decrescente)</option>
           </select>
-          <p class="helper" data-i18n="amortization_system_helper">Price keeps the payment fixed. SAC keeps the amortization constant, so the payment starts higher and decreases over time.</p>
+          <p class="helper" data-i18n="amortization_system_helper">Price mantém a parcela fixa. SAC mantém a amortização constante, então a parcela começa mais alta e diminui ao longo do tempo.</p>
         </div>
 
         <!-- U.S. State (refines the US preset; shown only when country = US) -->
         <div class="form-group" id="us-state-group" hidden>
-          <label for="mortgage-us-state"><i class="fas fa-map-marker-alt"></i> <span data-i18n="us_state_label">U.S. State</span></label>
+          <label for="mortgage-us-state"><i class="fas fa-map-marker-alt"></i> <span data-i18n="us_state_label">Estado dos EUA</span></label>
           <select id="mortgage-us-state" aria-label="U.S. state for property tax and insurance defaults">
-            <option value="" data-i18n-option="us_state_default">State average (US default)</option>
+            <option value="" data-i18n-option="us_state_default">Média estadual (padrão EUA)</option>
           </select>
         </div>
 
         <!-- ZIP / Postal Code (auto-fill taxes & insurance) -->
         <div class="form-group" id="zip-group" hidden>
-          <label for="zip-code"><i class="fas fa-map-pin"></i> <span data-i18n="zip_code_label">ZIP / Postal Code</span></label>
+          <label for="zip-code"><i class="fas fa-map-pin"></i> <span data-i18n="zip_code_label">CEP / Código Postal</span></label>
           <div class="input-row">
-            <input type="text" id="zip-code" maxlength="10" data-i18n-placeholder="ph_zip_code" placeholder="00000" inputmode="numeric" style="flex:1;min-width:0">
-            <button type="button" id="zip-lookup-btn" class="btn btn-secondary" style="white-space:nowrap" data-i18n="zip_lookup_btn">Fetch data</button>
+            <input type="text" id="zip-code" maxlength="10" data-i18n-placeholder="ph_zip_code" placeholder="00000-000" inputmode="numeric" style="flex:1;min-width:0">
+            <button type="button" id="zip-lookup-btn" class="btn btn-secondary" style="white-space:nowrap" data-i18n="zip_lookup_btn">Buscar dados</button>
           </div>
           <p id="zip-status" class="helper" aria-live="polite"></p>
         </div>
@@ -426,19 +426,19 @@
 
         <!-- HOA (Homeowners Association fee) -->
         <div class="form-group">
-          <label for="hoa"><i class="fas fa-building"></i> <span data-i18n="hoa_monthly">HOA (monthly)</span></label>
+          <label for="hoa"><i class="fas fa-building"></i> <span data-i18n="hoa_monthly">Condomínio (mensal)</span></label>
           <input type="number" id="hoa" value="0" min="0" max="10000" step="25" data-i18n-placeholder="ph_hoa" placeholder="Ex: 200" inputmode="numeric" style="width:100%">
         </div>
 
         <!-- Closing Costs -->
         <div class="form-group">
-          <label for="closing-costs"><i class="fas fa-receipt"></i> <span data-i18n="closing_costs">Closing Costs (% of home value)</span></label>
+          <label for="closing-costs"><i class="fas fa-receipt"></i> <span data-i18n="closing_costs">Custos de fechamento (% do valor do imóvel)</span></label>
           <input type="number" id="closing-costs" value="3" min="0" max="15" step="0.5" data-i18n-placeholder="ph_closing_costs" placeholder="Ex: 3" inputmode="decimal" style="width:100%">
           <p class="helper" id="closing-costs-usd"></p>
           <div style="margin-top:6px">
             <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:0.88rem">
               <input type="checkbox" id="finance-closing-costs">
-              <span data-i18n="finance_closing_costs">Finance Closing Costs into loan</span>
+              <span data-i18n="finance_closing_costs">Financiar custos de fechamento no empréstimo</span>
             </label>
           </div>
         </div>
@@ -490,7 +490,7 @@
             <span class="result-value" id="total-payment">$0.00</span>
           </div>
           <div class="result-card" id="closing-costs-card" hidden>
-            <span class="result-label"><i class="fas fa-receipt" style="color:var(--gold);margin-right:4px"></i> <span data-i18n="closing_costs_upfront">Custos de Fechamento (à vista)</span></span>
+            <span class="result-label"><i class="fas fa-receipt" style="color:var(--gold);margin-right:4px"></i> <span data-i18n="closing_costs_upfront">Custos de fechamento (inicial)</span></span>
             <span class="result-value" id="closing-costs-total">$0.00</span>
           </div>
           <div class="result-card">
@@ -540,7 +540,7 @@
           <div class="schedule-footer">
             <button type="button" id="show-full-schedule" class="btn btn-secondary"><i class="fas fa-list"></i> <span data-i18n="show_full_schedule">Mostrar a tabela de amortização completa</span></button>
             <button type="button" id="export-pdf" class="btn btn-secondary"><i class="fas fa-file-pdf"></i> <span data-i18n="export_pdf">Exportar PDF</span></button>
-            <button type="button" id="copy-share-link" class="btn btn-secondary"><i class="fas fa-link"></i> <span data-i18n="copy_link">Copiar link de compartilhamento</span></button>
+            <button type="button" id="copy-share-link" class="btn btn-secondary"><i class="fas fa-link"></i> <span data-i18n="copy_link">Copiar link</span></button>
             <span id="pdf-status" class="schedule-note" aria-live="polite" hidden></span>
           </div>
         </div>
@@ -720,20 +720,20 @@
   <!-- Deferred: they execute in order after parsing, so they no longer block
        first paint. Chart.js itself is lazy-loaded only when the charts scroll
        into view (keeps ~230 KB out of the initial mobile load). -->
-  <script src="/js/dark-mode.js" defer></script>
-  <script src="/js/animations.js" defer></script>
-  <script src="/js/i18n/meta.js" defer></script>
-  <script src="/js/i18n/i18n.js" defer></script>
-  <script src="/js/currencies.js" defer></script>
-<script src="/js/calc-core.js" defer></script>
-<script src="/js/mortgage-country-presets.js" defer></script>
-<script src="/js/rate-fetcher.js" defer></script>
-<script src="/js/nav.js" defer></script>
-<script src="/js/calculator.js" defer></script>
-  <script src="/js/zip-lookup.js" defer></script>
-  <script src="/js/scenario-url.js" defer></script>
-  <script src="/js/chart.js" defer></script>
-  <script src="/js/analytics.js" defer></script>
+  <script src="js/dark-mode.js" defer></script>
+  <script src="js/animations.js" defer></script>
+  <script src="js/i18n/meta.js" defer></script>
+  <script src="js/i18n/i18n.js" defer></script>
+  <script src="js/currencies.js" defer></script>
+<script src="js/calc-core.js" defer></script>
+<script src="js/mortgage-country-presets.js" defer></script>
+<script src="js/rate-fetcher.js" defer></script>
+<script src="js/nav.js" defer></script>
+  <script src="js/calculator.js" defer></script>
+  <script src="js/zip-lookup.js" defer></script>
+<script src="js/scenario-url.js" defer></script>
+  <script src="js/chart.js" defer></script>
+  <script src="js/analytics.js" defer></script>
 
   <script>
     (function () {
