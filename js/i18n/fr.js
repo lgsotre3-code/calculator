@@ -768,6 +768,16 @@ window.TRANSLATIONS.fr = {
   "calc_nav_va": "Calculateur Hypothécaire VA",
   "va_description": "Calculez votre paiement hypothécaire VA avec taxes foncières, assurance habitation et paiements supplémentaires. Tableau d'amortissement et graphiques gratuits.",
 
+  /* ---------- Hub: Country-specific calculators ---------- */
+  "calc_nav_pgbl": "PGBL vs VGBL",
+  "pgbl_description": "Comparez les plans de retraite brésiliens : PGBL (cotisations déductibles, imposé sur le montant total) vs VGBL (pas de déduction, imposé uniquement sur les gains). Découvrez le plus avantageux pour votre situation.",
+  "calc_nav_decimo": "Décimo Terceiro",
+  "decimo_description": "Calculez votre 13ᵉ salaire brésilien : 1ᵉʳ et 2ᵉ acomptes, cotisations INSS et IR progressives, 13ᵉ proportionnel pour années incomplètes et montant net total.",
+  "calc_nav_brutto": "Brutto-Netto-Rechner",
+  "brutto_description": "Calculatrice allemande brut-net. Voyez vos déductions Lohnsteuer, Solidaritätszuschlag, Kirchensteuer, santé, retraite, chômage et assurance dépendance. Compatible avec les 5 Steuerklassen.",
+  "calc_nav_isa": "ISA vs GIA",
+  "isa_description": "Calculatrice ISA vs GIA (Royaume-Uni). Comparez les rendements exonérés d'impôt de l'ISA avec un GIA imposable : plus-value, impôt sur les dividendes et coût réel d'investir hors ISA.",
+
   /* ---------- Blog: 28/36 Rule ---------- */
   "blog2836_h1": "How Much Mortgage Can You Afford? The 28/36 Rule Explained",
   "blog2836_read_time": "8 min read",

@@ -768,6 +768,16 @@ window.TRANSLATIONS.de = {
   "calc_nav_va": "VA-Hypothekenrechner",
   "va_description": "Berechnen Sie Ihre VA-Hypothekenzahlung mit Grundsteuern, Wohngebäudeversicherung und zusätzlichen Zahlungen. Kostenloser Tilgungsplan und Grafiken.",
 
+  /* ---------- Hub: Country-specific calculators ---------- */
+  "calc_nav_pgbl": "PGBL vs VGBL",
+  "pgbl_description": "Vergleichen Sie brasilianische Altersvorsorgepläne: PGBL (steuerlich absetzbar, auf den Gesamtbetrag besteuert) vs VGBL (kein Abzug, nur Erträge besteuert). Finden Sie heraus, was mehr bringt.",
+  "calc_nav_decimo": "Décimo Terceiro",
+  "decimo_description": "Berechnen Sie Ihr 13. Gehalt: 1. und 2. Rate, progressive INSS- und IR-Abzüge, anteiliges 13. Gehalt für Teiljahre und Nettogesamtbetrag.",
+  "calc_nav_brutto": "Brutto-Netto-Rechner",
+  "brutto_description": "Deutscher Brutto-Netto-Rechner. Sehen Sie Ihre Abzüge für Lohnsteuer, Solidaritätszuschlag, Kirchensteuer, Kranken-, Renten-, Arbeitslosen- und Pflegeversicherung. Unterstützt alle 5 Steuerklassen.",
+  "calc_nav_isa": "ISA vs GIA",
+  "isa_description": "UK ISA vs GIA-Rechner. Vergleichen Sie steuerfreie ISA-Renditen mit einem steuerpflichtigen GIA: Kapitalertragsteuer, Dividendensteuer und die wahren Kosten außerhalb eines ISAs.",
+
   /* ---------- Blog: 28/36 Rule ---------- */
   "blog2836_h1": "How Much Mortgage Can You Afford? The 28/36 Rule Explained",
   "blog2836_read_time": "8 min read",

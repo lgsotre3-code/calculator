@@ -769,6 +769,16 @@ window.TRANSLATIONS.en = {
   "calc_nav_va": "VA Mortgage Calculator",
   "va_description": "Calculate your VA mortgage payment with property taxes, home insurance and extra payments. Free amortization schedule and graphs.",
 
+  /* ---------- Hub: Country-specific calculators ---------- */
+  "calc_nav_pgbl": "PGBL vs VGBL",
+  "pgbl_description": "Compare Brazilian retirement plans: PGBL (tax-deductible contributions, taxed on full amount) vs VGBL (no deduction, taxed only on earnings). Find out which saves more for your situation.",
+  "calc_nav_decimo": "Décimo Terceiro",
+  "decimo_description": "Calculate your Brazilian 13th salary: 1st and 2nd installments, progressive INSS and IR deductions, proportional 13th for partial years, and total net amount.",
+  "calc_nav_brutto": "Brutto-Netto-Rechner",
+  "brutto_description": "German gross-to-net salary calculator. See your Lohnsteuer, Solidaritätszuschlag, Kirchensteuer, health, pension, unemployment and care insurance deductions. Supports all 5 Steuerklassen.",
+  "calc_nav_isa": "ISA vs GIA",
+  "isa_description": "UK ISA vs General Investment Account calculator. Compare tax-free ISA returns with a taxable GIA: CGT, dividend tax and the real cost of investing outside an ISA.",
+
   /* ---------- Blog: 28/36 Rule ---------- */
   "blog2836_h1": "How Much Mortgage Can You Afford? The 28/36 Rule Explained",
   "blog2836_read_time": "8 min read",

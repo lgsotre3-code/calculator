@@ -768,6 +768,16 @@ window.TRANSLATIONS.pt = {
   "calc_nav_va": "Calculadora de Financiamento VA",
   "va_description": "Calcule sua prestação de financiamento VA com impostos sobre o imóvel, seguro residencial e pagamentos extras. Tabela de amortização e gráficos gratuitos.",
 
+  /* ---------- Hub: Country-specific calculators ---------- */
+  "calc_nav_pgbl": "PGBL vs VGBL",
+  "pgbl_description": "Compare planos de previdência brasileiros: PGBL (dedutível do IR, tributado sobre o valor total) vs VGBL (sem dedução, tributado apenas sobre rendimentos). Descubra qual rende mais para o seu perfil.",
+  "calc_nav_decimo": "Décimo Terceiro",
+  "decimo_description": "Calcule seu 13º salário: 1ª e 2ª parcelas, descontos progressivos de INSS e IR, 13º proporcional para anos incompletos e valor líquido total.",
+  "calc_nav_brutto": "Brutto-Netto-Rechner",
+  "brutto_description": "Calculadora alemã de salário bruto para líquido. Veja seus descontos de Lohnsteuer, Solidaritätszuschlag, Kirchensteuer, saúde, pensão, desemprego e seguridade. Suporta todas as 5 Steuerklassen.",
+  "calc_nav_isa": "ISA vs GIA",
+  "isa_description": "Calculadora UK ISA vs General Investment Account. Compare rendimentos isentos de imposto do ISA com um GIA tributado: CGT, imposto sobre dividendos e o custo real de investir fora de um ISA.",
+
   /* ---------- Blog: 28/36 Rule ---------- */
   "blog2836_h1": "Quanto de Financiamento Imobiliário Você Pode Pagar? A Regra 28/36 Explicada",
   "blog2836_read_time": "8 min de leitura",
