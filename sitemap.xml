@@ -61,7 +61,7 @@
 
   <url>
     <loc>https://www.mortgage-pro-calc.com/blog/</loc>
-    <lastmod>2026-08-22</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <priority>0.8</priority>
   </url>
 
@@ -320,6 +320,413 @@
   <url>
     <loc>https://www.mortgage-pro-calc.com/de/blog/arm-vs-fixed-rate/</loc>
     <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/blog/down-payments-guide/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/blog/down-payments-guide/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mortgage-pro-calc.com/es/blog/down-payments-guide/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.mortgage-pro-calc.com/fr/blog/down-payments-guide/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.mortgage-pro-calc.com/pt/blog/down-payments-guide/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.mortgage-pro-calc.com/de/blog/down-payments-guide/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/blog/down-payments-guide/"/>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/es/blog/down-payments-guide/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/fr/blog/down-payments-guide/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/pt/blog/down-payments-guide/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/de/blog/down-payments-guide/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/blog/closing-costs-explained/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/blog/closing-costs-explained/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mortgage-pro-calc.com/es/blog/closing-costs-explained/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.mortgage-pro-calc.com/fr/blog/closing-costs-explained/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.mortgage-pro-calc.com/pt/blog/closing-costs-explained/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.mortgage-pro-calc.com/de/blog/closing-costs-explained/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/blog/closing-costs-explained/"/>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/es/blog/closing-costs-explained/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/fr/blog/closing-costs-explained/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/pt/blog/closing-costs-explained/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/de/blog/closing-costs-explained/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/blog/credit-score-mortgage/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/blog/credit-score-mortgage/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mortgage-pro-calc.com/es/blog/credit-score-mortgage/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.mortgage-pro-calc.com/fr/blog/credit-score-mortgage/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.mortgage-pro-calc.com/pt/blog/credit-score-mortgage/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.mortgage-pro-calc.com/de/blog/credit-score-mortgage/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/blog/credit-score-mortgage/"/>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/es/blog/credit-score-mortgage/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/fr/blog/credit-score-mortgage/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/pt/blog/credit-score-mortgage/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/de/blog/credit-score-mortgage/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/blog/mortgage-pre-approval/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/blog/mortgage-pre-approval/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mortgage-pro-calc.com/es/blog/mortgage-pre-approval/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.mortgage-pro-calc.com/fr/blog/mortgage-pre-approval/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.mortgage-pro-calc.com/pt/blog/mortgage-pre-approval/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.mortgage-pro-calc.com/de/blog/mortgage-pre-approval/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/blog/mortgage-pre-approval/"/>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/es/blog/mortgage-pre-approval/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/fr/blog/mortgage-pre-approval/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/pt/blog/mortgage-pre-approval/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/de/blog/mortgage-pre-approval/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/blog/pmi-guide/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/blog/pmi-guide/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mortgage-pro-calc.com/es/blog/pmi-guide/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.mortgage-pro-calc.com/fr/blog/pmi-guide/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.mortgage-pro-calc.com/pt/blog/pmi-guide/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.mortgage-pro-calc.com/de/blog/pmi-guide/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/blog/pmi-guide/"/>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/es/blog/pmi-guide/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/fr/blog/pmi-guide/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/pt/blog/pmi-guide/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/de/blog/pmi-guide/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/blog/choosing-mortgage-term/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/blog/choosing-mortgage-term/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mortgage-pro-calc.com/es/blog/choosing-mortgage-term/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.mortgage-pro-calc.com/fr/blog/choosing-mortgage-term/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.mortgage-pro-calc.com/pt/blog/choosing-mortgage-term/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.mortgage-pro-calc.com/de/blog/choosing-mortgage-term/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/blog/choosing-mortgage-term/"/>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/es/blog/choosing-mortgage-term/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/fr/blog/choosing-mortgage-term/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/pt/blog/choosing-mortgage-term/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/de/blog/choosing-mortgage-term/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/blog/first-time-buyer-programs/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/blog/first-time-buyer-programs/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mortgage-pro-calc.com/es/blog/first-time-buyer-programs/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.mortgage-pro-calc.com/fr/blog/first-time-buyer-programs/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.mortgage-pro-calc.com/pt/blog/first-time-buyer-programs/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.mortgage-pro-calc.com/de/blog/first-time-buyer-programs/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/blog/first-time-buyer-programs/"/>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/es/blog/first-time-buyer-programs/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/fr/blog/first-time-buyer-programs/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/pt/blog/first-time-buyer-programs/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/de/blog/first-time-buyer-programs/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/blog/comparing-mortgage-offers/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/blog/comparing-mortgage-offers/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mortgage-pro-calc.com/es/blog/comparing-mortgage-offers/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.mortgage-pro-calc.com/fr/blog/comparing-mortgage-offers/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.mortgage-pro-calc.com/pt/blog/comparing-mortgage-offers/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.mortgage-pro-calc.com/de/blog/comparing-mortgage-offers/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/blog/comparing-mortgage-offers/"/>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/es/blog/comparing-mortgage-offers/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/fr/blog/comparing-mortgage-offers/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/pt/blog/comparing-mortgage-offers/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/de/blog/comparing-mortgage-offers/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/blog/property-taxes-home-insurance/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/blog/property-taxes-home-insurance/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mortgage-pro-calc.com/es/blog/property-taxes-home-insurance/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.mortgage-pro-calc.com/fr/blog/property-taxes-home-insurance/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.mortgage-pro-calc.com/pt/blog/property-taxes-home-insurance/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.mortgage-pro-calc.com/de/blog/property-taxes-home-insurance/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/blog/property-taxes-home-insurance/"/>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/es/blog/property-taxes-home-insurance/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/fr/blog/property-taxes-home-insurance/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/pt/blog/property-taxes-home-insurance/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/de/blog/property-taxes-home-insurance/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/blog/home-buying-process-timeline/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/blog/home-buying-process-timeline/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mortgage-pro-calc.com/es/blog/home-buying-process-timeline/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.mortgage-pro-calc.com/fr/blog/home-buying-process-timeline/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.mortgage-pro-calc.com/pt/blog/home-buying-process-timeline/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.mortgage-pro-calc.com/de/blog/home-buying-process-timeline/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/blog/home-buying-process-timeline/"/>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/es/blog/home-buying-process-timeline/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/fr/blog/home-buying-process-timeline/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/pt/blog/home-buying-process-timeline/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/de/blog/home-buying-process-timeline/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/blog/mortgage-points-explained/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/blog/mortgage-points-explained/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.mortgage-pro-calc.com/es/blog/mortgage-points-explained/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.mortgage-pro-calc.com/fr/blog/mortgage-points-explained/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.mortgage-pro-calc.com/pt/blog/mortgage-points-explained/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.mortgage-pro-calc.com/de/blog/mortgage-points-explained/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/blog/mortgage-points-explained/"/>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/es/blog/mortgage-points-explained/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/fr/blog/mortgage-points-explained/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/pt/blog/mortgage-points-explained/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/de/blog/mortgage-points-explained/</loc>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
