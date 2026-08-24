@@ -74,6 +74,11 @@
       promoScript.defer = true;
       document.head.appendChild(promoScript);
 
+      var cspScript = document.createElement('script');
+      cspScript.src = '/js/csp-report.js';
+      cspScript.defer = true;
+      document.head.appendChild(cspScript);
+
       window.addEventListener('load', function () {
         navigator.serviceWorker.register('/sw.js').catch(function () {});
       });
