@@ -7,7 +7,7 @@ window.TRANSLATIONS.en = {
 
   /* ---------- SEO: title / description ---------- */
   "title": "Free Mortgage Calculator with Taxes, Insurance & Extra Payments — 2026",
-  "meta_title": "Mortgage Calculator with Taxes & Insurance | Free Home Loan Calculator 2026",
+  "meta_title": "Mortgage Calculator with Taxes & Insurance | Free 2026",
   "meta_description": "Calculate your monthly mortgage payment with taxes, insurance, and extra payments. Free mortgage calculator with amortization schedule and payment breakdown.",
 
   /* ---------- Navigation / footer ---------- */
@@ -18,7 +18,7 @@ window.TRANSLATIONS.en = {
   "nav_about": "About",
   "nav_contact": "Contact",
   "nav_calculators": "Calculators",
-  "hub_title": "All Mortgage Calculators",
+  "hub_title": "All Mortgage Calculators - Free Tools",
   "hub_intro": "Free tools to understand the real numbers behind a home purchase: monthly cost, financing vs. paying cash, switching lenders, renovation returns, rent vs. buy, refinancing, down payments and how much house you can afford.",
   "hub_home_desc": "Monthly payment, amortization schedule and payment breakdown with taxes, insurance and extra payments.",
   "hub_cta": "Open calculator",
@@ -225,7 +225,7 @@ window.TRANSLATIONS.en = {
   "faq11_a": "Yes. Paying half your monthly payment every two weeks results in 26 half-payments a year — the equivalent of 13 full payments instead of 12. That extra payment per year goes to principal, cutting years off the loan and reducing total interest substantially.",
 
   /* ---------- Blog page ---------- */
-  "blog_title": "Mortgage Calculator Blog",
+  "blog_title": "Mortgage Blog - Tips, Guides & Calculator Tools",
   "blog_description": "Articles, guides and news about mortgages, home loans, refinancing and home buying tips.",
   "blog_subtitle": "Expert tips, guides and the latest mortgage news — updated regularly.",
   "blog_post_1_title": "How to Calculate Mortgage Payments: A Step-by-Step Guide",
@@ -248,7 +248,7 @@ window.TRANSLATIONS.en = {
   "try_calculator_text": "Estimate your monthly payment with taxes, insurance and extra payments in seconds.",
 
   /* ---------- About page ---------- */
-  "about_title": "About MortgageCalc",
+  "about_title": "About MortgageCalc - Free Mortgage Calculator",
   "about_description": "Learn about our free mortgage calculator with taxes, insurance and extra payments — built to help you make confident home buying decisions.",
   "about_mission": "Our Mission",
   "about_mission_text": "We believe that buying a home should be an informed decision. Our free mortgage calculator helps you understand exactly what you can afford — including taxes, insurance and extra payments — so you can plan with confidence.",
@@ -262,7 +262,7 @@ window.TRANSLATIONS.en = {
   "about_why_text": "Our calculations follow standard mortgage formulas and US financial guidelines. The tool is transparent, free and designed with your financial education in mind.",
 
   /* ---------- Contact page ---------- */
-  "contact_title": "Contact Us",
+  "contact_title": "Contact Us - MortgageCalc Support",
   "contact_description": "Have questions about our calculator? Contact our team. We'll respond within 24 hours.",
   "contact_subtitle": "Have questions or feedback? We'd love to hear from you.",
   "contact_name": "Name",
@@ -274,7 +274,7 @@ window.TRANSLATIONS.en = {
   "contact_error": "Error sending. Please try again.",
 
   /* ---------- Amortization Guide page (/amortization-guide) ---------- */
-  "amort_title": "Amortization Schedule Explained — Mortgage Amortization Calculator 2026",
+  "amort_title": "Amortization Schedule Explained 2026",
   "amort_description": "Learn what an amortization schedule is, how to read one, and how extra payments save interest. Free amortization calculator with a full monthly breakdown.",
   "amort_subtitle": "Understand every payment of your mortgage — principal, interest and balance, month by month.",
   "amort_h2_1": "What Is an Amortization Schedule and How Does It Work?",
@@ -297,7 +297,7 @@ window.TRANSLATIONS.en = {
   "amort_faq3_a": "Extra payments reduce the principal faster, which lowers total interest and shortens the loan term. It usually makes sense unless you have higher-interest debt or need the cash for emergencies.",
 
   /* ---------- Refinance Guide page (/refinance-guide) ---------- */
-  "refinance_title": "Refinance Mortgage Calculator — Should You Refinance? 2026 Guide",
+  "refinance_title": "Refinance Calculator: Should You Refinance?",
   "refinance_description": "Compare your current mortgage with a new loan. Use our free refinance calculator to find your break-even point, monthly savings and total interest over the new term.",
   "refinance_subtitle": "See whether refinancing pays off — compare rates, terms and closing costs.",
   "refinance_h2_1": "What Is Mortgage Refinance?",
@@ -318,7 +318,7 @@ window.TRANSLATIONS.en = {
   "refinance_faq3_a": "Refinancing requires a hard credit inquiry, which may lower your score slightly. Multiple applications within a short window are usually counted as a single inquiry for credit-scoring purposes.",
 
   /* ---------- FHA vs Conventional page (/fha-vs-conventional) ---------- */
-  "fha_title": "FHA vs Conventional Loan — Which Is Better for You? 2026 Guide",
+  "fha_title": "FHA vs Conventional Loan: Which Is Better?",
   "fha_description": "Compare FHA and conventional mortgages — down payment, credit score, mortgage insurance and rates — to choose the right loan for your home purchase.",
   "fha_subtitle": "Understand the key differences between FHA and conventional loans.",
   "fha_h2_1": "FHA Loan Requirements and Benefits",
@@ -355,7 +355,7 @@ window.TRANSLATIONS.en = {
   "fha_faq3_a": "FHA loans often have slightly lower base rates, but mortgage insurance makes the total cost higher. Conventional loans usually have lower overall costs for borrowers with good credit and a down payment of 20%.",
 
   /* ---------- Affordability Guide page (/affordability-guide) ---------- */
-  "afford_title": "How Much Mortgage Can I Afford? — Affordability Calculator 2026",
+  "afford_title": "How Much House Can I Afford? Calculator",
   "afford_description": "Estimate how much mortgage you can afford using the 28/36 rule, your income, debts, down payment and interest rate — with a free mortgage calculator.",
   "afford_subtitle": "A realistic budget for your home purchase.",
   "afford_h2_1": "The 28/36 Rule for Mortgage Affordability",
@@ -420,7 +420,7 @@ window.TRANSLATIONS.en = {
   "hub_afford_desc": "How much house can you afford? Free 28/36 rule calculator that shows your recommended housing budget, maximum home value and loan amount.",
 
   /* ---------- Finance vs. Cash page (/finance-vs-cash) ---------- */
-  "fvc_title": "Finance vs. Pay Cash Calculator — Should You Finance or Buy Cash? 2026",
+  "fvc_title": "Finance vs Cash: Which Is Better?",
   "fvc_description": "Compare the true cost of financing a home vs. paying cash. Free calculator with opportunity cost, total interest and invested capital over time.",
   "fvc_subtitle": "See the true cost of financing a home vs. buying it outright — including what your money could have earned if it were invested instead.",
   "fvc_form_title": "Financing vs. Cash Inputs",
@@ -459,7 +459,7 @@ window.TRANSLATIONS.en = {
   "fvc_faq3_a": "The opportunity cost is the return you could have earned by investing the purchase price instead of tying it up in the home. If your investments grow at 8% per year, every year you leave that capital in the house is a year it is not compounding.",
 
   /* ---------- Loan Portability page (/loan-portability) ---------- */
-  "port_title": "Loan Portability Calculator — How Much Can You Save by Switching Lenders? 2026",
+  "port_title": "Loan Portability Calculator: Save by Switching",
   "port_description": "Transfer your mortgage to a lender offering a lower rate and see your monthly savings, total savings and how long it takes to recover the fees. Free portability calculator.",
   "port_subtitle": "Transfer your mortgage to a lender offering a lower rate and see the monthly savings, total savings and how long it takes to recover the fees.",
   "port_form_title": "Portability Inputs",
@@ -495,7 +495,7 @@ window.TRANSLATIONS.en = {
   "port_faq3_a": "Portability usually does not pay off when the new rate is not meaningfully lower, when the remaining term is very short, or when the fees are high compared with the monthly savings. Run the numbers here before switching.",
 
   /* ---------- Renovation ROI page (/renovation-roi) ---------- */
-  "reno_title": "Renovation ROI Calculator — How Much Value Does a Renovation Add? 2026",
+  "reno_title": "Renovation ROI Calculator: Add Home Value",
   "reno_description": "Estimate the new value of your home after a renovation and see whether you make a profit or a loss. Free renovation ROI calculator with typical cost recovery by renovation type.",
   "reno_subtitle": "Estimate the new value of your home after a renovation, see whether you make a profit or a loss, and check typical value recovery by renovation type.",
   "reno_form_title": "Renovation Inputs",
@@ -533,7 +533,7 @@ window.TRANSLATIONS.en = {
   "reno_faq3_a": "Subtract the renovation cost from the value increase it creates, then divide by the cost and multiply by 100. For example, a $20,000 renovation that adds $26,000 in value has an ROI of 30%.",
 
   /* ---------- Rent vs. Buy page (/rent-vs-buy) ---------- */
-  "rvb_title": "Rent vs. Buy Calculator — Is It Better to Rent or Buy a Home? 2026",
+  "rvb_title": "Rent vs Buy Calculator: Which Is Better?",
   "rvb_description": "Compare renting vs. buying over your planned stay. Free calculator with rent increases, home appreciation, property tax, maintenance and investment returns.",
   "rvb_subtitle": "Model the full picture over your planned stay: rents that rise each year, property tax, maintenance, vacancy, home appreciation and what your down payment could earn if invested.",
   "rvb_form_title": "Rent vs. Buy Inputs",
@@ -643,7 +643,7 @@ window.TRANSLATIONS.en = {
   "refi_faq3_a": "A 15-year refinance raises your monthly payment but can save a large amount of interest because you pay the loan off twice as fast. Use the calculator to compare the higher payment and shorter term against the total interest saved before deciding.",
 
   /* ---------- Down Payment Calculator page (/down-payment-calculator) ---------- */
-  "downpay_title": "Down Payment Calculator — How Much Should You Put Down? 2026",
+  "downpay_title": "Down Payment Calculator: How Much to Put Down?",
   "downpay_description": "Free down payment calculator. See your down payment amount, loan amount, monthly payment, PMI and total interest — and compare 5%, 10%, 15% and 20% down.",
   "downpay_subtitle": "See exactly what your down payment gets you: the loan amount, the monthly payment, private mortgage insurance and total interest — plus a side-by-side look at 5%, 10%, 15% and 20% down.",
   "downpay_form_title": "Down Payment Inputs",
@@ -681,7 +681,7 @@ window.TRANSLATIONS.en = {
   "downpay_faq2_a": "Conventional loans allow a minimum down payment of 3% of the purchase price, though lenders may have credit score requirements. If you put down less than 20%, you generally pay private mortgage insurance (PMI) until you build 20% equity.",
   "downpay_faq3_q": "Does a larger down payment lower your monthly payment?",
   "downpay_faq3_a": "Yes. A larger down payment reduces the loan amount, so your principal and interest payment is lower. Once you reach 20% down, you also stop paying PMI, which lowers the monthly cost even further. A 20% down payment on the same home can save hundreds of dollars a month compared with 5% down.",
-  "afford_title": "Affordability Calculator — How Much House Can I Afford? 2026",
+  "afford_title": "Affordability Calculator: How Much Can You Afford?",
   "afford_description": "Free affordability calculator. Use the 28/36 rule to find how much house you can afford, your recommended housing budget, maximum home value and loan amount.",
   "afford_subtitle": "Use the 28/36 rule to find how much house you can afford. Your housing costs (principal and interest, taxes, insurance and HOA) should stay within 28% of your gross monthly income, and your total debts within 36%. Enter your income, existing debts and loan details to see your recommended housing budget, maximum home value and loan amount.",
   "afford_form_title": "Affordability Inputs",
@@ -725,7 +725,7 @@ window.TRANSLATIONS.en = {
   "afford_faq3_a": "Yes. The back-end ratio (36%) includes your housing costs plus all your existing monthly debt payments, such as credit cards, auto loans, student loans and personal loans. When those debts are high, they can become the limiting factor on how much house you can afford.",
 
   /* ========== Discount Points Calculator (pts_) ========== */
-  "pts_title": "Discount Points Calculator — Should You Buy Mortgage Points?",
+  "pts_title": "Discount Points Calculator: Should You Buy?",
   "pts_description": "Free discount points calculator. See how many months it takes for mortgage points to pay for themselves. Compare 0, 1, 2 and 3 points with breakeven analysis.",
   "pts_subtitle": "See how many months it takes for mortgage discount points to pay for themselves, and whether buying down your rate makes financial sense.",
   "pts_form_title": "Loan Details",
@@ -860,7 +860,7 @@ window.TRANSLATIONS.en = {
   "blog2836_back_btn": "Back to the Mortgage Calculator",
 
   /* ---------- Support page ---------- */
-  "support_title": "Support MortgageCalc",
+  "support_title": "Support - MortgageCalc Help Center",
   "support_intro": "MortgageCalc is free, fast, and built with minimal ads by design. If these tools saved you time or helped you make a better decision, a small contribution helps keep it that way.",
   "support_where_title": "Where your support goes",
   "support_card1_label": "Free for all",

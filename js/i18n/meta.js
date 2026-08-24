@@ -13,8 +13,8 @@
 
   window.META_DATA = {
     en: {
-      title: 'Free Mortgage Calculator with Taxes, Insurance & Extra Payments — 2026',
-      description: 'Calculate your monthly mortgage payment with taxes, insurance, and extra payments. Free mortgage calculator with amortization schedule and payment breakdown.',
+      title: 'Mortgage Calculator with Taxes & Insurance | Free 2026',
+      description: 'Calculate your monthly mortgage payment with taxes, insurance, and extra payments. Includes amortization schedule, payment breakdown and affordability tools.',
       keywords: 'mortgage calculator, home loan calculator, mortgage payment calculator, monthly mortgage calculator, mortgage calculator with taxes and insurance, mortgage calculator with extra payments, mortgage amortization calculator, mortgage payment breakdown, mortgage affordability calculator',
       ogTitle: 'Mortgage Calculator with Taxes & Extra Payments',
       ogDescription: 'Calculate monthly payment, total interest, and payoff date. Includes amortization schedule and interactive graphs.',
@@ -53,7 +53,7 @@
       twitterDescription: 'Calcule pagos con impuestos y seguro. Resultados instantáneos y tabla de amortización.'
     },
     fr: {
-      title: 'Calculateur de Prêt Immobilier avec Taxes et Assurance — 2026',
+      title: 'Calculateur de Prêt Immobilier — Taxes & Assurance 2026',
       description: 'Calculez votre paiement mensuel avec taxes, assurance et paiements supplémentaires. Obtenez le plan d\'amortissement, graphiques et date de remboursement — gratuit, instantané.',
       keywords: 'calculateur prêt immobilier, paiement mensuel, amortissement, taxe foncière, assurance, refinancement',
       ogTitle: 'Calculateur de Prêt avec Taxes et Paiements Supplémentaires',
