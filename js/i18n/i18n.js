@@ -231,13 +231,40 @@
     hasLocaleFolder() {
       const path = window.location.pathname;
       return path === '/' || path === '/index.html' ||
-        /^\/(en|es|fr|pt|de)\/?$/.test(path);
+        /^\/(en|es|fr|pt|de)\/?$/.test(path) ||
+        !!this.blogPostSlugFromPath(path);
+    }
+
+    /**
+     * Extracts the slug of a blog POST (not the /blog/ listing page,
+     * which has no per-locale index.html) from a path, stripped of any
+     * existing locale prefix. Returns the slug string for a post, or
+     * null if this isn't a blog post page.
+     */
+    blogPostSlugFromPath(path) {
+      const m = path.match(/^\/(?:en|es|fr|pt|de)?\/?blog\/(.+)$/);
+      if (!m) return null;
+      const slug = m[1].replace(/\/$/, '');
+      return slug === '' ? null : slug;
     }
 
     /** Called by the <select id="lang-select"> change handler. */
     switchLanguage(lang) {
       if (!this.isSupported(lang)) return;
       try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) { /* ignore */ }
+
+      const postSlug = this.blogPostSlugFromPath(window.location.pathname);
+      if (postSlug) {
+        // Dedicated translated post folders exist per language; the root
+        // (en) has no /en/blog/ folder, posts live directly at /blog/.
+        const base = lang === 'en' ? '/blog/' : '/' + lang + '/blog/';
+        // Post directories always end in a trailing slash; the two legacy
+        // .html-suffixed posts keep their literal filename.
+        window.location.href = postSlug.endsWith('.html')
+          ? base + postSlug
+          : base + postSlug + '/';
+        return;
+      }
 
       if (this.hasLocaleFolder()) {
         // Navigate to the real locale folder (matches canonical/hreflang).
