@@ -59,3 +59,29 @@
     init();
   }
 })();
+
+(function () {
+  'use strict';
+  try {
+    if ('serviceWorker' in navigator && location.protocol === 'https:') {
+      var manifestLink = document.createElement('link');
+      manifestLink.rel = 'manifest';
+      manifestLink.href = '/manifest.json';
+      document.head.appendChild(manifestLink);
+
+      var promoScript = document.createElement('script');
+      promoScript.src = '/js/install-promo.js';
+      promoScript.defer = true;
+      document.head.appendChild(promoScript);
+
+      var cspScript = document.createElement('script');
+      cspScript.src = '/js/csp-report.js';
+      cspScript.defer = true;
+      document.head.appendChild(cspScript);
+
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('/sw.js').catch(function () {});
+      });
+    }
+  } catch (pwaError) {}
+})();

@@ -1,12 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <!-- Mortgage calculator favicon: house + chart on a navy rounded square -->
-  <rect width="64" height="64" rx="14" fill="#1a365d"/>
-  <rect x="16" y="18" width="32" height="32" rx="4" fill="#4299e1"/>
-  <rect x="16" y="18" width="32" height="8" rx="4" fill="#63b3ed"/>
-  <!-- display window -->
-  <rect x="20" y="30" width="24" height="16" rx="2" fill="#fff"/>
-  <!-- bars -->
-  <rect x="24" y="40" width="4" height="4" fill="#2b6cb0"/>
-  <rect x="30" y="36" width="4" height="8" fill="#2b6cb0"/>
-  <rect x="36" y="32" width="4" height="12" fill="#2b6cb0"/>
+  <!-- Mortgage PRO CALC favicon -->
+  <rect width="64" height="64" rx="14" fill="#062B66"/>
+  <!-- growth bars -->
+  <rect x="13" y="41" width="7" height="13" rx="2" fill="#5EDAFB"/>
+  <rect x="22" y="35" width="7" height="19" rx="2" fill="#16C7F7"/>
+  <!-- house -->
+  <rect x="30" y="26" width="25" height="24" rx="4" fill="#006FE6"/>
+  <polygon points="27,27 42.5,12 58,27" fill="#0A84E8" stroke="#0A84E8" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="42.5" cy="34" r="4.5" fill="#FFFFFF"/>
+  <path d="M38,50 v-6 a4,4 0 0 1 8,0 v6 z" fill="#EAF6FF"/>
+  <!-- calculator -->
+  <rect x="47" y="36" width="14" height="17" rx="3.5" fill="#FFFFFF"/>
+  <rect x="49.5" y="38.5" width="9" height="4.5" rx="1.5" fill="#16C7F7"/>
+  <circle cx="52" cy="47" r="1.4" fill="#C9E4F8"/>
+  <circle cx="56.5" cy="47" r="1.4" fill="#C9E4F8"/>
+  <circle cx="52" cy="51" r="1.4" fill="#C9E4F8"/>
+  <rect x="54.5" y="49" width="5.5" height="3" rx="1.5" fill="#19D65B"/>
 </svg>

@@ -92,8 +92,8 @@
   <meta name="theme-color" content="#1a365d">
 
   <!-- ============ Favicon ============ -->
-  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
-  <link rel="apple-touch-icon" href="assets/img/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="apple-touch-icon" href="/assets/img/favicon.svg">
 
   <!-- ============ Performance: preconnect ============ -->
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
@@ -116,7 +116,7 @@
   =========================================================== -->
 
   <!-- ============ Styles ============ -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
@@ -182,15 +182,18 @@
   </footer>
 
   <!-- ============================ SCRIPTS ============================ -->
-  <script src="js/i18n/i18n.js" defer></script>
-  <script src="js/nav.js" defer></script>
-  <script src="js/analytics.js" defer></script>
+  <script src="/js/i18n/i18n.js" defer></script>
+  <script src="/js/nav.js" defer></script>
+  <script src="/js/analytics.js" defer></script>
   <script>
 document.addEventListener('DOMContentLoaded', function () {
-window.i18n.init();
-    document.getElementById('lang-select').addEventListener('change', function (e) {
+  if (window.i18n) window.i18n.init();
+  var langSelect = document.getElementById('lang-select');
+  if (langSelect && window.i18n) {
+    langSelect.addEventListener('change', function (e) {
       window.i18n.switchLanguage(e.target.value);
     });
+  }
 });
 </script>
 

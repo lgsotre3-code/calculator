@@ -1,0 +1,51 @@
+{
+  "name": "MortgageCalc - Mortgage Calculator & Guides",
+  "short_name": "MortgageCalc",
+  "description": "Free mortgage calculators with amortization, extra payments, PMI and refinance analysis, plus practical home-buying guides.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#1a365d",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["finance", "utilities"],
+  "icons": [
+    {
+      "src": "/assets/img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/img/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/assets/img/screenshots/desktop-wide.png",
+      "sizes": "1280x850",
+      "type": "image/png",
+      "form_factor": "wide",
+      "description": "Mortgage calculator with payment breakdown on desktop"
+    },
+    {
+      "src": "/assets/img/screenshots/mobile-narrow.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "description": "Mortgage calculator on mobile"
+    }
+  ]
+}
