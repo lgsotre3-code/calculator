@@ -27,6 +27,13 @@
   const SUPPORTED = ['en', 'es', 'fr', 'pt', 'de'];
   const STORAGE_KEY = 'preferred_language';
 
+  // The only two blog posts stored as flat "<slug>.html" files instead of
+  // a "<slug>/index.html" directory. With Vercel's cleanUrls:true their
+  // canonical/served URL has NO ".html" and NO trailing slash (e.g.
+  // "/blog/best-mortgage-lenders"), unlike every other post — so they
+  // need to be special-cased rather than detected from the URL shape.
+  const FLAT_BLOG_SLUGS = ['best-mortgage-lenders', 'fha-vs-conventional-loans'];
+
   // Dictionaries live in the same folder as i18n.js. Resolve them relative to
   // this script's own URL so subpages (/blog/, /about/, /contact/, /404.html)
   // load them correctly regardless of the page depth.
@@ -238,13 +245,13 @@
     /**
      * Extracts the slug of a blog POST (not the /blog/ listing page,
      * which has no per-locale index.html) from a path, stripped of any
-     * existing locale prefix. Returns the slug string for a post, or
-     * null if this isn't a blog post page.
+     * existing locale prefix, trailing slash, and .html extension.
+     * Returns the bare slug, or null if this isn't a blog post page.
      */
     blogPostSlugFromPath(path) {
       const m = path.match(/^\/(?:en|es|fr|pt|de)?\/?blog\/(.+)$/);
       if (!m) return null;
-      const slug = m[1].replace(/\/$/, '');
+      const slug = m[1].replace(/\/$/, '').replace(/\.html$/, '');
       return slug === '' ? null : slug;
     }
 
@@ -258,9 +265,9 @@
         // Dedicated translated post folders exist per language; the root
         // (en) has no /en/blog/ folder, posts live directly at /blog/.
         const base = lang === 'en' ? '/blog/' : '/' + lang + '/blog/';
-        // Post directories always end in a trailing slash; the two legacy
-        // .html-suffixed posts keep their literal filename.
-        window.location.href = postSlug.endsWith('.html')
+        // Directory-based posts need a trailing slash; the two flat-file
+        // posts must NOT have one (cleanUrls serves them without it).
+        window.location.href = FLAT_BLOG_SLUGS.indexOf(postSlug) !== -1
           ? base + postSlug
           : base + postSlug + '/';
         return;
