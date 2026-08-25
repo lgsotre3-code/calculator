@@ -973,4 +973,21 @@ window.TRANSLATIONS.es = {
   "quarter_abbr": "trim",
   "year_abbr": "ano",
   "one_time_abbr": "único"
+,
+    "dec_faq4_q": "¿Las ausencias injustificadas reducen el 13° salario?",
+    "dec_faq4_a": "Cualquier mes con más de 15 ausencias injustificadas queda excluido del cálculo proporcional del 13° salario.",
+    "dec_faq5_q": "¿Los pasantes o contratistas tienen derecho al 13° salario?",
+    "dec_faq5_a": "No. Los pasantes y contratistas independientes no tienen derecho legal al 13° salario salvo acuerdo contractual.",
+    "pgbl_faq4_q": "¿Quién hace declaración simplificada debe elegir PGBL o VGBL?",
+    "pgbl_faq4_a": "Quienes usan la declaración simplificada deben elegir VGBL. PGBL solo ofrece beneficio fiscal en la declaración completa.",
+    "pgbl_faq5_q": "¿Cómo funciona la tabla regresiva de IR en el rescate de la pensión?",
+    "pgbl_faq5_a": "La tasa regresiva comienza en 35% (menos de 2 años) y baja 5% cada 2 años hasta llegar a 10% tras 10 años.",
+    "brutto_faq4_q": "¿Cuál es el mínimo exento de impuestos (Grundfreibetrag) en Alemania 2026?",
+    "brutto_faq4_a": "El Grundfreibetrag protege el mínimo de subsistencia libre de impuesto sobre la renta en Alemania.",
+    "brutto_faq5_q": "¿Tengo que pagar impuestos sobre el salario neto otra vez?",
+    "brutto_faq5_a": "No, el impuesto sobre la renta y las cotizaciones a la seguridad social ya han sido deducidos directamente por el empleador.",
+    "isa_faq4_q": "¿Qué pasa si aporto accidentalmente más de £20,000 en una ISA?",
+    "isa_faq4_a": "HMRC se comunicará al final del año fiscal para resolver excedentes. Las contribuciones excedentes no reciben beneficios fiscales.",
+    "isa_faq5_q": "¿Puedo transferir dinero de una GIA a una ISA?",
+    "isa_faq5_a": "Sí, mediante el proceso Bed and ISA. Vendes los activos en la GIA, transfieres el efectivo a la ISA y recompras las inversiones."
 };

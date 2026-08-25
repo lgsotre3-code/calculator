@@ -974,4 +974,21 @@ window.TRANSLATIONS.en = {
   "quarter_abbr": "qtr",
   "year_abbr": "yr",
   "one_time_abbr": "once"
+,
+    "dec_faq4_q": "Does unexcused absence reduce 13th salary?",
+    "dec_faq4_a": "Any month with more than 15 unexcused absences is excluded from the 1/12 proportional 13th salary calculation.",
+    "dec_faq5_q": "Are interns or contractors entitled to 13th salary?",
+    "dec_faq5_a": "No. Interns and independent contractors are not covered by labor laws for mandatory 13th salary unless specified in contract.",
+    "pgbl_faq4_q": "Should simplified tax filers choose PGBL or VGBL?",
+    "pgbl_faq4_a": "Taxpayers using the simplified tax return should choose VGBL. PGBL tax deduction only applies to complete tax returns.",
+    "pgbl_faq5_q": "How does the regressive tax table work in private pension redemption?",
+    "pgbl_faq5_a": "The regressive tax rate starts at 35% (under 2 years) and decreases by 5% every 2 years down to 10% after 10 years.",
+    "brutto_faq4_q": "What is the German tax-free basic allowance (Grundfreibetrag) in 2026?",
+    "brutto_faq4_a": "The Grundfreibetrag protects basic subsistence from income tax in Germany up to the annual allowance threshold.",
+    "brutto_faq5_q": "Do I have to pay tax on net salary again?",
+    "brutto_faq5_a": "No, income tax, solidarity surcharge, church tax, and social security contributions have already been deducted by the employer.",
+    "isa_faq4_q": "What happens if I accidentally pay more than £20,000 into an ISA?",
+    "isa_faq4_a": "HMRC will contact you at the end of the tax year to resolve overpayments. Excess contributions do not receive tax-free benefits.",
+    "isa_faq5_q": "Can I transfer money from a GIA to an ISA?",
+    "isa_faq5_a": "Yes, known as Bed and ISA. You sell investments held in a GIA, transfer cash into an ISA, and repurchase the investments."
 };

@@ -123,7 +123,19 @@
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
-  <!-- ============ Schema Markup: WebApplication + FAQPage ============ -->
+  <!-- ============ Schema Markup: WebApplication + FAQPage + Breadcrumbs ============ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mortgage-pro-calc.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Calculadoras", "item": "https://www.mortgage-pro-calc.com/calculators/" },
+      { "@type": "ListItem", "position": 3, "name": "PGBL vs VGBL", "item": "https://www.mortgage-pro-calc.com/pgbl-vs-vgbl/" }
+    ]
+  }
+  </script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -132,7 +144,7 @@
     "url": "https://www.mortgage-pro-calc.com/pgbl-vs-vgbl/",
     "applicationCategory": "FinanceApplication",
     "operatingSystem": "Web",
-    "inLanguage": ["en", "es", "fr", "pt", "de"],
+    "inLanguage": ["pt-BR", "pt", "en", "es", "fr", "de"],
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" },
     "description": "Calculadora gratuita que compara PGBL e VGBL: valor líquido na aposentadoria, dedução de IR dos aportes e imposto no resgate pela tabela regressiva."
   }
@@ -435,6 +447,14 @@
         <details class="faq-item">
           <summary data-i18n="pgbl_faq3_q">Como funciona a tabela regressiva de IR na previdência?</summary>
           <p data-i18n="pgbl_faq3_a">A tabela regressiva reduz a alíquota conforme o tempo de aplicação: 35% em até 2 anos, 30% de 2 a 4 anos, 25% de 4 a 6 anos, 20% de 6 a 8 anos, 15% de 8 a 10 anos e 10% acima de 10 anos. Ela vale tanto para o PGBL quanto para o VGBL. Por isso, quanto mais tempo o dinheiro permanece investido, menor é o imposto pago no resgate.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="pgbl_faq4_q">Quem faz declaração simplificada deve escolher PGBL ou VGBL?</summary>
+          <p data-i18n="pgbl_faq4_a">Quem opta pelo desconto simplificado do Imposto de Renda deve escolher o VGBL. O PGBL só oferece benefício fiscal para quem faz a declaração completa do IR.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="pgbl_faq5_q">Como funciona a tabela regressiva de IR no resgate da previdência?</summary>
+          <p data-i18n="pgbl_faq5_a">Na tabela regressiva, a alíquota de Imposto de Renda começa em 35% (resgates em até 2 anos) e reduz 5 pontos percentuais a cada 2 anos, atingindo a alíquota mínima de 10% após 10 anos de aporte.</p>
         </details>
       </div>
     </section>

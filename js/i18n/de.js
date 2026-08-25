@@ -973,4 +973,21 @@ window.TRANSLATIONS.de = {
   "quarter_abbr": "Qtr",
   "year_abbr": "Jr",
   "one_time_abbr": "einmalig"
+,
+    "dec_faq4_q": "Reduzieren unentschuldigte Fehltage das 13. Gehalt?",
+    "dec_faq4_a": "Jeder Monat mit mehr als 15 unentschuldigten Fehltagen wird bei der Berechnung des 13. Gehalts ausgeschlossen.",
+    "dec_faq5_q": "Haben Praktikanten oder Freiberufler Anspruch auf das 13. Gehalt?",
+    "dec_faq5_a": "Nein. Praktikanten und Freiberufler haben keinen gesetzlichen Anspruch auf ein 13. Gehalt.",
+    "pgbl_faq4_q": "Sollten vereinfachte Steuerzahler PGBL oder VGBL wählen?",
+    "pgbl_faq4_a": "Steuerzahler mit vereinfachter Steuererklärung sollten VGBL wählen. PGBL gilt nur für die vollständige Steuererklärung.",
+    "pgbl_faq5_q": "Wie funktioniert die degressive Steuertabelle bei der privaten Altersvorsorge?",
+    "pgbl_faq5_a": "Der degressive Steuersatz beginnt bei 35% (unter 2 Jahren) und sinkt alle 2 Jahre um 5% auf 10% nach 10 Jahren.",
+    "brutto_faq4_q": "Wie hoch ist der Grundfreibetrag 2026 in Deutschland?",
+    "brutto_faq4_a": "Der Grundfreibetrag schützt das Existenzminimum vor dem Steuerabzug. Bis zu dieser jährlichen Einkommensgrenze fällt keine Lohnsteuer an.",
+    "brutto_faq5_q": "Muss ich auf das Nettogehalt noch einmal Steuern zahlen?",
+    "brutto_faq5_a": "Nein, vom Nettogehalt wurden Lohnsteuer, Solidaritätszuschlag, Kirchensteuer und Sozialabgaben bereits durch den Arbeitgeber direkt abgezogen.",
+    "isa_faq4_q": "Was passiert, wenn ich versehentlich mehr als 20.000 £ auf ein ISA einzahle?",
+    "isa_faq4_a": "HMRC wird Sie am Ende des Steuerjahres kontaktieren. Überschüssige Einzahlungen sind nicht steuerfrei.",
+    "isa_faq5_q": "Kann ich Geld von einem GIA auf ein ISA übertragen?",
+    "isa_faq5_a": "Ja, bekannt als Bed and ISA. Sie verkaufen Anlagen im GIA, überweisen das Geld in ein ISA und kaufen die Anlagen erneut."
 };

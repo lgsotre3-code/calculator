@@ -973,4 +973,21 @@ window.TRANSLATIONS.pt = {
   "quarter_abbr": "tri",
   "year_abbr": "ano",
   "one_time_abbr": "único"
+,
+    "dec_faq4_q": "Quem faltou ao trabalho sem justificativa perde o décimo terceiro?",
+    "dec_faq4_a": "Cada mês em que o funcionário tiver mais de 15 dias de faltas não justificadas não entra no cálculo da fração (1/12) do 13º salário referente àquele mês.",
+    "dec_faq5_q": "Estagiário ou MEI tem direito ao 13º salário?",
+    "dec_faq5_a": "Não. Estagiários e prestadores de serviço MEI não são regidos pela CLT e não possuem direito legal ao pagamento do 13º salário, a menos que haja liberalidade contratual.",
+    "pgbl_faq4_q": "Quem faz declaração simplificada deve escolher PGBL ou VGBL?",
+    "pgbl_faq4_a": "Quem opta pelo desconto simplificado do Imposto de Renda deve escolher o VGBL. O PGBL só oferece benefício fiscal para quem faz a declaração completa do IR.",
+    "pgbl_faq5_q": "Como funciona a tabela regressiva de IR no resgate da previdência?",
+    "pgbl_faq5_a": "Na tabela regressiva, a alíquota de Imposto de Renda começa em 35% (resgates em até 2 anos) e reduz 5 pontos percentuais a cada 2 anos, atingindo a alíquota mínima de 10% após 10 anos de aporte.",
+    "brutto_faq4_q": "Qual é o valor do limite de isenção (Grundfreibetrag) 2026 na Alemanha?",
+    "brutto_faq4_a": "O Grundfreibetrag protege o mínimo de subsistência de impostos na Alemanha. Até esse valor anual de renda bruta, não incide imposto sobre o salário.",
+    "brutto_faq5_q": "Preciso pagar imposto novamente sobre o salário líquido?",
+    "brutto_faq5_a": "Não, do salário líquido já foram deduzidos todos os impostos de renda, contribuições de saúde e previdência diretamente pelo empregador.",
+    "isa_faq4_q": "O que acontece se eu aportar por engano mais de £20.000 no ISA no Reino Unido?",
+    "isa_faq4_a": "A HMRC entrará em contato ao final do ano fiscal. Não é possível obter isenção tributária sobre valores excedentes ao teto anual de £20.000.",
+    "isa_faq5_q": "Posso transferir investimentos de uma conta GIA para um ISA?",
+    "isa_faq5_a": "Sim, através do processo conhecido como 'Bed and ISA'. Você vende os ativos na GIA, transfere o caixa para o ISA e recompra os investimentos."
 };

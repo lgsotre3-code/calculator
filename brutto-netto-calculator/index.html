@@ -121,7 +121,19 @@
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
-  <!-- ============ Schema Markup: WebApplication + FAQPage ============ -->
+  <!-- ============ Schema Markup: WebApplication + FAQPage + Breadcrumbs ============ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mortgage-pro-calc.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Rechner", "item": "https://www.mortgage-pro-calc.com/calculators/" },
+      { "@type": "ListItem", "position": 3, "name": "Brutto-Netto-Rechner", "item": "https://www.mortgage-pro-calc.com/brutto-netto-calculator/" }
+    ]
+  }
+  </script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -130,7 +142,7 @@
     "url": "https://www.mortgage-pro-calc.com/brutto-netto-calculator/",
     "applicationCategory": "FinanceApplication",
     "operatingSystem": "Web",
-    "inLanguage": ["en", "es", "fr", "pt", "de"],
+    "inLanguage": ["de-DE", "de", "en", "es", "fr", "pt"],
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
     "description": "Kostenloser Brutto-Netto-Rechner für Deutschland: Nettogehalt aus Bruttogehalt berechnen mit Lohnsteuer, Solidaritätszuschlag, Kirchensteuer, KV-, RV-, AV- und PV-Beiträgen sowie allen Steuerklassen."
   }
@@ -456,6 +468,14 @@
         <details class="faq-item">
           <summary data-i18n="brutto_faq3_q">Wann fällt der Solidaritätszuschlag an?</summary>
           <p data-i18n="brutto_faq3_a">Der Solidaritätszuschlag beträgt 5,5 % der Lohnsteuer und wird nur erhoben, wenn die jährliche Lohnsteuer etwa 18.130 € übersteigt (bei Steuerklasse III ungefähr das Doppelte). Rund 90 % aller Arbeitnehmer zahlen daher keinen Soli mehr; oberhalb der Freigrenze greift zunächst eine Milderungszone, bevor der volle Satz erreicht wird.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="brutto_faq4_q">Wie hoch ist der Grundfreibetrag 2026 in Deutschland?</summary>
+          <p data-i18n="brutto_faq4_a">Der Grundfreibetrag schützt das Existenzminimum vor dem Steuerabzug. Bis zu dieser jährlichen Einkommensgrenze fällt keine Lohnsteuer an.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="brutto_faq5_q">Muss ich auf das Nettogehalt noch einmal Steuern zahlen?</summary>
+          <p data-i18n="brutto_faq5_a">Nein, vom Nettogehalt wurden Lohnsteuer, Solidaritätszuschlag, Kirchensteuer und Sozialabgaben bereits durch den Arbeitgeber direkt abgezogen.</p>
         </details>
       </div>
     </section>

@@ -121,7 +121,19 @@
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
-  <!-- ============ Schema Markup: WebApplication + FAQPage ============ -->
+  <!-- ============ Schema Markup: WebApplication + FAQPage + Breadcrumbs ============ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mortgage-pro-calc.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Calculadoras", "item": "https://www.mortgage-pro-calc.com/calculators/" },
+      { "@type": "ListItem", "position": 3, "name": "Décimo Terceiro", "item": "https://www.mortgage-pro-calc.com/decimo-terceiro/" }
+    ]
+  }
+  </script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -130,7 +142,7 @@
     "url": "https://www.mortgage-pro-calc.com/decimo-terceiro/",
     "applicationCategory": "FinanceApplication",
     "operatingSystem": "Web",
-    "inLanguage": ["pt", "en", "es", "fr", "de"],
+    "inLanguage": ["pt-BR", "pt", "en", "es", "fr", "de"],
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" },
     "description": "Calculadora gratuita de décimo terceiro salário: simule a 1ª e a 2ª parcela, os descontos de INSS e Imposto de Renda e o total líquido do 13º proporcional."
   }
@@ -153,7 +165,17 @@
       {
         "@type": "Question",
         "name": "Quais são os descontos no décimo terceiro?",
-        "acceptedAnswer": { "@type": "Answer", "text": "O INSS e o Imposto de Renda incidem apenas sobre a segunda parcela. O INSS segue a tabela progressiva (de 7,5% a 14%, com teto) e o IR usa a tabela mensal com dedução de R$ 189,59 por dependente. A primeira parcela costuma ser paga sem descontos." }
+        "acceptedAnswer": { "@type": "Answer", "text": "O INSS e o Imposto de Renda incidem apenas sobre a segunda parcela. O INSS segue a tabela progressiva (de 7,5% a 14%, com teto) e o IR usa a tabela mensal com dedução de R$ 189,59 por dependente. A primeira parcela costuma ser paga sem descontos." },
+      {
+        "@type": "Question",
+        "name": "Quem faltou ao trabalho sem justificativa perde o décimo terceiro?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Cada mês em que o funcionário tiver mais de 15 dias de faltas não justificadas não entra no cálculo da fração (1/12) do 13º salário referente àquele mês." }
+      },
+      {
+        "@type": "Question",
+        "name": "Estagiário ou MEI tem direito ao 13º salário?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Não. Estagiários e prestadores de serviço MEI não são regidos pela CLT e não possuem direito legal ao pagamento do 13º salário, a menos que haja liberalidade contratual." }
+      }
       }
     ]
   }
@@ -407,6 +429,14 @@
         <details class="faq-item">
           <summary data-i18n="dec_faq3_q">Quais são os descontos no décimo terceiro?</summary>
           <p data-i18n="dec_faq3_a">O INSS e o Imposto de Renda incidem apenas sobre a segunda parcela. O INSS segue a tabela progressiva (de 7,5% a 14%, com teto) e o IR usa a tabela mensal com dedução de R$ 189,59 por dependente. A primeira parcela costuma ser paga sem descontos.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="dec_faq4_q">Quem faltou ao trabalho sem justificativa perde o décimo terceiro?</summary>
+          <p data-i18n="dec_faq4_a">Cada mês em que o funcionário tiver mais de 15 dias de faltas não justificadas não entra no cálculo da fração (1/12) do 13º salário referente àquele mês.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="dec_faq5_q">Estagiário ou MEI tem direito ao 13º salário?</summary>
+          <p data-i18n="dec_faq5_a">Não. Estagiários e prestadores de serviço MEI não são regidos pela CLT e não possuem direito legal ao pagamento do 13º salário, a menos que haja liberalidade contratual.</p>
         </details>
       </div>
     </section>

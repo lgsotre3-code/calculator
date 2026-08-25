@@ -82,6 +82,17 @@
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mortgage-pro-calc.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://www.mortgage-pro-calc.com/calculators/" },
+      { "@type": "ListItem", "position": 3, "name": "ISA vs GIA", "item": "https://www.mortgage-pro-calc.com/isa-vs-gia/" }
+    ]
+  }
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -90,7 +101,7 @@
     "url": "https://www.mortgage-pro-calc.com/isa-vs-gia/",
     "applicationCategory": "FinanceApplication",
     "operatingSystem": "Web",
-    "inLanguage": ["en", "es", "fr", "pt", "de"],
+    "inLanguage": ["en-GB", "en", "es", "fr", "pt", "de"],
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
     "description": "Free ISA vs GIA calculator for UK investors. Compare tax-free ISA returns with a taxable General Investment Account."
   }
@@ -113,7 +124,17 @@
       {
         "@type": "Question",
         "name": "What is the ISA annual allowance?",
-        "acceptedAnswer": { "@type": "Answer", "text": "The ISA annual allowance is £20,000 per tax year (2024/25). You can split this across cash ISAs, stocks and shares ISAs, and innovative finance ISAs. Unused allowance does not roll over to the next year." }
+        "acceptedAnswer": { "@type": "Answer", "text": "The ISA annual allowance is £20,000 per tax year (2024/25). You can split this across cash ISAs, stocks and shares ISAs, and innovative finance ISAs. Unused allowance does not roll over to the next year." },
+      {
+        "@type": "Question",
+        "name": "What happens if I accidentally pay more than £20,000 into an ISA?",
+        "acceptedAnswer": { "@type": "Answer", "text": "HMRC will contact you at the end of the tax year to resolve overpayments. You cannot claim tax relief on excess contributions, but do not attempt to withdraw funds yourself without HMRC guidance." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I transfer money from a GIA to an ISA?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, known as Bed and ISA. You sell investments held in a GIA, transfer cash into an ISA, and repurchase the investments. Selling shares in a GIA may trigger Capital Gains Tax if gains exceed your annual allowance." }
+      }
       }
     ]
   }

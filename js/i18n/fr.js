@@ -973,4 +973,21 @@ window.TRANSLATIONS.fr = {
   "quarter_abbr": "trim",
   "year_abbr": "an",
   "one_time_abbr": "unique"
+,
+    "dec_faq4_q": "Les absences injustifiées réduisent-elles le 13ème mois?",
+    "dec_faq4_a": "Tout mois comportant plus de 15 absences injustifiées est exclu du calcul proportionnel du 13ème mois.",
+    "dec_faq5_q": "Les stagiaires ou indépendants ont-ils droit au 13ème mois?",
+    "dec_faq5_a": "Non. Les stagiaires et prestataires indépendants ne bénéficient pas légalement du 13ème mois obligatoire.",
+    "pgbl_faq4_q": "La déclaration simplifiée doit-elle choisir PGBL ou VGBL?",
+    "pgbl_faq4_a": "Les contribuables utilisant la déclaration simplifiée doivent choisir le VGBL. Le PGBL ne s'applique qu'à la déclaration complète.",
+    "pgbl_faq5_q": "Comment fonctionne le barème dégressif d'impôt dans la retraite privée?",
+    "pgbl_faq5_a": "Le taux dégressif commence à 35% (moins de 2 ans) et diminue de 5% tous les 2 ans jusqu'à 10% après 10 ans.",
+    "brutto_faq4_q": "Quel est l'abattement de base (Grundfreibetrag) 2026 en Allemagne?",
+    "brutto_faq4_a": "Le Grundfreibetrag protège le minimum de subsistance de l'impôt sur le revenu en Allemagne.",
+    "brutto_faq5_q": "Dois-je à nouveau payer des impôts sur le salaire net?",
+    "brutto_faq5_a": "Non, l'impôt sur le revenu et les cotisations sociales ont déjà été déduits directement par l'employeur.",
+    "isa_faq4_q": "Que se passe-t-il si je verse accidentellement plus de 20 000 £ sur un ISA?",
+    "isa_faq4_a": "HMRC vous contactera à la fin de l'année fiscale pour résoudre les trop-perçus. Les versements excédentaires ne sont pas exonérés.",
+    "isa_faq5_q": "Puis-je transférer de l'argent d'un GIA vers un ISA?",
+    "isa_faq5_a": "Oui, via la procédure Bed and ISA. Vous vendez les actifs du GIA, transférez les liquidités vers l'ISA et rachetez les titres."
 };
