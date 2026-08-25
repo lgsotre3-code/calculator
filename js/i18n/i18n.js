@@ -238,7 +238,7 @@
     hasLocaleFolder() {
       const path = window.location.pathname;
       return path === '/' || path === '/index.html' ||
-        /^\/(en|es|fr|pt|de)\/?$/.test(path) ||
+        /^\/(es|fr|pt|de)\/?$/.test(path) ||
         !!this.blogPostSlugFromPath(path);
     }
 
@@ -274,8 +274,9 @@
       }
 
       if (this.hasLocaleFolder()) {
-        // Navigate to the real locale folder (matches canonical/hreflang).
-        window.location.href = '/' + lang + '/';
+        // 'en' nao tem pasta propria - a raiz ja serve o conteudo em ingles.
+        // Seguindo o mesmo padrao do blog (lang === 'en' ? '/blog/' : '/'+lang+'/blog/').
+        window.location.href = lang === 'en' ? '/' : '/' + lang + '/';
         return;
       }
 

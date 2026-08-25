@@ -7,7 +7,7 @@
     <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.mortgage-pro-calc.com/es/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.mortgage-pro-calc.com/fr/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://www.mortgage-pro-calc.com/pt/"/>
@@ -28,11 +28,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/calculators/"/>
   </url>
 
-  <url>
-    <loc>https://www.mortgage-pro-calc.com/en/</loc>
-    <lastmod>2026-08-24</lastmod>
-    <priority>0.9</priority>
-  </url>
   <url>
     <loc>https://www.mortgage-pro-calc.com/es/</loc>
     <lastmod>2026-08-24</lastmod>
@@ -1066,5 +1061,23 @@
     <priority>0.3</priority>
   </url>
 
+
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/embed/</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/embed/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/embed/"/>
+  </url>
+
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/embed-this-calculator/</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/embed-this-calculator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/embed-this-calculator/"/>
+  </url>
 </urlset>
 

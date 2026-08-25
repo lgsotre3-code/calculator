@@ -1,4 +1,4 @@
-/**
+﻿/**
  * build-locales.mjs
  * -----------------
  * Generates static locale pages (/en/, /es/, /fr/, /pt/, /de/) from index.html.
@@ -18,12 +18,13 @@ import vm from 'vm';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const DOMAIN = 'https://www.mortgage-pro-calc.com';
-const ALL_LOCALES = ['en', 'es', 'fr', 'pt', 'de'];
+const ALL_LOCALES = ['en', 'es', 'fr', 'pt', 'de']; // used for hreflang tags only
+const LOCALES_WITH_FOLDER = ['es', 'fr', 'pt', 'de'];  // 'en' = raiz, sem pasta fisica
 
 // CLI filter
 const localeArg = process.argv.find(a => a.startsWith('--locale='))
   || (process.argv.includes('--locale') ? process.argv[process.argv.indexOf('--locale') + 1] : null);
-const LOCALES = localeArg ? [localeArg.replace('--locale=', '')] : ALL_LOCALES;
+const LOCALES = localeArg ? [localeArg.replace('--locale=', '')] : LOCALES_WITH_FOLDER;
 
 const LANG_MAP = { en: 'en-US', es: 'es', fr: 'fr', pt: 'pt-BR', de: 'de' };
 
@@ -158,8 +159,11 @@ for (const lang of LOCALES) {
   );
 
   // 12. hreflang block (replace entire block)
+  // 'en' usa a raiz do dominio (sem pasta /en/); demais locales usam /lang/
   const hreflangLines = ALL_LOCALES.map(l =>
-    `  <link rel="alternate" hreflang="${l}" href="${DOMAIN}/${l}/">`
+    l === 'en'
+      ? `  <link rel="alternate" hreflang="en" href="${DOMAIN}/">`
+      : `  <link rel="alternate" hreflang="${l}" href="${DOMAIN}/${l}/">`
   ).join('\n');
   html = html.replace(
     /<!-- ============ Multilingual SEO: hreflang ============[\s\S]*?hreflang="x-default" href="[^"]*">/,

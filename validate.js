@@ -104,7 +104,7 @@ function extractIds(file) {
 const rootIds = extractIds(path.join(__dirname, 'index.html'));
 const rootFormIds = ROOT_FORM_IDS.filter(id => rootIds.has(id));
 let localeOk = true;
-for (const lang of ['en','es','fr','pt','de']) {
+for (const lang of ['es','fr','pt','de']) {
   const localeIds = extractIds(path.join(__dirname, lang, 'index.html'));
   const missing = rootFormIds.filter(id => !localeIds.has(id));
   if (missing.length) {

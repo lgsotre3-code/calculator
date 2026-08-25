@@ -29,7 +29,7 @@ function extractIds(file) {
 const rootIds = extractIds(path.join(__dirname, '..', 'index.html'));
 const rootFormIds = ROOT_FORM_IDS.filter(id => rootIds.includes(id));
 
-const locales = ['en','es','fr','pt','de'];
+const locales = ['es','fr','pt','de']; // 'en' = raiz, nao tem pasta propria
 let allGood = true;
 
 console.log('=== Form ID Parity Check: Root vs Locale Folders ===\n');
