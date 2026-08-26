@@ -228,6 +228,8 @@
       const sel = document.getElementById('lang-select');
       if (sel && sel.value !== this.currentLang) sel.value = this.currentLang;
 
+      this.updateCanonical();
+
       // Recompute dynamic captions + refresh charts with the new labels.
       if (window.mortgageCalculator) {
         window.mortgageCalculator.calculate(false);
@@ -237,6 +239,39 @@
       document.dispatchEvent(new CustomEvent('i18n:updated', {
         detail: { lang: this.currentLang }
       }));
+    }
+
+    /**
+     * Keeps <link rel="canonical"> in sync with the active language on
+     * pages that use the ?lang=xx fallback (no dedicated locale folder —
+     * e.g. /calculators/). Those pages ship ONE static HTML file whose
+     * hreflang block advertises "?lang=es", "?lang=pt", etc. as the
+     * per-language URLs, but the canonical tag was hardcoded to the bare
+     * English URL. That mismatch told Google every non-English variant's
+     * "real" page was the English one, so only English ever got indexed.
+     * Self-referencing canonical per ?lang value fixes it: en (or no
+     * lang param) canonicalizes to the bare URL (matches x-default),
+     * every other language canonicalizes to its own "?lang=xx" URL
+     * (matches its own hreflang entry).
+     * Pages with a dedicated locale folder, a translated blog post, or a
+     * translated calculator page already ship a correct static canonical
+     * server-side and are skipped here.
+     */
+    updateCanonical() {
+      const path = window.location.pathname;
+      if (this.hasLocaleFolder() || this.blogPostSlugFromPath(path) || this.calculatorSlugFromPath(path)) {
+        return;
+      }
+      const link = document.querySelector('link[rel="canonical"]');
+      if (!link) return;
+
+      const url = new URL(window.location.href);
+      if (this.currentLang === 'en') {
+        url.searchParams.delete('lang');
+      } else {
+        url.searchParams.set('lang', this.currentLang);
+      }
+      link.setAttribute('href', url.origin + url.pathname + (url.search || ''));
     }
 
     /**
