@@ -122,7 +122,7 @@
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
-  <!-- ============ Schema Markup: ContactPage ============ -->
+  <!-- ============ Schema Markup: ContactPage + FAQ ============ -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -131,6 +131,54 @@
     "description": "Contact the MortgageCalc team with questions, feedback or suggestions.",
     "url": "https://www.mortgage-pro-calc.com/contact/",
     "inLanguage": ["en", "es", "fr", "pt", "de"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is this calculator free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Our mortgage calculator is completely free with no registration required. You can use it unlimited times, and all features including amortization schedules, extra payment calculations, and multi-currency support are included at no cost."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use the results for financial decisions?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our calculator provides estimates for educational and planning purposes only. For official quotes and binding financial decisions, always consult a licensed mortgage lender or financial advisor in your area."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How accurate are the calculations?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We use standard amortization formulas recognized by the financial industry. The accuracy depends on the inputs you provide. For the most accurate results, use your lender's exact interest rate, and include all applicable taxes and insurance costs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you store my financial data?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. All calculations run locally in your browser using JavaScript. No personal or financial data is sent to our servers. We use anonymous analytics (Google Analytics and Microsoft Clarity) to understand usage patterns, but these never include your calculator inputs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I embed the calculator on my website?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Visit our Embed This Calculator page for a copy-and-paste iframe snippet. No API key is required, and the embed is free for non-commercial use."
+        }
+      }
+    ]
   }
   </script>
 
@@ -339,8 +387,7 @@
       <nav class="footer-nav" aria-label="Footer navigation">
         <a href="/privacy.html" data-i18n="privacy">Privacy Policy</a>
         <a href="/terms.html" data-i18n="terms">Terms of Use</a>
-        <a href="/support/" style="font-weight:600;color:#fff" data-i18n="nav_support">Support</a>
-        <a href="/contact" data-i18n="nav_contact">Contact</a>
+<a href="/contact" data-i18n="nav_contact">Contact</a>
       </nav>
       <p class="footer-disclaimer" data-i18n="disclaimer">This calculator provides estimates for educational purposes only. Contact a licensed lender for an official quote.</p>
       <p class="footer-copy">© 2026 MortgageCalc. <span data-i18n="rights">All rights reserved.</span></p>
