@@ -17,6 +17,7 @@ window.TRANSLATIONS.fr = {
   "nav_about": "À propos",
   "nav_contact": "Contact",
   "nav_calculators": "Calculateurs",
+  "nav_support": "Soutien",
   "hub_title": "Tous les Calculateurs Hypothécaires",
   "hub_intro": "Des outils gratuits pour comprendre les vrais chiffres d'un achat immobilier : coût mensuel, financement vs. achat comptant, portabilité, rendement des rénovations, location vs. achat, refinancement, apport initial et combien de maison vous pouvez vous offrir.",
   "hub_home_desc": "Mensualité, tableau d'amortissement et détail du paiement avec impôts, assurances et paiements supplémentaires.",

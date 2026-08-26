@@ -17,6 +17,7 @@ window.TRANSLATIONS.de = {
   "nav_about": "Über uns",
   "nav_contact": "Kontakt",
   "nav_calculators": "Rechner",
+  "nav_support": "Support",
   "hub_title": "Alle Hypothekenrechner",
   "hub_intro": "Kostenlose Tools, um die echten Zahlen hinter einem Hauskauf zu verstehen: monatliche Kosten, Finanzierung vs. Barkauf, Umschuldung, Renovierungsrendite, Mieten vs. Kaufen, Refinanzierung, Anzahlung und wie viel Haus Sie sich leisten können.",
   "hub_home_desc": "Monatsrate, Tilgungsplan und Zahlungsaufschlüsselung mit Steuern, Versicherungen und Sonderzahlungen.",

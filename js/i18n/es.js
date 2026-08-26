@@ -17,6 +17,7 @@ window.TRANSLATIONS.es = {
   "nav_about": "Acerca de",
   "nav_contact": "Contacto",
   "nav_calculators": "Calculadoras",
+  "nav_support": "Soporte",
   "hub_title": "Todas las Calculadoras de Hipoteca",
   "hub_intro": "Herramientas gratuitas para entender los números reales de la compra de una vivienda: costo mensual, financiar vs. pagar al contado, portabilidad, retorno de reformas, alquilar vs. comprar, refinanciación, pago inicial y cuánta casa puedes pagar.",
   "hub_home_desc": "Pago mensual, tabla de amortización y desglose de pagos con impuestos, seguros y pagos adicionales.",

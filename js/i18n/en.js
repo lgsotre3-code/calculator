@@ -18,6 +18,7 @@ window.TRANSLATIONS.en = {
   "nav_about": "About",
   "nav_contact": "Contact",
   "nav_calculators": "Calculators",
+  "nav_support": "Support",
   "hub_title": "All Mortgage Calculators - Free Tools",
   "hub_intro": "Free tools to understand the real numbers behind a home purchase: monthly cost, financing vs. paying cash, switching lenders, renovation returns, rent vs. buy, refinancing, down payments and how much house you can afford.",
   "hub_home_desc": "Monthly payment, amortization schedule and payment breakdown with taxes, insurance and extra payments.",
