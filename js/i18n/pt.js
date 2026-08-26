@@ -766,6 +766,7 @@ window.TRANSLATIONS.pt = {
   "pts_faq3_a": "Nos Estados Unidos, os pontos de desconto são geralmente dedutíveis do imposto de renda no ano em que você fecha a hipoteca, como juros hipotecários pré-pagos. No entanto, as regras fiscais variam por país e situação. Consulte um profissional de impostos para aconselhamento específico ao seu caso.",
   "calc_nav_points": "Pontos de Desconto",
   "calc_nav_va": "Calculadora de Financiamento VA",
+  "calc_nav_fha": "FHA vs. Convencional",
   "va_description": "Calcule sua prestação de financiamento VA com impostos sobre o imóvel, seguro residencial e pagamentos extras. Tabela de amortização e gráficos gratuitos.",
 
   /* ---------- Hub: Country-specific calculators ---------- */

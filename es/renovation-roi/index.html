@@ -1,0 +1,484 @@
+<!DOCTYPE html><!-- 
+  Mortgage Calculator — Renovation ROI (renovation-roi/index.html)
+  Estimates the return on investment of a home renovation: new value,
+  profit/loss and ROI, plus typical cost recovery by renovation type.
+  CONFIGURED: domain, AdSense (ca-pub-2920008879492175), Adcash (zone 0c9gzdbpws).
+--><html lang="es" data-theme="light"><head>
+  <meta charset="UTF-8">
+  <!-- Google Consent Mode v2 (default consent: EEA/UK/CH denied, rest granted) -->
+  <script data-cookieconsent="ignore">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_personalization': 'denied',
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'analytics_storage': 'denied',
+      'functionality_storage': 'denied',
+      'personalization_storage': 'denied',
+      'security_storage': 'granted',
+      'region': [
+        'GB','AT','BE','BG','CH','CY','DE','DK','EE','ES','FI',
+        'FR','GG','GR','HR','HU','IE','IM','IT','JE','LT','LU',
+        'LV','MT','NL','PL','PT','RO','SE','SI','SK'
+      ],
+      'wait_for_update': 500
+    });
+    gtag('consent', 'default', {
+      'ad_personalization': 'granted',
+      'ad_storage': 'granted',
+      'ad_user_data': 'granted',
+      'analytics_storage': 'granted',
+      'functionality_storage': 'granted',
+      'personalization_storage': 'granted',
+      'security_storage': 'granted',
+      'wait_for_update': 500
+    });
+    gtag('set', 'ads_data_redaction', true);
+    gtag('set', 'url_passthrough', false);
+  </script>
+
+  <!-- Cookiebot CMP (Google-certified: Consent Mode v2 + Microsoft Clarity Consent Mode) -->
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="d817fd6b-d033-4ae1-8682-d2b44b49a66a" data-blockingmode="auto" async=""></script>
+    <!-- Smart Lazy Load Third-Party Scripts (AdSense, Analytics, Clarity) -->
+  <script>
+    (function() {
+      var loaded = false;
+      function loadThirdParty() {
+        if (loaded) return;
+        loaded = true;
+        // GA4
+        var ga = document.createElement('script');
+        ga.async = true;
+        ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-G5FRBTR588';
+        document.head.appendChild(ga);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-G5FRBTR588');
+
+        // Clarity
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "y3enp4munj");
+
+        // AdSense
+        var ads = document.createElement('script');
+        ads.async = true;
+        ads.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2920008879492175';
+        ads.crossOrigin = 'anonymous';
+        document.head.appendChild(ads);
+      }
+      ['touchstart', 'scroll', 'mousemove', 'keydown'].forEach(function(e) {
+        window.addEventListener(e, loadThirdParty, { once: true, passive: true });
+      });
+      setTimeout(loadThirdParty, 2000);
+    })();
+  </script>
+  <meta name="google-site-verification" content="_nxfYFglucpreV_H_ZjRTVWkzrrb9TsWJwPPVQiC8EM">
+  <meta name="impact-site-verification" value="f1f62669-d5c7-4d23-b5c1-75fc1a809c3f">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- ============ SEO: title & description ============ -->
+  <title data-i18n-title="reno_title">Calculadora de ROI de Renovación — ¿Cuánto Valor Aporta una Renovación? 2026</title>
+  <meta name="description" data-i18n-desc="reno_description" content="Estima el nuevo valor de tu vivienda después de una renovación y descubre si obtienes ganancia o pérdida. Calculadora gratuita con recuperación típica del costo por tipo de renovación.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#1a365d">
+  <link rel="canonical" href="https://www.mortgage-pro-calc.com/es/renovation-roi/">
+
+  <!-- ============ Open Graph / Twitter ============ -->
+  <meta property="og:title" content="Calculadora de ROI de Renovación — ¿Cuánto Valor Aporta una Renovación? 2026">
+  <meta property="og:description" content="Estima el nuevo valor de tu vivienda después de una renovación y descubre si obtienes ganancia o pérdida. Calculadora gratuita con recuperación típica del costo por tipo de renovación.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.mortgage-pro-calc.com/es/renovation-roi/">
+  <meta property="og:image" content="https://www.mortgage-pro-calc.com/assets/img/mortgage-calculator-og-image.jpg">
+  <meta property="og:site_name" content="Mortgage Calculator">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Calculadora de ROI de Renovación — ¿Cuánto Valor Aporta una Renovación? 2026">
+  <meta name="twitter:description" content="Estima el nuevo valor de tu vivienda después de una renovación y descubre si obtienes ganancia o pérdida. Calculadora gratuita con recuperación típica del costo por tipo de renovación.">
+  <meta name="twitter:image" content="https://www.mortgage-pro-calc.com/assets/img/mortgage-calculator-og-image.jpg">
+
+  <!-- ============ Multilingual SEO: hreflang ============ -->
+  
+  
+  
+  
+  
+  
+
+  <!-- ============ Favicon ============ -->
+  <link rel="icon" href="../../assets/img/favicon.svg">
+  <link rel="apple-touch-icon" href="../../assets/img/favicon.svg">
+
+  <!-- ============ Performance: preconnect ============ -->
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin="">
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="">
+
+  <!-- ============ Schema Markup: BlogPosting ============ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Calculadora de ROI de Renovación — ¿Cuánto Valor Aporta una Renovación? 2026",
+    "description": "Estima el nuevo valor de tu vivienda después de una renovación y descubre si obtienes ganancia o pérdida. Calculadora gratuita con recuperación típica del costo por tipo de renovación.",
+    "image": "https://www.mortgage-pro-calc.com/assets/img/mortgage-calculator-og-image.jpg",
+    "datePublished": "2026-08-17",
+    "dateModified": "2026-08-17",
+    "author": {
+      "@type": "Organization",
+      "name": "MortgageCalc",
+      "url": "https://www.mortgage-pro-calc.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "MortgageCalc",
+      "url": "https://www.mortgage-pro-calc.com"
+    },
+    "mainEntityOfPage": "https://www.mortgage-pro-calc.com/es/renovation-roi/"
+  }
+  </script>
+
+  <!-- ============ Schema Markup: FAQPage ============ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a good ROI for a home renovation?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A good ROI is generally 70% or higher — meaning you recover at least $0.70 of value for every $1 spent. Kitchens and bathrooms typically recover the most, while expensive, personalized upgrades usually recover the least." }
+      },
+      {
+        "@type": "Question",
+        "name": "Which renovations add the most value?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Kitchen and bathroom remodels consistently recover the highest share of cost at resale, followed by paint, flooring and exterior siding. Keeping finishes neutral and in line with the neighborhood maximizes recovery." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I calculate renovation ROI?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Subtract the renovation cost from the value increase it creates, then divide by the cost and multiply by 100. For example, a $20,000 renovation that adds $26,000 in value has an ROI of 30%." }
+      }
+    ]
+  }
+  </script>
+
+  <!-- ============ Google AdSense ============ -->
+  
+
+  <!-- ============ Adcash Library ============ -->
+  <!-- ============ Critical CSS (inline) ============ -->
+  <style>
+    :root{--navy:#1a365d;--navy-dark:#14294a;--blue:#2b6cb0;--blue-light:#4299e1;--bg:#f7fafc;--surface:#fff;--text:#2d3748;--text-muted:#5a6b7e;--border:#e2e8f0;--radius:12px;--max-width:1180px}
+    *,*::before,*::after{box-sizing:border-box}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:var(--text);background:var(--bg)}
+    .site-header{background:var(--navy);color:#fff;box-shadow:0 2px 12px rgba(26,54,93,.08)}
+    .header-inner{max-width:var(--max-width);margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .brand{font-size:1.15rem;font-weight:700;color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+    .container{max-width:var(--max-width);margin:0 auto;padding:24px 20px 48px;width:100%}
+    .page-title{color:var(--navy);margin:0 0 8px;line-height:1.25;font-size:clamp(1.6rem,3.5vw,2.4rem)}
+    .page-intro{color:var(--text-muted);max-width:760px;margin:0 0 28px}
+    .skip-link{position:absolute;left:-999px;top:8px;z-index:100;background:var(--navy);color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none}
+    .skip-link:focus{left:8px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 22px;border:none;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;text-decoration:none;min-height:44px}
+    .btn-primary{background:var(--blue);color:#fff}
+  </style>
+
+  <!-- ============ Styles (render-blocking keeps layout stable / CLS-safe) ============ -->
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/calculators.css">
+  <!-- Font Awesome Icons (theme toggle + UI icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/renovation-roi/">
+  <link rel="alternate" hreflang="es" href="https://www.mortgage-pro-calc.com/es/renovation-roi/">
+  <link rel="alternate" hreflang="fr" href="https://www.mortgage-pro-calc.com/fr/renovation-roi/">
+  <link rel="alternate" hreflang="pt" href="https://www.mortgage-pro-calc.com/pt/renovation-roi/">
+  <link rel="alternate" hreflang="de" href="https://www.mortgage-pro-calc.com/de/renovation-roi/">
+  <link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/renovation-roi/">
+</head>
+
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Saltar al contenido</a>
+
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="brand" aria-label="Mortgage Calculator home">
+        <span class="logo-mark" aria-hidden="true">MC</span>
+        <span data-i18n="brand_name">MortgageCalc</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="/" data-i18n="nav_home">Inicio</a></li>
+          <li><a href="/calculators/" class="active" data-i18n="nav_calculators">Calculadoras</a></li>
+          <li><a href="/blog" data-i18n="nav_blog">Blog</a></li>
+          <li><a href="/about" data-i18n="nav_about">Acerca de</a></li>
+          <li><a href="/contact" data-i18n="nav_contact">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="main-nav" data-label-open="Open menu" data-label-close="Close menu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="lang-switch">
+        <label for="lang-select" data-i18n="language_label">Idioma</label>
+        <select id="lang-select" aria-label="Language">
+          <option value="en" data-i18n-option="lang_en">English</option>
+          <option value="es" data-i18n-option="lang_es">Español</option>
+          <option value="fr" data-i18n-option="lang_fr">Français</option>
+          <option value="pt" data-i18n-option="lang_pt">Português</option>
+          <option value="de" data-i18n-option="lang_de">Deutsch</option>
+        </select>
+      </div>
+
+      <!-- Currency selector -->
+      <div class="lang-switch currency-switch">
+        <label for="currency-select" data-i18n="currency_label">Moneda</label>
+        <select id="currency-select" aria-label="Currency">
+          <option value="USD">$ USD</option>
+          <option value="EUR">€ EUR</option>
+          <option value="BRL">R$ BRL</option>
+          <option value="GBP">£ GBP</option>
+        </select>
+      </div>
+      <!-- Dark mode toggle -->
+      <button type="button" class="theme-toggle-btn" onclick="themeToggle()" aria-label="Toggle dark mode">
+        <i class="fas fa-sun" id="theme-toggle-icon"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============================ AD — TOP ============================ -->
+  <div id="ad-container-top" class="ad-container" aria-hidden="true"></div>
+
+  <!-- ============================ MAIN ============================ -->
+  <main id="main" class="container">
+
+    <h1 class="page-title" data-i18n="reno_title">Calculadora de ROI de Renovación — ¿Cuánto Valor Aporta una Renovación? 2026</h1>
+    <p class="page-intro" data-i18n="reno_subtitle">Estima el nuevo valor de tu vivienda después de una renovación, descubre si obtienes ganancia o pérdida y consulta la recuperación típica de valor por tipo de renovación.</p>
+
+    <!-- ============ CALCULATOR ============ -->
+    <div class="calculator">
+
+      <!-- ---------- FORM ---------- -->
+      <form class="calculator__panel" id="reno-form" aria-label="Renovation ROI inputs" onsubmit="return false">
+        <h2 class="calculator__title" data-i18n="reno_form_title">Entradas de Renovación</h2>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="reno-value" data-i18n="reno_input_value">Valor Actual de la Vivienda</label>
+          <div class="calculator__control-row">
+            <input type="range" id="reno-value-slider" class="calculator__slider" min="50000" max="2000000" step="1000" value="300000" aria-label="Current home value slider">
+            <input type="number" id="reno-value" class="calculator__input calculator__input--number" value="300000" min="50000" max="2000000" step="1000" inputmode="numeric">
+          </div>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="reno-cost" data-i18n="reno_input_cost">Costo de la Renovación</label>
+          <div class="calculator__control-row">
+            <input type="range" id="reno-cost-slider" class="calculator__slider" min="1000" max="200000" step="500" value="25000" aria-label="Renovation cost slider">
+            <input type="number" id="reno-cost" class="calculator__input calculator__input--number" value="25000" min="1000" max="500000" step="500" inputmode="numeric">
+          </div>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="reno-gain" data-i18n="reno_input_gain">Aumento Esperado del Valor (%)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="reno-gain-slider" class="calculator__slider" min="0" max="40" step="0.5" value="5" aria-label="Expected value increase slider">
+            <input type="number" id="reno-gain" class="calculator__input calculator__input--number" value="5" min="0" max="100" step="0.5" inputmode="decimal">
+          </div>
+          <p class="calculator__hint" data-i18n="reno_hint_gain">El porcentaje de aumento del valor de tu vivienda que se espera que aporte la renovación.</p>
+        </div>
+
+        <div class="calculator__actions">
+          <button type="button" id="reno-calculate" class="btn btn-primary" data-i18n="calculate">Calcular</button>
+          <button type="button" id="reno-reset" class="btn btn-secondary" data-i18n="reset">Restablecer</button>
+        </div>
+      </form>
+
+      <!-- ---------- RESULTS ---------- -->
+      <section class="calculator__panel" aria-label="Renovation ROI results">
+        <h2 class="calculator__results-title" data-i18n="reno_results_title">Resultados</h2>
+
+        <div class="calculator__verdict" id="reno-verdict" aria-live="polite"></div>
+
+        <div class="calculator__grid">
+          <div class="calculator__card calculator__card--main">
+            <span class="calculator__card-label" data-i18n="reno_out_new_value">Nuevo Valor Estimado de la Vivienda</span>
+            <span class="calculator__card-value" id="reno-out-new-value">$0.00</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="reno_out_increase">Aumento del Valor</span>
+            <span class="calculator__card-value" id="reno-out-increase">$0.00</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="reno_out_profit">Ganancia o Pérdida Después de Costos</span>
+            <span class="calculator__card-value" id="reno-out-profit">$0.00</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="reno_out_roi">Retorno de la Inversión (ROI)</span>
+            <span class="calculator__card-value" id="reno-out-roi">—</span>
+          </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="calculator__chart">
+          <h3 data-i18n="reno_chart_value_title">Valor Actual vs. Renovado</h3>
+          <div class="calculator__chart-canvas"><canvas id="reno-chart-value" role="img" aria-label="Bar chart comparing current and renovated home value"></canvas></div>
+        </div>
+        <div class="calculator__chart">
+          <h3 data-i18n="reno_chart_types_title">Recuperación Típica del Costo por Tipo de Renovación</h3>
+          <div class="calculator__chart-canvas"><canvas id="reno-chart-types" role="img" aria-label="Bar chart of typical value recovery by renovation type"></canvas></div>
+          <p class="calculator__chart-note" data-i18n="reno_chart_types_note">Proporción del costo de renovación que normalmente se recupera al revender, según informes del sector. Los resultados varían según el mercado.</p>
+        </div>
+
+        <!-- Compare Scenarios -->
+        <section class="scenario-section" aria-label="Compare scenarios">
+          <h3 class="scenario-section__title" data-i18n="scenario_title">Comparar Escenarios</h3>
+          <p class="scenario-section__hint" data-i18n="scenario_hint">Guarda diferentes combinaciones de entradas y compáralas lado a lado.</p>
+          <div class="scenario-actions">
+            <input type="text" id="reno-scenario-name" placeholder="Nombre del escenario" data-i18n-placeholder="scenario_name_ph" data-i18n-aria="scenario_name_ph" aria-label="Nombre del escenario">
+            <button type="button" id="reno-scenario-add" class="btn btn-secondary" data-i18n="scenario_add">Comparar Escenario</button>
+            <button type="button" id="reno-scenario-clear" class="btn btn-outline" data-i18n="scenario_clear">Borrar todo</button>
+          </div>
+          <div id="reno-scenario-table" class="table-scroll table-scroll--scenarios" tabindex="0" aria-label="Scenario comparison table"></div>
+        </section>
+
+        <!-- ============ AD — MIDDLE ============ -->
+        <div id="ad-container-middle" class="ad-container ad-container--tall" aria-hidden="true"></div>
+
+        <!-- Calculator hub -->
+        <nav class="calc-hub" aria-label="Other calculators">
+          <h3 class="calc-hub__title" data-i18n="calc_nav_title">Explora Más Calculadoras</h3>
+          <ul class="calc-hub__list">
+            <li class="calc-hub__item"><a href="/" data-i18n="calc_nav_home">Calculadora de Hipoteca</a></li>
+            <li class="calc-hub__item"><a href="/finance-vs-cash/" data-i18n="calc_nav_fvc">Financiar vs. Pagar en Efectivo</a></li>
+            <li class="calc-hub__item"><a href="/loan-portability/" data-i18n="calc_nav_port">Portabilidad de Préstamo</a></li>
+            <li class="calc-hub__item"><a href="/rent-vs-buy/" data-i18n="calc_nav_rvb">Alquilar vs. Comprar</a></li>
+          </ul>
+        </nav>
+      </section>
+    </div>
+
+    <!-- ============ SEO CONTENT ============ -->
+    <section class="seo-section">
+      <h2 data-i18n="reno_sec_1">¿Las Renovaciones del Hogar se Pagan Solas?</h2>
+      <p data-i18n="reno_p_1">La mayoría de las renovaciones recuperan solo parte de su costo al revender. Una reforma de cocina suele recuperar el 60%–80% de su costo, mientras que una reforma de baño recupera una proporción similar. El aumento de valor también depende del valor actual de tu vivienda, tu vecindario y cómo se compara el proyecto con el resto del mercado. Esta calculadora aplica tu porcentaje de apreciación esperado a tu valor actual y muestra la ganancia o pérdida resultante.</p>
+    </section>
+
+    <section class="seo-section">
+      <h2 data-i18n="reno_sec_2">Cómo Calcular el ROI de una Renovación</h2>
+      <p data-i18n="reno_p_2">Para hallar el ROI, resta el costo de la renovación del aumento de valor que genera, divide entre el costo y multiplica por 100. Por ejemplo, una renovación de $25,000 que aumenta el valor de la vivienda en $30,000 produce una ganancia de $5,000 y un ROI del 20%. Si el aumento es menor que el costo, el proyecto pierde dinero al revender, aunque mejore la vivienda para tu disfrute personal.</p>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="seo-section" id="reno-faq">
+      <h2 data-i18n="sec_faq">Preguntas Frecuentes sobre Calculadoras de Hipoteca</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary data-i18n="reno_faq1_q">¿Cuál es un buen ROI para una renovación del hogar?</summary>
+          <p data-i18n="reno_faq1_a">Un buen ROI suele ser del 70% o más, es decir, recuperas al menos $0.70 de valor por cada $1 gastado. Las cocinas y los baños suelen recuperar más, mientras que las mejoras caras y personalizadas suelen recuperar menos.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="reno_faq2_q">¿Qué renovaciones aportan más valor?</summary>
+          <p data-i18n="reno_faq2_a">Las reformas de cocina y baño recuperan sistemáticamente la mayor proporción del costo al revender, seguidas de pintura, pisos y revestimiento exterior. Mantener acabados neutros y acordes al vecindario maximiza la recuperación.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="reno_faq3_q">¿Cómo calculo el ROI de una renovación?</summary>
+          <p data-i18n="reno_faq3_a">Resta el costo de la renovación del aumento de valor que genera, divide entre el costo y multiplica por 100. Por ejemplo, una renovación de $20,000 que añade $26,000 de valor tiene un ROI del 30%.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ============ AD — FOOTER ============ -->
+    <div id="ad-container-footer" class="ad-container" aria-hidden="true"></div>
+
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="/privacy.html" data-i18n="privacy">Política de Privacidad</a>
+        <a href="/terms.html" data-i18n="terms">Términos de Uso</a>
+        <a href="/support/" style="font-weight:600;color:#fff">Support</a>
+        <a href="/contact" data-i18n="nav_contact">Contacto</a>
+      </nav>
+      <p class="footer-disclaimer" data-i18n="disclaimer">Esta calculadora ofrece estimaciones con fines educativos. Contacta con un prestamista autorizado para una cotización oficial.</p>
+      <p class="footer-copy">© 2026 MortgageCalc. <span data-i18n="rights">Todos los derechos reservados.</span></p>
+    </div>
+  </footer>
+
+  <!-- ============================ SCRIPTS ============================ -->
+  <script src="../../js/i18n/i18n.js" defer=""></script>
+  <script src="../../js/currencies.js" defer=""></script>
+  <script src="../../js/calc-core.js" defer=""></script>
+  <script src="../../js/nav.js" defer=""></script>
+  <script src="../../js/analytics.js" defer=""></script>
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
+(function () {
+      window.i18n.init();
+      var sel = document.getElementById('lang-select');
+      if (sel) sel.addEventListener('change', function (e) { window.i18n.switchLanguage(e.target.value); });
+      function loadCalc() {
+        // Carrega o modulo de calculo de forma INDEPENDENTE do Chart.js CDN:
+        // a calculadora funciona mesmo se o CDN estiver lento ou bloqueado
+        // (os graficos degradam graciosamente via CalcCore).
+        var s = document.createElement('script');
+        s.src = '../js/calc-reno.js';
+        s.onerror = function () { console.error('Falha ao carregar ../js/calc-reno.js'); };
+        document.body.appendChild(s);
+      }
+      if (window.CalcCore && window.CalcCore.whenVisible) {
+        window.CalcCore.whenVisible(document.querySelector('.calculator'), loadCalc);
+      } else {
+        loadCalc();
+      }
+    })();
+
+    // Chart.js (CDN) e lazy-loaded SEPARADAMENTE, apenas quando a area dos
+    // graficos se aproxima da viewport. A calculadora NUNCA depende dele.
+    (function () {
+      var src = 'https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js';
+      var target = document.querySelector('.calculator__chart');
+      function loadChartLib() {
+        if (window.__chartCdnLoading || window.Chart) return;
+        window.__chartCdnLoading = true;
+        var s = document.createElement('script');
+        s.src = src;
+        s.onload = function () {
+          var el = document.querySelector('.calculator') || document.querySelector('.calculator-wrapper');
+          var inp = el && el.querySelector('input, select');
+          if (inp) inp.dispatchEvent(new Event('input', { bubbles: true }));
+        };
+        s.onerror = function () { window.__chartCdnLoading = false; };
+        document.body.appendChild(s);
+      }
+      if (target && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { if (e.isIntersecting) { io.disconnect(); loadChartLib(); } });
+        }, { rootMargin: '400px' });
+        io.observe(target);
+      } else {
+        loadChartLib();
+      }
+    })();
+});
+</script>
+
+  <noscript>
+    <p style="text-align:center;padding:24px;">This calculator requires JavaScript. Please enable JavaScript to use the renovation ROI calculator.</p>
+  </noscript>
+
+  <!-- ============ Adcash Zone ============ -->
+  <script src="../../js/dark-mode.js" defer=""></script>
+
+
+</body></html>

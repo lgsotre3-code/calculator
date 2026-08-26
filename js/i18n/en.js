@@ -767,6 +767,7 @@ window.TRANSLATIONS.en = {
   "pts_faq3_a": "In the United States, discount points are generally tax deductible in the year you close on the mortgage, as prepaid home mortgage interest. However, tax rules vary by country and situation. Consult a tax professional for advice specific to your case.",
   "calc_nav_points": "Discount Points",
   "calc_nav_va": "VA Mortgage Calculator",
+  "calc_nav_fha": "FHA vs Conventional",
   "va_description": "Calculate your VA mortgage payment with property taxes, home insurance and extra payments. Free amortization schedule and graphs.",
 
   /* ---------- Hub: Country-specific calculators ---------- */

@@ -766,6 +766,7 @@ window.TRANSLATIONS.es = {
   "pts_faq3_a": "En los Estados Unidos, los puntos de descuento generalmente son deducibles de impuestos en el año que cierra la hipoteca, como intereses hipotecarios prepagados. Sin embargo, las reglas fiscales varían por país y situación. Consulte a un profesional de impuestos para asesoramiento específico a su caso.",
   "calc_nav_points": "Puntos de Descuento",
   "calc_nav_va": "Calculadora de Hipoteca VA",
+  "calc_nav_fha": "FHA vs. Convencional",
   "va_description": "Calcule su pago de hipoteca VA con impuestos sobre la propiedad, seguro del hogar y pagos extras. Calendario de amortización y gráficos gratuitos.",
 
   /* ---------- Hub: Country-specific calculators ---------- */

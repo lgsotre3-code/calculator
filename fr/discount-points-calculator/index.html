@@ -1,0 +1,507 @@
+<!DOCTYPE html><!--
+  Discount Points Calculator (discount-points-calculator/index.html)
+  Calculate whether buying mortgage discount points is worth it.
+  CONFIGURED: domain, AdSense (ca-pub-2920008879492175), GA4, Clarity.
+--><html lang="fr" data-theme="light"><head>
+  <meta charset="UTF-8">
+  <!-- Google Consent Mode v2 (default consent: EEA/UK/CH denied, rest granted) -->
+  <script data-cookieconsent="ignore">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_personalization': 'denied',
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'analytics_storage': 'denied',
+      'functionality_storage': 'denied',
+      'personalization_storage': 'denied',
+      'security_storage': 'granted',
+      'region': [
+        'GB','AT','BE','BG','CH','CY','DE','DK','EE','ES','FI',
+        'FR','GG','GR','HR','HU','IE','IM','IT','JE','LT','LU',
+        'LV','MT','NL','PL','PT','RO','SE','SI','SK'
+      ],
+      'wait_for_update': 500
+    });
+    gtag('consent', 'default', {
+      'ad_personalization': 'granted',
+      'ad_storage': 'granted',
+      'ad_user_data': 'granted',
+      'analytics_storage': 'granted',
+      'functionality_storage': 'granted',
+      'personalization_storage': 'granted',
+      'security_storage': 'granted',
+      'wait_for_update': 500
+    });
+    gtag('set', 'ads_data_redaction', true);
+    gtag('set', 'url_passthrough', false);
+  </script>
+
+  <!-- Cookiebot CMP -->
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="d817fd6b-d033-4ae1-8682-d2b44b49a66a" data-blockingmode="auto" async=""></script>
+  <!-- Smart Lazy Load Third-Party Scripts -->
+  <script>
+    (function() {
+      var loaded = false;
+      function loadThirdParty() {
+        if (loaded) return;
+        loaded = true;
+        var ga = document.createElement('script');
+        ga.async = true;
+        ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-G5FRBTR588';
+        document.head.appendChild(ga);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-G5FRBTR588');
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "y3enp4munj");
+        var ads = document.createElement('script');
+        ads.async = true;
+        ads.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2920008879492175';
+        ads.crossOrigin = 'anonymous';
+        document.head.appendChild(ads);
+      }
+      ['touchstart', 'scroll', 'mousemove', 'keydown'].forEach(function(e) {
+        window.addEventListener(e, loadThirdParty, { once: true, passive: true });
+      });
+      setTimeout(loadThirdParty, 2000);
+    })();
+  </script>
+  <meta name="google-site-verification" content="_nxfYFglucpreV_H_ZjRTVWkzrrb9TsWJwPPVQiC8EM">
+  <meta name="impact-site-verification" value="f1f62669-d5c7-4d23-b5c1-75fc1a809c3f">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- ============ SEO: title & description ============ -->
+  <title data-i18n-title="pts_title">Calculateur de Points de Réduction — Faut-il Acheter des Points Hypothécaires ?</title>
+  <meta name="description" data-i18n-desc="pts_description" content="Calculateur gratuit de points de réduction. Voyez en combien de mois les points hypothétaires rentabilisent. Comparez 0, 1, 2 et 3 points avec analyse du seuil de rentabilité.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#1a365d">
+  <link rel="canonical" href="https://www.mortgage-pro-calc.com/fr/discount-points-calculator/">
+
+  <!-- ============ Open Graph / Twitter ============ -->
+  <meta property="og:title" content="Calculateur de Points de Réduction — Faut-il Acheter des Points Hypothécaires ?">
+  <meta property="og:description" content="Calculateur gratuit de points de réduction. Voyez en combien de mois les points hypothétaires rentabilisent. Comparez 0, 1, 2 et 3 points avec analyse du seuil de rentabilité.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.mortgage-pro-calc.com/fr/discount-points-calculator/">
+  <meta property="og:image" content="https://www.mortgage-pro-calc.com/assets/img/mortgage-calculator-og-image.jpg">
+  <meta property="og:site_name" content="Mortgage Calculator">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Calculateur de Points de Réduction — Faut-il Acheter des Points Hypothécaires ?">
+  <meta name="twitter:description" content="Calculateur gratuit de points de réduction. Voyez en combien de mois les points hypothétaires rentabilisent. Comparez 0, 1, 2 et 3 points avec analyse du seuil de rentabilité.">
+  <meta name="twitter:image" content="https://www.mortgage-pro-calc.com/assets/img/mortgage-calculator-og-image.jpg">
+
+  <!-- ============ Multilingual SEO: hreflang ============ -->
+  
+  
+  
+  
+  
+  
+
+  <!-- ============ Favicon ============ -->
+  <link rel="icon" href="../../assets/img/favicon.svg">
+  <link rel="apple-touch-icon" href="../../assets/img/favicon.svg">
+
+  <!-- ============ Performance: preconnect ============ -->
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin="">
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="">
+
+  <!-- ============ Schema Markup: BlogPosting ============ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Calculateur de Points de Réduction — Faut-il Acheter des Points Hypothécaires ?",
+    "description": "Calculateur gratuit de points de réduction. Voyez en combien de mois les points hypothétaires rentabilisent. Comparez 0, 1, 2 et 3 points avec analyse du seuil de rentabilité.",
+    "image": "https://www.mortgage-pro-calc.com/assets/img/mortgage-calculator-og-image.jpg",
+    "datePublished": "2026-08-20",
+    "dateModified": "2026-08-20",
+    "author": {
+      "@type": "Organization",
+      "name": "MortgageCalc",
+      "url": "https://www.mortgage-pro-calc.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "MortgageCalc",
+      "url": "https://www.mortgage-pro-calc.com"
+    },
+    "mainEntityOfPage": "https://www.mortgage-pro-calc.com/fr/discount-points-calculator/"
+  }
+  </script>
+
+  <!-- ============ Schema Markup: FAQPage ============ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What are discount points on a mortgage?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Discount points are upfront fees paid to the lender at closing in exchange for a lower interest rate. Each point costs 1% of the loan amount and typically reduces the rate by about 0.25%. They are also called \"buying down the rate.\"" }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take for mortgage points to pay for themselves?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The breakeven period is the total cost of the points divided by the monthly savings they create. For example, if one point costs $3,000 and saves $50 per month, it takes 60 months (5 years) to break even. If you plan to stay in the home longer than the breakeven, points usually pay off." }
+      },
+      {
+        "@type": "Question",
+        "name": "Are mortgage points tax deductible?",
+        "acceptedAnswer": { "@type": "Answer", "text": "In the United States, discount points are generally tax deductible in the year you close on the mortgage, as prepaid home mortgage interest. However, tax rules vary by country and situation. Consult a tax professional for advice specific to your case." }
+      }
+    ]
+  }
+  </script>
+
+  <!-- ============ Critical CSS (inline) ============ -->
+  <style>
+    :root{--navy:#1a365d;--navy-dark:#14294a;--blue:#2b6cb0;--blue-light:#4299e1;--bg:#f7fafc;--surface:#fff;--text:#2d3748;--text-muted:#5a6b7e;--border:#e2e8f0;--radius:12px;--max-width:1180px}
+    *,*::before,*::after{box-sizing:border-box}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:var(--text);background:var(--bg)}
+    .site-header{background:var(--navy);color:#fff;box-shadow:0 2px 12px rgba(26,54,93,.08)}
+    .header-inner{max-width:var(--max-width);margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .brand{font-size:1.15rem;font-weight:700;color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+    .container{max-width:var(--max-width);margin:0 auto;padding:24px 20px 48px;width:100%}
+    .page-title{color:var(--navy);margin:0 0 8px;line-height:1.25;font-size:clamp(1.6rem,3.5vw,2.4rem)}
+    .page-intro{color:var(--text-muted);max-width:760px;margin:0 0 28px}
+    .skip-link{position:absolute;left:-999px;top:8px;z-index:100;background:var(--navy);color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none}
+    .skip-link:focus{left:8px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 22px;border:none;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;text-decoration:none;min-height:44px}
+    .btn-primary{background:var(--blue);color:#fff}
+  </style>
+
+  <!-- ============ Styles ============ -->
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/calculators.css">
+  <!-- Font Awesome Icons (theme toggle + UI icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/discount-points-calculator/">
+  <link rel="alternate" hreflang="es" href="https://www.mortgage-pro-calc.com/es/discount-points-calculator/">
+  <link rel="alternate" hreflang="fr" href="https://www.mortgage-pro-calc.com/fr/discount-points-calculator/">
+  <link rel="alternate" hreflang="pt" href="https://www.mortgage-pro-calc.com/pt/discount-points-calculator/">
+  <link rel="alternate" hreflang="de" href="https://www.mortgage-pro-calc.com/de/discount-points-calculator/">
+  <link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/discount-points-calculator/">
+</head>
+
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Aller au contenu</a>
+
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="brand" aria-label="Mortgage Calculator home">
+        <span class="logo-mark" aria-hidden="true">MC</span>
+        <span data-i18n="brand_name">MortgageCalc</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="/" data-i18n="nav_home">Accueil</a></li>
+          <li><a href="/calculators/" class="active" data-i18n="nav_calculators">Calculateurs</a></li>
+          <li><a href="/blog" data-i18n="nav_blog">Blog</a></li>
+          <li><a href="/about" data-i18n="nav_about">À propos</a></li>
+          <li><a href="/contact" data-i18n="nav_contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="main-nav" data-label-open="Open menu" data-label-close="Close menu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="lang-switch">
+        <label for="lang-select" data-i18n="language_label">Langue</label>
+        <select id="lang-select" aria-label="Language">
+          <option value="en" data-i18n-option="lang_en">English</option>
+          <option value="es" data-i18n-option="lang_es">Español</option>
+          <option value="fr" data-i18n-option="lang_fr">Français</option>
+          <option value="pt" data-i18n-option="lang_pt">Português</option>
+          <option value="de" data-i18n-option="lang_de">Deutsch</option>
+        </select>
+      </div>
+
+      <div class="lang-switch currency-switch">
+        <label for="currency-select" data-i18n="currency_label">Devise</label>
+        <select id="currency-select" aria-label="Currency">
+          <option value="USD">$ USD</option>
+          <option value="EUR">€ EUR</option>
+          <option value="BRL">R$ BRL</option>
+          <option value="GBP">£ GBP</option>
+        </select>
+      </div>
+      <!-- Dark mode toggle -->
+      <button type="button" class="theme-toggle-btn" onclick="themeToggle()" aria-label="Toggle dark mode">
+        <i class="fas fa-sun" id="theme-toggle-icon"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============================ AD — TOP ============================ -->
+  <div id="ad-container-top" class="ad-container" aria-hidden="true"></div>
+
+  <!-- ============================ MAIN ============================ -->
+  <main id="main" class="container">
+
+    <h1 class="page-title" data-i18n="pts_title">Calculateur de Points de Réduction — Faut-il Acheter des Points Hypothécaires ?</h1>
+    <p class="page-intro" data-i18n="pts_subtitle">Voyez en combien de mois les points de réduction hypothécaire se rentabilisent, et si réduire votre taux a du sens financier.</p>
+
+    <!-- ============ CALCULATOR ============ -->
+    <div class="calculator">
+
+      <!-- ---------- FORM ---------- -->
+      <form class="calculator__panel" id="pts-form" aria-label="Discount points inputs" onsubmit="return false">
+        <h2 class="calculator__title" data-i18n="pts_form_title">Détails du Prêt</h2>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="pts-loan" data-i18n="pts_input_loan">Montant du Prêt ($)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="pts-loan-slider" class="calculator__slider" min="10000" max="2000000" step="1000" value="300000" aria-label="Loan amount slider">
+            <input type="number" id="pts-loan" class="calculator__input calculator__input--number" value="300000" min="10000" max="2000000" step="1000" inputmode="numeric">
+          </div>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="pts-rate" data-i18n="pts_input_rate">Taux d'Intérêt de Base (%)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="pts-rate-slider" class="calculator__slider" min="1" max="15" step="0.01" value="6.5" aria-label="Base interest rate slider">
+            <input type="number" id="pts-rate" class="calculator__input calculator__input--number" value="6.5" min="1" max="15" step="0.01" inputmode="decimal">
+          </div>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="pts-term" data-i18n="pts_input_term">Durée du Prêt (années)</label>
+          <select id="pts-term" class="calculator__input">
+            <option value="10" data-i18n-option="years_10">10 ans</option>
+            <option value="15" data-i18n-option="years_15">15 ans</option>
+            <option value="20" data-i18n-option="years_20">20 ans</option>
+            <option value="25" data-i18n-option="years_25">25 ans</option>
+            <option value="30" selected="" data-i18n-option="years_30">30 ans</option>
+          </select>
+        </div>
+
+        <h2 class="calculator__title" data-i18n="pts_points_title">Paramètres des Points</h2>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="pts-count" data-i18n="pts_input_count">Nombre de Points</label>
+          <div class="calculator__control-row">
+            <input type="range" id="pts-count-slider" class="calculator__slider" min="0" max="4" step="0.25" value="1" aria-label="Number of points slider">
+            <input type="number" id="pts-count" class="calculator__input calculator__input--number" value="1" min="0" max="4" step="0.25" inputmode="decimal">
+          </div>
+          <p class="calculator__hint" data-i18n="pts_hint_count">Chaque point coûte 1 % du montant du prêt et réduit généralement le taux d'environ 0,25 %.</p>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="pts-reduction" data-i18n="pts_input_reduction">Réduction de Taux par Point (%)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="pts-reduction-slider" class="calculator__slider" min="0.1" max="0.5" step="0.01" value="0.25" aria-label="Rate reduction per point slider">
+            <input type="number" id="pts-reduction" class="calculator__input calculator__input--number" value="0.25" min="0.1" max="0.5" step="0.01" inputmode="decimal">
+          </div>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="pts-cost-pct" data-i18n="pts_input_cost_pct">Coût par Point (% du prêt)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="pts-cost-pct-slider" class="calculator__slider" min="0.5" max="2" step="0.1" value="1" aria-label="Cost per point slider">
+            <input type="number" id="pts-cost-pct" class="calculator__input calculator__input--number" value="1" min="0.5" max="2" step="0.1" inputmode="decimal">
+          </div>
+        </div>
+
+        <div class="calculator__actions">
+          <button type="button" id="pts-calculate" class="btn btn-primary" data-i18n="calculate">Calculer</button>
+          <button type="button" id="pts-reset" class="btn btn-secondary" data-i18n="reset">Réinitialiser</button>
+        </div>
+      </form>
+
+      <!-- ---------- RESULTS ---------- -->
+      <section class="calculator__panel" aria-label="Discount points results">
+        <h2 class="calculator__results-title" data-i18n="pts_results_title">Résultats</h2>
+
+        <div class="calculator__verdict" id="pts-verdict" aria-live="polite"></div>
+
+        <div class="calculator__grid">
+          <div class="calculator__card calculator__card--main">
+            <span class="calculator__card-label" data-i18n="pts_out_breakeven">Seuil de Rentabilité</span>
+            <span class="calculator__card-value" id="pts-out-breakeven">0 months</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="pts_out_cost">Coût Total des Points</span>
+            <span class="calculator__card-value" id="pts-out-cost">$0</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="pts_out_monthly_before">Paiement Mensuel (Sans Points)</span>
+            <span class="calculator__card-value" id="pts-out-before">$0.00</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="pts_out_monthly_after">Paiement Mensuel (Avec Points)</span>
+            <span class="calculator__card-value" id="pts-out-after">$0.00</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="pts_out_savings">Économie Mensuelle</span>
+            <span class="calculator__card-value" id="pts-out-savings">$0.00</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="pts_out_new_rate">Nouveau Taux (Avec Points)</span>
+            <span class="calculator__card-value" id="pts-out-new-rate">6.25%</span>
+          </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="calculator__chart">
+          <h3 data-i18n="pts_chart_savings_title">Économies Cumulées dans le Temps</h3>
+          <div class="calculator__chart-canvas"><canvas id="pts-chart-savings" role="img" aria-label="Line chart of cumulative savings from buying discount points over time"></canvas></div>
+        </div>
+        <div class="calculator__chart">
+          <h3 data-i18n="pts_chart_compare_title">Comparaison du Coût Total</h3>
+          <div class="calculator__chart-canvas"><canvas id="pts-chart-compare" role="img" aria-label="Bar chart comparing total interest paid with and without points"></canvas></div>
+        </div>
+
+        <!-- Compare Scenarios -->
+        <section class="scenario-section" aria-label="Compare scenarios">
+          <h3 class="scenario-section__title" data-i18n="scenario_title">Comparer les Scénarios</h3>
+          <p class="scenario-section__hint" data-i18n="scenario_hint">Enregistrez différentes combinaisons de saisies et visualisez-les côte à côte.</p>
+          <div class="scenario-actions">
+            <input type="text" id="pts-scenario-name" placeholder="Nom du scénario" data-i18n-placeholder="scenario_name_ph" data-i18n-aria="scenario_name_ph" aria-label="Nom du scénario">
+            <button type="button" id="pts-scenario-add" class="btn btn-secondary" data-i18n="scenario_add">Comparer le Scénario</button>
+            <button type="button" id="pts-scenario-clear" class="btn btn-outline" data-i18n="scenario_clear">Tout effacer</button>
+          </div>
+          <div id="pts-scenario-table" class="table-scroll table-scroll--scenarios" tabindex="0" aria-label="Scenario comparison table"></div>
+        </section>
+
+        <!-- ============ AD — MIDDLE ============ -->
+        <div id="ad-container-middle" class="ad-container ad-container--tall" aria-hidden="true"></div>
+
+        <!-- Calculator hub -->
+        <nav class="calc-hub" aria-label="Other calculators">
+          <h3 class="calc-hub__title" data-i18n="calc_nav_title">Explorez Plus de Calculatrices</h3>
+          <ul class="calc-hub__list">
+            <li class="calc-hub__item"><a href="/" data-i18n="calc_nav_home">Calculateur Hypothécaire</a></li>
+            <li class="calc-hub__item"><a href="/finance-vs-cash/" data-i18n="calc_nav_fvc">Financer vs. Payer Comptant</a></li>
+            <li class="calc-hub__item"><a href="/refinance-calculator/" data-i18n="calc_nav_refi">Calculateur de Refinancement</a></li>
+            <li class="calc-hub__item"><a href="/down-payment-calculator/" data-i18n="calc_nav_downpay">Calculateur d'Apport Initial</a></li>
+          </ul>
+        </nav>
+      </section>
+    </div>
+
+    <!-- ============ SEO CONTENT ============ -->
+    <section class="seo-section">
+      <h2 data-i18n="pts_sec_1">Que Sont les Points de Réduction Hypothécaires ?</h2>
+      <p data-i18n="pts_p_1">Les points de réduction sont des frais anticipés que vous payez au prêteur à la clôture en échange d'un taux d'intérêt plus bas. Chaque point coûte 1 % du montant du prêt et réduit généralement votre taux d'environ 0,25 %. La question clé est de savoir si les économies mensuelles du taux plus bas dépasseront le coût anticipé avant de vendre ou de refinancer.</p>
+    </section>
+
+    <section class="seo-section">
+      <h2 data-i18n="pts_sec_2">Comment Décider si les Points en Valent la Peine</h2>
+      <p data-i18n="pts_p_2">La décision dépend de la durée pendant laquelle vous prévoyez de conserver le prêt. Si votre seuil de rentabilité est de 60 mois (5 ans) et que vous prévoyez de rester dans la maison au moins 7 ans, les points se rentabilisent probablement. Si vous pourriez vendre ou refinancer plus tôt, le coût anticipé pourrait ne pas être récupéré. Ce calculateur vous montre le seuil de rentabilité exact pour que vous puissiez prendre une décision éclairée.</p>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="seo-section" id="pts-faq">
+      <h2 data-i18n="sec_faq">Questions Fréquentes sur les Calculateurs Hypothécaires</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary data-i18n="pts_faq1_q">Que sont les points de réduction sur une hypothèque ?</summary>
+          <p data-i18n="pts_faq1_a">Les points de réduction sont des frais anticipés payés au prêteur à la clôture en échange d'un taux d'intérêt plus bas. Chaque point coûte 1 % du montant du prêt et réduit généralement le taux d'environ 0,25 %. On les appelle aussi "acheter le taux."</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="pts_faq2_q">Combien de temps faut-il pour que les points hypothétaires se rentabilisent ?</summary>
+          <p data-i18n="pts_faq2_a">La période de seuil de rentabilité est le coût total des points divisé par les économies mensuelles qu'ils génèrent. Par exemple, si un point coûte 3 000 $ et économise 50 $ par mois, il faut 60 mois (5 ans) pour atteindre le seuil de rentabilité. Si vous prévoyez de rester dans la maison plus longtemps que le seuil de rentabilité, les points valent généralement la peine.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="pts_faq3_q">Les points hypothétaires sont-ils déductibles des impôts ?</summary>
+          <p data-i18n="pts_faq3_a">Aux États-Unis, les points de réduction sont généralement déductibles des impôts l'année où vous contractez l'hypothèque, en tant qu'intérêts hypothétaires prépayés. Cependant, les règles fiscales varient par pays et situation. Consultez un professionnel de la fiscalité pour des conseils spécifiques à votre cas.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ============ AD — FOOTER ============ -->
+    <div id="ad-container-footer" class="ad-container" aria-hidden="true"></div>
+
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="/privacy.html" data-i18n="privacy">Politique de confidentialité</a>
+        <a href="/terms.html" data-i18n="terms">Conditions d'utilisation</a>
+        <a href="/support/" style="font-weight:600;color:#fff">Support</a>
+        <a href="/contact" data-i18n="nav_contact">Contact</a>
+      </nav>
+      <p class="footer-disclaimer" data-i18n="disclaimer">Ce calculateur fournit des estimations à des fins éducatives uniquement. Contactez un prêteur agréé pour une offre officielle.</p>
+      <p class="footer-copy">© 2026 MortgageCalc. <span data-i18n="rights">Tous droits réservés.</span></p>
+    </div>
+  </footer>
+
+  <!-- ============================ SCRIPTS ============================ -->
+  <script src="../../js/i18n/i18n.js" defer=""></script>
+  <script src="../../js/currencies.js" defer=""></script>
+  <script src="../../js/calc-core.js" defer=""></script>
+  <script src="../../js/nav.js" defer=""></script>
+  <script src="../../js/analytics.js" defer=""></script>
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
+(function () {
+      window.i18n.init();
+      var sel = document.getElementById('lang-select');
+      if (sel) sel.addEventListener('change', function (e) { window.i18n.switchLanguage(e.target.value); });
+      function loadCalc() {
+        // Carrega o modulo de calculo de forma INDEPENDENTE do Chart.js CDN:
+        // a calculadora funciona mesmo se o CDN estiver lento ou bloqueado
+        // (os graficos degradam graciosamente via CalcCore).
+        var s = document.createElement('script');
+        s.src = '../js/calc-points.js';
+        s.onerror = function () { console.error('Falha ao carregar ../js/calc-points.js'); };
+        document.body.appendChild(s);
+      }
+      if (window.CalcCore && window.CalcCore.whenVisible) {
+        window.CalcCore.whenVisible(document.querySelector('.calculator'), loadCalc);
+      } else {
+        loadCalc();
+      }
+    })();
+
+    // Chart.js (CDN) e lazy-loaded SEPARADAMENTE, apenas quando a area dos
+    // graficos se aproxima da viewport. A calculadora NUNCA depende dele.
+    (function () {
+      var src = 'https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js';
+      var target = document.querySelector('.calculator__chart');
+      function loadChartLib() {
+        if (window.__chartCdnLoading || window.Chart) return;
+        window.__chartCdnLoading = true;
+        var s = document.createElement('script');
+        s.src = src;
+        s.onload = function () {
+          var el = document.querySelector('.calculator') || document.querySelector('.calculator-wrapper');
+          var inp = el && el.querySelector('input, select');
+          if (inp) inp.dispatchEvent(new Event('input', { bubbles: true }));
+        };
+        s.onerror = function () { window.__chartCdnLoading = false; };
+        document.body.appendChild(s);
+      }
+      if (target && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { if (e.isIntersecting) { io.disconnect(); loadChartLib(); } });
+        }, { rootMargin: '400px' });
+        io.observe(target);
+      } else {
+        loadChartLib();
+      }
+    })();
+});
+</script>
+
+  <noscript>
+    <p style="text-align:center;padding:24px;">This calculator requires JavaScript. Please enable JavaScript to use the discount points calculator.</p>
+  </noscript>
+  <script src="../../js/dark-mode.js" defer=""></script>
+
+
+</body></html>

@@ -766,6 +766,7 @@ window.TRANSLATIONS.de = {
   "pts_faq3_a": "In den Vereinigten Staaten sind Discount-Points in der Regel im Jahr des Hypothekenabschlags als vorausgezahlte Hypothekenzinsen steuerlich absetzbar. Steuervorschriften variieren jedoch nach Land und Situation. Konsultieren Sie einen Steuerberater für fallbezogene Beratung.",
   "calc_nav_points": "Discount Points",
   "calc_nav_va": "VA-Hypothekenrechner",
+  "calc_nav_fha": "FHA vs. Konventionell",
   "va_description": "Berechnen Sie Ihre VA-Hypothekenzahlung mit Grundsteuern, Wohngebäudeversicherung und zusätzlichen Zahlungen. Kostenloser Tilgungsplan und Grafiken.",
 
   /* ---------- Hub: Country-specific calculators ---------- */

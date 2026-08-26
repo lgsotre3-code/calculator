@@ -766,6 +766,7 @@ window.TRANSLATIONS.fr = {
   "pts_faq3_a": "Aux États-Unis, les points de réduction sont généralement déductibles des impôts l'année où vous contractez l'hypothèque, en tant qu'intérêts hypothétaires prépayés. Cependant, les règles fiscales varient par pays et situation. Consultez un professionnel de la fiscalité pour des conseils spécifiques à votre cas.",
   "calc_nav_points": "Points de Réduction",
   "calc_nav_va": "Calculateur Hypothécaire VA",
+  "calc_nav_fha": "FHA vs. Conventionnel",
   "va_description": "Calculez votre paiement hypothécaire VA avec taxes foncières, assurance habitation et paiements supplémentaires. Tableau d'amortissement et graphiques gratuits.",
 
   /* ---------- Hub: Country-specific calculators ---------- */

@@ -1,0 +1,597 @@
+<!DOCTYPE html><!--
+  Mortgage Calculator — Rent vs. Buy (rent-vs-buy/index.html)
+  Compares the net worth of renting vs. buying over a holding period,
+  including rent increases, property tax, maintenance, vacancy, home
+  appreciation and the opportunity cost of the down payment.
+  CONFIGURED: domain, AdSense (ca-pub-2920008879492175), Adcash (zone 0c9gzdbpws).
+--><html lang="fr" data-theme="light"><head>
+  <meta charset="UTF-8">
+  <!-- Google Consent Mode v2 (default consent: EEA/UK/CH denied, rest granted) -->
+  <script data-cookieconsent="ignore">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_personalization': 'denied',
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'analytics_storage': 'denied',
+      'functionality_storage': 'denied',
+      'personalization_storage': 'denied',
+      'security_storage': 'granted',
+      'region': [
+        'GB','AT','BE','BG','CH','CY','DE','DK','EE','ES','FI',
+        'FR','GG','GR','HR','HU','IE','IM','IT','JE','LT','LU',
+        'LV','MT','NL','PL','PT','RO','SE','SI','SK'
+      ],
+      'wait_for_update': 500
+    });
+    gtag('consent', 'default', {
+      'ad_personalization': 'granted',
+      'ad_storage': 'granted',
+      'ad_user_data': 'granted',
+      'analytics_storage': 'granted',
+      'functionality_storage': 'granted',
+      'personalization_storage': 'granted',
+      'security_storage': 'granted',
+      'wait_for_update': 500
+    });
+    gtag('set', 'ads_data_redaction', true);
+    gtag('set', 'url_passthrough', false);
+  </script>
+
+  <!-- Cookiebot CMP (Google-certified: Consent Mode v2 + Microsoft Clarity Consent Mode) -->
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="d817fd6b-d033-4ae1-8682-d2b44b49a66a" data-blockingmode="auto" async=""></script>
+    <!-- Smart Lazy Load Third-Party Scripts (AdSense, Analytics, Clarity) -->
+  <script>
+    (function() {
+      var loaded = false;
+      function loadThirdParty() {
+        if (loaded) return;
+        loaded = true;
+        // GA4
+        var ga = document.createElement('script');
+        ga.async = true;
+        ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-G5FRBTR588';
+        document.head.appendChild(ga);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-G5FRBTR588');
+
+        // Clarity
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "y3enp4munj");
+
+        // AdSense
+        var ads = document.createElement('script');
+        ads.async = true;
+        ads.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2920008879492175';
+        ads.crossOrigin = 'anonymous';
+        document.head.appendChild(ads);
+      }
+      ['touchstart', 'scroll', 'mousemove', 'keydown'].forEach(function(e) {
+        window.addEventListener(e, loadThirdParty, { once: true, passive: true });
+      });
+      setTimeout(loadThirdParty, 2000);
+    })();
+  </script>
+  <meta name="google-site-verification" content="_nxfYFglucpreV_H_ZjRTVWkzrrb9TsWJwPPVQiC8EM">
+  <meta name="impact-site-verification" value="f1f62669-d5c7-4d23-b5c1-75fc1a809c3f">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- ============ SEO: title & description ============ -->
+  <title data-i18n-title="rvb_title">Calculateur Louer vs. Acheter — Vaut-il Mieux Louer ou Acheter un Logement ? 2026</title>
+  <meta name="description" data-i18n-desc="rvb_description" content="Comparez la location et l'achat sur votre durée de séjour prévue. Calculatrice gratuite avec hausses de loyer, appréciation du logement, impôts fonciers, entretien et rendements d'investissement.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#1a365d">
+  <link rel="canonical" href="https://www.mortgage-pro-calc.com/fr/rent-vs-buy/">
+
+  <!-- ============ Open Graph / Twitter ============ -->
+  <meta property="og:title" content="Calculateur Louer vs. Acheter — Vaut-il Mieux Louer ou Acheter un Logement ? 2026">
+  <meta property="og:description" content="Comparez la location et l'achat sur votre durée de séjour prévue. Calculatrice gratuite avec hausses de loyer, appréciation du logement, impôts fonciers, entretien et rendements d'investissement.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.mortgage-pro-calc.com/fr/rent-vs-buy/">
+  <meta property="og:image" content="https://www.mortgage-pro-calc.com/assets/img/mortgage-calculator-og-image.jpg">
+  <meta property="og:site_name" content="Mortgage Calculator">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Calculateur Louer vs. Acheter — Vaut-il Mieux Louer ou Acheter un Logement ? 2026">
+  <meta name="twitter:description" content="Comparez la location et l'achat sur votre durée de séjour prévue. Calculatrice gratuite avec hausses de loyer, appréciation du logement, impôts fonciers, entretien et rendements d'investissement.">
+  <meta name="twitter:image" content="https://www.mortgage-pro-calc.com/assets/img/mortgage-calculator-og-image.jpg">
+
+  <!-- ============ Multilingual SEO: hreflang ============ -->
+  
+  
+  
+  
+  
+  
+
+  <!-- ============ Favicon ============ -->
+  <link rel="icon" href="../../assets/img/favicon.svg">
+  <link rel="apple-touch-icon" href="../../assets/img/favicon.svg">
+
+  <!-- ============ Performance: preconnect ============ -->
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin="">
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="">
+
+  <!-- ============ Schema Markup: BlogPosting ============ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Calculateur Louer vs. Acheter — Vaut-il Mieux Louer ou Acheter un Logement ? 2026",
+    "description": "Comparez la location et l'achat sur votre durée de séjour prévue. Calculatrice gratuite avec hausses de loyer, appréciation du logement, impôts fonciers, entretien et rendements d'investissement.",
+    "image": "https://www.mortgage-pro-calc.com/assets/img/mortgage-calculator-og-image.jpg",
+    "datePublished": "2026-08-17",
+    "dateModified": "2026-08-17",
+    "author": {
+      "@type": "Organization",
+      "name": "MortgageCalc",
+      "url": "https://www.mortgage-pro-calc.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "MortgageCalc",
+      "url": "https://www.mortgage-pro-calc.com"
+    },
+    "mainEntityOfPage": "https://www.mortgage-pro-calc.com/fr/rent-vs-buy/"
+  }
+  </script>
+
+  <!-- ============ Schema Markup: FAQPage ============ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is it better to rent or buy a home?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It depends on how long you stay, the price and rent in your market, the mortgage rate, and what your money could earn if invested. Buying usually wins for longer horizons because rents rise and you build equity; renting often wins for short stays or when the down payment could earn more than home appreciation." }
+      },
+      {
+        "@type": "Question",
+        "name": "How is the rent vs. buy decision calculated?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The calculator models net worth over your holding period. If you rent, the down payment plus any monthly cash-flow advantage is invested. If you buy, you build home equity while paying interest, property tax and maintenance. The option with the higher net worth at the end wins." }
+      },
+      {
+        "@type": "Question",
+        "name": "How many years should you stay in a home to make buying worth it?",
+        "acceptedAnswer": { "@type": "Answer", "text": "As a rule of thumb, buying usually beats renting after 4 to 7 years, because that is roughly how long it takes for equity and rent increases to offset closing costs. Run the calculator with your numbers to find your own break-even year." }
+      }
+    ]
+  }
+  </script>
+
+  <!-- ============ Google AdSense ============ -->
+  
+
+  <!-- ============ Adcash Library ============ -->
+  <!-- ============ Critical CSS (inline) ============ -->
+  <style>
+    :root{--navy:#1a365d;--navy-dark:#14294a;--blue:#2b6cb0;--blue-light:#4299e1;--bg:#f7fafc;--surface:#fff;--text:#2d3748;--text-muted:#5a6b7e;--border:#e2e8f0;--radius:12px;--max-width:1180px}
+    *,*::before,*::after{box-sizing:border-box}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:var(--text);background:var(--bg)}
+    .site-header{background:var(--navy);color:#fff;box-shadow:0 2px 12px rgba(26,54,93,.08)}
+    .header-inner{max-width:var(--max-width);margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .brand{font-size:1.15rem;font-weight:700;color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+    .container{max-width:var(--max-width);margin:0 auto;padding:24px 20px 48px;width:100%}
+    .page-title{color:var(--navy);margin:0 0 8px;line-height:1.25;font-size:clamp(1.6rem,3.5vw,2.4rem)}
+    .page-intro{color:var(--text-muted);max-width:760px;margin:0 0 28px}
+    .skip-link{position:absolute;left:-999px;top:8px;z-index:100;background:var(--navy);color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none}
+    .skip-link:focus{left:8px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 22px;border:none;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;text-decoration:none;min-height:44px}
+    .btn-primary{background:var(--blue);color:#fff}
+  </style>
+
+  <!-- ============ Styles (render-blocking keeps layout stable / CLS-safe) ============ -->
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/calculators.css">
+  <!-- Font Awesome Icons (theme toggle + UI icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/rent-vs-buy/">
+  <link rel="alternate" hreflang="es" href="https://www.mortgage-pro-calc.com/es/rent-vs-buy/">
+  <link rel="alternate" hreflang="fr" href="https://www.mortgage-pro-calc.com/fr/rent-vs-buy/">
+  <link rel="alternate" hreflang="pt" href="https://www.mortgage-pro-calc.com/pt/rent-vs-buy/">
+  <link rel="alternate" hreflang="de" href="https://www.mortgage-pro-calc.com/de/rent-vs-buy/">
+  <link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/rent-vs-buy/">
+</head>
+
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Aller au contenu</a>
+
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="brand" aria-label="Mortgage Calculator home">
+        <span class="logo-mark" aria-hidden="true">MC</span>
+        <span data-i18n="brand_name">MortgageCalc</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="/" data-i18n="nav_home">Accueil</a></li>
+          <li><a href="/calculators/" class="active" data-i18n="nav_calculators">Calculateurs</a></li>
+          <li><a href="/blog" data-i18n="nav_blog">Blog</a></li>
+          <li><a href="/about" data-i18n="nav_about">À propos</a></li>
+          <li><a href="/contact" data-i18n="nav_contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="main-nav" data-label-open="Open menu" data-label-close="Close menu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="lang-switch">
+        <label for="lang-select" data-i18n="language_label">Langue</label>
+        <select id="lang-select" aria-label="Language">
+          <option value="en" data-i18n-option="lang_en">English</option>
+          <option value="es" data-i18n-option="lang_es">Español</option>
+          <option value="fr" data-i18n-option="lang_fr">Français</option>
+          <option value="pt" data-i18n-option="lang_pt">Português</option>
+          <option value="de" data-i18n-option="lang_de">Deutsch</option>
+        </select>
+      </div>
+
+      <!-- Currency selector -->
+      <div class="lang-switch currency-switch">
+        <label for="currency-select" data-i18n="currency_label">Devise</label>
+        <select id="currency-select" aria-label="Currency">
+          <option value="USD">$ USD</option>
+          <option value="EUR">€ EUR</option>
+          <option value="BRL">R$ BRL</option>
+          <option value="GBP">£ GBP</option>
+        </select>
+      </div>
+      <!-- Dark mode toggle -->
+      <button type="button" class="theme-toggle-btn" onclick="themeToggle()" aria-label="Toggle dark mode">
+        <i class="fas fa-sun" id="theme-toggle-icon"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============================ AD — TOP ============================ -->
+  <div id="ad-container-top" class="ad-container" aria-hidden="true"></div>
+
+  <!-- ============================ MAIN ============================ -->
+  <main id="main" class="container">
+
+    <h1 class="page-title" data-i18n="rvb_title">Calculateur Louer vs. Acheter — Vaut-il Mieux Louer ou Acheter un Logement ? 2026</h1>
+    <p class="page-intro" data-i18n="rvb_subtitle">Modélisez le tableau complet sur votre durée de séjour : loyers qui augmentent chaque année, impôts fonciers, entretien, vacance locative, appréciation du logement et ce que votre acompte pourrait rapporter s'il était investi.</p>
+
+    <!-- ============ CALCULATOR ============ -->
+    <div class="calculator">
+
+      <!-- ---------- FORM ---------- -->
+      <form class="calculator__panel" id="rvb-form" aria-label="Rent vs buy inputs" onsubmit="return false">
+        <h2 class="calculator__title" data-i18n="rvb_form_title">Saisies Louer vs. Acheter</h2>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="rvb-country" data-i18n="rvb_input_country">Pays / Région</label>
+          <select id="rvb-country" class="calculator__input">
+            <option value="custom" data-i18n-option="rvb_country_custom">Personnalisé / Générique</option>
+            <option value="US" data-i18n-option="rvb_country_US">États-Unis</option>
+            <option value="BR" data-i18n-option="rvb_country_BR">Brésil</option>
+            <option value="PT" data-i18n-option="rvb_country_PT">Portugal</option>
+            <option value="ES" data-i18n-option="rvb_country_ES">Espagne</option>
+            <option value="FR" data-i18n-option="rvb_country_FR">France</option>
+            <option value="DE" data-i18n-option="rvb_country_DE">Allemagne</option>
+            <option value="GB" data-i18n-option="rvb_country_GB">Royaume-Uni</option>
+          </select>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="rvb-price" data-i18n="rvb_input_price">Prix du Logement</label>
+          <div class="calculator__control-row">
+            <input type="range" id="rvb-price-slider" class="calculator__slider" min="50000" max="2000000" step="1000" value="350000" aria-label="Home price slider">
+            <input type="number" id="rvb-price" class="calculator__input calculator__input--number" value="350000" min="50000" max="2000000" step="1000" inputmode="numeric">
+          </div>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="rvb-down" data-i18n="rvb_input_down">Acompte (%)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="rvb-down-slider" class="calculator__slider" min="0" max="50" step="1" value="20" aria-label="Down payment percentage slider">
+            <input type="number" id="rvb-down" class="calculator__input calculator__input--number" value="20" min="0" max="50" step="1" inputmode="numeric">
+          </div>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="rvb-rate" data-i18n="rvb_input_rate">Taux d'Intérêt (%)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="rvb-rate-slider" class="calculator__slider" min="1" max="15" step="0.01" value="6.5" aria-label="Mortgage rate slider">
+            <input type="number" id="rvb-rate" class="calculator__input calculator__input--number" value="6.5" min="1" max="15" step="0.01" inputmode="decimal">
+          </div>
+          <p id="current-rate-note" class="helper" aria-live="polite" hidden=""></p>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="rvb-term" data-i18n="rvb_input_term">Durée du Prêt (années)</label>
+          <select id="rvb-term" class="calculator__input">
+            <option value="15" data-i18n-option="years_15">15 ans</option>
+            <option value="20" data-i18n-option="years_20">20 ans</option>
+            <option value="25" data-i18n-option="years_25">25 ans</option>
+            <option value="30" selected="" data-i18n-option="years_30">30 ans</option>
+          </select>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="rvb-rent" data-i18n="rvb_input_rent">Loyer Mensuel</label>
+          <div class="calculator__control-row">
+            <input type="range" id="rvb-rent-slider" class="calculator__slider" min="200" max="10000" step="50" value="1800" aria-label="Monthly rent slider">
+            <input type="number" id="rvb-rent" class="calculator__input calculator__input--number" value="1800" min="200" max="10000" step="50" inputmode="numeric">
+          </div>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="rvb-rent-increase" data-i18n="rvb_input_rent_increase">Augmentation Annuelle du Loyer (%)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="rvb-rent-increase-slider" class="calculator__slider" min="0" max="15" step="0.1" value="4" aria-label="Annual rent increase slider">
+            <input type="number" id="rvb-rent-increase" class="calculator__input calculator__input--number" value="4" min="0" max="15" step="0.1" inputmode="decimal">
+          </div>
+          <p class="calculator__hint" data-i18n="rvb_hint_rent_increase">Ajustement annuel du loyer — par ex. lié à un indice d'inflation comme l'IGP-M ou l'IPC.</p>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="rvb-appreciation" data-i18n="rvb_input_appreciation">Appréciation Annuelle du Logement (%)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="rvb-appreciation-slider" class="calculator__slider" min="0" max="15" step="0.1" value="3" aria-label="Annual home appreciation slider">
+            <input type="number" id="rvb-appreciation" class="calculator__input calculator__input--number" value="3" min="0" max="15" step="0.1" inputmode="decimal">
+          </div>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="rvb-selling-costs" data-i18n="rvb_input_selling_costs">Frais de Vente à la Revente (%)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="rvb-selling-costs-slider" class="calculator__slider" min="0" max="12" step="0.5" value="7" aria-label="Selling costs slider">
+            <input type="number" id="rvb-selling-costs" class="calculator__input calculator__input--number" value="7" min="0" max="12" step="0.5" inputmode="decimal">
+          </div>
+          <p class="calculator__hint" data-i18n="rvb_hint_selling_costs">Commission de l'agent immobilier plus frais de clôture, généralement 6 à 8% du prix de vente aux États-Unis. Déduit du capital de l'acheteur pour refléter ce que vous obtiendriez réellement.</p>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="rvb-tax" data-i18n="rvb_input_tax">Impôt Foncier (% de la valeur par an)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="rvb-tax-slider" class="calculator__slider" min="0" max="5" step="0.1" value="1.2" aria-label="Property tax slider">
+            <input type="number" id="rvb-tax" class="calculator__input calculator__input--number" value="1.2" min="0" max="5" step="0.1" inputmode="decimal">
+          </div>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="rvb-maintenance" data-i18n="rvb_input_maintenance">Entretien (% de la valeur par an)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="rvb-maintenance-slider" class="calculator__slider" min="0" max="5" step="0.1" value="1" aria-label="Maintenance slider">
+            <input type="number" id="rvb-maintenance" class="calculator__input calculator__input--number" value="1" min="0" max="5" step="0.1" inputmode="decimal">
+          </div>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="rvb-vacancy" data-i18n="rvb_input_vacancy">Vacance / Intervalle Locatif (%)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="rvb-vacancy-slider" class="calculator__slider" min="0" max="20" step="0.5" value="5" aria-label="Vacancy rate slider">
+            <input type="number" id="rvb-vacancy" class="calculator__input calculator__input--number" value="5" min="0" max="20" step="0.5" inputmode="decimal">
+          </div>
+          <p class="calculator__hint" data-i18n="rvb_hint_vacancy">Part moyenne de l'année où le logement reste vide entre deux baux — cela réduit le loyer effectif que vous payez.</p>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="rvb-return" data-i18n="rvb_input_return">Rendement d'Investissement (%)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="rvb-return-slider" class="calculator__slider" min="0" max="15" step="0.1" value="7" aria-label="Investment return slider">
+            <input type="number" id="rvb-return" class="calculator__input calculator__input--number" value="7" min="0" max="15" step="0.1" inputmode="decimal">
+          </div>
+          <p class="calculator__hint" data-i18n="rvb_hint_return">Ce que l'acompte (et tout avantage mensuel) pourrait rapporter s'il était investi.</p>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="rvb-horizon" data-i18n="rvb_input_horizon">Durée de Détention (années)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="rvb-horizon-slider" class="calculator__slider" min="1" max="40" step="1" value="10" aria-label="Holding period slider">
+            <input type="number" id="rvb-horizon" class="calculator__input calculator__input--number" value="10" min="1" max="40" step="1" inputmode="numeric">
+          </div>
+        </div>
+
+        <div class="calculator__actions">
+          <button type="button" id="rvb-calculate" class="btn btn-primary" data-i18n="calculate">Calculer</button>
+          <button type="button" id="rvb-reset" class="btn btn-secondary" data-i18n="reset">Réinitialiser</button>
+        </div>
+      </form>
+
+      <!-- ---------- RESULTS ---------- -->
+      <section class="calculator__panel" aria-label="Rent vs buy results">
+        <h2 class="calculator__results-title" data-i18n="rvb_results_title">Résultats</h2>
+
+        <div class="calculator__verdict" id="rvb-verdict" aria-live="polite"></div>
+
+        <div class="calculator__grid">
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="rvb_out_buy_monthly">Coût Mensuel — Acheter</span>
+            <span class="calculator__card-value" id="rvb-out-buy-monthly">$0.00</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="rvb_out_rent_monthly">Coût Mensuel — Louer</span>
+            <span class="calculator__card-value" id="rvb-out-rent-monthly">$0.00</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="rvb_out_cashflow">Différence de Flux de Trésorerie Mensuel</span>
+            <span class="calculator__card-value" id="rvb-out-cashflow">$0.00</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="rvb_out_buy_nw">Patrimoine Net si vous Achetez</span>
+            <span class="calculator__card-value" id="rvb-out-buy-nw">$0.00</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="rvb_out_rent_nw">Patrimoine Net si vous Louez</span>
+            <span class="calculator__card-value" id="rvb-out-rent-nw">$0.00</span>
+          </div>
+          <div class="calculator__card calculator__card--main">
+            <span class="calculator__card-label" id="rvb-out-better-label" data-i18n="rvb_out_better">Meilleure Option Après {years} Ans</span>
+            <span class="calculator__card-value" id="rvb-out-better">—</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="rvb_out_break_even">Année d'Équilibre (acheter devient meilleur)</span>
+            <span class="calculator__card-value" id="rvb-out-break-even">—</span>
+          </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="calculator__chart">
+          <h3 data-i18n="rvb_chart_nw_title">Patrimoine Net dans le Temps : Louer vs. Acheter</h3>
+          <div class="calculator__chart-canvas"><canvas id="rvb-chart-nw" role="img" aria-label="Line chart of net worth over time comparing renting and buying"></canvas></div>
+        </div>
+        <div class="calculator__chart">
+          <h3 data-i18n="rvb_chart_cost_title">Coût Mensuel la Première Année</h3>
+          <div class="calculator__chart-canvas"><canvas id="rvb-chart-cost" role="img" aria-label="Bar chart comparing first-year monthly cost of renting and buying"></canvas></div>
+        </div>
+
+        <!-- Compare Scenarios -->
+        <section class="scenario-section" aria-label="Compare scenarios">
+          <h3 class="scenario-section__title" data-i18n="scenario_title">Comparer les Scénarios</h3>
+          <p class="scenario-section__hint" data-i18n="scenario_hint">Enregistrez différentes combinaisons de saisies et visualisez-les côte à côte.</p>
+          <div class="scenario-actions">
+            <input type="text" id="rvb-scenario-name" placeholder="Nom du scénario" data-i18n-placeholder="scenario_name_ph" data-i18n-aria="scenario_name_ph" aria-label="Nom du scénario">
+            <button type="button" id="rvb-scenario-add" class="btn btn-secondary" data-i18n="scenario_add">Comparer le Scénario</button>
+            <button type="button" id="rvb-scenario-clear" class="btn btn-outline" data-i18n="scenario_clear">Tout effacer</button>
+          </div>
+          <div id="rvb-scenario-table" class="table-scroll table-scroll--scenarios" tabindex="0" aria-label="Scenario comparison table"></div>
+        </section>
+
+        <!-- ============ AD — MIDDLE ============ -->
+        <div id="ad-container-middle" class="ad-container ad-container--tall" aria-hidden="true"></div>
+
+        <!-- Calculator hub -->
+        <nav class="calc-hub" aria-label="Other calculators">
+          <h3 class="calc-hub__title" data-i18n="calc_nav_title">Explorez Plus de Calculatrices</h3>
+          <ul class="calc-hub__list">
+            <li class="calc-hub__item"><a href="/" data-i18n="calc_nav_home">Calculateur Hypothécaire</a></li>
+            <li class="calc-hub__item"><a href="/finance-vs-cash/" data-i18n="calc_nav_fvc">Financer vs. Payer Comptant</a></li>
+            <li class="calc-hub__item"><a href="/loan-portability/" data-i18n="calc_nav_port">Portabilité de Prêt</a></li>
+            <li class="calc-hub__item"><a href="/renovation-roi/" data-i18n="calc_nav_reno">ROI de Rénovation</a></li>
+          </ul>
+        </nav>
+      </section>
+    </div>
+
+    <!-- ============ SEO CONTENT ============ -->
+    <section class="seo-section">
+      <h2 data-i18n="rvb_sec_1">Louer vs. Acheter : Ce qui Compte Vraiment</h2>
+      <p data-i18n="rvb_p_1">Acheter constitue du patrimoine et vous protège des hausses de loyer, mais cela implique des intérêts, des impôts fonciers, de l'entretien et un acompte important qui cesse de rapporter. Louer est moins cher au départ et maintient votre capital investi, mais votre loyer augmente chaque année et ne constitue aucun patrimoine. Le gagnant dépend de la durée de votre séjour et de la comparaison des chiffres sur votre marché.</p>
+    </section>
+
+    <section class="seo-section">
+      <h2 data-i18n="rvb_sec_2">Comment Ce Calculateur Compare les Deux Parcours</h2>
+      <p data-i18n="rvb_p_2">Chaque année, le patrimoine net de l'acheteur est la valeur nette du logement (valeur du logement moins le solde du prêt). Le patrimoine du locataire est l'acompte plus tout avantage mensuel de trésorerie, investi au taux de rendement que vous choisissez. Le calculateur suit les deux sur votre durée de détention et met en évidence l'année où acheter devient le meilleur choix.</p>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="seo-section" id="rvb-faq">
+      <h2 data-i18n="sec_faq">Questions Fréquentes sur les Calculateurs Hypothécaires</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary data-i18n="rvb_faq1_q">Vaut-il mieux louer ou acheter un logement ?</summary>
+          <p data-i18n="rvb_faq1_a">Cela dépend de la durée de votre séjour, du prix et du loyer sur votre marché, du taux hypothécaire et de ce que votre argent pourrait rapporter s'il était investi. Acheter gagne généralement pour les horizons plus longs parce que les loyers augmentent et que vous constituez du patrimoine ; louer gagne souvent pour les courts séjours ou lorsque l'acompte pourrait rapporter plus que l'appréciation du logement.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="rvb_faq2_q">Comment se calcule la décision louer vs. acheter ?</summary>
+          <p data-i18n="rvb_faq2_a">Le calculateur modélise le patrimoine net sur votre durée de détention. Si vous louez, l'acompte plus tout avantage mensuel de trésorerie est investi. Si vous achetez, vous constituez une valeur nette immobilière tout en payant des intérêts, des impôts fonciers et de l'entretien. L'option avec le patrimoine net le plus élevé à la fin gagne.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="rvb_faq3_q">Combien d'années devez-vous rester dans un logement pour que l'achat en vaille la peine ?</summary>
+          <p data-i18n="rvb_faq3_a">En règle générale, acheter bat généralement louer après 4 à 7 ans, car c'est à peu près le temps qu'il faut pour que la valeur nette et les hausses de loyer compensent les frais de clôture. Lancez le calculateur avec vos chiffres pour trouver votre propre année d'équilibre.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ============ AD — FOOTER ============ -->
+    <div id="ad-container-footer" class="ad-container" aria-hidden="true"></div>
+
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="/privacy.html" data-i18n="privacy">Politique de confidentialité</a>
+        <a href="/terms.html" data-i18n="terms">Conditions d'utilisation</a>
+        <a href="/support/" style="font-weight:600;color:#fff">Support</a>
+        <a href="/contact" data-i18n="nav_contact">Contact</a>
+      </nav>
+      <p class="footer-disclaimer" data-i18n="disclaimer">Ce calculateur fournit des estimations à des fins éducatives uniquement. Contactez un prêteur agréé pour une offre officielle.</p>
+      <p class="footer-copy">© 2026 MortgageCalc. <span data-i18n="rights">Tous droits réservés.</span></p>
+    </div>
+  </footer>
+
+  <!-- ============================ SCRIPTS ============================ -->
+  <script src="../../js/i18n/i18n.js" defer=""></script>
+  <script src="../../js/currencies.js" defer=""></script>
+  <script src="../../js/calc-core.js" defer=""></script>
+  <script src="../../js/nav.js" defer=""></script>
+  <script src="../../js/analytics.js" defer=""></script>
+  <script src="../../js/rvb-country-presets.js" defer=""></script>
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
+(function () {
+      window.i18n.init();
+      var sel = document.getElementById('lang-select');
+      if (sel) sel.addEventListener('change', function (e) { window.i18n.switchLanguage(e.target.value); });
+      function loadCalc() {
+        // Carrega o modulo de calculo de forma INDEPENDENTE do Chart.js CDN:
+        // a calculadora funciona mesmo se o CDN estiver lento ou bloqueado
+        // (os graficos degradam graciosamente via CalcCore).
+        var s = document.createElement('script');
+        s.src = '../js/calc-rvb.js';
+        s.onerror = function () { console.error('Falha ao carregar ../js/calc-rvb.js'); };
+        document.body.appendChild(s);
+      }
+      if (window.CalcCore && window.CalcCore.whenVisible) {
+        window.CalcCore.whenVisible(document.querySelector('.calculator'), loadCalc);
+      } else {
+        loadCalc();
+      }
+    })();
+
+    // Chart.js (CDN) e lazy-loaded SEPARADAMENTE, apenas quando a area dos
+    // graficos se aproxima da viewport. A calculadora NUNCA depende dele.
+    (function () {
+      var src = 'https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js';
+      var target = document.querySelector('.calculator__chart');
+      function loadChartLib() {
+        if (window.__chartCdnLoading || window.Chart) return;
+        window.__chartCdnLoading = true;
+        var s = document.createElement('script');
+        s.src = src;
+        s.onload = function () {
+          var el = document.querySelector('.calculator') || document.querySelector('.calculator-wrapper');
+          var inp = el && el.querySelector('input, select');
+          if (inp) inp.dispatchEvent(new Event('input', { bubbles: true }));
+        };
+        s.onerror = function () { window.__chartCdnLoading = false; };
+        document.body.appendChild(s);
+      }
+      if (target && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { if (e.isIntersecting) { io.disconnect(); loadChartLib(); } });
+        }, { rootMargin: '400px' });
+        io.observe(target);
+      } else {
+        loadChartLib();
+      }
+    })();
+});
+</script>
+
+  <noscript>
+    <p style="text-align:center;padding:24px;">This calculator requires JavaScript. Please enable JavaScript to use the rent vs. buy calculator.</p>
+  </noscript>
+
+  <!-- ============ Adcash Zone ============ -->
+  <script src="../../js/dark-mode.js" defer=""></script>
+
+
+</body></html>

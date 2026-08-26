@@ -1,13 +1,10 @@
-﻿<!DOCTYPE html>
-<!--
+<!DOCTYPE html><!--
   Mortgage Calculator — Rent vs. Buy (rent-vs-buy/index.html)
   Compares the net worth of renting vs. buying over a holding period,
   including rent increases, property tax, maintenance, vacancy, home
   appreciation and the opportunity cost of the down payment.
   CONFIGURED: domain, AdSense (ca-pub-2920008879492175), Adcash (zone 0c9gzdbpws).
--->
-<html lang="en-US" data-theme="light">
-<head>
+--><html lang="en-US" data-theme="light"><head>
   <meta charset="UTF-8">
   <!-- Google Consent Mode v2 (default consent: EEA/UK/CH denied, rest granted) -->
   <script data-cookieconsent="ignore">
@@ -43,7 +40,7 @@
   </script>
 
   <!-- Cookiebot CMP (Google-certified: Consent Mode v2 + Microsoft Clarity Consent Mode) -->
-  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="d817fd6b-d033-4ae1-8682-d2b44b49a66a" data-blockingmode="auto" async></script>
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="d817fd6b-d033-4ae1-8682-d2b44b49a66a" data-blockingmode="auto" async=""></script>
     <!-- Smart Lazy Load Third-Party Scripts (AdSense, Analytics, Clarity) -->
   <script>
     (function() {
@@ -106,21 +103,21 @@
   <meta name="twitter:image" content="https://www.mortgage-pro-calc.com/assets/img/mortgage-calculator-og-image.jpg">
 
   <!-- ============ Multilingual SEO: hreflang ============ -->
-  <link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/rent-vs-buy/?lang=en">
-  <link rel="alternate" hreflang="es" href="https://www.mortgage-pro-calc.com/rent-vs-buy/?lang=es">
-  <link rel="alternate" hreflang="fr" href="https://www.mortgage-pro-calc.com/rent-vs-buy/?lang=fr">
-  <link rel="alternate" hreflang="pt" href="https://www.mortgage-pro-calc.com/rent-vs-buy/?lang=pt">
-  <link rel="alternate" hreflang="de" href="https://www.mortgage-pro-calc.com/rent-vs-buy/?lang=de">
-  <link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/rent-vs-buy/">
+  
+  
+  
+  
+  
+  
 
   <!-- ============ Favicon ============ -->
   <link rel="icon" href="../assets/img/favicon.svg">
   <link rel="apple-touch-icon" href="../assets/img/favicon.svg">
 
   <!-- ============ Performance: preconnect ============ -->
-  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin="">
   <link rel="preconnect" href="https://www.googletagmanager.com">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="">
 
   <!-- ============ Schema Markup: BlogPosting ============ -->
   <script type="application/ld+json">
@@ -189,6 +186,13 @@
   <link rel="stylesheet" href="../css/calculators.css">
   <!-- Font Awesome Icons (theme toggle + UI icons) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/rent-vs-buy/">
+  <link rel="alternate" hreflang="es" href="https://www.mortgage-pro-calc.com/es/rent-vs-buy/">
+  <link rel="alternate" hreflang="fr" href="https://www.mortgage-pro-calc.com/fr/rent-vs-buy/">
+  <link rel="alternate" hreflang="pt" href="https://www.mortgage-pro-calc.com/pt/rent-vs-buy/">
+  <link rel="alternate" hreflang="de" href="https://www.mortgage-pro-calc.com/de/rent-vs-buy/">
+  <link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/rent-vs-buy/">
 </head>
 
 <body>
@@ -212,8 +216,7 @@
         </ul>
       </nav>
 
-      <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="main-nav"
-              data-label-open="Open menu" data-label-close="Close menu" aria-label="Open menu">
+      <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="main-nav" data-label-open="Open menu" data-label-close="Close menu" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
 
@@ -233,9 +236,9 @@
         <label for="currency-select" data-i18n="currency_label">Currency</label>
         <select id="currency-select" aria-label="Currency">
           <option value="USD">$ USD</option>
-          <option value="EUR">&euro; EUR</option>
+          <option value="EUR">€ EUR</option>
           <option value="BRL">R$ BRL</option>
-          <option value="GBP">&pound; GBP</option>
+          <option value="GBP">£ GBP</option>
         </select>
       </div>
       <!-- Dark mode toggle -->
@@ -297,7 +300,7 @@
             <input type="range" id="rvb-rate-slider" class="calculator__slider" min="1" max="15" step="0.01" value="6.5" aria-label="Mortgage rate slider">
             <input type="number" id="rvb-rate" class="calculator__input calculator__input--number" value="6.5" min="1" max="15" step="0.01" inputmode="decimal">
           </div>
-          <p id="current-rate-note" class="helper" aria-live="polite" hidden></p>
+          <p id="current-rate-note" class="helper" aria-live="polite" hidden=""></p>
         </div>
 
         <div class="calculator__field">
@@ -306,7 +309,7 @@
             <option value="15" data-i18n-option="years_15">15 years</option>
             <option value="20" data-i18n-option="years_20">20 years</option>
             <option value="25" data-i18n-option="years_25">25 years</option>
-            <option value="30" selected data-i18n-option="years_30">30 years</option>
+            <option value="30" selected="" data-i18n-option="years_30">30 years</option>
           </select>
         </div>
 
@@ -517,12 +520,12 @@
   </footer>
 
   <!-- ============================ SCRIPTS ============================ -->
-  <script src="../js/i18n/i18n.js" defer></script>
-  <script src="../js/currencies.js" defer></script>
-  <script src="../js/calc-core.js" defer></script>
-  <script src="../js/nav.js" defer></script>
-  <script src="../js/analytics.js" defer></script>
-  <script src="../js/rvb-country-presets.js" defer></script>
+  <script src="../js/i18n/i18n.js" defer=""></script>
+  <script src="../js/currencies.js" defer=""></script>
+  <script src="../js/calc-core.js" defer=""></script>
+  <script src="../js/nav.js" defer=""></script>
+  <script src="../js/analytics.js" defer=""></script>
+  <script src="../js/rvb-country-presets.js" defer=""></script>
   <script>
 document.addEventListener('DOMContentLoaded', function () {
 (function () {
@@ -580,6 +583,7 @@ document.addEventListener('DOMContentLoaded', function () {
   </noscript>
 
   <!-- ============ Adcash Zone ============ -->
-  <script src="../js/dark-mode.js" defer></script>
-</body>
-</html>
+  <script src="../js/dark-mode.js" defer=""></script>
+
+
+</body></html>

@@ -34,6 +34,17 @@
   // need to be special-cased rather than detected from the URL shape.
   const FLAT_BLOG_SLUGS = ['best-mortgage-lenders', 'fha-vs-conventional-loans'];
 
+  // Calculator/comparison pages that now ship a real, dedicated locale
+  // folder per language (see /es/, /fr/, /pt/, /de/) instead of the old
+  // ?lang=xx query-string trick. Kept as an explicit list (like
+  // FLAT_BLOG_SLUGS) rather than inferred from the URL shape, since new
+  // calculator pages may be added without a locale folder yet.
+  const LOCALIZED_CALC_SLUGS = [
+    'fha-vs-conventional', 'va-mortgage-calculator', 'discount-points-calculator',
+    'renovation-roi', 'loan-portability', 'finance-vs-cash', 'rent-vs-buy',
+    'affordability-calculator',
+  ];
+
   // Dictionaries live in the same folder as i18n.js. Resolve them relative to
   // this script's own URL so subpages (/blog/, /about/, /contact/, /404.html)
   // load them correctly regardless of the page depth.
@@ -255,6 +266,18 @@
       return slug === '' ? null : slug;
     }
 
+    /**
+     * Extracts the slug of a localized calculator/comparison page (see
+     * LOCALIZED_CALC_SLUGS) from a path, stripped of any existing locale
+     * prefix and trailing slash. Returns null if this isn't one of those
+     * pages.
+     */
+    calculatorSlugFromPath(path) {
+      const m = path.match(/^\/(?:es|fr|pt|de)?\/?([a-z0-9-]+)\/?$/);
+      if (!m) return null;
+      return LOCALIZED_CALC_SLUGS.indexOf(m[1]) !== -1 ? m[1] : null;
+    }
+
     /** Called by the <select id="lang-select"> change handler. */
     switchLanguage(lang) {
       if (!this.isSupported(lang)) return;
@@ -270,6 +293,15 @@
         window.location.href = FLAT_BLOG_SLUGS.indexOf(postSlug) !== -1
           ? base + postSlug
           : base + postSlug + '/';
+        return;
+      }
+
+      const calcSlug = this.calculatorSlugFromPath(window.location.pathname);
+      if (calcSlug) {
+        // Dedicated translated folders exist per language for these pages
+        // (same pattern as blog posts above); 'en' has no /en/ prefix.
+        const base = lang === 'en' ? '/' : '/' + lang + '/';
+        window.location.href = base + calcSlug + '/';
         return;
       }
 
