@@ -1026,6 +1026,34 @@ table.amortization tbody tr:hover { background: rgba(59,130,246,0.04); }
   transition: color 0.2s;
 }
 .footer-nav a:hover { color: var(--gold); }
+.results-disclaimer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #7C5A00;
+  background: #FFF8E6;
+  border: 1px solid #F5DFA0;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin: 0.75rem 0 1.25rem;
+}
+.results-disclaimer i {
+  color: #B8860B;
+  flex-shrink: 0;
+}
+.results-disclaimer a {
+  color: var(--blue, #1a365d);
+  text-decoration: underline;
+  white-space: nowrap;
+}
+[data-theme="dark"] .results-disclaimer {
+  background: #2A2410;
+  border-color: #4A3F1A;
+  color: #E8D8A0;
+}
 .footer-disclaimer {
   font-size: 0.75rem;
   color: #64748B;

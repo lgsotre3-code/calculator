@@ -33,6 +33,8 @@ window.TRANSLATIONS.en = {
   "privacy": "Privacy Policy",
   "terms": "Terms of Use",
   "disclaimer": "This calculator provides estimates for educational purposes only. Contact a licensed lender for an official quote.",
+  "results_disclaimer": "Estimate only — not a credit offer or loan approval. Actual amounts depend on your lender's underwriting.",
+  "results_disclaimer_link": "See how we calculate this",
   "rights": "All rights reserved.",
 
   /* ---------- Share ---------- */
@@ -259,7 +261,7 @@ window.TRANSLATIONS.en = {
   "about_feature_4": "Available in 5 languages: English, Spanish, French, Portuguese and German",
   "about_feature_5": "100% free, no registration, mobile-friendly",
   "about_why_trust_us": "Why Trust Us",
-  "about_why_text": "Our calculations follow standard mortgage formulas and US financial guidelines. The tool is transparent, free and designed with your financial education in mind.",
+  "about_why_text": "Our calculations follow standard mortgage formulas and US financial guidelines. Suggested interest rates come from Freddie Mac's PMMS via FRED, an official public source, and are updated periodically. The tool is transparent, free and designed with your financial education in mind — we are not a lender and do not collect loan application data.",
 
   /* ---------- Contact page ---------- */
   "contact_title": "Contact Us - MortgageCalc Support",

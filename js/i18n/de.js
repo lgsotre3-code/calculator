@@ -32,6 +32,8 @@ window.TRANSLATIONS.de = {
   "privacy": "Datenschutzerklärung",
   "terms": "Nutzungsbedingungen",
   "disclaimer": "Dieser Rechner liefert nur Schätzwerte zu Bildungszwecken. Wenden Sie sich für ein verbindliches Angebot an einen zugelassenen Kreditgeber.",
+  "results_disclaimer": "Nur eine Schätzung — kein Kreditangebot und keine Finanzierungszusage. Die tatsächlichen Werte hängen von der Prüfung Ihres Kreditgebers ab.",
+  "results_disclaimer_link": "So berechnen wir das",
   "rights": "Alle Rechte vorbehalten.",
 
   /* ---------- Teilen ---------- */
@@ -258,7 +260,7 @@ window.TRANSLATIONS.de = {
   "about_feature_4": "In 5 Sprachen verfügbar: Englisch, Spanisch, Französisch, Portugiesisch und Deutsch",
   "about_feature_5": "100 % kostenlos, ohne Anmeldung, mobilfreundlich",
   "about_why_trust_us": "Warum Sie Uns Vertrauen Können",
-  "about_why_text": "Unsere Berechnungen folgen den Standard-Hypothekenformeln und den US-Finanzrichtlinien. Das Tool ist transparent, kostenlos und auf Ihre finanzielle Bildung ausgerichtet.",
+  "about_why_text": "Unsere Berechnungen folgen den Standard-Hypothekenformeln und den US-Finanzrichtlinien. Die vorgeschlagenen Zinssätze stammen von Freddie Mac PMMS über FRED, einer offiziellen öffentlichen Quelle, und werden regelmäßig aktualisiert. Das Tool ist transparent, kostenlos und auf Ihre finanzielle Bildung ausgerichtet — wir sind kein Kreditgeber und erfassen keine Kreditantragsdaten.",
 
   /* ---------- Kontakt-Seite ---------- */
   "contact_title": "Kontakt",

@@ -32,6 +32,8 @@ window.TRANSLATIONS.es = {
   "privacy": "Política de Privacidad",
   "terms": "Términos de Uso",
   "disclaimer": "Esta calculadora ofrece estimaciones con fines educativos. Contacta con un prestamista autorizado para una cotización oficial.",
+  "results_disclaimer": "Solo una estimación — no es una oferta de crédito ni una aprobación de financiamiento. Los valores reales dependen del análisis de tu prestamista.",
+  "results_disclaimer_link": "Vea cómo calculamos esto",
   "rights": "Todos los derechos reservados.",
 
   /* ---------- Compartir ---------- */
@@ -258,7 +260,7 @@ window.TRANSLATIONS.es = {
   "about_feature_4": "Disponible en 5 idiomas: inglés, español, francés, portugués y alemán",
   "about_feature_5": "100% gratuito, sin registro, compatible con móviles",
   "about_why_trust_us": "Por Qué Confiar en Nosotros",
-  "about_why_text": "Nuestros cálculos siguen las fórmulas hipotecarias estándar y las pautas financieras de EE. UU. La herramienta es transparente, gratuita y diseñada para tu educación financiera.",
+  "about_why_text": "Nuestros cálculos siguen las fórmulas hipotecarias estándar y las pautas financieras de EE. UU. Las tasas de interés sugeridas provienen de Freddie Mac PMMS vía FRED, una fuente pública oficial, y se actualizan periódicamente. La herramienta es transparente, gratuita y diseñada para tu educación financiera — no somos un prestamista y no recopilamos datos de solicitud de crédito.",
 
   /* ---------- Página de Contacto ---------- */
   "contact_title": "Contacto",

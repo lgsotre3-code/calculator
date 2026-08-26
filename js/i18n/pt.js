@@ -32,6 +32,8 @@ window.TRANSLATIONS.pt = {
   "privacy": "Política de Privacidade",
   "terms": "Termos de Uso",
   "disclaimer": "Esta calculadora fornece estimativas apenas para fins educativos. Contate um credor licenciado para uma cotação oficial.",
+  "results_disclaimer": "Estimativa apenas — não é uma oferta de crédito nem uma aprovação de financiamento. Os valores reais dependem da análise do seu credor.",
+  "results_disclaimer_link": "Veja como calculamos isso",
   "rights": "Todos os direitos reservados.",
 
   /* ---------- Compartilhar ---------- */
@@ -258,7 +260,7 @@ window.TRANSLATIONS.pt = {
   "about_feature_4": "Disponível em 5 idiomas: inglês, espanhol, francês, português e alemão",
   "about_feature_5": "100% gratuito, sem cadastro, compatível com celular",
   "about_why_trust_us": "Por Que Confiar em Nós",
-  "about_why_text": "Nossos cálculos seguem as fórmulas padrão de financiamento e as diretrizes financeiras dos EUA. A ferramenta é transparente, gratuita e feita pensando na sua educação financeira.",
+  "about_why_text": "Nossos cálculos seguem as fórmulas padrão de financiamento e as diretrizes financeiras dos EUA. As taxas de juros sugeridas vêm do Freddie Mac PMMS via FRED, uma fonte pública oficial, e são atualizadas periodicamente. A ferramenta é transparente, gratuita e feita pensando na sua educação financeira — não somos um credor e não coletamos dados de solicitação de crédito.",
 
   /* ---------- Página de Contato ---------- */
   "contact_title": "Fale Conosco",
