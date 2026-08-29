@@ -1,0 +1,666 @@
+﻿<!DOCTYPE html>
+<!--
+  Mortgage Calculator — Pre-Approval Estimate (pre-approval-calculator/index.html)
+  Estimates max home price / loan amount a lender is likely to pre-approve,
+  using front-end (housing) and back-end (total debt) DTI ratio caps for
+  conventional (28/36), FHA (31/43) and VA (41 back-end) loans.
+  CONFIGURED: domain, AdSense (ca-pub-2920008879492175), Adcash (zone 0c9gzdbpws).
+-->
+<html lang="en-US" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google Consent Mode v2 (default consent: EEA/UK/CH denied, rest granted) -->
+  <script data-cookieconsent="ignore">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_personalization': 'denied',
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'analytics_storage': 'denied',
+      'functionality_storage': 'denied',
+      'personalization_storage': 'denied',
+      'security_storage': 'granted',
+      'region': [
+        'GB','AT','BE','BG','CH','CY','DE','DK','EE','ES','FI',
+        'FR','GG','GR','HR','HU','IE','IM','IT','JE','LT','LU',
+        'LV','MT','NL','PL','PT','RO','SE','SI','SK'
+      ],
+      'wait_for_update': 500
+    });
+    gtag('consent', 'default', {
+      'ad_personalization': 'granted',
+      'ad_storage': 'granted',
+      'ad_user_data': 'granted',
+      'functionality_storage': 'granted',
+      'personalization_storage': 'granted',
+      'security_storage': 'granted',
+      'wait_for_update': 500
+    });
+    gtag('set', 'ads_data_redaction', true);
+    gtag('set', 'url_passthrough', false);
+  </script>
+
+  <!-- Cookiebot CMP (Google-certified: Consent Mode v2 + Microsoft Clarity Consent Mode) -->
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="d817fd6b-d033-4ae1-8682-d2b44b49a66a" data-blockingmode="auto" async></script>
+  <!-- Smart Lazy Load Third-Party Scripts (AdSense, Analytics, Clarity) -->
+  <script>
+    (function() {
+      var loaded = false;
+      function loadThirdParty() {
+        if (loaded) return;
+        loaded = true;
+        var ga = document.createElement('script');
+        ga.async = true;
+        ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-G5FRBTR588';
+        document.head.appendChild(ga);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-G5FRBTR588');
+
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "y3enp4munj");
+
+        var ads = document.createElement('script');
+        ads.async = true;
+        ads.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2920008879492175';
+        ads.crossOrigin = 'anonymous';
+        document.head.appendChild(ads);
+      }
+      ['touchstart', 'scroll', 'mousemove', 'keydown'].forEach(function(e) {
+        window.addEventListener(e, loadThirdParty, { once: true, passive: true });
+      });
+      setTimeout(loadThirdParty, 2000);
+    })();
+  </script>
+  <meta name="google-site-verification" content="_nxfYFglucpreV_H_ZjRTVWkzrrb9TsWJwPPVQiC8EM">
+  <meta name="impact-site-verification" value="f1f62669-d5c7-4d23-b5c1-75fc1a809c3f">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- ============ SEO: title & description ============ -->
+  <title data-i18n-title="pa_title">Mortgage Pre-Approval Calculator 2026 — Estimate How Much You Qualify For</title>
+  <meta name="description" data-i18n-desc="pa_description" content="Free mortgage pre-approval calculator. Estimate your maximum loan amount and home price using lender DTI ratios (28/36 conventional, 31/43 FHA, VA) based on your income, debts and down payment.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#1a365d">
+  <link rel="canonical" href="https://www.mortgage-pro-calc.com/pre-approval-calculator/">
+
+  <!-- ============ Open Graph / Twitter ============ -->
+  <meta property="og:title" content="Mortgage Pre-Approval Calculator 2026 — Estimate How Much You Qualify For">
+  <meta property="og:description" content="See your estimated max loan amount and home price using the same front-end/back-end DTI ratios lenders use for pre-approval.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.mortgage-pro-calc.com/pre-approval-calculator/">
+  <meta property="og:image" content="https://www.mortgage-pro-calc.com/assets/img/mortgage-calculator-og-image.jpg">
+  <meta property="og:site_name" content="Mortgage Calculator">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mortgage Pre-Approval Calculator 2026 — Estimate How Much You Qualify For">
+  <meta name="twitter:description" content="Estimate your maximum loan amount and home price using lender DTI ratios based on your income, debts and down payment.">
+  <meta name="twitter:image" content="https://www.mortgage-pro-calc.com/assets/img/mortgage-calculator-og-image.jpg">
+
+  <!-- ============ Multilingual SEO: hreflang ============ -->
+  <link rel="alternate" hreflang="en" href="https://www.mortgage-pro-calc.com/pre-approval-calculator/?lang=en">
+  <link rel="alternate" hreflang="es" href="https://www.mortgage-pro-calc.com/pre-approval-calculator/?lang=es">
+  <link rel="alternate" hreflang="fr" href="https://www.mortgage-pro-calc.com/pre-approval-calculator/?lang=fr">
+  <link rel="alternate" hreflang="pt" href="https://www.mortgage-pro-calc.com/pre-approval-calculator/?lang=pt">
+  <link rel="alternate" hreflang="de" href="https://www.mortgage-pro-calc.com/pre-approval-calculator/?lang=de">
+  <link rel="alternate" hreflang="x-default" href="https://www.mortgage-pro-calc.com/pre-approval-calculator/">
+
+  <!-- ============ Favicon ============ -->
+  <link rel="icon" href="../assets/img/favicon.svg">
+  <link rel="apple-touch-icon" href="../assets/img/favicon.svg">
+
+  <!-- ============ Performance: preconnect ============ -->
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+  <!-- ============ Schema Markup: WebApplication + FAQPage + Breadcrumbs ============ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.mortgage-pro-calc.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://www.mortgage-pro-calc.com/calculators/" },
+      { "@type": "ListItem", "position": 3, "name": "Pre-Approval Calculator", "item": "https://www.mortgage-pro-calc.com/pre-approval-calculator/" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Mortgage Pre-Approval Calculator 2026",
+    "url": "https://www.mortgage-pro-calc.com/pre-approval-calculator/",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "inLanguage": ["en", "es", "fr", "pt", "de"],
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Free mortgage pre-approval calculator estimating maximum loan amount and home price from income, debts and down payment using standard lender DTI ratios."
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do lenders calculate pre-approval amounts?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Lenders use two debt-to-income (DTI) ratios: the front-end ratio caps your housing payment (principal, interest, taxes, insurance and HOA) at a percentage of gross monthly income, and the back-end ratio caps your housing payment plus all other monthly debts at a higher percentage. Whichever ratio produces the lower maximum payment is the binding constraint, and that payment is used to back-solve your maximum loan amount." }
+      },
+      {
+        "@type": "Question",
+        "name": "What DTI ratios do conventional, FHA and VA loans use?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Conventional loans commonly use 28% front-end and 36% back-end. FHA loans allow more room at 31% front-end and 43% back-end. VA loans do not use a strict front-end cap but typically target around 41% back-end DTI combined with a residual-income test." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is a pre-approval estimate the same as a lender's official pre-approval letter?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. This tool gives an educational estimate using public DTI guidelines. An official pre-approval requires a lender to verify your income, assets, credit score and debts, and can differ from this estimate based on your credit profile, reserves and specific loan program." }
+      }
+    ]
+  }
+  </script>
+
+  <!-- ============ Google AdSense ============ -->
+
+
+  <!-- ============ Adcash Library ============ -->
+  <!-- ============ Critical CSS (inline) ============ -->
+  <style>
+    :root{--navy:#1a365d;--navy-dark:#14294a;--blue:#2b6cb0;--blue-light:#4299e1;--bg:#f7fafc;--surface:#fff;--text:#2d3748;--text-muted:#5a6b7e;--border:#e2e8f0;--radius:12px;--max-width:1180px}
+    *,*::before,*::after{box-sizing:border-box}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:var(--text);background:var(--bg)}
+    .site-header{background:var(--navy);color:#fff;box-shadow:0 2px 12px rgba(26,54,93,.08)}
+    .header-inner{max-width:var(--max-width);margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .brand{font-size:1.15rem;font-weight:700;color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+    .container{max-width:var(--max-width);margin:0 auto;padding:24px 20px 48px;width:100%}
+    .page-title{color:var(--navy);margin:0 0 8px;line-height:1.25;font-size:clamp(1.6rem,3.5vw,2.4rem)}
+    .page-intro{color:var(--text-muted);max-width:760px;margin:0 0 28px}
+    .skip-link{position:absolute;left:-999px;top:8px;z-index:100;background:var(--navy);color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none}
+    .skip-link:focus{left:8px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 22px;border:none;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;text-decoration:none;min-height:44px}
+    .btn-primary{background:var(--blue);color:#fff}
+  </style>
+
+  <!-- ============ Styles (render-blocking keeps layout stable / CLS-safe) ============ -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/calculators.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="brand" aria-label="Mortgage Calculator home">
+        <span class="logo-mark" aria-hidden="true">MC</span>
+        <span data-i18n="brand_name">MortgageCalc</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="/" data-i18n="nav_home">Home</a></li>
+          <li><a href="/calculators/" data-i18n="nav_calculators">Calculators</a></li>
+          <li><a href="/blog" data-i18n="nav_blog">Blog</a></li>
+          <li><a href="/about" data-i18n="nav_about">About</a></li>
+          <li><a href="/contact" data-i18n="nav_contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="main-nav"
+              data-label-open="Open menu" data-label-close="Close menu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="lang-switch">
+        <label for="lang-select" data-i18n="language_label">Language</label>
+        <select id="lang-select" aria-label="Language">
+          <option value="en" data-i18n-option="lang_en">English</option>
+          <option value="es" data-i18n-option="lang_es">Español</option>
+          <option value="fr" data-i18n-option="lang_fr">Français</option>
+          <option value="pt" data-i18n-option="lang_pt">Português</option>
+          <option value="de" data-i18n-option="lang_de">Deutsch</option>
+        </select>
+      </div>
+
+      <div class="lang-switch currency-switch">
+        <label for="currency-select" data-i18n="currency_label">Currency</label>
+        <select id="currency-select" aria-label="Currency">
+          <option value="USD">$ USD</option>
+          <option value="EUR">&euro; EUR</option>
+          <option value="BRL">R$ BRL</option>
+          <option value="GBP">&pound; GBP</option>
+        </select>
+      </div>
+      <button type="button" class="theme-toggle-btn" onclick="themeToggle()" aria-label="Toggle dark mode">
+        <i class="fas fa-sun" id="theme-toggle-icon"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============================ AD — TOP ============================ -->
+  <div id="ad-container-top" class="ad-container" aria-hidden="true"></div>
+
+  <!-- ============================ MAIN ============================ -->
+  <main id="main" class="container">
+
+    <h1 class="page-title" data-i18n="pa_title">Mortgage Pre-Approval Calculator 2026 — Estimate How Much You Qualify For</h1>
+    <p class="page-intro" data-i18n="pa_subtitle">Enter your income, monthly debts and down payment to see the maximum home price and loan amount lenders are likely to pre-approve, based on the same front-end/back-end debt-to-income ratios used for conventional, FHA and VA loans.</p>
+
+    <!-- ============ CALCULATOR ============ -->
+    <div class="calculator">
+
+      <!-- ---------- FORM ---------- -->
+      <form class="calculator__panel" id="pa-form" aria-label="Pre-approval inputs" onsubmit="return false">
+        <h2 class="calculator__title" data-i18n="pa_form_title">Your Financial Details</h2>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="pa-income" data-i18n="pa_input_income">Gross Monthly Income ($)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="pa-income-slider" class="calculator__slider" min="500" max="30000" step="100" value="6500" aria-label="Gross monthly income slider">
+            <input type="number" id="pa-income" class="calculator__input calculator__input--number" value="6500" min="500" max="100000" step="100" inputmode="numeric">
+          </div>
+          <p class="calculator__hint" data-i18n="pa_hint_income">Total household gross income before taxes, from all borrowers on the loan.</p>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="pa-debts" data-i18n="pa_input_debts">Existing Monthly Debts ($)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="pa-debts-slider" class="calculator__slider" min="0" max="5000" step="25" value="400" aria-label="Monthly debts slider">
+            <input type="number" id="pa-debts" class="calculator__input calculator__input--number" value="400" min="0" max="20000" step="25" inputmode="numeric">
+          </div>
+          <p class="calculator__hint" data-i18n="pa_hint_debts">Car loans, student loans, credit card minimums and other recurring debts — excluding the new housing payment.</p>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="pa-down-payment" data-i18n="pa_input_down">Down Payment ($)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="pa-down-payment-slider" class="calculator__slider" min="0" max="300000" step="1000" value="20000" aria-label="Down payment slider">
+            <input type="number" id="pa-down-payment" class="calculator__input calculator__input--number" value="20000" min="0" max="2000000" step="500" inputmode="numeric">
+          </div>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="pa-loan-type" data-i18n="pa_input_loan_type">Loan Type</label>
+          <select id="pa-loan-type" class="calculator__input">
+            <option value="conventional" selected data-i18n-option="pa_loan_conventional">Conventional (28% / 36%)</option>
+            <option value="fha" data-i18n-option="pa_loan_fha">FHA (31% / 43%)</option>
+            <option value="va" data-i18n-option="pa_loan_va">VA (~41% back-end)</option>
+          </select>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="pa-rate" data-i18n="pa_input_rate">Estimated Interest Rate (%)</label>
+          <div class="calculator__control-row">
+            <input type="range" id="pa-rate-slider" class="calculator__slider" min="1" max="15" step="0.05" value="6.5" aria-label="Interest rate slider">
+            <input type="number" id="pa-rate" class="calculator__input calculator__input--number" value="6.5" min="1" max="15" step="0.05" inputmode="decimal">
+          </div>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="pa-term" data-i18n="pa_input_term">Loan Term</label>
+          <select id="pa-term" class="calculator__input">
+            <option value="30" selected data-i18n-option="pa_term_30">30 years</option>
+            <option value="15" data-i18n-option="pa_term_15">15 years</option>
+          </select>
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="pa-tax-rate" data-i18n="pa_input_tax_rate">Property Tax Rate (%/yr)</label>
+          <input type="number" id="pa-tax-rate" class="calculator__input calculator__input--number" value="1.1" min="0" max="5" step="0.05" inputmode="decimal">
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="pa-insurance-annual" data-i18n="pa_input_insurance">Home Insurance ($/yr)</label>
+          <input type="number" id="pa-insurance-annual" class="calculator__input calculator__input--number" value="1500" min="0" max="20000" step="50" inputmode="numeric">
+        </div>
+
+        <div class="calculator__field">
+          <label class="calculator__label" for="pa-hoa" data-i18n="pa_input_hoa">HOA Dues ($/mo)</label>
+          <input type="number" id="pa-hoa" class="calculator__input calculator__input--number" value="0" min="0" max="5000" step="10" inputmode="numeric">
+        </div>
+
+        <div class="calculator__actions">
+          <button type="button" id="pa-calculate" class="btn btn-primary" data-i18n="calculate">Calculate</button>
+          <button type="button" id="pa-reset" class="btn btn-secondary" data-i18n="reset">Reset</button>
+        </div>
+      </form>
+
+      <!-- ---------- RESULTS ---------- -->
+      <section class="calculator__panel" aria-label="Pre-approval results">
+        <h2 class="calculator__results-title" data-i18n="pa_results_title">Your Estimated Pre-Approval</h2>
+
+        <div class="calculator__grid">
+          <div class="calculator__card calculator__card--main">
+            <span class="calculator__card-label" data-i18n="pa_out_max_price">Estimated Max Home Price</span>
+            <span class="calculator__card-value" id="pa-out-max-price">$0</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="pa_out_max_loan">Estimated Max Loan Amount</span>
+            <span class="calculator__card-value" id="pa-out-max-loan">$0</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="pa_out_max_payment">Estimated Monthly Payment</span>
+            <span class="calculator__card-value" id="pa-out-max-payment">$0</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="pa_out_front_ratio">Front-End Ratio (Housing)</span>
+            <span class="calculator__card-value" id="pa-out-front-ratio">0%</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="pa_out_back_ratio">Back-End Ratio (Total Debt)</span>
+            <span class="calculator__card-value" id="pa-out-back-ratio">0%</span>
+          </div>
+          <div class="calculator__card">
+            <span class="calculator__card-label" data-i18n="pa_out_binding">Binding Constraint</span>
+            <span class="calculator__card-value" id="pa-out-binding" style="font-size:1.05rem">—</span>
+          </div>
+        </div>
+
+        <!-- Breakdown table -->
+        <div class="table-scroll table-scroll--comparison" tabindex="0" aria-label="Payment breakdown">
+          <table class="scenario-table">
+            <thead>
+              <tr>
+                <th scope="col" data-i18n="pa_bd_item">Item</th>
+                <th scope="col" data-i18n="pa_bd_monthly">Per Month</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-i18n="pa_bd_pi">Principal &amp; Interest</td>
+                <td id="pa-b-pi">—</td>
+              </tr>
+              <tr>
+                <td data-i18n="pa_bd_tax">Property Tax</td>
+                <td id="pa-b-tax">—</td>
+              </tr>
+              <tr>
+                <td data-i18n="pa_bd_ins">Home Insurance</td>
+                <td id="pa-b-ins">—</td>
+              </tr>
+              <tr>
+                <td data-i18n="pa_bd_hoa">HOA Dues</td>
+                <td id="pa-b-hoa">—</td>
+              </tr>
+              <tr>
+                <td data-i18n="pa_bd_pmi">PMI (if LTV &gt; 80%)</td>
+                <td id="pa-b-pmi">—</td>
+              </tr>
+              <tr>
+                <td data-i18n="pa_bd_total">Total Housing Payment</td>
+                <td id="pa-b-total">—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="calculator__hint calculator__hint--output" data-i18n="pa_note_simplified">Educational estimate only, not an official pre-approval. Lenders verify credit score, assets and documentation, which can change your actual qualifying amount.</p>
+
+        <!-- Chart -->
+        <div class="calculator__chart">
+          <h3 data-i18n="pa_chart_title">Monthly Housing Payment Breakdown</h3>
+          <div class="calculator__chart-canvas"><canvas id="pa-chart-split" role="img" aria-label="Bar chart: principal and interest, tax, insurance, PMI and HOA"></canvas></div>
+        </div>
+
+        <!-- ============ AD — MIDDLE ============ -->
+        <div id="ad-container-middle" class="ad-container ad-container--tall" aria-hidden="true"></div>
+
+        <!-- Calculator hub -->
+        <nav class="calc-hub" aria-label="Other calculators">
+          <h3 class="calc-hub__title" data-i18n="calc_nav_title">Explore More Calculators</h3>
+          <ul class="calc-hub__list">
+            <li class="calc-hub__item"><a href="/" data-i18n="calc_nav_home">Mortgage Calculator</a></li>
+            <li class="calc-hub__item"><a href="/calculators/" data-i18n="calc_nav_all">All Calculators</a></li>
+            <li class="calc-hub__item"><a href="/affordability-calculator/" data-i18n="calc_nav_afford">Affordability Calculator</a></li>
+            <li class="calc-hub__item"><a href="/blog/mortgage-pre-approval/" data-i18n="pa_nav_guide">Pre-Approval Guide</a></li>
+          </ul>
+        </nav>
+      </section>
+    </div>
+
+    <!-- ============ SEO CONTENT ============ -->
+    <section class="seo-section">
+      <h2 data-i18n="pa_sec_1">How Lenders Calculate Pre-Approval</h2>
+      <p data-i18n="pa_p_1">Lenders test two debt-to-income (DTI) ratios. The front-end ratio caps your new housing payment — principal, interest, property tax, home insurance and HOA dues — at a percentage of your gross monthly income. The back-end ratio caps that same housing payment plus all your other monthly debts (car loans, student loans, credit cards) at a higher percentage. Whichever ratio produces the lower maximum payment is the binding constraint, and that payment is what determines your maximum loan amount and home price.</p>
+    </section>
+
+    <section class="seo-section">
+      <h2 data-i18n="pa_sec_2">Conventional, FHA and VA Ratios Compared</h2>
+      <p data-i18n="pa_p_2">Conventional loans typically use a 28% front-end and 36% back-end cap, though many lenders extend the back-end ratio to 45% for strong credit profiles. FHA loans are more flexible at 31% front-end and 43% back-end, which is why they often qualify buyers with higher existing debt. VA loans skip a strict front-end ratio and instead combine a roughly 41% back-end guideline with a residual-income test that verifies you have enough left over for living expenses after the mortgage.</p>
+    </section>
+
+    <section class="seo-section">
+      <h2 data-i18n="pa_sec_3">Why PMI and Down Payment Size Matter</h2>
+      <p data-i18n="pa_p_3">Putting down less than 20% on a conventional loan triggers private mortgage insurance (PMI), which adds to your monthly housing payment and reduces the loan amount you can qualify for under the same DTI caps. A larger down payment lowers your loan-to-value ratio, can remove PMI entirely, and frees up more of your DTI budget for principal and interest — which is often the fastest way to increase your pre-approval amount without raising your income.</p>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="seo-section" id="pa-faq">
+      <h2 data-i18n="sec_faq">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary data-i18n="pa_faq1_q">How do lenders calculate pre-approval amounts?</summary>
+          <p data-i18n="pa_faq1_a">Lenders use two debt-to-income (DTI) ratios: the front-end ratio caps your housing payment (principal, interest, taxes, insurance and HOA) at a percentage of gross monthly income, and the back-end ratio caps your housing payment plus all other monthly debts at a higher percentage. Whichever ratio produces the lower maximum payment is the binding constraint, and that payment is used to back-solve your maximum loan amount.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="pa_faq2_q">What DTI ratios do conventional, FHA and VA loans use?</summary>
+          <p data-i18n="pa_faq2_a">Conventional loans commonly use 28% front-end and 36% back-end. FHA loans allow more room at 31% front-end and 43% back-end. VA loans do not use a strict front-end cap but typically target around 41% back-end DTI combined with a residual-income test.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="pa_faq3_q">Is a pre-approval estimate the same as a lender's official pre-approval letter?</summary>
+          <p data-i18n="pa_faq3_a">No. This tool gives an educational estimate using public DTI guidelines. An official pre-approval requires a lender to verify your income, assets, credit score and debts, and can differ from this estimate based on your credit profile, reserves and specific loan program.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="pa_faq4_q">Does my credit score change my pre-approval amount?</summary>
+          <p data-i18n="pa_faq4_a">This calculator does not factor in credit score directly, but a lower score usually means a higher interest rate, which reduces the loan amount your budget supports. A higher score typically unlocks better rates and sometimes higher back-end DTI allowances.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="pa_faq5_q">How can I increase my pre-approval amount?</summary>
+          <p data-i18n="pa_faq5_a">The three biggest levers are paying down existing monthly debts to free up back-end DTI room, increasing your down payment to reduce or eliminate PMI, and improving your credit score to qualify for a lower interest rate.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ============ AD — FOOTER ============ -->
+    <div id="ad-container-footer" class="ad-container" aria-hidden="true"></div>
+
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="/privacy.html" data-i18n="privacy">Privacy Policy</a>
+        <a href="/terms.html" data-i18n="terms">Terms of Use</a>
+<a href="/contact" data-i18n="nav_contact">Contact</a>        <a href="/support/" style="font-weight:600;color:#fff" data-i18n="nav_support">Support</a></nav>
+      <p class="footer-disclaimer" data-i18n="disclaimer">This calculator provides estimates for educational purposes only. Contact a licensed lender for an official quote.</p>
+      <p class="footer-copy">© 2026 MortgageCalc. <span data-i18n="rights">All rights reserved.</span></p>
+    </div>
+  </footer>
+
+  <!-- ============================ SCRIPTS ============================ -->
+  <script src="../js/i18n/i18n.js" defer></script>
+  <script src="../js/currencies.js" defer></script>
+  <script src="../js/calc-core.js" defer></script>
+  <script src="../js/nav.js" defer></script>
+  <script src="../js/analytics.js" defer></script>
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
+(function () {
+      /* ---- pa_* dictionary patch --------------------------------
+       * Keeps this page's strings self-contained so js/i18n/*.js stay
+       * untouched. The markup ships English defaults (this page targets
+       * English-language pre-approval searches). Other languages get
+       * title/description patched for SEO; body copy falls back to
+       * English via i18n.js until fully localized.
+       * Title + meta description are provided for EVERY language because
+       * applyTranslations() always rewrites document.title/meta.
+       * Dictionaries load asynchronously and replace window.TRANSLATIONS[lang],
+       * so the patch re-applies after every i18n:updated event.
+       * ---------------------------------------------------------------- */
+      var PA_I18N = {
+        en: {
+          "pa_title": "Mortgage Pre-Approval Calculator 2026 — Estimate How Much You Qualify For",
+          "pa_description": "Free mortgage pre-approval calculator. Estimate your maximum loan amount and home price using lender DTI ratios (28/36 conventional, 31/43 FHA, VA) based on your income, debts and down payment.",
+          "pa_subtitle": "Enter your income, monthly debts and down payment to see the maximum home price and loan amount lenders are likely to pre-approve, based on the same front-end/back-end debt-to-income ratios used for conventional, FHA and VA loans.",
+          "pa_form_title": "Your Financial Details",
+          "pa_input_income": "Gross Monthly Income ($)",
+          "pa_hint_income": "Total household gross income before taxes, from all borrowers on the loan.",
+          "pa_input_debts": "Existing Monthly Debts ($)",
+          "pa_hint_debts": "Car loans, student loans, credit card minimums and other recurring debts — excluding the new housing payment.",
+          "pa_input_down": "Down Payment ($)",
+          "pa_input_loan_type": "Loan Type",
+          "pa_loan_conventional": "Conventional (28% / 36%)",
+          "pa_loan_fha": "FHA (31% / 43%)",
+          "pa_loan_va": "VA (~41% back-end)",
+          "pa_input_rate": "Estimated Interest Rate (%)",
+          "pa_input_term": "Loan Term",
+          "pa_term_30": "30 years",
+          "pa_term_15": "15 years",
+          "pa_input_tax_rate": "Property Tax Rate (%/yr)",
+          "pa_input_insurance": "Home Insurance ($/yr)",
+          "pa_input_hoa": "HOA Dues ($/mo)",
+          "pa_results_title": "Your Estimated Pre-Approval",
+          "pa_out_max_price": "Estimated Max Home Price",
+          "pa_out_max_loan": "Estimated Max Loan Amount",
+          "pa_out_max_payment": "Estimated Monthly Payment",
+          "pa_out_front_ratio": "Front-End Ratio (Housing)",
+          "pa_out_back_ratio": "Back-End Ratio (Total Debt)",
+          "pa_out_binding": "Binding Constraint",
+          "pa_binding_front": "Front-end (housing) ratio",
+          "pa_binding_back": "Back-end (total debt) ratio",
+          "pa_bd_item": "Item",
+          "pa_bd_monthly": "Per Month",
+          "pa_bd_pi": "Principal & Interest",
+          "pa_bd_tax": "Property Tax",
+          "pa_bd_ins": "Home Insurance",
+          "pa_bd_hoa": "HOA Dues",
+          "pa_bd_pmi": "PMI (if LTV > 80%)",
+          "pa_bd_total": "Total Housing Payment",
+          "pa_note_simplified": "Educational estimate only, not an official pre-approval. Lenders verify credit score, assets and documentation, which can change your actual qualifying amount.",
+          "pa_chart_title": "Monthly Housing Payment Breakdown",
+          "pa_chart_pi": "P&I", "pa_chart_tax": "Tax", "pa_chart_ins": "Insurance", "pa_chart_pmi_hoa": "PMI + HOA",
+          "pa_nav_guide": "Pre-Approval Guide",
+          "pa_sec_1": "How Lenders Calculate Pre-Approval",
+          "pa_p_1": "Lenders test two debt-to-income (DTI) ratios. The front-end ratio caps your new housing payment — principal, interest, property tax, home insurance and HOA dues — at a percentage of your gross monthly income. The back-end ratio caps that same housing payment plus all your other monthly debts (car loans, student loans, credit cards) at a higher percentage. Whichever ratio produces the lower maximum payment is the binding constraint, and that payment is what determines your maximum loan amount and home price.",
+          "pa_sec_2": "Conventional, FHA and VA Ratios Compared",
+          "pa_p_2": "Conventional loans typically use a 28% front-end and 36% back-end cap, though many lenders extend the back-end ratio to 45% for strong credit profiles. FHA loans are more flexible at 31% front-end and 43% back-end, which is why they often qualify buyers with higher existing debt. VA loans skip a strict front-end ratio and instead combine a roughly 41% back-end guideline with a residual-income test that verifies you have enough left over for living expenses after the mortgage.",
+          "pa_sec_3": "Why PMI and Down Payment Size Matter",
+          "pa_p_3": "Putting down less than 20% on a conventional loan triggers private mortgage insurance (PMI), which adds to your monthly housing payment and reduces the loan amount you can qualify for under the same DTI caps. A larger down payment lowers your loan-to-value ratio, can remove PMI entirely, and frees up more of your DTI budget for principal and interest — which is often the fastest way to increase your pre-approval amount without raising your income.",
+          "pa_faq1_q": "How do lenders calculate pre-approval amounts?",
+          "pa_faq1_a": "Lenders use two debt-to-income (DTI) ratios: the front-end ratio caps your housing payment (principal, interest, taxes, insurance and HOA) at a percentage of gross monthly income, and the back-end ratio caps your housing payment plus all other monthly debts at a higher percentage. Whichever ratio produces the lower maximum payment is the binding constraint, and that payment is used to back-solve your maximum loan amount.",
+          "pa_faq2_q": "What DTI ratios do conventional, FHA and VA loans use?",
+          "pa_faq2_a": "Conventional loans commonly use 28% front-end and 36% back-end. FHA loans allow more room at 31% front-end and 43% back-end. VA loans do not use a strict front-end cap but typically target around 41% back-end DTI combined with a residual-income test.",
+          "pa_faq3_q": "Is a pre-approval estimate the same as a lender's official pre-approval letter?",
+          "pa_faq3_a": "No. This tool gives an educational estimate using public DTI guidelines. An official pre-approval requires a lender to verify your income, assets, credit score and debts, and can differ from this estimate based on your credit profile, reserves and specific loan program.",
+          "pa_faq4_q": "Does my credit score change my pre-approval amount?",
+          "pa_faq4_a": "This calculator does not factor in credit score directly, but a lower score usually means a higher interest rate, which reduces the loan amount your budget supports. A higher score typically unlocks better rates and sometimes higher back-end DTI allowances.",
+          "pa_faq5_q": "How can I increase my pre-approval amount?",
+          "pa_faq5_a": "The three biggest levers are paying down existing monthly debts to free up back-end DTI room, increasing your down payment to reduce or eliminate PMI, and improving your credit score to qualify for a lower interest rate."
+        },
+        es: {
+          "pa_title": "Calculadora de Preaprobación Hipotecaria 2026 — Estime Cuánto Califica",
+          "pa_description": "Calculadora gratuita de preaprobación hipotecaria. Estime su monto máximo de préstamo y precio de vivienda usando las razones DTI del prestamista (28/36 convencional, 31/43 FHA, VA).",
+          "pa_chart_pi": "P&I", "pa_chart_tax": "Impuesto", "pa_chart_ins": "Seguro", "pa_chart_pmi_hoa": "PMI + HOA"
+        },
+        fr: {
+          "pa_title": "Calculateur de Pré-Approbation Hypothécaire 2026 — Estimez Votre Admissibilité",
+          "pa_description": "Calculateur gratuit de pré-approbation hypothécaire. Estimez votre montant de prêt maximum et prix de maison en utilisant les ratios DTI du prêteur (28/36 conventionnel, 31/43 FHA, VA).",
+          "pa_chart_pi": "P&I", "pa_chart_tax": "Taxe", "pa_chart_ins": "Assurance", "pa_chart_pmi_hoa": "PMI + HOA"
+        },
+        pt: {
+          "pa_title": "Calculadora de Pré-Aprovação de Hipoteca 2026 — Estime Quanto Você Se Qualifica",
+          "pa_description": "Calculadora gratuita de pré-aprovação de hipoteca. Estime seu valor máximo de empréstimo e preço de imóvel usando as razões DTI do credor (28/36 convencional, 31/43 FHA, VA).",
+          "pa_chart_pi": "P&I", "pa_chart_tax": "Imposto", "pa_chart_ins": "Seguro", "pa_chart_pmi_hoa": "PMI + HOA"
+        },
+        de: {
+          "pa_title": "Hypotheken-Vorabgenehmigungsrechner 2026 — Schätzen Sie Ihre Kreditwürdigkeit",
+          "pa_description": "Kostenloser Hypotheken-Vorabgenehmigungsrechner. Schätzen Sie Ihren maximalen Kreditbetrag und Immobilienpreis anhand der DTI-Verhältnisse des Kreditgebers (28/36 konventionell, 31/43 FHA, VA).",
+          "pa_chart_pi": "P&I", "pa_chart_tax": "Steuer", "pa_chart_ins": "Versicherung", "pa_chart_pmi_hoa": "PMI + HOA"
+        }
+      };
+
+      function patchPaKeys() {
+        window.TRANSLATIONS = window.TRANSLATIONS || {};
+        var added = 0;
+        Object.keys(PA_I18N).forEach(function (lang) {
+          if (!window.TRANSLATIONS[lang]) window.TRANSLATIONS[lang] = {};
+          Object.keys(PA_I18N[lang]).forEach(function (k) {
+            if (!window.TRANSLATIONS[lang][k]) {
+              window.TRANSLATIONS[lang][k] = PA_I18N[lang][k];
+              added++;
+            }
+          });
+        });
+        return added;
+      }
+
+      document.addEventListener('i18n:updated', function () {
+        if (patchPaKeys() > 0 && window.i18n && window.i18n.applyTranslations) {
+          window.i18n.applyTranslations();
+        }
+      });
+
+      window.i18n.init();
+      var sel = document.getElementById('lang-select');
+      if (sel) sel.addEventListener('change', function (e) { window.i18n.switchLanguage(e.target.value); });
+      function loadCalc() {
+        var s = document.createElement('script');
+        s.src = '../js/calc-preapproval.js';
+        s.onerror = function () { console.error('Falha ao carregar ../js/calc-preapproval.js'); };
+        document.body.appendChild(s);
+      }
+      if (window.CalcCore && window.CalcCore.whenVisible) {
+        window.CalcCore.whenVisible(document.querySelector('.calculator'), loadCalc);
+      } else {
+        loadCalc();
+      }
+    })();
+
+    (function () {
+      var src = 'https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js';
+      var target = document.querySelector('.calculator__chart');
+      function loadChartLib() {
+        if (window.__chartCdnLoading || window.Chart) return;
+        window.__chartCdnLoading = true;
+        var s = document.createElement('script');
+        s.src = src;
+        s.onload = function () {
+          var el = document.querySelector('.calculator') || document.querySelector('.calculator-wrapper');
+          var inp = el && el.querySelector('input, select');
+          if (inp) inp.dispatchEvent(new Event('input', { bubbles: true }));
+        };
+        s.onerror = function () { window.__chartCdnLoading = false; };
+        document.body.appendChild(s);
+      }
+      if (target && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { if (e.isIntersecting) { io.disconnect(); loadChartLib(); } });
+        }, { rootMargin: '400px' });
+        io.observe(target);
+      } else {
+        loadChartLib();
+      }
+    })();
+});
+</script>
+
+  <noscript>
+    <p style="text-align:center;padding:24px;">This calculator requires JavaScript. Please enable JavaScript to use the pre-approval calculator.</p>
+  </noscript>
+
+  <!-- ============ Adcash Zone ============ -->
+  <script src="../js/dark-mode.js" defer></script>
+</body>
+</html>
