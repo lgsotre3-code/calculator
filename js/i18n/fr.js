@@ -779,7 +779,7 @@ window.TRANSLATIONS.fr = {
   "decimo_description": "Calculez votre 13ᵉ salaire brésilien : 1ᵉʳ et 2ᵉ acomptes, cotisations INSS et IR progressives, 13ᵉ proportionnel pour années incomplètes et montant net total.",
   "calc_nav_brutto": "Brutto-Netto-Rechner",
   "brutto_description": "Calculatrice allemande brut-net. Voyez vos déductions Lohnsteuer, Solidaritätszuschlag, Kirchensteuer, santé, retraite, chômage et assurance dépendance. Compatible avec les 5 Steuerklassen.",
-  "calc_nav_wieviel": "Wieviel Hypothek Netto",
+  "calc_nav_wieviel": "Wieviel Hypothek Netto (allemand)",
   "wieviel_description": "Combien d'hypothèque pouvez-vous vous permettre avec votre salaire net allemand ? Guide pas à pas : du brut au net, de la règle de solvabilité bancaire de 35-40 % au capital et aux coûts d'achat.",
   "calc_nav_isa": "ISA vs GIA",
   "isa_description": "Calculatrice ISA vs GIA (Royaume-Uni). Comparez les rendements exonérés d'impôt de l'ISA avec un GIA imposable : plus-value, impôt sur les dividendes et coût réel d'investir hors ISA.",

@@ -780,7 +780,7 @@ window.TRANSLATIONS.en = {
   "decimo_description": "Calculate your Brazilian 13th salary: 1st and 2nd installments, progressive INSS and IR deductions, proportional 13th for partial years, and total net amount.",
   "calc_nav_brutto": "Brutto-Netto-Rechner",
   "brutto_description": "German gross-to-net salary calculator. See your Lohnsteuer, Solidaritätszuschlag, Kirchensteuer, health, pension, unemployment and care insurance deductions. Supports all 5 Steuerklassen.",
-  "calc_nav_wieviel": "Wieviel Hypothek Netto",
+  "calc_nav_wieviel": "Wieviel Hypothek Netto (German)",
   "wieviel_description": "How much mortgage can you afford with your German net salary? Step-by-step guide: from gross-to-net to the 35-40% bank affordability rule, equity and purchase costs.",
   "calc_nav_isa": "ISA vs GIA",
   "isa_description": "UK ISA vs General Investment Account calculator. Compare tax-free ISA returns with a taxable GIA: CGT, dividend tax and the real cost of investing outside an ISA.",

@@ -779,7 +779,7 @@ window.TRANSLATIONS.es = {
   "decimo_description": "Calcule su decimotercer salario brasileño: 1ª y 2ª cuotas, deducciones progresivas de INSS e IR, décimo proporcional por años parciales y monto neto total.",
   "calc_nav_brutto": "Brutto-Netto-Rechner",
   "brutto_description": "Calculadora alemana de salario bruto a neto. Vea sus deducciones de Lohnsteuer, Solidaritätszuschlag, Kirchensteuer, salud, pensión, desempleo y seguro de cuidados. Compatible con las 5 Steuerklassen.",
-  "calc_nav_wieviel": "Wieviel Hypothek Netto",
+  "calc_nav_wieviel": "Wieviel Hypothek Netto (alemán)",
   "wieviel_description": "¿Cuánta hipoteca puede permitirse con su salario neto alemán? Guía paso a paso: del bruto al neto y de la regla del 35-40% de solvencia bancaria al patrimonio y los costes de compra.",
   "calc_nav_isa": "ISA vs GIA",
   "isa_description": "Calculadora UK ISA vs General Investment Account. Compare rendimientos libres de impuestos del ISA con un GIA gravado: plusvalía, impuesto sobre dividendos y el costo real de invertir fuera de un ISA.",
