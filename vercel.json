@@ -980,6 +980,126 @@
                                           "value":  "en"
                                       }
                                   ]
+                      },
+                      {
+                          "source":  "/credit-score-mortgage-calculator",
+                          "destination":  "/es/credit-score-mortgage-calculator/",
+                          "permanent":  true,
+                          "has":  [
+                                      {
+                                          "type":  "query",
+                                          "key":  "lang",
+                                          "value":  "es"
+                                      }
+                                  ]
+                      },
+                      {
+                          "source":  "/credit-score-mortgage-calculator/",
+                          "destination":  "/es/credit-score-mortgage-calculator/",
+                          "permanent":  true,
+                          "has":  [
+                                      {
+                                          "type":  "query",
+                                          "key":  "lang",
+                                          "value":  "es"
+                                      }
+                                  ]
+                      },
+                      {
+                          "source":  "/credit-score-mortgage-calculator",
+                          "destination":  "/fr/credit-score-mortgage-calculator/",
+                          "permanent":  true,
+                          "has":  [
+                                      {
+                                          "type":  "query",
+                                          "key":  "lang",
+                                          "value":  "fr"
+                                      }
+                                  ]
+                      },
+                      {
+                          "source":  "/credit-score-mortgage-calculator/",
+                          "destination":  "/fr/credit-score-mortgage-calculator/",
+                          "permanent":  true,
+                          "has":  [
+                                      {
+                                          "type":  "query",
+                                          "key":  "lang",
+                                          "value":  "fr"
+                                      }
+                                  ]
+                      },
+                      {
+                          "source":  "/credit-score-mortgage-calculator",
+                          "destination":  "/pt/credit-score-mortgage-calculator/",
+                          "permanent":  true,
+                          "has":  [
+                                      {
+                                          "type":  "query",
+                                          "key":  "lang",
+                                          "value":  "pt"
+                                      }
+                                  ]
+                      },
+                      {
+                          "source":  "/credit-score-mortgage-calculator/",
+                          "destination":  "/pt/credit-score-mortgage-calculator/",
+                          "permanent":  true,
+                          "has":  [
+                                      {
+                                          "type":  "query",
+                                          "key":  "lang",
+                                          "value":  "pt"
+                                      }
+                                  ]
+                      },
+                      {
+                          "source":  "/credit-score-mortgage-calculator",
+                          "destination":  "/de/credit-score-mortgage-calculator/",
+                          "permanent":  true,
+                          "has":  [
+                                      {
+                                          "type":  "query",
+                                          "key":  "lang",
+                                          "value":  "de"
+                                      }
+                                  ]
+                      },
+                      {
+                          "source":  "/credit-score-mortgage-calculator/",
+                          "destination":  "/de/credit-score-mortgage-calculator/",
+                          "permanent":  true,
+                          "has":  [
+                                      {
+                                          "type":  "query",
+                                          "key":  "lang",
+                                          "value":  "de"
+                                      }
+                                  ]
+                      },
+                      {
+                          "source":  "/credit-score-mortgage-calculator",
+                          "destination":  "/credit-score-mortgage-calculator/",
+                          "permanent":  true,
+                          "has":  [
+                                      {
+                                          "type":  "query",
+                                          "key":  "lang",
+                                          "value":  "en"
+                                      }
+                                  ]
+                      },
+                      {
+                          "source":  "/credit-score-mortgage-calculator/",
+                          "destination":  "/credit-score-mortgage-calculator/",
+                          "permanent":  true,
+                          "has":  [
+                                      {
+                                          "type":  "query",
+                                          "key":  "lang",
+                                          "value":  "en"
+                                      }
+                                  ]
                       }
                   ],
     "headers":  [

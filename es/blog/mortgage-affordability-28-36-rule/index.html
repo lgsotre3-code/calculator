@@ -127,18 +127,18 @@
       },
       {
         "@type": "Question",
-        "name": "¿Qué pasa si mi relación deuda-ingreso es mayor al 36%?",
+        "name": "¿Cómo calculo la regla 28/36?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Algunos prestamistas permiten relaciones DTI de hasta 43% o incluso 50% para prestatarios calificados, especialmente con buenos puntajes de crédito o pagos iniciales grandes. Los préstamos FHA permiten un DTI de hasta 50% en algunos casos. Sin embargo, superar el 36% te pone en un riesgo financiero mayor."
+          "text": "Primero, encuentra tu ingreso mensual bruto (el dinero que ganas antes de impuestos). Multiplícalo por 0,28 para obtener el pago máximo de vivienda, y por 0,36 para obtener tu carga máxima total de deuda. Luego resta tus deudas mensuales existentes del 36% para ver cuánto margen te queda para vivienda. Tu presupuesto de vivienda recomendado es el menor entre el 28% y la cantidad que queda después de tus deudas."
         }
       },
       {
         "@type": "Question",
-        "name": "¿La regla 28/36 incluye impuestos prediales y seguros?",
+        "name": "¿Qué cuenta como deuda en la regla del 36%?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí. El ratio frontal del 28% incluye capital, intereses, impuestos prediales, seguro del hogar y cualquier cuota de HOA — conocidos colectivamente como PITI. Esto te da una imagen completa de tu costo de vivienda, no solo el pago del préstamo."
+          "text": "El ratio trasero (36%) incluye tu pago de vivienda (capital e intereses, impuestos sobre la propiedad, seguro de propietario y cuotas de HOA) más cualquier otra deuda mensual recurrente: pagos mínimos de tarjetas de crédito, préstamos de auto, préstamos estudiantiles, préstamos personales y pensión alimenticia o manutención de hijos. No incluye gastos cotidianos como comida o servicios básicos, pero el teléfono e internet generalmente se incluyen como deudas recurrentes."
         }
       }
     ]
@@ -173,6 +173,7 @@
   <!-- ============ Adcash Library ============ -->
   <!-- ============ Styles ============ -->
   <link rel="stylesheet" href="../../../css/style.css">
+  <link rel="stylesheet" href="../../../css/calculators.css">
   <link rel="icon" href="../../../assets/img/favicon.svg">
   <!-- Font Awesome Icons (theme toggle + UI icons) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -233,6 +234,69 @@
     <section class="seo-section">
       <p data-i18n="blog2836_intro1">Antes de empezar a buscar propiedades o solicitar una preaprobación, necesitas responder una pregunta clave: <em>¿cuánta casa puedo pagar realmente?</em> La regla 28/36 es la guía más simple y más utilizada para responder esa pregunta. Los prestamistas se basan en ella para decidir si puedes manejar un pago de hipoteca, pero tú también deberías usarla — incluso antes de hablar con un banco.</p>
       <p data-i18n="blog2836_intro2">En esta guía, desglosaremos exactamente qué significa la regla 28/36, repasaremos un ejemplo del mundo real con un ingreso mensual de $8,000 y te mostraremos cómo aplicarla a tu propia situación para que puedas buscar vivienda con confianza.</p>
+    </section>
+
+    <!-- ============ CALCULADORA INLINE ============ -->
+    <section class="seo-section">
+      <h2 data-i18n="calc2836_title">Calculadora de la Regla 28/36</h2>
+      <p data-i18n="calc2836_p_intro">Ingresa tu ingreso mensual bruto y tus deudas mensuales existentes para ver los dos límites de la regla 28/36 en dólares y cuánto margen te queda para vivienda.</p>
+
+      <div class="calculator">
+        <!-- ---------- FORM ---------- -->
+        <form class="calculator__panel" id="r28-form" aria-label="28/36 rule inputs" onsubmit="return false">
+          <h3 class="calculator__title" data-i18n="calc2836_form_title">Tus Datos</h3>
+
+          <div class="calculator__field">
+            <label class="calculator__label" for="r28-income" data-i18n="calc2836_input_income">Ingreso Mensual Bruto ($)</label>
+            <div class="calculator__control-row">
+              <input type="range" id="r28-income-slider" class="calculator__slider" min="1000" max="50000" step="100" value="8000" aria-label="Gross monthly income slider">
+              <input type="number" id="r28-income" class="calculator__input calculator__input--number" value="8000" min="1000" max="50000" step="100" inputmode="numeric">
+            </div>
+          </div>
+
+          <div class="calculator__field">
+            <label class="calculator__label" for="r28-debts" data-i18n="calc2836_input_debt">Deudas Mensuales Existentes ($)</label>
+            <div class="calculator__control-row">
+              <input type="range" id="r28-debts-slider" class="calculator__slider" min="0" max="5000" step="50" value="500" aria-label="Existing monthly debts slider">
+              <input type="number" id="r28-debts" class="calculator__input calculator__input--number" value="500" min="0" max="5000" step="50" inputmode="numeric">
+            </div>
+            <p class="calculator__hint" data-i18n="calc2836_hint_debt">Préstamos de auto, préstamos estudiantiles, pagos mínimos de tarjetas y otras deudas recurrentes, sin incluir vivienda.</p>
+          </div>
+
+          <div class="calculator__actions">
+            <button type="button" id="r28-calculate" class="btn btn-primary" data-i18n="calculate">Calcular</button>
+            <button type="button" id="r28-reset" class="btn btn-secondary" data-i18n="reset">Reiniciar</button>
+          </div>
+        </form>
+
+        <!-- ---------- RESULTS ---------- -->
+        <section class="calculator__panel" aria-label="28/36 rule results">
+          <h3 class="calculator__results-title" data-i18n="calc2836_results_title">Tus Límites de la Regla 28/36</h3>
+
+          <div class="calculator__verdict" id="r28-verdict" aria-live="polite"></div>
+
+          <div class="calculator__grid">
+            <div class="calculator__card">
+              <span class="calculator__card-label" data-i18n="calc2836_out_front">Límite de Vivienda (28% del ingreso)</span>
+              <span class="calculator__card-value" id="r28-out-front">$0.00</span>
+            </div>
+            <div class="calculator__card">
+              <span class="calculator__card-label" data-i18n="calc2836_out_back">Límite Total de Deuda (36% del ingreso)</span>
+              <span class="calculator__card-value" id="r28-out-back">$0.00</span>
+            </div>
+            <div class="calculator__card">
+              <span class="calculator__card-label" data-i18n="calc2836_out_room">Margen para Vivienda</span>
+              <span class="calculator__card-value" id="r28-out-room">$0.00</span>
+            </div>
+            <div class="calculator__card calculator__card--main">
+              <span class="calculator__card-label" data-i18n="calc2836_out_recommended">Presupuesto de Vivienda Recomendado</span>
+              <span class="calculator__card-value" id="r28-out-recommended">$0.00</span>
+            </div>
+          </div>
+
+          <p class="calculator__hint" data-i18n="calc2836_full_note">Para una estimación completa de tu valor máximo de inmueble y monto de préstamo, usa la <a href="/affordability-calculator/">calculadora de asequibilidad</a>.</p>
+        </section>
+      </div>
     </section>
 
     <section class="seo-section">
@@ -359,6 +423,7 @@
         <li data-i18n="blog2836_tip4"><strong>Mejora tu puntaje de crédito.</strong> Un puntaje de crédito más alto desbloquea tasas de interés más bajas, lo que significa que más parte de tu pago va al capital en lugar de a los intereses. Pasar de un puntaje de 680 a 760 podría ahorrarte decenas de miles durante la vida del préstamo.</li>
         <li data-i18n="blog2836_tip5"><strong>Considera áreas menos costosas.</strong> Si tu mercado objetivo está estirando tu presupuesto, mira vecindarios cercanos o suburbios donde los precios de las casas sean más bajos pero el trayecto y las comodidades sigan funcionando para ti.</li>
       </ol>
+      <p data-i18n="blog2836_tip_credit_link">Tu puntaje de crédito es una de las mayores palancas sobre tu tasa de interés. Consulta los puntajes mínimos y el impacto en las tasas en nuestra <a href="/blog/credit-score-mortgage/">guía de puntaje de crédito e hipotecas</a>, o estima tu tasa con nuestra <a href="/credit-score-mortgage-calculator/">calculadora de hipoteca por puntaje crediticio</a>.</p>
     </section>
 
     <!-- ============ CTA ============ -->
@@ -377,12 +442,12 @@
           <p data-i18n="blog2836_faq1_a">La regla 28/36 establece que tus costos mensuales de vivienda (capital e intereses de la hipoteca, impuestos prediales, seguro del hogar y cuotas de HOA) no deben exceder el 28% de tu ingreso bruto mensual, y tus pagos totales mensuales de deuda (vivienda más préstamos de auto, préstamos estudiantiles, tarjetas de crédito) no deben exceder el 36%.</p>
         </details>
         <details class="faq-item">
-          <summary data-i18n="blog2836_faq2_q">¿Qué pasa si mi relación deuda-ingreso es mayor al 36%?</summary>
-          <p data-i18n="blog2836_faq2_a">Algunos prestamistas permiten relaciones DTI de hasta 43% o incluso 50% para prestatarios calificados, especialmente con buenos puntajes de crédito o pagos iniciales grandes. Los préstamos FHA permiten un DTI de hasta 50% en algunos casos. Sin embargo, superar el 36% te pone en un riesgo financiero mayor.</p>
+          <summary data-i18n="blog2836_faq2_q">¿Cómo calculo la regla 28/36?</summary>
+          <p data-i18n="blog2836_faq2_a">Primero, encuentra tu ingreso mensual bruto (el dinero que ganas antes de impuestos). Multiplícalo por 0,28 para obtener el pago máximo de vivienda, y por 0,36 para obtener tu carga máxima total de deuda. Luego resta tus deudas mensuales existentes del 36% para ver cuánto margen te queda para vivienda. Tu presupuesto de vivienda recomendado es el menor entre el 28% y la cantidad que queda después de tus deudas.</p>
         </details>
         <details class="faq-item">
-          <summary data-i18n="blog2836_faq3_q">¿La regla 28/36 incluye impuestos prediales y seguros?</summary>
-          <p data-i18n="blog2836_faq3_a">Sí. El ratio frontal del 28% incluye capital, intereses, impuestos prediales, seguro del hogar y cualquier cuota de HOA — conocidos colectivamente como PITI. Esto te da una imagen completa de tu costo de vivienda, no solo el pago del préstamo.</p>
+          <summary data-i18n="blog2836_faq3_q">¿Qué cuenta como deuda en la regla del 36%?</summary>
+          <p data-i18n="blog2836_faq3_a">El ratio trasero (36%) incluye tu pago de vivienda (capital e intereses, impuestos sobre la propiedad, seguro de propietario y cuotas de HOA) más cualquier otra deuda mensual recurrente: pagos mínimos de tarjetas de crédito, préstamos de auto, préstamos estudiantiles, préstamos personales y pensión alimenticia o manutención de hijos. No incluye gastos cotidianos como comida o servicios básicos, pero el teléfono e internet generalmente se incluyen como deudas recurrentes.</p>
         </details>
       </div>
     </section>
@@ -392,6 +457,7 @@
       <h3 data-i18n="blog2836_related_h3">Más Guías Hipotecarias</h3>
       <ul>
         <li><a href="/affordability-calculator/" data-i18n="blog2836_rel1">¿Cuánta Casa Puedo Pagar?</a></li>
+        <li><a href="/blog/credit-score-mortgage/" data-i18n="blog2836_rel4">Puntaje de Crédito e Hipotecas</a></li>
         <li><a href="/down-payment-calculator/" data-i18n="blog2836_rel2">Calculadora de Pago Inicial</a></li>
         <li><a href="/blog/best-mortgage-lenders" data-i18n="blog2836_rel3">Mejores Prestamistas Hipotecarios</a></li>
       </ul>
@@ -417,6 +483,8 @@
 
   <!-- ============================ SCRIPTS ============================ -->
   <script src="../../../js/i18n/i18n.js" defer></script>
+  <script src="../../../js/currencies.js" defer></script>
+  <script src="../../../js/calc-core.js" defer></script>
   <script src="../../../js/nav.js" defer></script>
   <script src="../../../js/analytics.js" defer></script>
   <script>
@@ -426,6 +494,19 @@ window.i18n.init();
     if (langSel) langSel.addEventListener('change', function (e) {
       window.i18n.switchLanguage(e.target.value);
     });
+    (function () {
+      function loadCalc() {
+        var s = document.createElement('script');
+        s.src = '../../../js/calc-2836.js';
+        s.onerror = function () { console.error('Falha ao carregar calc-2836.js'); };
+        document.body.appendChild(s);
+      }
+      if (window.CalcCore && window.CalcCore.whenVisible) {
+        window.CalcCore.whenVisible(document.querySelector('.calculator'), loadCalc);
+      } else {
+        loadCalc();
+      }
+    })();
 });
 </script>
 

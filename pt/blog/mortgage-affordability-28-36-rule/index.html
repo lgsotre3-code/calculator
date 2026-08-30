@@ -127,18 +127,18 @@
       },
       {
         "@type": "Question",
-        "name": "E se minha relação dívida-renda for maior que 36%?",
+        "name": "Como faço o cálculo da regra 28/36?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Alguns credores permitem relações DTI de até 43% ou até mesmo 50% para tomadores qualificados, especialmente com bons scores de crédito ou pagamentos iniciais grandes. Empréstimos FHA permitem um DTI de até 50% em alguns casos. No entanto, passar de 36% coloca você em um risco financeiro maior."
+          "text": "Primeiro, descubra sua renda mensal bruta (o dinheiro que você ganha antes dos impostos). Multiplique-a por 0,28 para obter seu pagamento máximo de moradia e por 0,36 para obter sua carga total máxima de dívidas. Depois, subtraia suas dívidas mensais existentes do valor de 36% para ver quanto espaço sobra para a moradia. Seu orçamento de moradia recomendado é o menor entre o valor de 28% e o valor que sobra depois das suas dívidas."
         }
       },
       {
         "@type": "Question",
-        "name": "A regra 28/36 inclui impostos prediais e seguro?",
+        "name": "O que conta como dívida na regra dos 36%?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sim. O índice front-end de 28% inclui principal, juros, impostos prediais, seguro residencial e eventuais cotas de HOA — conhecidos coletivamente como PITI. Isso dá uma visão completa do seu custo de moradia, não apenas do pagamento do empréstimo."
+          "text": "O índice traseiro (36%) inclui seu pagamento de moradia (principal e juros, impostos sobre a propriedade, seguro residencial e taxas de HOA) mais qualquer outra dívida mensal recorrente: pagamentos mínimos de cartão de crédito, financiamentos de carro, empréstimos estudantis, empréstimos pessoais e pensão alimentícia. Não inclui despesas do dia a dia como supermercado ou contas de consumo, mas telefone e internet geralmente são incluídos como dívidas recorrentes."
         }
       }
     ]
@@ -173,6 +173,7 @@
   <!-- ============ Adcash Library ============ -->
   <!-- ============ Styles ============ -->
   <link rel="stylesheet" href="../../../css/style.css">
+  <link rel="stylesheet" href="../../../css/calculators.css">
   <link rel="icon" href="../../../assets/img/favicon.svg">
   <!-- Font Awesome Icons (theme toggle + UI icons) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -233,6 +234,69 @@
     <section class="seo-section">
       <p data-i18n="blog2836_intro1">Antes de começar a procurar imóveis ou obter uma pré-aprovação, você precisa responder a uma pergunta fundamental: <em>quanta casa eu realmente posso pagar?</em> A regra 28/36 é a diretriz mais simples e mais usada para responder a essa pergunta. Os credores confiam nela para decidir se você pode arcar com um pagamento de hipoteca, mas você também deveria usá-la — mesmo antes de falar com um banco.</p>
       <p data-i18n="blog2836_intro2">Neste guia, vamos explicar exatamente o que significa a regra 28/36, percorrer um exemplo do mundo real com uma renda mensal de $8,000 e mostrar como aplicá-la à sua própria situação para que você possa procurar uma casa com confiança.</p>
+    </section>
+
+    <!-- ============ CALCULADORA INLINE ============ -->
+    <section class="seo-section">
+      <h2 data-i18n="calc2836_title">Calculadora da Regra 28/36</h2>
+      <p data-i18n="calc2836_p_intro">Informe sua renda mensal bruta e suas dívidas mensais existentes para ver os dois limites da regra 28/36 em dólares e quanto espaço sobra para a moradia.</p>
+
+      <div class="calculator">
+        <!-- ---------- FORM ---------- -->
+        <form class="calculator__panel" id="r28-form" aria-label="28/36 rule inputs" onsubmit="return false">
+          <h3 class="calculator__title" data-i18n="calc2836_form_title">Seus Dados</h3>
+
+          <div class="calculator__field">
+            <label class="calculator__label" for="r28-income" data-i18n="calc2836_input_income">Renda Mensal Bruta ($)</label>
+            <div class="calculator__control-row">
+              <input type="range" id="r28-income-slider" class="calculator__slider" min="1000" max="50000" step="100" value="8000" aria-label="Gross monthly income slider">
+              <input type="number" id="r28-income" class="calculator__input calculator__input--number" value="8000" min="1000" max="50000" step="100" inputmode="numeric">
+            </div>
+          </div>
+
+          <div class="calculator__field">
+            <label class="calculator__label" for="r28-debts" data-i18n="calc2836_input_debt">Dívidas Mensais Existentes ($)</label>
+            <div class="calculator__control-row">
+              <input type="range" id="r28-debts-slider" class="calculator__slider" min="0" max="5000" step="50" value="500" aria-label="Existing monthly debts slider">
+              <input type="number" id="r28-debts" class="calculator__input calculator__input--number" value="500" min="0" max="5000" step="50" inputmode="numeric">
+            </div>
+            <p class="calculator__hint" data-i18n="calc2836_hint_debt">Financiamentos de carro, empréstimos estudantis, pagamentos mínimos de cartão e outras dívidas recorrentes, excluindo moradia.</p>
+          </div>
+
+          <div class="calculator__actions">
+            <button type="button" id="r28-calculate" class="btn btn-primary" data-i18n="calculate">Calcular</button>
+            <button type="button" id="r28-reset" class="btn btn-secondary" data-i18n="reset">Redefinir</button>
+          </div>
+        </form>
+
+        <!-- ---------- RESULTS ---------- -->
+        <section class="calculator__panel" aria-label="28/36 rule results">
+          <h3 class="calculator__results-title" data-i18n="calc2836_results_title">Seus Limites da Regra 28/36</h3>
+
+          <div class="calculator__verdict" id="r28-verdict" aria-live="polite"></div>
+
+          <div class="calculator__grid">
+            <div class="calculator__card">
+              <span class="calculator__card-label" data-i18n="calc2836_out_front">Limite de Moradia (28% da renda)</span>
+              <span class="calculator__card-value" id="r28-out-front">$0.00</span>
+            </div>
+            <div class="calculator__card">
+              <span class="calculator__card-label" data-i18n="calc2836_out_back">Limite Total de Dívidas (36% da renda)</span>
+              <span class="calculator__card-value" id="r28-out-back">$0.00</span>
+            </div>
+            <div class="calculator__card">
+              <span class="calculator__card-label" data-i18n="calc2836_out_room">Espaço para Moradia</span>
+              <span class="calculator__card-value" id="r28-out-room">$0.00</span>
+            </div>
+            <div class="calculator__card calculator__card--main">
+              <span class="calculator__card-label" data-i18n="calc2836_out_recommended">Orçamento de Moradia Recomendado</span>
+              <span class="calculator__card-value" id="r28-out-recommended">$0.00</span>
+            </div>
+          </div>
+
+          <p class="calculator__hint" data-i18n="calc2836_full_note">Para uma estimativa completa do seu valor máximo de imóvel e valor do empréstimo, use a <a href="/affordability-calculator/">calculadora de acessibilidade</a>.</p>
+        </section>
+      </div>
     </section>
 
     <section class="seo-section">
@@ -359,6 +423,7 @@
         <li data-i18n="blog2836_tip4"><strong>Melhore seu score de crédito.</strong> Um score mais alto desbloqueia taxas de juros menores, o que significa que mais do seu pagamento vai para o principal em vez dos juros. Subir de um score de 680 para 760 pode economizar dezenas de milhares ao longo do empréstimo.</li>
         <li data-i18n="blog2836_tip5"><strong>Considere áreas mais baratas.</strong> Se o seu mercado-alvo está esticando seu orçamento, procure bairros próximos ou subúrbios onde os preços das casas são mais baixos, mas o deslocamento e as comodidades ainda funcionam para você.</li>
       </ol>
+      <p data-i18n="blog2836_tip_credit_link">Seu score de crédito é uma das maiores alavancas sobre sua taxa de juros. Veja os scores mínimos e o impacto nas taxas no nosso <a href="/blog/credit-score-mortgage/">guia de score de crédito e financiamento</a>, ou estime sua taxa com nossa <a href="/credit-score-mortgage-calculator/">calculadora de hipoteca por score de crédito</a>.</p>
     </section>
 
     <!-- ============ CTA ============ -->
@@ -377,12 +442,12 @@
           <p data-i18n="blog2836_faq1_a">A regra 28/36 estabelece que seus custos mensais de moradia (principal e juros da hipoteca, impostos prediais, seguro residencial e taxas de HOA) não devem exceder 28% da sua renda mensal bruta, e seus pagamentos mensuais totais de dívida (moradia mais financiamento de carro, empréstimos estudantis, cartões de crédito) não devem exceder 36%.</p>
         </details>
         <details class="faq-item">
-          <summary data-i18n="blog2836_faq2_q">E se minha relação dívida-renda for maior que 36%?</summary>
-          <p data-i18n="blog2836_faq2_a">Alguns credores permitem relações DTI de até 43% ou até mesmo 50% para tomadores qualificados, especialmente com bons scores de crédito ou pagamentos iniciais grandes. Empréstimos FHA permitem um DTI de até 50% em alguns casos. No entanto, passar de 36% coloca você em um risco financeiro maior.</p>
+          <summary data-i18n="blog2836_faq2_q">Como faço o cálculo da regra 28/36?</summary>
+          <p data-i18n="blog2836_faq2_a">Primeiro, descubra sua renda mensal bruta (o dinheiro que você ganha antes dos impostos). Multiplique-a por 0,28 para obter seu pagamento máximo de moradia e por 0,36 para obter sua carga total máxima de dívidas. Depois, subtraia suas dívidas mensais existentes do valor de 36% para ver quanto espaço sobra para a moradia. Seu orçamento de moradia recomendado é o menor entre o valor de 28% e o valor que sobra depois das suas dívidas.</p>
         </details>
         <details class="faq-item">
-          <summary data-i18n="blog2836_faq3_q">A regra 28/36 inclui impostos prediais e seguro?</summary>
-          <p data-i18n="blog2836_faq3_a">Sim. O índice front-end de 28% inclui principal, juros, impostos prediais, seguro residencial e eventuais cotas de HOA — conhecidos coletivamente como PITI. Isso dá uma visão completa do seu custo de moradia, não apenas do pagamento do empréstimo.</p>
+          <summary data-i18n="blog2836_faq3_q">O que conta como dívida na regra dos 36%?</summary>
+          <p data-i18n="blog2836_faq3_a">O índice traseiro (36%) inclui seu pagamento de moradia (principal e juros, impostos sobre a propriedade, seguro residencial e taxas de HOA) mais qualquer outra dívida mensal recorrente: pagamentos mínimos de cartão de crédito, financiamentos de carro, empréstimos estudantis, empréstimos pessoais e pensão alimentícia. Não inclui despesas do dia a dia como supermercado ou contas de consumo, mas telefone e internet geralmente são incluídos como dívidas recorrentes.</p>
         </details>
       </div>
     </section>
@@ -394,6 +459,7 @@
         <li><a href="/affordability-calculator/" data-i18n="blog2836_rel1">Quanta Casa Posso Pagar?</a></li>
         <li><a href="/down-payment-calculator/" data-i18n="blog2836_rel2">Calculadora de Entrada</a></li>
         <li><a href="/blog/best-mortgage-lenders" data-i18n="blog2836_rel3">Melhores Credores Hipotecários</a></li>
+        <li><a href="/blog/credit-score-mortgage/" data-i18n="blog2836_rel4">Score de Crédito e Financiamento</a></li>
       </ul>
       <a href="/" class="btn btn-secondary" data-i18n="blog2836_back_btn">Voltar para a Calculadora de Hipoteca</a>
     </nav>
@@ -417,6 +483,8 @@
 
   <!-- ============================ SCRIPTS ============================ -->
   <script src="../../../js/i18n/i18n.js" defer></script>
+  <script src="../../../js/currencies.js" defer></script>
+  <script src="../../../js/calc-core.js" defer></script>
   <script src="../../../js/nav.js" defer></script>
   <script src="../../../js/analytics.js" defer></script>
   <script>
@@ -426,6 +494,19 @@ window.i18n.init();
     if (langSel) langSel.addEventListener('change', function (e) {
       window.i18n.switchLanguage(e.target.value);
     });
+    (function () {
+      function loadCalc() {
+        var s = document.createElement('script');
+        s.src = '../../../js/calc-2836.js';
+        s.onerror = function () { console.error('Falha ao carregar calc-2836.js'); };
+        document.body.appendChild(s);
+      }
+      if (window.CalcCore && window.CalcCore.whenVisible) {
+        window.CalcCore.whenVisible(document.querySelector('.calculator'), loadCalc);
+      } else {
+        loadCalc();
+      }
+    })();
 });
 </script>
 

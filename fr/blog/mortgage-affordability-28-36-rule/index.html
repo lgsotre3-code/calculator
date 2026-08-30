@@ -127,18 +127,18 @@
       },
       {
         "@type": "Question",
-        "name": "Que faire si mon taux d'endettement dépasse 36% ?",
+        "name": "Comment calculer la règle des 28/36 ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Certains prêteurs acceptent des ratios DTI allant jusqu'à 43%, voire 50%, pour les emprunteurs qualifiés, surtout avec de bons scores de crédit ou des mises de fonds importantes. Les prêts FHA permettent un DTI jusqu'à 50% dans certains cas. Cependant, dépasser 36% vous expose à un risque financier plus élevé."
+          "text": "Commencez par trouver votre revenu mensuel brut (votre revenu avant impôts). Multipliez-le par 0,28 pour obtenir votre paiement de logement maximal, et par 0,36 pour obtenir votre charge totale de dettes maximale. Soustrayez ensuite vos dettes mensuelles existantes du montant à 36 % pour voir combien de marge il vous reste pour le logement. Votre budget logement recommandé est le plus bas entre le montant à 28 % et le montant restant après vos dettes."
         }
       },
       {
         "@type": "Question",
-        "name": "La règle des 28/36 inclut-elle les taxes foncières et l'assurance ?",
+        "name": "Qu'est-ce qui compte comme dette dans la règle des 36 % ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Oui. Le taux frontal de 28% comprend le principal, les intérêts, les taxes foncières, l'assurance habitation et les éventuelles cotisations de HOA — collectivement appelées PITI. Cela vous donne une image complète de votre coût de logement, et pas seulement le paiement du prêt."
+          "text": "Le ratio arrière (36 %) inclut votre paiement de logement (capital et intérêts, taxes foncières, assurance habitation et frais de HOA) plus toute autre dette mensuelle récurrente : paiements minimums de cartes de crédit, prêts automobiles, prêts étudiants, prêts personnels et pension alimentaire. Il n'inclut pas les dépenses courantes comme l'épicerie ou les services publics, mais le téléphone et Internet sont généralement inclus comme dettes récurrentes."
         }
       }
     ]
@@ -173,6 +173,7 @@
   <!-- ============ Adcash Library ============ -->
   <!-- ============ Styles ============ -->
   <link rel="stylesheet" href="../../../css/style.css">
+  <link rel="stylesheet" href="../../../css/calculators.css">
   <link rel="icon" href="../../../assets/img/favicon.svg">
   <!-- Font Awesome Icons (theme toggle + UI icons) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -233,6 +234,69 @@
     <section class="seo-section">
       <p data-i18n="blog2836_intro1">Avant de commencer à parcourir les annonces ou à obtenir une préapprobation, vous devez répondre à une question cruciale : <em>quelle maison puis-je réellement me permettre ?</em> La règle des 28/36 est la ligne directrice la plus simple et la plus utilisée pour répondre à cette question. Les prêteurs s'y appuient pour décider si vous pouvez assumer une mensualité hypothécaire, mais vous devriez aussi l'utiliser vous-même — même avant de parler à une banque.</p>
       <p data-i18n="blog2836_intro2">Dans ce guide, nous expliquerons précisément ce que signifie la règle des 28/36, passerons en revue un exemple concret avec un revenu mensuel de $8,000 et vous montrerons comment l'appliquer à votre propre situation afin de chercher un logement en toute confiance.</p>
+    </section>
+
+    <!-- ============ CALCULATRICE INTÉGRÉE ============ -->
+    <section class="seo-section">
+      <h2 data-i18n="calc2836_title">Calculatrice de la Règle 28/36</h2>
+      <p data-i18n="calc2836_p_intro">Saisissez votre revenu mensuel brut et vos dettes mensuelles existantes pour voir les deux limites de la règle des 28/36 en dollars et combien de marge il vous reste pour le logement.</p>
+
+      <div class="calculator">
+        <!-- ---------- FORMULAIRE ---------- -->
+        <form class="calculator__panel" id="r28-form" aria-label="28/36 rule inputs" onsubmit="return false">
+          <h3 class="calculator__title" data-i18n="calc2836_form_title">Vos Informations</h3>
+
+          <div class="calculator__field">
+            <label class="calculator__label" for="r28-income" data-i18n="calc2836_input_income">Revenu Mensuel Brut ($)</label>
+            <div class="calculator__control-row">
+              <input type="range" id="r28-income-slider" class="calculator__slider" min="1000" max="50000" step="100" value="8000" aria-label="Gross monthly income slider">
+              <input type="number" id="r28-income" class="calculator__input calculator__input--number" value="8000" min="1000" max="50000" step="100" inputmode="numeric">
+            </div>
+          </div>
+
+          <div class="calculator__field">
+            <label class="calculator__label" for="r28-debts" data-i18n="calc2836_input_debt">Dettes Mensuelles Existantes ($)</label>
+            <div class="calculator__control-row">
+              <input type="range" id="r28-debts-slider" class="calculator__slider" min="0" max="5000" step="50" value="500" aria-label="Existing monthly debts slider">
+              <input type="number" id="r28-debts" class="calculator__input calculator__input--number" value="500" min="0" max="5000" step="50" inputmode="numeric">
+            </div>
+            <p class="calculator__hint" data-i18n="calc2836_hint_debt">Prêts automobiles, prêts étudiants, paiements minimums de cartes et autres dettes récurrentes, hors logement.</p>
+          </div>
+
+          <div class="calculator__actions">
+            <button type="button" id="r28-calculate" class="btn btn-primary" data-i18n="calculate">Calculer</button>
+            <button type="button" id="r28-reset" class="btn btn-secondary" data-i18n="reset">Réinitialiser</button>
+          </div>
+        </form>
+
+        <!-- ---------- RÉSULTATS ---------- -->
+        <section class="calculator__panel" aria-label="28/36 rule results">
+          <h3 class="calculator__results-title" data-i18n="calc2836_results_title">Vos Limites 28/36</h3>
+
+          <div class="calculator__verdict" id="r28-verdict" aria-live="polite"></div>
+
+          <div class="calculator__grid">
+            <div class="calculator__card">
+              <span class="calculator__card-label" data-i18n="calc2836_out_front">Limite de Logement (28 % du revenu)</span>
+              <span class="calculator__card-value" id="r28-out-front">$0.00</span>
+            </div>
+            <div class="calculator__card">
+              <span class="calculator__card-label" data-i18n="calc2836_out_back">Limite Totale de Dette (36 % du revenu)</span>
+              <span class="calculator__card-value" id="r28-out-back">$0.00</span>
+            </div>
+            <div class="calculator__card">
+              <span class="calculator__card-label" data-i18n="calc2836_out_room">Marge pour le Logement</span>
+              <span class="calculator__card-value" id="r28-out-room">$0.00</span>
+            </div>
+            <div class="calculator__card calculator__card--main">
+              <span class="calculator__card-label" data-i18n="calc2836_out_recommended">Budget Logement Recommandé</span>
+              <span class="calculator__card-value" id="r28-out-recommended">$0.00</span>
+            </div>
+          </div>
+
+          <p class="calculator__hint" data-i18n="calc2836_full_note">Pour une estimation complète de votre valeur maximale de bien immobilier et de votre montant de prêt, utilisez la <a href="/affordability-calculator/">calculatrice d'accessibilité</a>.</p>
+        </section>
+      </div>
     </section>
 
     <section class="seo-section">
@@ -359,6 +423,7 @@
         <li data-i18n="blog2836_tip4"><strong>Améliorez votre score de crédit.</strong> Un score de crédit plus élevé débloque des taux d'intérêt plus bas, ce qui signifie qu'une plus grande partie de votre paiement va au principal plutôt qu'aux intérêts. Passer d'un score de 680 à 760 pourrait vous économiser des dizaines de milliers sur la durée du prêt.</li>
         <li data-i18n="blog2836_tip5"><strong>Envisagez des zones moins chères.</strong> Si votre marché cible dépasse votre budget, regardez les quartiers voisins ou les banlieues où les prix des maisons sont plus bas, mais où le trajet et les commodités vous conviennent toujours.</li>
       </ol>
+      <p data-i18n="blog2836_tip_credit_link">Votre score de crédit est l'un des plus grands leviers sur votre taux d'intérêt. Voyez les scores minimums et l'impact sur les taux dans notre <a href="/blog/credit-score-mortgage/">guide sur le score de crédit et les prêts hypothécaires</a>, ou estimez votre taux avec notre <a href="/credit-score-mortgage-calculator/">calculateur hypothécaire par point de crédit</a>.</p>
     </section>
 
     <!-- ============ CTA ============ -->
@@ -377,12 +442,12 @@
           <p data-i18n="blog2836_faq1_a">La règle des 28/36 stipule que vos coûts mensuels de logement (principal et intérêts de l'hypothèque, taxes foncières, assurance habitation et frais de HOA) ne doivent pas dépasser 28% de votre revenu brut mensuel, et que vos paiements mensuels totaux de dettes (logement plus prêts automobiles, prêts étudiants, cartes de crédit) ne doivent pas dépasser 36%.</p>
         </details>
         <details class="faq-item">
-          <summary data-i18n="blog2836_faq2_q">Que faire si mon taux d'endettement dépasse 36% ?</summary>
-          <p data-i18n="blog2836_faq2_a">Certains prêteurs acceptent des ratios DTI allant jusqu'à 43%, voire 50%, pour les emprunteurs qualifiés, surtout avec de bons scores de crédit ou des mises de fonds importantes. Les prêts FHA permettent un DTI jusqu'à 50% dans certains cas. Cependant, dépasser 36% vous expose à un risque financier plus élevé.</p>
+          <summary data-i18n="blog2836_faq2_q">Comment calculer la règle des 28/36 ?</summary>
+          <p data-i18n="blog2836_faq2_a">Commencez par trouver votre revenu mensuel brut (votre revenu avant impôts). Multipliez-le par 0,28 pour obtenir votre paiement de logement maximal, et par 0,36 pour obtenir votre charge totale de dettes maximale. Soustrayez ensuite vos dettes mensuelles existantes du montant à 36 % pour voir combien de marge il vous reste pour le logement. Votre budget logement recommandé est le plus bas entre le montant à 28 % et le montant restant après vos dettes.</p>
         </details>
         <details class="faq-item">
-          <summary data-i18n="blog2836_faq3_q">La règle des 28/36 inclut-elle les taxes foncières et l'assurance ?</summary>
-          <p data-i18n="blog2836_faq3_a">Oui. Le taux frontal de 28% comprend le principal, les intérêts, les taxes foncières, l'assurance habitation et les éventuelles cotisations de HOA — collectivement appelées PITI. Cela vous donne une image complète de votre coût de logement, et pas seulement le paiement du prêt.</p>
+          <summary data-i18n="blog2836_faq3_q">Qu'est-ce qui compte comme dette dans la règle des 36 % ?</summary>
+          <p data-i18n="blog2836_faq3_a">Le ratio arrière (36 %) inclut votre paiement de logement (capital et intérêts, taxes foncières, assurance habitation et frais de HOA) plus toute autre dette mensuelle récurrente : paiements minimums de cartes de crédit, prêts automobiles, prêts étudiants, prêts personnels et pension alimentaire. Il n'inclut pas les dépenses courantes comme l'épicerie ou les services publics, mais le téléphone et Internet sont généralement inclus comme dettes récurrentes.</p>
         </details>
       </div>
     </section>
@@ -394,6 +459,7 @@
         <li><a href="/affordability-calculator/" data-i18n="blog2836_rel1">Quelle Maison Puis-Je Me Permettre ?</a></li>
         <li><a href="/down-payment-calculator/" data-i18n="blog2836_rel2">Calculateur de Mise de Fonds</a></li>
         <li><a href="/blog/best-mortgage-lenders" data-i18n="blog2836_rel3">Meilleurs Prêteurs Hypothécaires</a></li>
+        <li><a href="/blog/credit-score-mortgage/" data-i18n="blog2836_rel4">Score de Crédit et Prêts Hypothécaires</a></li>
       </ul>
       <a href="/" class="btn btn-secondary" data-i18n="blog2836_back_btn">Retour au Calculateur d'Hypothèque</a>
     </nav>
@@ -417,6 +483,8 @@
 
   <!-- ============================ SCRIPTS ============================ -->
   <script src="../../../js/i18n/i18n.js" defer></script>
+  <script src="../../../js/currencies.js" defer></script>
+  <script src="../../../js/calc-core.js" defer></script>
   <script src="../../../js/nav.js" defer></script>
   <script src="../../../js/analytics.js" defer></script>
   <script>
@@ -427,6 +495,19 @@ window.i18n.init();
       window.i18n.switchLanguage(e.target.value);
     });
 });
+(function () {
+      function loadCalc() {
+        var s = document.createElement('script');
+        s.src = '../../../js/calc-2836.js';
+        s.onerror = function () { console.error('Falha ao carregar calc-2836.js'); };
+        document.body.appendChild(s);
+      }
+      if (window.CalcCore && window.CalcCore.whenVisible) {
+        window.CalcCore.whenVisible(document.querySelector('.calculator'), loadCalc);
+      } else {
+        loadCalc();
+      }
+    })();
 </script>
 
   <!-- ============ Adcash Zone ============ -->

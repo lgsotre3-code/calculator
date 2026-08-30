@@ -127,18 +127,18 @@
       },
       {
         "@type": "Question",
-        "name": "Was, wenn meine Schuldenquote über 36% liegt?",
+        "name": "Wie berechne ich die 28/36-Regel?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Einige Kreditgeber erlauben DTI-Quoten von bis zu 43% oder sogar 50% für qualifizierte Kreditnehmer, besonders mit guten Kredit-Scores oder hohen Anzahlungen. FHA-Kredite erlauben in einigen Fällen einen DTI von bis zu 50%. Ein Wert über 36% bedeutet jedoch ein höheres finanzielles Risiko."
+          "text": "Ermitteln Sie zuerst Ihr monatliches Bruttoeinkommen (Ihr Einkommen vor Steuern). Multiplizieren Sie es mit 0,28, um Ihre maximale Wohnkostenzahlung zu erhalten, und mit 0,36, um Ihre maximale Gesamtverschuldung zu erhalten. Ziehen Sie dann Ihre bestehenden monatlichen Schulden vom 36-%-Betrag ab, um zu sehen, wie viel Spielraum für Wohnen übrig bleibt. Ihr empfohlenes Wohnbudget ist der niedrigere Wert aus dem 28-%-Betrag und dem nach Ihren Schulden verbleibenden Betrag."
         }
       },
       {
         "@type": "Question",
-        "name": "Beinhaltet die 28/36-Regel Grundsteuern und Versicherungen?",
+        "name": "Was zählt als Schuld bei der 36-%-Regel?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ja. Die 28%-Front-End-Quote umfasst Tilgung, Zinsen, Grundsteuern, Wohngebäudeversicherung und etwaige HOA-Gebühren – zusammen bekannt als PITI. Damit erhalten Sie ein vollständiges Bild Ihrer Wohnkosten, nicht nur der Kreditrate."
+          "text": "Die hintere Quote (36 %) umfasst Ihre Wohnkostenzahlung (Tilgung und Zinsen, Grundsteuer, Wohngebäudeversicherung und HOA-Gebühren) sowie alle anderen wiederkehrenden monatlichen Schulden: Mindestraten von Kreditkarten, Autokredite, Studienkredite, Privatkredite und Unterhaltszahlungen. Alltägliche Ausgaben wie Lebensmittel oder Nebenkosten zählen nicht, aber Telefon und Internet werden in der Regel als wiederkehrende Schulden berücksichtigt."
         }
       }
     ]
@@ -173,6 +173,7 @@
   <!-- ============ Adcash Library ============ -->
   <!-- ============ Styles ============ -->
   <link rel="stylesheet" href="../../../css/style.css">
+  <link rel="stylesheet" href="../../../css/calculators.css">
   <link rel="icon" href="../../../assets/img/favicon.svg">
   <!-- Font Awesome Icons (theme toggle + UI icons) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -233,6 +234,69 @@
     <section class="seo-section">
       <p data-i18n="blog2836_intro1">Bevor Sie mit der Immobiliensuche beginnen oder eine Vorabgenehmigung einholen, müssen Sie eine entscheidende Frage beantworten: <em>Wie viel Haus kann ich mir wirklich leisten?</em> Die 28/36-Regel ist der einfachste und am weitesten verbreitete Richtwert zur Beantwortung dieser Frage. Kreditgeber stützen sich darauf, um zu entscheiden, ob Sie eine Hypothekenrate tragen können – aber Sie sollten sie ebenfalls verwenden, noch bevor Sie mit einer Bank sprechen.</p>
       <p data-i18n="blog2836_intro2">In diesem Leitfaden erklären wir genau, was die 28/36-Regel bedeutet, gehen ein Praxisbeispiel mit einem Monatsseinkommen von $8,000 durch und zeigen Ihnen, wie Sie sie auf Ihre eigene Situation anwenden, damit Sie souverän nach einer Immobilie suchen können.</p>
+    </section>
+
+    <!-- ============ INLINE-RECHNER ============ -->
+    <section class="seo-section">
+      <h2 data-i18n="calc2836_title">28/36-Regel-Rechner</h2>
+      <p data-i18n="calc2836_p_intro">Geben Sie Ihr monatliches Bruttoeinkommen und Ihre bestehenden monatlichen Schulden ein, um die beiden Grenzen der 28/36-Regel in Dollar und den verbleibenden Spielraum für Wohnen zu sehen.</p>
+
+      <div class="calculator">
+        <!-- ---------- FORMULAR ---------- -->
+        <form class="calculator__panel" id="r28-form" aria-label="28/36 rule inputs" onsubmit="return false">
+          <h3 class="calculator__title" data-i18n="calc2836_form_title">Ihre Angaben</h3>
+
+          <div class="calculator__field">
+            <label class="calculator__label" for="r28-income" data-i18n="calc2836_input_income">Monatliches Bruttoeinkommen ($)</label>
+            <div class="calculator__control-row">
+              <input type="range" id="r28-income-slider" class="calculator__slider" min="1000" max="50000" step="100" value="8000" aria-label="Gross monthly income slider">
+              <input type="number" id="r28-income" class="calculator__input calculator__input--number" value="8000" min="1000" max="50000" step="100" inputmode="numeric">
+            </div>
+          </div>
+
+          <div class="calculator__field">
+            <label class="calculator__label" for="r28-debts" data-i18n="calc2836_input_debt">Bestehende monatliche Schulden ($)</label>
+            <div class="calculator__control-row">
+              <input type="range" id="r28-debts-slider" class="calculator__slider" min="0" max="5000" step="50" value="500" aria-label="Existing monthly debts slider">
+              <input type="number" id="r28-debts" class="calculator__input calculator__input--number" value="500" min="0" max="5000" step="50" inputmode="numeric">
+            </div>
+            <p class="calculator__hint" data-i18n="calc2836_hint_debt">Autokredite, Studienkredite, Mindestraten von Karten und andere wiederkehrende Schulden ohne Wohnen.</p>
+          </div>
+
+          <div class="calculator__actions">
+            <button type="button" id="r28-calculate" class="btn btn-primary" data-i18n="calculate">Berechnen</button>
+            <button type="button" id="r28-reset" class="btn btn-secondary" data-i18n="reset">Zurücksetzen</button>
+          </div>
+        </form>
+
+        <!-- ---------- ERGEBNISSE ---------- -->
+        <section class="calculator__panel" aria-label="28/36 rule results">
+          <h3 class="calculator__results-title" data-i18n="calc2836_results_title">Ihre 28/36-Grenzen</h3>
+
+          <div class="calculator__verdict" id="r28-verdict" aria-live="polite"></div>
+
+          <div class="calculator__grid">
+            <div class="calculator__card">
+              <span class="calculator__card-label" data-i18n="calc2836_out_front">Wohngrenze (28 % des Einkommens)</span>
+              <span class="calculator__card-value" id="r28-out-front">$0.00</span>
+            </div>
+            <div class="calculator__card">
+              <span class="calculator__card-label" data-i18n="calc2836_out_back">Gesamtschuldengrenze (36 % des Einkommens)</span>
+              <span class="calculator__card-value" id="r28-out-back">$0.00</span>
+            </div>
+            <div class="calculator__card">
+              <span class="calculator__card-label" data-i18n="calc2836_out_room">Spielraum für Wohnen</span>
+              <span class="calculator__card-value" id="r28-out-room">$0.00</span>
+            </div>
+            <div class="calculator__card calculator__card--main">
+              <span class="calculator__card-label" data-i18n="calc2836_out_recommended">Empfohlenes Wohnbudget</span>
+              <span class="calculator__card-value" id="r28-out-recommended">$0.00</span>
+            </div>
+          </div>
+
+          <p class="calculator__hint" data-i18n="calc2836_full_note">Für eine vollständige Schätzung Ihres maximalen Immobilienwerts und Darlehensbetrags nutzen Sie den <a href="/affordability-calculator/">Erschwinglichkeitsrechner</a>.</p>
+        </section>
+      </div>
     </section>
 
     <section class="seo-section">
@@ -359,6 +423,7 @@
         <li data-i18n="blog2836_tip4"><strong>Kredit-Score verbessern.</strong> Ein höherer Score erschließt niedrigere Zinssätze, wodurch mehr Ihrer Zahlung auf die Tilgung statt auf Zinsen entfällt. Der Sprung von einem Score von 680 auf 760 könnte Ihnen über die Laufzeit des Kredits Zehntausende sparen.</li>
         <li data-i18n="blog2836_tip5"><strong>Günstigere Gegenden in Betracht ziehen.</strong> Wenn Ihr Zielmarkt Ihr Budget sprengt, schauen Sie sich Nachbarschaften oder Vororte an, wo Immobilienpreise niedriger sind, Arbeitsweg und Annehmlichkeiten aber dennoch zu Ihnen passen.</li>
       </ol>
+      <p data-i18n="blog2836_tip_credit_link">Ihr Kredit-Score ist einer der größten Hebel auf Ihren Zinssatz. Sehen Sie die Mindest-Scores und die Auswirkungen auf die Zinsen in unserem <a href="/blog/credit-score-mortgage/">Leitfaden zu Kredit-Score und Hypotheken</a>, oder schätzen Sie Ihren Zins mit unserem <a href="/credit-score-mortgage-calculator/">Hypothekenrechner nach Kreditwürdigkeit</a>.</p>
     </section>
 
     <!-- ============ CTA ============ -->
@@ -377,12 +442,12 @@
           <p data-i18n="blog2836_faq1_a">Die 28/36-Regel besagt, dass Ihre monatlichen Wohnkosten (Hypotheken-Tilgung und Zinsen, Grundsteuern, Wohngebäudeversicherung und HOA-Gebühren) 28% Ihres Brutto-Monatseinkommens nicht überschreiten sollten und Ihre gesamten monatlichen Schuldzahlungen (Wohnen plus Autokredite, Studienkredite, Kreditkarten) 36% nicht überschreiten sollten.</p>
         </details>
         <details class="faq-item">
-          <summary data-i18n="blog2836_faq2_q">Was, wenn meine Schuldenquote über 36% liegt?</summary>
-          <p data-i18n="blog2836_faq2_a">Einige Kreditgeber erlauben DTI-Quoten von bis zu 43% oder sogar 50% für qualifizierte Kreditnehmer, besonders mit guten Kredit-Scores oder hohen Anzahlungen. FHA-Kredite erlauben in einigen Fällen einen DTI von bis zu 50%. Ein Wert über 36% bedeutet jedoch ein höheres finanzielles Risiko.</p>
+          <summary data-i18n="blog2836_faq2_q">Wie berechne ich die 28/36-Regel?</summary>
+          <p data-i18n="blog2836_faq2_a">Ermitteln Sie zuerst Ihr monatliches Bruttoeinkommen (Ihr Einkommen vor Steuern). Multiplizieren Sie es mit 0,28, um Ihre maximale Wohnkostenzahlung zu erhalten, und mit 0,36, um Ihre maximale Gesamtverschuldung zu erhalten. Ziehen Sie dann Ihre bestehenden monatlichen Schulden vom 36-%-Betrag ab, um zu sehen, wie viel Spielraum für Wohnen übrig bleibt. Ihr empfohlenes Wohnbudget ist der niedrigere Wert aus dem 28-%-Betrag und dem nach Ihren Schulden verbleibenden Betrag.</p>
         </details>
         <details class="faq-item">
-          <summary data-i18n="blog2836_faq3_q">Beinhaltet die 28/36-Regel Grundsteuern und Versicherungen?</summary>
-          <p data-i18n="blog2836_faq3_a">Ja. Die 28%-Front-End-Quote umfasst Tilgung, Zinsen, Grundsteuern, Wohngebäudeversicherung und etwaige HOA-Gebühren – zusammen bekannt als PITI. Damit erhalten Sie ein vollständiges Bild Ihrer Wohnkosten, nicht nur der Kreditrate.</p>
+          <summary data-i18n="blog2836_faq3_q">Was zählt als Schuld bei der 36-%-Regel?</summary>
+          <p data-i18n="blog2836_faq3_a">Die hintere Quote (36 %) umfasst Ihre Wohnkostenzahlung (Tilgung und Zinsen, Grundsteuer, Wohngebäudeversicherung und HOA-Gebühren) sowie alle anderen wiederkehrenden monatlichen Schulden: Mindestraten von Kreditkarten, Autokredite, Studienkredite, Privatkredite und Unterhaltszahlungen. Alltägliche Ausgaben wie Lebensmittel oder Nebenkosten zählen nicht, aber Telefon und Internet werden in der Regel als wiederkehrende Schulden berücksichtigt.</p>
         </details>
       </div>
     </section>
@@ -394,6 +459,7 @@
         <li><a href="/affordability-calculator/" data-i18n="blog2836_rel1">Wie Viel Haus Kann Ich Mir Leisten?</a></li>
         <li><a href="/down-payment-calculator/" data-i18n="blog2836_rel2">Anzahlungsrechner</a></li>
         <li><a href="/blog/best-mortgage-lenders" data-i18n="blog2836_rel3">Beste Hypothekenkreditgeber</a></li>
+        <li><a href="/blog/credit-score-mortgage/" data-i18n="blog2836_rel4">Kredit-Score und Hypotheken</a></li>
       </ul>
       <a href="/" class="btn btn-secondary" data-i18n="blog2836_back_btn">Zurück zum Hypothekenrechner</a>
     </nav>
@@ -417,6 +483,8 @@
 
   <!-- ============================ SCRIPTS ============================ -->
   <script src="../../../js/i18n/i18n.js" defer></script>
+  <script src="../../../js/currencies.js" defer></script>
+  <script src="../../../js/calc-core.js" defer></script>
   <script src="../../../js/nav.js" defer></script>
   <script src="../../../js/analytics.js" defer></script>
   <script>
@@ -426,6 +494,19 @@ window.i18n.init();
     if (langSel) langSel.addEventListener('change', function (e) {
       window.i18n.switchLanguage(e.target.value);
     });
+    (function () {
+      function loadCalc() {
+        var s = document.createElement('script');
+        s.src = '../../../js/calc-2836.js';
+        s.onerror = function () { console.error('Falha ao carregar calc-2836.js'); };
+        document.body.appendChild(s);
+      }
+      if (window.CalcCore && window.CalcCore.whenVisible) {
+        window.CalcCore.whenVisible(document.querySelector('.calculator'), loadCalc);
+      } else {
+        loadCalc();
+      }
+    })();
 });
 </script>
 

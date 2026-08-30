@@ -42,7 +42,7 @@
   const LOCALIZED_CALC_SLUGS = [
     'fha-vs-conventional', 'va-mortgage-calculator', 'discount-points-calculator',
     'renovation-roi', 'loan-portability', 'finance-vs-cash', 'rent-vs-buy',
-    'affordability-calculator',
+    'affordability-calculator', 'credit-score-mortgage-calculator',
   ];
 
   // Dictionaries live in the same folder as i18n.js. Resolve them relative to
