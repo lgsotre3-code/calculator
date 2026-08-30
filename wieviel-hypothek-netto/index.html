@@ -145,7 +145,11 @@
   </script>
 
   <!-- ============ hreflang ============ -->
-  <link rel="canonical" href="https://www.mortgage-pro-calc.com/wieviel-hypothek-netto/">
+  <!-- German-only page: /wieviel-hypothek-netto/ targets the German market
+       (Steuerklasse, Kirchensteuer, 35-40% bank affordability rule). It has no
+       ES/FR/PT version and no ?lang= localization, so it declares a single
+       self-referencing hreflang="de" with no false alternates. -->
+  <link rel="alternate" hreflang="de" href="https://www.mortgage-pro-calc.com/wieviel-hypothek-netto/">
 
   <!-- ============ Preconnect & analytics ============ -->
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>

@@ -1018,6 +1018,16 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <!-- German-only page: /wieviel-hypothek-netto/ is inherently Germany-specific
+       (Steuerklasse, Kirchensteuer, the 35-40% bank affordability rule) and has no
+       translated ES/FR/PT versions and no ?lang= localization, so unlike other
+       niche pages it carries no xhtml:link hreflang alternates. Single de page. -->
+  <url>
+    <loc>https://www.mortgage-pro-calc.com/wieviel-hypothek-netto/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
     <loc>https://www.mortgage-pro-calc.com/decimo-terceiro/</loc>
     <lastmod>2026-08-24</lastmod>

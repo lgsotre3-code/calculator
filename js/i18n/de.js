@@ -779,6 +779,8 @@ window.TRANSLATIONS.de = {
   "decimo_description": "Berechnen Sie Ihr 13. Gehalt: 1. und 2. Rate, progressive INSS- und IR-Abzüge, anteiliges 13. Gehalt für Teiljahre und Nettogesamtbetrag.",
   "calc_nav_brutto": "Brutto-Netto-Rechner",
   "brutto_description": "Deutscher Brutto-Netto-Rechner. Sehen Sie Ihre Abzüge für Lohnsteuer, Solidaritätszuschlag, Kirchensteuer, Kranken-, Renten-, Arbeitslosen- und Pflegeversicherung. Unterstützt alle 5 Steuerklassen.",
+  "calc_nav_wieviel": "Wieviel Hypothek Netto",
+  "wieviel_description": "Wie viel Hypothek können Sie sich mit Ihrem deutschen Nettogehalt leisten? Schritt-für-Schritt-Leitfaden: vom Brutto- zum Nettogehalt, über die 35-40%-Faustregel der Banken bis zu Eigenkapital und Kaufnebenkosten.",
   "calc_nav_isa": "ISA vs GIA",
   "isa_description": "UK ISA vs GIA-Rechner. Vergleichen Sie steuerfreie ISA-Renditen mit einem steuerpflichtigen GIA: Kapitalertragsteuer, Dividendensteuer und die wahren Kosten außerhalb eines ISAs.",
 

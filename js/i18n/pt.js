@@ -779,6 +779,8 @@ window.TRANSLATIONS.pt = {
   "decimo_description": "Calcule seu 13º salário: 1ª e 2ª parcelas, descontos progressivos de INSS e IR, 13º proporcional para anos incompletos e valor líquido total.",
   "calc_nav_brutto": "Brutto-Netto-Rechner",
   "brutto_description": "Calculadora alemã de salário bruto para líquido. Veja seus descontos de Lohnsteuer, Solidaritätszuschlag, Kirchensteuer, saúde, pensão, desemprego e seguridade. Suporta todas as 5 Steuerklassen.",
+  "calc_nav_wieviel": "Wieviel Hypothek Netto",
+  "wieviel_description": "Quanto de hipoteca você pode pagar com seu salário líquido alemão? Guia passo a passo: do bruto ao líquido, da regra de 35-40% de solvência dos bancos ao capital e custos de compra.",
   "calc_nav_isa": "ISA vs GIA",
   "isa_description": "Calculadora UK ISA vs General Investment Account. Compare rendimentos isentos de imposto do ISA com um GIA tributado: CGT, imposto sobre dividendos e o custo real de investir fora de um ISA.",
 
